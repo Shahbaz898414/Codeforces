@@ -1,0 +1,386 @@
+                                             P. Police Recruits
+                                              time limit per test1 second
+                                               memory limit per test256 megabytes
+                                                   inputstandard input
+                                                   outputstandard output
+
+The police department of your city has just started its journey. Initially, they don’t have any manpower. So, they started hiring new recruits in groups.
+
+Meanwhile, crimes keeps occurring within the city. One member of the police force can investigate only one crime during his/her lifetime.
+
+If there is no police officer free (isn't busy with crime) during the occurrence of a crime, it will go untreated.
+
+Given the chronological order of crime occurrences and recruit hirings, find the number of crimes which will go untreated.
+
+
+#include <iostream>
+using namespace std;
+
+int main() {
+
+int n;
+cin>>n;
+int curoff=0;
+int untreated=0;
+for(int i=0;i<n;i++){
+	int x;
+	cin>>x;
+	if(x>0){
+		curoff+=x;
+		
+	}
+	else {
+		if(curoff<1){
+		++untreated;
+		}
+		else {
+			--curoff;
+		}
+	}
+}
+cout<<untreated;
+	return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                   Q. Night at the Museum
+                               time limit per test1 second
+                               memory limit per test256 megabytes
+                                inputstandard input
+                                outputstandard output
+Grigoriy, like the hero of one famous comedy film, found a job as a night security guard at the museum. At first night he received embosser and was to take stock of the whole exposition.
+
+Embosser is a special devise that allows to "print" the text of a plastic tape. Text is printed sequentially, character by character. The device consists of a wheel with a lowercase English letters written in a circle, static pointer to the current letter and a button that print the chosen letter. At one move it's allowed to rotate the alphabetic wheel one step clockwise or counterclockwise. Initially, static pointer points to letter 'a'. Other letters are located as shown on the picture:
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long ll;
+int main(){
+
+string s;
+cin>>s;
+char start='a';
+ll sum=0;
+for(int i=0;i<s.size();i++){
+   ll l1=abs(s[i]- start);
+   ll l2=26-abs(l1);
+   sum+=min(l1,l2);
+   start=s[i];
+}
+cout<<sum<<endl;
+
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                           S. Good Number
+                           time limit per test1 s.
+                           memory limit per test256 MB
+                            inputstandard input
+                             outputstandard output
+
+A number is called k-good if it contains the digits from 0 to k at least once.
+
+Given an array a1,a2,…,an. Count the number of k-good numbers in the array.
+
+Input
+The first line contains integers n and k (1≤n≤100, 0≤k≤9). The i-th of the following n lines contains integer ai without leading zeroes (1≤ai≤109).
+
+Output
+Print a single integer — the number of k-good numbers in a.
+
+#include <bits/stdc++.h>
+int arr[10];
+using namespace std;
+int main() {
+	int n,k;
+	cin>>n>>k;
+	vector<string> vect;
+	for(int i=0;i<n;i++){
+		string s;
+		cin>>s;
+
+		vect.push_back(s);
+	}
+	int answer=0;
+  
+	for(int i=0;i<n;i++){
+		int val=0;
+		for(int j=0;j<=k;j++){
+		if(	vect[i].find(to_string(j)) !=-1)
+			++val;
+			
+		}
+		if(val==k+1)
+ 		++answer;
+		
+	}
+ 
+cout<<answer<<endl;
+ 
+	return 0;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+							U. Ilya and Bank Account
+							time limit per test2 seconds
+							memory limit per test256 megabytes
+							inputstandard input
+							outputstandard output
+Ilya is a very clever lion, he lives in an unusual city ZooVille. In this city all the animals have their rights and obligations. Moreover, they even have their own bank accounts. The state of a bank account is an integer. The state of a bank account can be a negative number. This means that the owner of the account owes the bank money.
+
+Ilya the Lion has recently had a birthday, so he got a lot of gifts. One of them (the gift of the main ZooVille bank) is the opportunity to delete the last digit or the digit before last from the state of his bank account no more than once. For example, if the state of Ilya's bank account is -123, then Ilya can delete the last digit and get his account balance equal to -12, also he can remove its digit before last and get the account balance equal to -13. Of course, Ilya is permitted not to use the opportunity to delete a digit from the balance.
+
+Ilya is not very good at math, and that's why he asks you to help him maximize his bank account. Find the maximum state of the bank account that can be obtained using the bank's gift.
+
+Input
+The single line contains integer n (10 ≤ |n| ≤ 109) — the state of Ilya's bank account.
+
+Output
+In a single line print an integer — the maximum state of the bank account that Ilya can get.
+
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+
+int main() {
+
+  int n;cin>>n;
+  if(n>=0){
+    cout<<n<<endl;
+  }else{
+
+    int a=n/10;
+    int b=(n/100)*10 +n%10;
+
+    cout<<max(a,b)<<endl;
+
+  }
+
+
+	return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+   V. Is it rated?
+   time limit per test2 seconds
+   memory limit per test256 megabytes
+   inputstandard input
+   outputstandard output
+   Is it rated?
+
+Here it is. The Ultimate Question of Competitive Programming, Codeforces, and Everything. And you are here to answer it.
+
+Another Codeforces round has been conducted. No two participants have the same number of points. For each participant, from the top to the bottom of the standings, their rating before and after the round is known.
+
+It's known that if at least one participant's rating has changed, then the round was rated for sure.
+
+It's also known that if the round was rated and a participant with lower rating took a better place in the standings than a participant with higher rating, then at least one round participant's rating has changed.
+
+In this problem, you should not make any other assumptions about the rating system.
+
+Determine if the current round is rated, unrated, or it's impossible to determine whether it is rated of not.
+
+Input
+The first line contains a single integer n (2 ≤ n ≤ 1000) — the number of round participants.
+
+Each of the next n lines contains two integers ai and bi (1 ≤ ai, bi ≤ 4126) — the rating of the i-th participant before and after the round, respectively. The participants are listed in order from the top to the bottom of the standings.
+
+Output
+If the round is rated for sure, print "rated". If the round is unrated for sure, print "unrated". If it's impossible to determine whether the round is rated or not, print "maybe".
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int n,counter=0,counter2=0;
+	cin>>n;
+	int arr[n],arr2[n],arr3[n];
+	for(int i=0;i<n;i++){
+		int x,y;
+		cin>>x>>y;
+		cin.ignore();
+		arr[i]=x;
+		arr2[i]=y;
+		arr3[i]=y;
+	}
+
+	for(int i=0;i<n;i++){
+		if(arr[i]==arr2[i])
+			++counter;
+	}
+
+	sort(arr2,arr2+n);
+	for(int i=n-1,j=0;i>=0;i--,j++)
+	{
+		if(arr2[i]==arr3[j])
+		 ++counter2;
+
+	}
+	if(counter!=n)
+		cout<<"rated";
+	else if(counter==n&&counter2==n)
+	{
+        cout<<"maybe";
+	}
+	else{
+cout<<"unrated";
+
+	}
+
+ 	return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+				W. Mahmoud and Longest Uncommon Subsequence
+				time limit per test2 seconds
+				memory limit per test256 megabytes
+				inputstandard input
+				outputstandard output
+
+While Mahmoud and Ehab were practicing for IOI, they found a problem which name was Longest common subsequence. They solved it, and then Ehab challenged Mahmoud with another problem.
+
+Given two strings a and b, find the length of their longest uncommon subsequence, which is the longest string that is a subsequence of one of them and not a subsequence of the other.
+
+A subsequence of some string is a sequence of characters that appears in the same order in the string, The appearances don't have to be consecutive, for example, strings "ac", "bc", "abc" and "a" are subsequences of string "abc" while strings "abbc" and "acb" are not. The empty string is a subsequence of any string. Any string is a subsequence of itself.
+
+Input
+The first line contains string a, and the second line — string b. Both of these strings are non-empty and consist of lowercase letters of English alphabet. The length of each string is not bigger than 105 characters.
+
+Output
+If there's no uncommon subsequence, print "-1". Otherwise print the length of the longest uncommon subsequence of a and b.
+
+
+#include <bits/stdc++.h>
+#define ll long long int
+using namespace std;
+
+int main() {
+	 string s1,s2;
+	 cin>>s1>>s2;
+	 if(s1==s2)cout<<"-1";
+	 else
+	 {
+		cout<<max(s1.length(),s2.length());
+	 }
+	return 0;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                            Y. Team Olympiad
+                              time limit per test1 second
+                              memory limit per test256 megabytes
+                                             inputstandard input 
+                              outputstandard output
+
+The School №0 of the capital of Berland has n children studying in it. All the children in this school are gifted: some of them are good at programming, some are good at maths, others are good at PE (Physical Education). Hence, for each child we know value ti:
+
+ti = 1, if the i-th child is good at programming,
+ti = 2, if the i-th child is good at maths,
+ti = 3, if the i-th child is good at PE
+Each child happens to be good at exactly one of these three subjects.
+
+The Team Scientific Decathlon Olympias requires teams of three students. The school teachers decided that the teams will be composed of three children that are good at different subjects. That is, each team must have one mathematician, one programmer and one sportsman. Of course, each child can be a member of no more than one team.
+
+What is the maximum number of teams that the school will be able to present at the Olympiad? How should the teams be formed for that?
+
+Input
+The first line contains integer n (1 ≤ n ≤ 5000) — the number of children in the school. The second line contains n integers t1, t2, ..., tn (1 ≤ ti ≤ 3), where ti describes the skill of the i-th child.
+
+Output
+In the first line output integer w — the largest possible number of teams.
+
+Then print w lines, containing three numbers in each line. Each triple represents the indexes of the children forming the team. You can print both the teams, and the numbers in the triplets in any order. The children are numbered from 1 to n in the order of their appearance in the input. Each child must participate in no more than one team. If there are several solutions, print any of them.
+
+If no teams can be compiled, print the only line with value w equal to 0.
+
+
+#include<bits/stdc++.h>
+#define ll long long int
+using namespace std;
+
+int main() {
+    ll n,i,t1[5000],t2[5000],t3[5000],x=0,y=0,z=0,w,s;
+    cin>>n;
+    ll a[n];
+    for(i=0;i<n;i++){
+        cin>>a[i];
+    }
+    for(i=0;i<n;i++){
+        if(a[i]==1){
+            t1[x]=i+1;
+            x++;
+        }
+        else if(a[i]==2){
+            t2[y]=i+1;
+            y++;
+        }
+        else if(a[i]==3){
+            t3[z]=i+1;
+            z++;
+        }
+    }
+    s=min(x,y);
+    w=min(s,z);
+    cout<<w<<endl;
+    for(x=0,y=0,z=0;x<w,y<w,z<w;x++,y++,z++){
+        cout<<t1[x]<<" "<<t2[y]<<" "<<t3[z]<<endl;
+    }
+
+    return 0;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                                                                        Z. Decoding
+                                                                  time limit per test1 second
+                                                              memory limit per test256 megabytes
+                                                                   inputstandard input
+                                                                 outputstandard output
+Polycarp is mad about coding, that is why he writes Sveta encoded messages. He calls the median letter in a word the letter which is in the middle of the word. If the word's length is even, the median letter is the left of the two middle letters. In the following examples, the median letter is highlighted: contest, info. If the word consists of single letter, then according to above definition this letter is the median letter.
+
+Polycarp encodes each word in the following way: he writes down the median letter of the word, then deletes it and repeats the process until there are no letters left. For example, he encodes the word volga as logva.
+
+You are given an encoding s of some word, your task is to decode it.
+
+Input
+The first line contains a positive integer n (1 ≤ n ≤ 2000) — the length of the encoded word.
+
+The second line contains the string s of length n consisting of lowercase English letters — the encoding.
+
+Output
+Print the word that Polycarp encoded.
+
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int len;
+	 string s;
+	 cin>>len;
+	 cin>>s;
+	  vector<char> vect;
+
+	  while(len!=0){
+		  if(len%2==1){
+			  vect.push_back(s[0]);
+		  }else{
+			  vect.insert(vect.begin(),s[0]);
+		  }
+		  s.erase(0,1);
+		  len=s.length();
+	  }
+	  for(int i=0;i<vect.size();i++){
+		  cout<<vect[i];
+	  }
+
+	return 0;
+}

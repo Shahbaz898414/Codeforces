@@ -1,0 +1,1 @@
+{"name":"Local: QC3","url":"c:\\Users\\91771\\Desktop\\cpp\\Codeforces\\Practice Question\\QC3.cpp","tests":[{"id":1633549040479,"input":"5 10","output":"5 + 10 = 15\n5 * 10 = 50\n5 - 10 = -5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\91771\\Desktop\\cpp\\Codeforces\\Practice Question\\QC3.cpp","group":"local","local":true}
