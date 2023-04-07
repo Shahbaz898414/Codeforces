@@ -8,12 +8,11 @@ int main() {
 
    ll t;cin>>t;
    while(t--) {
-    int n,m,k;cin>>n>>m>>k;
+      int n,m,k;cin>>n>>m>>k;
    
     
     
    }
 
-	
-	return 0;
+
 }
