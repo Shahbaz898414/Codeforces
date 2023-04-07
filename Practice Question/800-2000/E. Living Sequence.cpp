@@ -16,8 +16,9 @@ int main() {
       
         while(n>0){
           v.push_back(n%9);
-          cout<<n%9<<" ";
+          cout<<n%9<<" "<<endl;
           n/=9;
+          cout<<n<<" n"<<endl;
         }
         cout<<endl;
         reverse(v.begin(),v.end());
