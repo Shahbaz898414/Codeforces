@@ -9,11 +9,22 @@ int main() {
    ll t;cin>>t;
    while(t--) {
      ll n,m;cin>>n;
-    //  vector<ll> v(n),odd,even;
+     vector<ll> v;
 
      if(n<=3)  cout<<n<<endl;
      else {
-      cout<<n+1<<endl;
+      
+        while(n>0){
+          v.push_back(n%9);
+          n/=9;
+        }
+
+        reverse(v.begin(),v.end());
+
+        for(int i=0;i<v.size();i++) {
+          cout<<(char)(v[i]<4?(v[i]+'0'):(v[i]+'1'));
+        }
+        cout<<endl;
      }
 
 
