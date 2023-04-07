@@ -10,7 +10,7 @@ int main() {
    while(t--) {
      ll n,m;cin>>n;
      vector<ll> v;
-      cout<<n<<endl;
+      // cout<<n<<endl;
      if(n<=3)  cout<<n<<endl;
      else {
       
@@ -22,11 +22,11 @@ int main() {
         }
         // cout<<endl;
         reverse(v.begin(),v.end());
-        // for(auto it: v){
-        //   cout<<it<<" ";
-        // }
+        for(auto it: v){
+          cout<<it<<" ";
+        }
 
-        // cout<<endl;
+        cout<<endl;
 
         for(int i=0;i<v.size();i++) {
           cout<<(char)(v[i]<4 ?(v[i]+'0'):(v[i]+'1'));
