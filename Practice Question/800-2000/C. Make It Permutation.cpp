@@ -20,11 +20,11 @@ int main() {
     while (t--) {
         ll n;
         ll c, d;
-        
+
         cin >> n >> c >> d;
 
         vector<ll> a(n);
-        f(i, 0, n) {
+        f(int i=0;i<n;i++) {
             cin >> a[i];
         }
 
@@ -33,7 +33,7 @@ int main() {
         ll ans = (a[0]-1);
         ll extra = 0;
 
-        f(i, 1, n) {
+        f(int i=1;i<n;i++) {
             if (a[i] == a[i-1]) {
                 extra++;
             }
@@ -53,7 +53,7 @@ int main() {
         ll gap = (a[0]-1);
         ans = min(ans, gap*d + (n-1)*c);
 
-        f(i, 1, n) {
+        f(int i=1;i<n;i++) {
             if (a[i] == a[i-1]) {
                 extra++;
             }
