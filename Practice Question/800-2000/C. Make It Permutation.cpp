@@ -10,6 +10,9 @@ void sort(vector<ll>& a) {
     sort(a.begin(), a.end());
 }
 
+
+
+
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
@@ -18,10 +21,7 @@ int main() {
     cin >> t;
 
     while (t--) {
-        ll n;
-        ll c, d;
-
-        cin >> n >> c >> d;
+        ll n;ll c, d;cin >> n >> c >> d;
 
         vector<ll> a(n);
         for(int i=0;i<n;i++) {
@@ -54,10 +54,10 @@ int main() {
         ans = min(ans, gap*d + (n-1)*c);
 
         for(int i=1;i<n;i++) {
-            if (a[i] == a[i-1]) {
+            if(a[i] == a[i-1]) {
                 extra++;
-            }
-            else {
+            }else {
+               
                 gap += (a[i]-a[i-1])-1;
                 ans = min(ans, gap*d + (extra*c) + (n-1-i)*c);
             }
