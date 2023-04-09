@@ -41,8 +41,6 @@ int main() {
             }
         }
 
-
-
         ans = ans*d;
         ans = ans + (extra*c);
 
@@ -61,7 +59,7 @@ int main() {
             }
         }
 
-        cout << ans << "\n";
+         cout << ans << "\n";
     }
 
     return 0;
