@@ -22,7 +22,6 @@ int main() {
 
     while (t--) {
         ll n;ll c, d;cin >> n >> c >> d;
-
         vector<ll> a(n);
         for(int i=0;i<n;i++) {
             cin >> a[i];
@@ -48,7 +47,6 @@ int main() {
         ans = ans + (extra*c);
 
         ans = min(ans, (n*c) + d);
-
         extra = 0;
         ll gap = (a[0]-1);
         ans = min(ans, gap*d + (n-1)*c);
@@ -57,7 +55,7 @@ int main() {
             if(a[i] == a[i-1]) {
                 extra++;
             }else {
-               
+
                 gap += (a[i]-a[i-1])-1;
                 ans = min(ans, gap*d + (extra*c) + (n-1-i)*c);
             }
