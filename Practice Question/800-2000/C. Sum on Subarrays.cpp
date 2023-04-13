@@ -22,6 +22,8 @@ int main() {
 
     while (t--) {
         ll n;ll c, d;cin >> n>> c;
+
+        
        
     }
 
