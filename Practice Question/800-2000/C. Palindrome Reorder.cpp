@@ -24,12 +24,12 @@ string s;
     
     int check = 0;
     for(int i = 0; i < 26; i++) check += (a[i] % 2);
-    //only one of the letters should be of odd frequency or all pair
+    
     if(check > 1){
         cout << "NO SOLUTION";
         return 0;
     }
-    //organize the palindrome
+   
     string result;
     for (int i = 0; i < 26; i++){
         if(!(a[i]%2)){
