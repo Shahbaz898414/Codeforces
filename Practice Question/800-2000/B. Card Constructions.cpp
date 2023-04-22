@@ -14,15 +14,10 @@ const int N=2e4+4;
 
 int a[N];
 
-
-
-
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
     int t;cin>>t;
-
     while(t--) {
       int n;cin>>n;
 
@@ -33,6 +28,7 @@ int main() {
 
 
 /*
+
 #include<cstdio>
 const int N=2e4+4;
 int a[N],n,t,s;
@@ -54,12 +50,14 @@ while(t--){
       cin>>n; m=0;
      while(n>1) {
           k=2;
-         while(n>=k) {
+        while(n>=k) {
           n=n-k; k=k+3;
         }
         m++;
      }
       cout<<m<<endl;
 }
+
+
 
 */
