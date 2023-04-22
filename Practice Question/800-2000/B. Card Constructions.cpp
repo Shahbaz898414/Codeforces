@@ -22,7 +22,9 @@ int main() {
     int t;cin>>t;
     while(t--) {
       int n,cnt=0;cin>>n;
-      for(int i=N-1;i;--i)	while(n>=a[i])	n-=a[i],++cnt;
+      for(int i=N-1;i;--i)
+      	while(n>=a[i])
+        	n-=a[i],++cnt;
       cout<<cnt<<endl;
 
     }
