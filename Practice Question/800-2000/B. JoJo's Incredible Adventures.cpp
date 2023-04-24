@@ -34,11 +34,6 @@ int main() {
             const ll side_b = (k+2)/2;
             cout << side_a * side_b << '\n';
         }
-
-
-    
-    
-    
     }
 
     return 0;
