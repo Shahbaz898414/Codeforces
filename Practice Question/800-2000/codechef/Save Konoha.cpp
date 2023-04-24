@@ -18,16 +18,36 @@ int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    for(int i=1;i<N;++i) a[i]=i*(3*i+1)/2;
+   
     int t;cin>>t;
     while(t--) {
-      int n,cnt=0;cin>>n;
-      for(int i=N-1;i;--i)
-      	while(n>=a[i])
-        	 n-=a[i],++cnt;
+      int n,cnt=0,z;cin>>n>>z;
+      int arr[n];
 
+      priority_queue<int> pq;
 
-      cout<<cnt<<endl;
+      for(int i=0;i<n;i++){
+        cin>>arr[i];
+
+        pq.push_back(arr[i]);
+      } 
+
+      // for(auto it:pq){
+
+      //   cout<<it<<" ";
+      // }
+
+      // cout<<endl;
+
+      // sort(arr,arr+n);
+
+      // reverse(arr,arr+n);
+
+      // for(int i=0;i<n;i++) {
+      //   cout<<arr[i]<<" ";
+      // }
+
+      // cout<<endl;
 
     }
     return 0;
