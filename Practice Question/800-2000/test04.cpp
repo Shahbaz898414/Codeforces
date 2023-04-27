@@ -133,310 +133,188 @@ void rotateMatrix(vector<vector<int>> &v, int n)
   }
 }
 
-void frequencyCount(vector<ll> &arr, ll N, ll P)
+ll m = 998244353;
+
+long long erfd(long long a, long long b)
 {
-  map<int, int> p;
-
-  for (int i = 0; i < N; i++)
-  {
-    p[arr[i]]++;
-  }
-
-  for (int i = 0; i < N; i++)
-  {
-    if (p.find(i + 1) != p.end())
-    {
-      arr[i] = p[i + 1];
-    }
-    else
-      arr[i] = 0;
-  }
+  if (b == 0)
+    return 1;
+  long long ans = erfd(a, b / 2);
+  if (b % 2)
+    return (ans % m * ans % m * a) % m;
+  else
+    return ans % m * ans % m;
 }
+
+// void frequencyCount(vector<ll> &arr, ll N, ll P)
+// {
+//   map<int, int> p;
+
+//   for (int i = 0; i < N; i++)
+//   {
+//     p[arr[i]]++;
+//   }
+
+//   for (int i = 0; i < N; i++)
+//   {
+//     if (p.find(i + 1) != p.end())
+//     {
+//       arr[i] = p[i + 1];
+//     }
+//     else
+//       arr[i] = 0;
+//   }
+// }
 
 // void count(ll n,vector<ll> &v,ll ptr[],ll d,ll mx);
 
-int32_t main()
+signed main()
 {
-  fast
 
-      ll t;
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // #ifndef ONLINE_JUDGE
+  //     freopen("input.txt", "r", stdin);
+  //     freopen("output1.txt", "w", stdout);
+  // #endif
+
+  int t;
   cin >> t;
-  while (t--)
-  {
-  ll n, m;cin >> n >> m;
-    ll cnt1 = n;ll cnt2 = m;
-     ll ans = INT_MAX;
-    n = min(cnt1, cnt2);
+  while (t--) {
+    ll n; cin >> n;
 
-    //  if(n<=k){
-    //     int k=pos;
-    //     int l=0;
-    //    for(int i=0;i<n;i++)mat[i][0]=b[k++];
-    //    for(int i=1;i<k;i++)mat[n-1][i]=b[k++];
-    //    for(int i=0;i<n-1;i=i+2)mat[i][1]=b[l++];
-    //    for(int i=1;i<n-1;i=i+2)mat[i][1]=b[k++];
-      
-    //    for(int i=0;i<n-1;i++){
-    //        for(int j=2;j<k;j++){
-    //            if(l<pos){
-    //                mat[i][j]=b[l++];
-    //               }
-    //               else{
-                     
-    //                   mat[i][j]=b[k++];
-                    
-    //               }
-    //           }
-    //         }
-    // }else{
-    m = max(cnt1, cnt2);
-   ll app[n * m];
+    ll a[n];
 
 
-
-
-
-    for (int i = 0; i < n * m; i++)
-      cin >> app[i];
-
-
-
-
-
-
-
-   //  if(n<=k){
-    //    ll k=pos;
-    //    ll l=0;
-    //    for(int i=0;i<n;i++)mat[i][0]=b[k++];
-    //    for(int i=1;i<k;i++)mat[n-1][i]=b[k++];
-    //    for(int i=0;i<n-1;i=i+2)mat[i][1]=b[l++];
-    //    for(int i=1;i<n-1;i=i+2)mat[i][1]=b[k++];
-      
-    //    for(int i=0;i<n-1;i++){
-    //        for(int j=2;j<k;j++){
-    //            if(l<pos){
-    //                mat[i][j]=b[l++];
-    //               }
-    //               else{
-                     
-    //                   mat[i][j]=b[k++];
-                    
-    //               }
-    //           }
-    //         }
-    // }else{
-
-
-
-
-    sort(app, app + n * m);
-   ll a = min(n, m) - 1;
-
-
-
-
-
-
-
- //  if(n<=k){
-    //    ll k=pos;
-    //    ll l=0;
-    //    for(int i=0;i<n;i++)mat[i][0]=b[k++];
-    //    for(int i=1;i<k;i++)mat[n-1][i]=b[k++];
-    //    for(int i=0;i<n-1;i=i+2)mat[i][1]=b[l++];
-    //    for(int i=1;i<n-1;i=i+2)mat[i][1]=b[k++];
-      
-    //    for(int i=0;i<n-1;i++){
-    //        for(int j=2;j<k;j++){
-    //            if(l<pos){
-    //                mat[i][j]=b[l++];
-    //               }
-    //               else{
-                     
-    //                   mat[i][j]=b[k++];
-                    
-    //               }
-    //           }
-    //         }
-    // }else{
-
-
-
-
-   ll xq = (a + 1) / 2;
-   ll cnt = a / 2;
-   
-   ll f = -1;
-    for (ll i = xq; i < n * m - cnt - n - m + 2; i++)
+    for (int i = 0; i < n; i++)
     {
-     ll j = i + n + m - 2;
-      if (ans > app[j] - app[i])
-      {
-        ans = app[j] - app[i];
-        f = i;
-      }
+      /* code */
+
+      cin >> a[i];
     }
 
-
-   //  if(n<=k){
-    //    ll k=pos;
-    //    ll l=0;
-    //    for(ll i=0;i<n;i++)mat[i][0]=b[k++];
-    //    for(ll i=1;i<k;i++)mat[n-1][i]=b[k++];
-    //    for(ll i=0;i<n-1;i=i+2)mat[i][1]=b[l++];
-    //    for(ll i=1;i<n-1;i=i+2)mat[i][1]=b[k++];
-      
-    //    for(ll i=0;i<n-1;i++){
-    //        for(ll j=2;j<k;j++){
-    //            if(l<pos){
-    //                mat[i][j]=b[l++];
-    //               }
-    //               else{
-                     
-    //                   mat[i][j]=b[k++];
-                    
-    //               }
-    //           }
-    //         }
-    // }else{
-   ll Qarray[n][m];
-
-    if (n <= m)
+    ll ans = -1, arr1[n], arr2[n];
+    for (int i = 0; i < n; i++)
     {
-     ll k = f;
-     ll l = 0;
-      for (ll i = 0; i < n; i++)
-        Qarray[i][0] = app[k++];
-      for (ll i = 1; i < m; i++)
-        Qarray[n - 1][i] = app[k++];
-      for (ll i = 0; i < n - 1; i = i + 2)
-        Qarray[i][1] = app[l++];
-      for (ll i = 1; i < n - 1; i = i + 2)
-        Qarray[i][1] = app[k++];
+     
+      ans = max(ans, a[i]);
+      
+//   for (int i = 0; i < N; i++)
+//   {
+//     p[arr[i]]++;
+//   }
 
-      for (ll i = 0; i < n - 1; i++)
-      {
-        for (ll j = 2; j < m; j++)
-        {
-          if (l < f)
-          {
-            Qarray[i][j] = app[l++];
-          }
-          else
-          {
-
-            Qarray[i][j] = app[k++];
-          }
-        }
-      }
+//   for (int i = 0; i < N; i++)
+//   {
+//     if (p.find(i + 1) != p.end())
+//     {
+//       arr[i] = p[i + 1];
+//     }
+//     else
+//       arr[i] = 0;
+//   }
+// }
+      arr1[i] = ans;
     }
+    ans = 100000000;
+    for (int i = n - 1; i >= 0; i--)
+    {
+
+
+
+      ans = min(ans, a[i]);
+      
+//   for (int i = 0; i < N; i++)
+//   {
+//     p[arr[i]]++;
+//   }
+
+//   for (int i = 0; i < N; i++)
+//   {
+//     if (p.find(i + 1) != p.end())
+//     {
+//       arr[i] = p[i + 1];
+//     }
+//     else
+//       arr[i] = 0;
+//   }
+// }
+      arr2[i] = ans;
+
+
+    }
+    ll main = 0;
+    for (int i = 1; i < n - 1; i++)
+    {
+
+      if ((arr1[i - 1] < a[i]) && (arr2[i + 1] > a[i]))
+        main++;
+        
+//   for (int i = 0; i < N; i++)
+//   {
+//     p[arr[i]]++;
+//   }
+
+//   for (int i = 0; i < N; i++)
+//   {
+//     if (p.find(i + 1) != p.end())
+//     {
+//       arr[i] = p[i + 1];
+//     }
+//     else
+//       arr[i] = 0;
+//   }
+// }
+
+
+    }
+    if (a[0] < arr2[1])
+      main++;
+
+
+    if (a[n - 1] > arr1[n - 2])
+      main++;
+
+    if (main == n)
+    
+//   for (int i = 0; i < N; i++)
+//   {
+//     p[arr[i]]++;
+//   }
+
+//   for (int i = 0; i < N; i++)
+//   {
+//     if (p.find(i + 1) != p.end())
+//     {
+//       arr[i] = p[i + 1];
+//     }
+//     else
+//       arr[i] = 0;
+//   }
+// }
+      cout << erfd(2, main) - 1 << "\n";
+
+      
     else
-    {
-    }
-    if (cnt1 <= cnt2)
-    {
 
-       //  if(n<=k){
-    //    ll k=pos;
-    //    ll l=0;
-    //    for(ll i=0;i<n;i++)mat[i][0]=b[k++];
-    //    for(ll i=1;i<k;i++)mat[n-1][i]=b[k++];
-    //    for(ll i=0;i<n-1;i=i+2)mat[i][1]=b[l++];
-    //    for(ll i=1;i<n-1;i=i+2)mat[i][1]=b[k++];
-      
-    //    for(ll i=0;i<n-1;i++){
-    //        for(ll j=2;j<k;j++){
-    //            if(l<pos){
-    //                mat[i][j]=b[l++];
-    //               }
-    //               else{
-                     
-    //                   mat[i][j]=b[k++];
-                    
-    //               }
-    //           }
-    //         }
-    // }else{
-      for (ll i = 0; i < n; i++)
-      {
-        for (ll j = 0; j < m; j++)
-          cout << Qarray[i][j] << " ";
-        cout << "\n";
-      }
+    
+//   for (int i = 0; i < N; i++)
+//   {
+//     p[arr[i]]++;
+//   }
 
-       //  if(n<=k){
-    //    ll k=pos;
-    //    ll l=0;
-    //    for(ll i=0;i<n;i++)mat[i][0]=b[k++];
-    //    for(ll i=1;i<k;i++)mat[n-1][i]=b[k++];
-    //    for(ll i=0;i<n-1;i=i+2)mat[i][1]=b[l++];
-    //    for(ll i=1;i<n-1;i=i+2)mat[i][1]=b[k++];
-      
-    //    for(ll i=0;i<n-1;i++){
-    //        for(ll j=2;j<k;j++){
-    //            if(l<pos){
-    //                mat[i][j]=b[l++];
-    //               }
-    //               else{
-                     
-    //                   mat[i][j]=b[k++];
-                    
-    //               }
-    //           }
-    //         }
-    // }else{
-    }
-    else
-    {
-      for (ll i = 0; i < m; i++)
-      {
-        for (ll j = 0; j < n; j++)
-          cout << Qarray[j][i] << " ";
-           //  if(n<=k){
-    //    ll k=pos;
-    //    ll l=0;
-    //    for(ll i=0;i<n;i++)mat[i][0]=b[k++];
-    //    for(ll i=1;i<k;i++)mat[n-1][i]=b[k++];
-    //    for(ll i=0;i<n-1;i=i+2)mat[i][1]=b[l++];
-    //    for(ll i=1;i<n-1;i=i+2)mat[i][1]=b[k++];
-      
-    //    for(ll i=0;i<n-1;i++){
-    //        for(ll j=2;j<k;j++){
-    //            if(l<pos){
-    //                mat[i][j]=b[l++];
-    //               }
-    //               else{
-                     
-    //                   mat[i][j]=b[k++];
-                    
-    //               }
-    //           }
-    //         }
-    // }else{
-        cout << "\n";
-      }
-    }
- 
+//   for (int i = 0; i < N; i++)
+//   {
+//     if (p.find(i + 1) != p.end())
+//     {
+//       arr[i] = p[i + 1];
+//     }
+//     else
+//       arr[i] = 0;
+//   }
+// }
+      cout << erfd(2, main) << "\n";
   }
   return 0;
 }
-
-// void count(ll n,vector<ll> &var,ll ptr[],ll d,ll mx){
-
-//         for(ll i=1;i<n-1;i++){
-//             if(ptr[i]>ptr[i-1] && ptr[i]>ptr[i+1] and i+1<n){
-//                 var.push_back(i+1);
-//             }
-//         }
-//         var.push_back(n);
-
-//         for(ll i=1;i<var.size();i++){
-//             d=var[i]-var[i-1]+1;
-//             ll cn=0;
-//             cn+=(d*(d+1))/2;
-//             mx+=cn;
-//         }
-//         mx=mx-(var.size()-2);
-//         cout<<mx;
-// }
