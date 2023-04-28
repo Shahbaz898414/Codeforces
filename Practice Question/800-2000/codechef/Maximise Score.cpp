@@ -190,21 +190,16 @@ signed main()
     int mx=INT_MIN,mi=INT_MAX;
     for (int i = 1; i <= n; i++) {
       cin >> arr[i];
-
     }
 
-    for (int i = 1; i <=n; i++)
-    {
-      /* code */
+    for (int i = 1; i <=n; i++) {
       mx=max(arr[i],mx);
       mi=min(arr[i],mi);
     }
 
-    // cout<<
+   
 
     cout<<abs(mi-mx)<<endl;
-    
-    
    
   }
   return 0;
