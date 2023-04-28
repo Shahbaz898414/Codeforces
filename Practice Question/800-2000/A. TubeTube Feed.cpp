@@ -184,7 +184,7 @@ signed main()
   while (t--) {
     ll n, k;
     cin >> n>>k;
-    int cnt = 0;
+    int cnt = -1,a=0;
     int arr[n+1],arr2[n+1];
     for (int i = 1; i <= n; i++)
     {
@@ -197,6 +197,20 @@ signed main()
       /* code */
       cin>>arr2[i];
     }
+
+    for (int i = 0; i < n; i++)
+    {
+      /* code */
+      if(arr[i]+i-1<=k){
+        if(arr2[i]>cnt){
+          cnt=arr2[i];
+          a=i;
+        }
+      }
+    }
+
+    cout<<a<<endl;
+    
     
     
     
