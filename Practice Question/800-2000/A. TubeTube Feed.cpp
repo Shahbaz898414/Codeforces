@@ -194,13 +194,12 @@ signed main()
 
     for (int i = 0; i <n; i++)
     {
-      /* code */
+      
       cin>>arr2[i];
     }
 
-    for (int i = 0; i < n; i++)
-    {
-      /* code */
+    for (int i = 0; i < n; i++){
+      
       if(arr[i]+i-1<=k){
         if(arr2[i]>cnt){
           cnt=arr2[i];
