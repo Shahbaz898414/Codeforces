@@ -174,10 +174,10 @@ signed main()
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  // #ifndef ONLINE_JUDGE
-  //     freopen("input.txt", "r", stdin);
-  //     freopen("output1.txt", "w", stdout);
-  // #endif
+  #ifndef ONLINE_JUDGE
+      freopen("input.txt", "r", stdin);
+      freopen("output1.txt", "w", stdout);
+  #endif
 
   int t;
   cin >> t;
@@ -186,9 +186,24 @@ signed main()
     cin >> n;
     int cnt = 0;
     int arr[n+1];
+
+    int mx=INT_MIN,mi=INT_MAX;
     for (int i = 1; i <= n; i++) {
       cin >> arr[i];
+
     }
+
+    for (int i = 1; i <=n; i++)
+    {
+      /* code */
+      mx=max(arr[i],mx);
+      mi=min(arr[i],mi);
+    }
+
+    // cout<<
+
+    cout<<abs(mi-mx)<<endl;
+    
     
    
   }
