@@ -184,15 +184,14 @@ signed main()
   while (t--) {
     ll n, k;
     cin >> n>>k;
-    int cnt = -1,a=0;
+    int cnt = -1,a=-1;
     int arr[n+1],arr2[n+1];
-    for (int i = 1; i <= n; i++)
-    {
+    for (int i = 1; i <= n; i++) {
       
       cin >> arr[i];
     }
 
-    for (int i = 0; i <n; i++)
+    for (int i = 1; i <=n; i++)
     {
       
       cin>>arr2[i];
@@ -209,9 +208,6 @@ signed main()
     }
 
     cout<<a<<endl;
-    
-    
-    
     
   }
   return 0;
