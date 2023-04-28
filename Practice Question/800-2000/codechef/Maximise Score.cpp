@@ -183,7 +183,7 @@ signed main()
   cin >> t;
   while (t--) {
     ll n, k;
-    cin >> n>>k;
+    cin >> n;
     int cnt = 0;
     int arr[n+1];
     for (int i = 1; i <= n; i++) {
@@ -192,7 +192,5 @@ signed main()
     
    
   }
-
-  
   return 0;
 }
