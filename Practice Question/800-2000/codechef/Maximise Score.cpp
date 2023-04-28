@@ -181,36 +181,18 @@ signed main()
 
   int t;
   cin >> t;
-  while (t--)
-  {
+  while (t--) {
     ll n, k;
     cin >> n>>k;
     int cnt = 0;
     int arr[n+1];
-    for (int i = 1; i <= n; i++)
-    {
+    for (int i = 1; i <= n; i++) {
       cin >> arr[i];
     }
     
-    for (int i = 1; i <= n; i++)
-    {
-      if ((arr[i] - i) % k != 0)
-      {
-        cnt++;
-      }
-    }
-    if (cnt == 0)
-    
-      cout << 0 << endl;
-    
-    else if (cnt <= 2)
-    
-      cout << 1 << endl;
-    
-    else
-    
-      cout << -1 << endl;
-    
+   
   }
+
+  
   return 0;
 }
