@@ -179,8 +179,7 @@ signed main()
   //     freopen("output1.txt", "w", stdout);
   // #endif
 
-  int t;
-  cin >> t;
+  int t; cin >> t;
   while (t--) {
     ll n, k;
     cin >> n>>k;
@@ -190,22 +189,9 @@ signed main()
       
       cin >> arr[i];
     }
-    for (int i = 1; i <=n; i++) { 
-      cin>>arr2[i];
-    }
+   
 
-    for (int i = 1; i <=n; i++){
-      
-      if(arr[i]+i-1<=k){
-        if(arr2[i]>cnt){
-          cnt=arr2[i];
-          a=i;
-        }
-      }
-    }
 
-    cout<<a<<endl;
-    
   }
   return 0;
 }
