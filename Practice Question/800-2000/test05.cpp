@@ -1,145 +1,61 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 #define ll long long
 #define pb push_back
 
 ll m = 998244353;
 
-// long long binpow(long long a, long long b)
-// {
-//     if (b == 0)
-//         return 1;
-//     long long res = binpow(a, b / 2);
-//     if (b % 2)
-//         return (res % m * res % m * a) % m;
-//     else
-//         return res % m * res % m;
-// }
+int count (vector<int>  v){
+  int j=0;
+  for(int i=0;i<v.size();i++) {
+    if(v[i]==1) j++;
+  }
 
-signed main()
-{
+  return j;
+}
 
+void solve(int n,int k ,vector<int> v) {
+  for (int i = 0; i < n; i++)
+  {
+    
+    v[i]=-1;
+    if(count(v)==k){
+      cout<<"YES"<<endl;
+      for(auto it:v){
+        cout<<it<<" ";
+      }
+
+      cout<<endl;
+      return;
+    }
+  }
+
+  cout<<"NO"<<endl;
+}
+
+
+signed main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    ll t;
-    cin >> t;
-    while (t--)
-    {
+    ll t; cin >> t;
+    while (t--) {
+      ll n,k;cin>>n>>k;
+      vector<int>  v(n,1);
 
-        ll n;
-        cin >> n;
-        // long long binpow(long long a, long long b)
-// {
-//     if (b == 0)
-//         return 1;
-//     long long res = binpow(a, b / 2);
-//     if (b % 2)
-//         return (res % m * res % m * a) % m;
-//     else
-//         return res % m * res % m;
-// }
-        ll arr[n];
-
-        ll cnt = 0;
-        for (int i=0;i<n;i++)
-        {
-            // cin >> x;
-            // cnt += x;
-            cin>>arr[i];
-// long long binpow(long long a, long long b)
-// {
-//     if (b == 0)
-//         return 1;
-//     long long res = binpow(a, b / 2);
-//     if (b % 2)
-//         return (res % m * res % m * a) % m;
-//     else
-//         return res % m * res % m;
-// }
-            cnt+=arr[i];
+      if(count(v)==k){
+        cout<<"YES"<<endl;
+        for(auto it:v){
+          cout<<it<<" ";
         }
 
-        if (n % 2 == 1)
-        {
-            if (cnt % 2 == 1)
-            {
-                // long long binpow(long long a, long long b)
-// {
-//     if (b == 0)
-//         return 1;
-//     long long res = binpow(a, b / 2);
-//     if (b % 2)
-//         return (res % m * res % m * a) % m;
-//     else
-//         return res % m * res % m;
-// }
-                cout << "chef" << endl;
-            }
-            else
-            {// long long binpow(long long a, long long b)
-// {
-//     if (b == 0)
-//         return 1;
-//     long long res = binpow(a, b / 2);
-//     if (b % 2)
-//         return (res % m * res % m * a) % m;
-//     else
-//         return res % m * res % m;
-// }
-                cout << "chefina" << endl;
-            }
-        }
-        else
-        {
-            ll x = *min_element(arr, arr + n);
+        cout<<endl;
+      }else {
+        solve(n,k,v);
+      }
 
-            if (x == 1)
-            {
-                cout << "chef" << endl;
-                // long long binpow(long long a, long long b)
-// {
-//     if (b == 0)
-//         return 1;
-//     long long res = binpow(a, b / 2);
-//     if (b % 2)
-//         return (res % m * res % m * a) % m;
-//     else
-//         return res % m * res % m;
-// }
-                continue;
-            }
-           
+     
 
-            if (cnt % 2 == 0 && x % 2 == 0)
-            {
-                cout << "chefina" << endl;
-                // long long binpow(long long a, long long b)
-// {
-//     if (b == 0)
-//         return 1;
-//     long long res = binpow(a, b / 2);
-//     if (b % 2)
-//         return (res % m * res % m * a) % m;
-//     else
-//         return res % m * res % m;
-// }
-            }
-            else
-            {
-                cout << "chef" << endl;
-                // long long binpow(long long a, long long b)
-// {
-//     if (b == 0)
-//         return 1;
-//     long long res = binpow(a, b / 2);
-//     if (b % 2)
-//         return (res % m * res % m * a) % m;
-//     else
-//         return res % m * res % m;
-// }
-            }
-        }
     }
     return 0;
 }

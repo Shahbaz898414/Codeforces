@@ -1,6 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+map<int,int> mai,rfg;
+
+vector<int> mo;
+
+
 int main()
 {
   int t;
@@ -8,63 +14,53 @@ int main()
   while (t--)
   {
     int n;cin>>n;
+    mai=rfg;
+    mo.clear();
 
-    vector<int> v(n),odd,even,ans;
-    for (int i = 0; i < n; i++)
+    int ans=0,z=0;
+    int arr[n+1];
+
+    for (int i = 1; i <=n; i++)
     {
       /* code */
-      cin>>v[i];
+      cin>>arr[i];
     }
 
-    // map<int,int>odd,even;
-
-    for (int i = 0; i <n; i++)
+    for (int i = 1; i <=n; i++)
     {
-      // p.push_back({v[i],i});
-      if(v[i]%2==0){
-        even.push_back(i+1);
-
-      }else{
-       odd.push_back(i+1);
-      }
-    }
-
-    if(odd.size()==0){
-      cout<<"NO"<<endl;
-
-      continue;
-    }
-
-    for(auto it:odd){
-      ans.push_back(it);
-    }
-
-    if(ans.size()<3){
-      int k=3-ans.size();
-
-      if(k==1){
-        cout<<"NO"<<endl;
-        continue;
-      }
-
-      for (int i = 0; i <k; i++)
+      /* code */
+      for (int j = 2; j <=sqrt(arr[i]); j++)
       {
-        ans.push_back(even[i]);
+        /* code */
+        if(!mai[j]&& arr[i]%j==0){
+          mo.push_back(j);
+        }
+
+        while(arr[i]%j==0){
+          mai[j]++;
+          arr[i]/=j;
+        }
+
+      }
+
+      if(arr[i]!=1){
+        if(!mai[arr[i]]){
+          mo.push_back(arr[i]);
+        }
+        mai[arr[i]]++;
       }
       
     }
 
-    cout<<"YES"<<endl;    
 
-    // if(cnt==1) cout<<"NO"<<endl;
-    // else {
-      for(auto it:ans){
-        cout<<it<<" ";
-      }
-    // }
+    for(int i=0;i<mo.size();i++) {
+      ans+=mai[mo[i]]%2;
+      z+=mai[mo[i]]/2;
+    }
+
+    cout<<ans/3+z<<endl;
     
-
-    cout<<endl;
+        
     
   }
   return 0;
