@@ -189,22 +189,7 @@ signed main()
       cin >> arr[i];
     }
 
-    sort(arr+1,arr+n+1);
-
-    // for (int i = 1; i <=n; i++)
-    // {
-    //   /* code */
-    //   cout<<arr[i]<< " ";
-    // }
-
-    // cout<<endl;
-
-    // cout<<arr[n]<<" "<<arr[n-1]<<endl;
-    
-
-    cout<<max(arr[1]*arr[2],arr[n]*arr[n-1])<<endl;
    
-
 
   }
   return 0;
