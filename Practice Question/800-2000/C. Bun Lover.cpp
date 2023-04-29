@@ -179,18 +179,13 @@ signed main()
   //     freopen("output1.txt", "w", stdout);
   // #endif
 
-  int t; cin >> t;
-  while (t--) {
-    ll n, k;
+  int t;
+  cin >> t;
+  while (t--)
+  {
+    int n;
     cin >> n;
-    int cnt = -1,a=-1;
-    ll arr[n+1],arr2[n+1];
-    for (int i = 1; i <= n; i++) { 
-      cin >> arr[i];
-    }
-
-   
-
+    cout << ((n + 1) * n) + n + 2 << "\n";
   }
   return 0;
 }
