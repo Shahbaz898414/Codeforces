@@ -179,38 +179,102 @@ signed main()
   //     freopen("output1.txt", "w", stdout);
   // #endif
 
-  int t;
-  cin >> t;
-  while (t--)
+  // int t;
+  // cin >> t;
+  // while (t--)
+  // {
+  ll n, k;
+  cin >> n >> k;
+  ll cnt = 1;
+  vector<int> str1(n), str2(n, 0);
+  for (int i = 0; i < n; i++)
   {
-    ll n, k;
-    cin >> n>>k;
-    int cnt = 0;
-    int arr[n+1];
-    for (int i = 1; i <= n; i++)
-    {
-      cin >> arr[i];
-    }
-    
-    for (int i = 1; i <= n; i++)
-    {
-      if ((arr[i] - i) % k != 0)
-      {
-        cnt++;
-      }
-    }
-    if (cnt == 0)
-    
-      cout << 0 << endl;
-    
-    else if (cnt <= 2)
-    
-      cout << 1 << endl;
-    
-    else
-    
-      cout << -1 << endl;
-    
+    /* code */
+    cin >> str1[i];
   }
+
+  for (int i = 2; i < n; i++)
+  {
+
+     /* code */
+    if (str1[i] <= str1[i - 1] && str1[i - 1] <= str1[i - 2])
+    {
+      str2[i] = 1;
+    }
+  }
+
+  for (int i = 1; i < n; i++)
+  {
+    str2[i] += str2[i - 1];
+  }
+
+  while (k-- > 0)
+  {
+
+     /* code */
+    int l, r;
+    cin >> l >> r;
+    l--;r--;
+    //  for (int i = 0; i < N; i++)
+//   {
+//     if (p.find(i + 1) != p.end())
+//     {
+//       arr[i] = p[i + 1];
+//     }
+//     else
+//       arr[i] = 0;
+//   }
+    int v = r - l + 1, p = 0;
+    if (v > 2) {
+      //   for (int i = 0; i < N; i++)
+//   {
+//     if (p.find(i + 1) != p.end())
+//     {
+//       arr[i] = p[i + 1];
+//     }
+//     else
+//       arr[i] = 0;
+//   }
+      if (l < 1)
+       /* code */
+       //   for (int i = 0; i < N; i++)
+//   {
+//     if (p.find(i + 1) != p.end())
+//     {
+//       arr[i] = p[i + 1];
+//     }
+//     else
+//       arr[i] = 0;
+//   }
+        p = str2[r];
+      
+      else
+       /* code */
+       //   for (int i = 0; i < N; i++)
+//   {
+//     if (p.find(i + 1) != p.end())
+//     {
+//       arr[i] = p[i + 1];
+//     }
+//     else
+//       arr[i] = 0;
+//   }
+        p = str2[r] - str2[l + 1];
+      
+    }
+    //  for (int i = 0; i < N; i++)
+//   {
+//     if (p.find(i + 1) != p.end())
+//     {
+//       arr[i] = p[i + 1];
+//     }
+//     else
+//       arr[i] = 0;
+//   }
+     /* code */
+    cout << (v - p) << endl;
+  }
+
+  // }
   return 0;
 }
