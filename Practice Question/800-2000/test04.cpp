@@ -146,26 +146,55 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-// void frequencyCount(vector<ll> &arr, ll N, ll P)
-// {
-//   map<int, int> p;
+int isWinner(vector<int> &a, vector<int> &b)
+{
+  int c1 = 0, cnt;
 
-//   for (int i = 0; i < N; i++)
-//   {
-//     p[arr[i]]++;
-//   }
+  for (auto it : a)
+  {
+    cnt += it;
+  }
 
-//   for (int i = 0; i < N; i++)
-//   {
-//     if (p.find(i + 1) != p.end())
-//     {
-//       arr[i] = p[i + 1];
-//     }
-//     else
-//       arr[i] = 0;
-//   }
-// }
+  for (int i = 0; i < a.size() - 1; i++)
+  {
+    if (i < a.size() - 2 && a[i] == 10 && a[i + 1] != 10)
+    {
+      cnt += a[i + 1];
+      cnt += a[i + 2];
+      i++;
+    }
+    else if (a[i] == 10)
+    {
+      cnt += a[i + 1];
+    }
+  }
 
+  for (auto val : b)
+  {
+    cnt -= val;
+  }
+
+  for (int i = 0; i < a.size() - 1; i++)
+  {
+    if (i < a.size() - 2 && b[i] == 10 && b[i + 1] != 10)
+    {
+      cnt -= b[i + 1];
+      cnt -= b[i + 2];
+      i++;
+    }
+    else if (b[i] == 10)
+    {
+      cnt -= b[i + 1];
+    }
+  }
+
+  if (cnt < 0)
+    return 2;
+  if (cnt == 0)
+    return 0;
+
+  return 1;
+}
 // void count(ll n,vector<ll> &v,ll ptr[],ll d,ll mx);
 
 signed main()
@@ -174,107 +203,80 @@ signed main()
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  // #ifndef ONLINE_JUDGE
-  //     freopen("input.txt", "r", stdin);
-  //     freopen("output1.txt", "w", stdout);
-  // #endif
-
-  // int t;
-  // cin >> t;
-  // while (t--)
-  // {
   ll n, k;
   cin >> n >> k;
-  ll cnt = 1;
-  vector<int> str1(n), str2(n, 0);
+
+  // cout<<1<<endl;
+
+  vector<ll> a(n), b(n);
+
   for (int i = 0; i < n; i++)
   {
-    /* code */
-    cin >> str1[i];
+    cin >> a[i];
   }
 
-  for (int i = 2; i < n; i++)
+  for (int i = 0; i < k; i++)
   {
-
-     /* code */
-    if (str1[i] <= str1[i - 1] && str1[i - 1] <= str1[i - 2])
-    {
-      str2[i] = 1;
-    }
+    cin >> b[i];
   }
 
-  for (int i = 1; i < n; i++)
-  {
-    str2[i] += str2[i - 1];
-  }
+  cout << frequencyCount(a, b) << endl;
 
-  while (k-- > 0)
-  {
+  // cout<<1<<endl;
 
-     /* code */
-    int l, r;
-    cin >> l >> r;
-    l--;r--;
-    //  for (int i = 0; i < N; i++)
-//   {
-//     if (p.find(i + 1) != p.end())
-//     {
-//       arr[i] = p[i + 1];
-//     }
-//     else
-//       arr[i] = 0;
-//   }
-    int v = r - l + 1, p = 0;
-    if (v > 2) {
-      //   for (int i = 0; i < N; i++)
-//   {
-//     if (p.find(i + 1) != p.end())
-//     {
-//       arr[i] = p[i + 1];
-//     }
-//     else
-//       arr[i] = 0;
-//   }
-      if (l < 1)
-       /* code */
-       //   for (int i = 0; i < N; i++)
-//   {
-//     if (p.find(i + 1) != p.end())
-//     {
-//       arr[i] = p[i + 1];
-//     }
-//     else
-//       arr[i] = 0;
-//   }
-        p = str2[r];
-      
-      else
-       /* code */
-       //   for (int i = 0; i < N; i++)
-//   {
-//     if (p.find(i + 1) != p.end())
-//     {
-//       arr[i] = p[i + 1];
-//     }
-//     else
-//       arr[i] = 0;
-//   }
-        p = str2[r] - str2[l + 1];
-      
-    }
-    //  for (int i = 0; i < N; i++)
-//   {
-//     if (p.find(i + 1) != p.end())
-//     {
-//       arr[i] = p[i + 1];
-//     }
-//     else
-//       arr[i] = 0;
-//   }
-     /* code */
-    cout << (v - p) << endl;
-  }
+  // int n=a.size();
+  // int k=b.size();
 
+  // bool fl = false, l = false;
+
+  // int sum = 0, s1 = 0;
+
+  // for (int i = 0; i < n; i++)
+  // {
+  //   if (a[i] >= 10)
+  //   {
+  //     fl = true;
+  //     continue;
+  //   }
+
+  //   if (fl)
+  //   {
+  //     a[i] = 2 * a[i];
+  //   }
   // }
+
+  // for (int i = 0; i < n; i++)
+  // {
+  //   sum += a[i];
+
+  //   cout << a[i] << " ";
+  // }
+
+  // cout << endl;
+  // for (int i = 0; i < k; i++)
+  // {
+  //   if (b[i] >= 10)
+  //   {
+  //     l = true;
+  //     continue;
+  //   }
+
+  //   if (l)
+  //   {
+  //     b[i] = 2 * b[i];
+  //   }
+  // }
+
+  // for (int i = 0; i < k; i++)
+  // {
+  //   s1 += b[i];
+
+  //   cout << b[i] << " ";
+  // }
+
+  // cout << endl;
+
+  // cout<<sum<<" "<<s1<<endl;
+
   return 0;
 }

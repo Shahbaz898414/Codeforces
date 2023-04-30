@@ -183,7 +183,7 @@ signed main()
   cin >> t;
   while (t--)
   {
-    int n;
+    ll n;
     cin >> n;
     cout << ((n + 1) * n) + n + 2 << "\n";
   }
