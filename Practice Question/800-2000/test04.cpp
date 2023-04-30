@@ -194,6 +194,7 @@ int isWinner(vector<int> &a, vector<int> &b)
     return 0;
 
   return 1;
+  
 }
 // void count(ll n,vector<ll> &v,ll ptr[],ll d,ll mx);
 
