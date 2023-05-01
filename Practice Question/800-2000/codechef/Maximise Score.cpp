@@ -199,9 +199,7 @@ signed main()
           cnt=i;
           break;
       }
-    }
-
-   
+    }  
 
     cout<<abs(mx-arr[cnt+1])<<endl;
    

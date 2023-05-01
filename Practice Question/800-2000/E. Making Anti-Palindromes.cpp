@@ -146,56 +146,40 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-int isWinner(vector<int> &a, vector<int> &b)
-{
-  int c1 = 0, cnt;
-
-  for (auto it : a)
-  {
-    cnt += it;
-  }
-
-  for (int i = 0; i < a.size() - 1; i++)
-  {
-    if (i < a.size() - 2 && a[i] == 10 && a[i + 1] != 10)
-    {
-      cnt += a[i + 1];
-      cnt += a[i + 2];
-      i++;
+void solve(int n,string &s) {
+  if (n % 2 == 1) {
+        cout << -1 << endl;
+        return;
     }
-    else if (a[i] == 10)
-    {
-      cnt += a[i + 1];
+    vector<int> cnt(26);
+    for (int i = 0; i < n; ++i) {
+        ++cnt[s[i] - 'a'];
     }
-  }
-
-  for (auto val : b)
-  {
-    cnt -= val;
-  }
-
-  for (int i = 0; i < a.size() - 1; i++)
-  {
-    if (i < a.size() - 2 && b[i] == 10 && b[i + 1] != 10)
-    {
-      cnt -= b[i + 1];
-      cnt -= b[i + 2];
-      i++;
+    for (int i = 0; i < 26; ++i) {
+        if (cnt[i] * 2 > n) {
+            cout << -1 << endl;
+            return;
+        }
     }
-    else if (b[i] == 10)
-    {
-      cnt -= b[i + 1];
+    int pairs = 0;
+    vector<int> cnt_pairs(26);
+    for (int i = 0; i * 2 < n; ++i) {
+        if (s[i] == s[n - i - 1]) {
+           ++pairs;
+           ++cnt_pairs[s[i] - 'a'];
+        }
     }
-  }
-
-  if (cnt < 0)
-    return 2;
-  if (cnt == 0)
-    return 0;
-
-  return 1;
+    for (int i = 0; i < 26; ++i) {
+        if (cnt_pairs[i] * 2 > pairs) {
+            cout << cnt_pairs[i] << endl;
+            return;
+        }
+    }
+    cout << (pairs + 1) / 2 << endl;
 }
-// void count(ll n,vector<ll> &v,ll ptr[],ll d,ll mx);
+
+
+
 
 signed main() {
 
@@ -205,21 +189,9 @@ signed main() {
   while (t--) {
     ll n; string s;
     cin>>n>>s;
-    int l=0,r=n-1,cnt=0;
 
-    // cout<<s[l]<<" "<<s[r-1]<<endl;
-
-    if(n%2) cout<<-1<<endl;
-    else {
-      
-    }
-
-    // while(l<r){
-    //   if(s[l]==s[r]) cnt++;
-    // }
-
-    // cout<<cnt<<endl;
-
+    solve(n,s);
+    
 
    
   }
