@@ -194,16 +194,16 @@ signed main()
 
     cout<<2<<endl;
 
-    for (int i =00; i <n; i++) {
+    for (int i =0; i <n; i++) {
       if(arr[i]==mx){
           cnt=i;
           break;
       }
     } 
 
-    cout<<3<<endl; 
+   
 
-    cout<<abs(mx)<<endl;
+    cout<<abs(mi)<<endl;
 
     
    
