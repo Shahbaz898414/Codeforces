@@ -175,9 +175,7 @@ signed main() {
 
   int t; cin>>t;
   while(t--) {
-    ll n, k;
-    
-    cin>>n;
+    ll n, k;cin>>n;
 
     ll cnt=0;
 
