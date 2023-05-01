@@ -205,13 +205,12 @@ signed main() {
   while (t--) {
     ll n; string s;
     cin>>n>>s;
-    int l=0,r=n;
+    int l=0,r=n-1;
 
-    cout<<s[l]<<" "<<s[r-1]<<endl;
+    // cout<<s[l]<<" "<<s[r-1]<<endl;
 
 
    
   }
-
   return 0;
 }
