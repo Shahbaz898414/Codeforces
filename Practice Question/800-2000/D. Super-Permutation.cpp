@@ -219,7 +219,7 @@ signed main() {
                     cout << n - i << " ";
                 }
             }
-            cout << "\n";    
+            cout <<endl;    
       }
     }
 
