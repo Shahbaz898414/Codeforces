@@ -146,27 +146,27 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-// void frequencyCount(vector<ll> &arr, ll N, ll P)
-// {
-//   map<int, int> p;
+void frequencyCount(vector<ll> &arr, ll N, ll P)
+{
+  map<int, int> p;
 
-//   for (int i = 0; i < N; i++)
-//   {
-//     p[arr[i]]++;
-//   }
+  for (int i = 0; i < N; i++)
+  {
+    p[arr[i]]++;
+  }
 
-//   for (int i = 0; i < N; i++)
-//   {
-//     if (p.find(i + 1) != p.end())
-//     {
-//       arr[i] = p[i + 1];
-//     }
-//     else
-//       arr[i] = 0;
-//   }
-// }
+  for (int i = 0; i < N; i++)
+  {
+    if (p.find(i + 1) != p.end())
+    {
+      arr[i] = p[i + 1];
+    }
+    else
+      arr[i] = 0;
+  }
+}
 
-// void count(ll n,vector<ll> &v,ll ptr[],ll d,ll mx);
+
 
 signed main()
 {
