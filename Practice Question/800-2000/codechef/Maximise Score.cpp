@@ -183,30 +183,25 @@ signed main()
   while (t--) {
     ll n, k;cin >> n;
     int cnt ;
-    ll arr[n];
-    cout<<1<<endl;
-    ll mx=INT_MIN,mi=INT_MAX;
-    for (int i = 0; i < n; i++) {
-      cin >> arr[i];
-      mi=min(arr[i],mi);
-      
+    ll a[n];
+ 
+    ll ans=abs(a[0]-a[1]);
+    for (int i=1; i <n-1; i++) {
+    
+      ans=min(ans,max(abs(a[i]-a[i-1]),abs(a[i]-a[i+1])));
     }
 
-    cout<<2<<endl;
+    ans=min(ans,abs(a[n-1]-a[n-2]));
 
-    for (int i =0; i <n; i++) {
-      if(arr[i]==mx){
-          cnt=i;
-          break;
-      }
-    } 
-
-   
-
-    cout<<abs(mi)<<endl;
-
-    
+    cout<<ans<<endl;
    
   }
+
+
   return 0;
 }
+
+
+
+
+
