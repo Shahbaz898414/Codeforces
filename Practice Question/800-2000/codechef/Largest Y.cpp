@@ -78,7 +78,6 @@ void _print(vector<vector<T>> v)
   }
   cerr << "]";
 }
-
 template <class T, class V>
 void _print(map<T, V> v)
 {
