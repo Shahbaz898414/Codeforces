@@ -168,25 +168,26 @@ long long erfd(long long a, long long b)
 
 // void count(ll n,vector<ll> &v,ll ptr[],ll d,ll mx);
 
-signed main()
-{
-
+signed main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  
-
   int t;cin >> t;
   while (t--) {
-    ll n, k;cin >> n;
+    ll n, k;
+    string s;
+    cin >> n>>s;
+
+    ll cnt=0;
+
+    for (int i = 1; i <n; i++) {
+      if(s[i]!=s[i-1]) cnt++;
+    }
+
+    if(cnt%2)
+      cout<<"Zlatan"<<endl;
+    else cout<<"Ramos"<<endl;
     
   }
-
-
   return 0;
 }
-
-
-
-
-
