@@ -205,9 +205,20 @@ signed main() {
   while (t--) {
     ll n; string s;
     cin>>n>>s;
-    int l=0,r=n-1;
+    int l=0,r=n-1,cnt=0;
 
     // cout<<s[l]<<" "<<s[r-1]<<endl;
+
+    if(n%2) cout<<-1<<endl;
+    else {
+      
+    }
+
+    // while(l<r){
+    //   if(s[l]==s[r]) cnt++;
+    // }
+
+    // cout<<cnt<<endl;
 
 
    
