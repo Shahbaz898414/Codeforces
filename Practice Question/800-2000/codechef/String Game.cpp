@@ -180,13 +180,7 @@ signed main() {
     cin>>n>>s;
 
     ll cnt=0;
-    // stack<char> st;
-    // for (int i = 0; i < n; i++) {
-    //   if(!st.empty()  && st.top()!=i) {
-    //     st.pop();
-    //     cnt++;
-    //   }else st.push(i);
-    }
+    
 
        stack<char> st;
         for (auto i : s){
