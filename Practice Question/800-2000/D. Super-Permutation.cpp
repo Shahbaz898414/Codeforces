@@ -194,36 +194,47 @@ int isWinner(vector<int> &a, vector<int> &b)
     return 0;
 
   return 1;
-  
 }
 // void count(ll n,vector<ll> &v,ll ptr[],ll d,ll mx);
 
-signed main() {
+signed main()
+{
 
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  ll t;cin>>t;
+  ll t;
+  cin >> t;
 
-  while(t--) {
-    ll n;cin>>n;
+  while (t--)
+  {
+    ll n;
+    cin >> n;
 
-    if(n==1){
-      cout<<1<<endl;
-    }else {
-      if(n%2)  cout<<-1<<endl;
-      else {
-        for (int i = 0; i < n; ++i) {
-          if (i % 2) {
+    if (n == 1)
+    {
+      cout << 1 << endl;
+    }
+    else
+    {
+      if (n % 2)
+        cout << -1 << endl;
+      else
+      {
+        for (int i = 0; i < n; ++i)
+        {
+          if (i % 2)
+          {
             cout << i << " ";
-          } else {
+          }
+          else
+          {
             cout << n - i << " ";
           }
         }
-        cout <<endl;    
+        cout << endl;
       }
     }
-
   }
- 
+
   return 0;
 }
