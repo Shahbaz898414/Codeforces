@@ -179,9 +179,7 @@ signed main()
   int t;cin >> t;
   while (t--) {
     ll n, k;cin >> n;
-    int cnt ;
     ll a[n];
- 
     ll ans=abs(a[0]-a[1]);
     for (int i=1; i <n-1; i++) {
     
