@@ -169,7 +169,7 @@ long long erfd(long long a, long long b)
 // void count(ll n,vector<ll> &v,ll ptr[],ll d,ll mx);
 
 signed main() {
-  
+
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
@@ -187,6 +187,14 @@ signed main() {
         cnt++;
       }else st.push(i);
     }
+
+      //  stack<char> st;
+      //   for (auto i : s){
+      //       if (!st.empty() && st.top() != i){
+      //           st.pop();
+      //           cnt++;}
+      //       else  st.push(i);
+      //   }
 
     if(cnt%2)  cout<<"Zlatan"<<endl;
     else cout<<"Ramos"<<endl;
