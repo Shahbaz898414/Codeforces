@@ -180,6 +180,9 @@ signed main() {
     ll cnt=0;
 
     vector<ll> arr(n);
+    int arr[n];
+
+    int bbrr[n];
 
     for (int i = 0; i < n; i++) {
       cin>>arr[i];
