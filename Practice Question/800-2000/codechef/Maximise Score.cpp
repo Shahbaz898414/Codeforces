@@ -183,23 +183,29 @@ signed main()
   while (t--) {
     ll n, k;cin >> n;
     int cnt ;
-    int arr[n];
-
-    int mx=INT_MIN,mi=INT_MAX;
+    ll arr[n];
+    cout<<1<<endl;
+    ll mx=INT_MIN,mi=INT_MAX;
     for (int i = 0; i < n; i++) {
       cin >> arr[i];
       mi=min(arr[i],mi);
       
     }
 
+    cout<<2<<endl;
+
     for (int i =00; i <n; i++) {
       if(arr[i]==mx){
           cnt=i;
           break;
       }
-    }  
+    } 
 
-    cout<<abs(mx-arr[cnt+1])<<endl;
+    cout<<3<<endl; 
+
+    cout<<abs(mx)<<endl;
+
+    
    
   }
   return 0;
