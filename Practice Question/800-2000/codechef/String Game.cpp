@@ -172,22 +172,25 @@ signed main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  int t;cin >> t;
-  while (t--) {
+  int t; cin>>t;
+  while(t--) {
     ll n, k;
     string s;
-    cin >> n>>s;
+    cin>>n>>s;
 
     ll cnt=0;
-
-    for (int i = 1; i <n; i++) {
-      if(s[i]!=s[i-1]) cnt++;
+    stack<char> st;
+    for (int i = 0; i < n; i++) {
+      if(!st.empty()  and st.top()!=s[i]) {
+        st.pop();
+        cnt++;
+      }else st.push(i);
     }
 
-    if(cnt%2)
-      cout<<"Zlatan"<<endl;
+    if(cnt%2)  cout<<"Zlatan"<<endl;
     else cout<<"Ramos"<<endl;
     
+    
   }
-  return 0;
+
 }
