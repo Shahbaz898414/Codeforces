@@ -180,21 +180,21 @@ signed main() {
     cin>>n>>s;
 
     ll cnt=0;
-    stack<char> st;
-    for (int i = 0; i < n; i++) {
-      if(!st.empty()  && st.top()!=s[i]) {
-        st.pop();
-        cnt++;
-      }else st.push(i);
+    // stack<char> st;
+    // for (int i = 0; i < n; i++) {
+    //   if(!st.empty()  && st.top()!=i) {
+    //     st.pop();
+    //     cnt++;
+    //   }else st.push(i);
     }
 
-      //  stack<char> st;
-      //   for (auto i : s){
-      //       if (!st.empty() && st.top() != i){
-      //           st.pop();
-      //           cnt++;}
-      //       else  st.push(i);
-      //   }
+       stack<char> st;
+        for (auto i : s){
+            if (!st.empty() && st.top() != i){
+                st.pop();
+                cnt++;}
+            else  st.push(i);
+        }
 
     if(cnt%2)  cout<<"Zlatan"<<endl;
     else cout<<"Ramos"<<endl;

@@ -180,6 +180,13 @@ signed main() {
     cin>>n;
 
     ll cnt=0;
+
+    vector<ll> arr(n);
+
+    for (int i = 0; i < n; i++) {
+      cin>>arr[i];
+    }
+    
     
     
   }
