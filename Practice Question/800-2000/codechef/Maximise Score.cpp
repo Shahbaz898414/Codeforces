@@ -174,27 +174,25 @@ signed main()
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  #ifndef ONLINE_JUDGE
-      freopen("input.txt", "r", stdin);
-      freopen("output1.txt", "w", stdout);
-  #endif
+  // #ifndef ONLINE_JUDGE
+  //     freopen("input.txt", "r", stdin);
+  //     freopen("output1.txt", "w", stdout);
+  // #endif
 
-  int t;
-  cin >> t;
+  int t;cin >> t;
   while (t--) {
-    ll n, k;
-    cin >> n;
+    ll n, k;cin >> n;
     int cnt ;
-    int arr[n+1];
+    int arr[n];
 
     int mx=INT_MIN,mi=INT_MAX;
-    for (int i = 1; i <= n; i++) {
+    for (int i = 0; i < n; i++) {
       cin >> arr[i];
       mi=min(arr[i],mi);
-      // mx=max(arr[i],mx);
+      
     }
 
-    for (int i = 1; i <=n; i++) {
+    for (int i =00; i <n; i++) {
       if(arr[i]==mx){
           cnt=i;
           break;
