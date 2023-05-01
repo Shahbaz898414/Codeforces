@@ -179,23 +179,7 @@ signed main()
   int t;cin >> t;
   while (t--) {
     ll n, k;cin >> n;
-    ll a[n];
-    for (int i = 0; i < n; i++)
-    {
-      /* code */
-      cin>>a[i];
-    }
     
-    ll ans=abs(a[0]-a[1]);
-    for (int i=1; i <n-1; i++) {
-    
-      ans=min(ans,max(abs(a[i]-a[i-1]),abs(a[i]-a[i+1])));
-    }
-
-    ans=min(ans,abs(a[n-1]-a[n-2]));
-
-    cout<<ans<<endl;
-   
   }
 
 
