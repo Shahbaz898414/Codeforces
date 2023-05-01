@@ -197,18 +197,20 @@ int isWinner(vector<int> &a, vector<int> &b)
 }
 // void count(ll n,vector<ll> &v,ll ptr[],ll d,ll mx);
 
-signed main()
-{
+signed main() {
 
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  ll t;
-  cin >> t;
+  ll t; cin >> t;
+  while (t--) {
+    ll n; string s;
+    cin>>n>>s;
 
-  while (t--)
-  {
-    ll n;
-    cin >> n;
+
+    int l=0,r=n;
+
+    cout<<s[l]<<" "<<s[r-1]<<endl;
+
 
    
   }
