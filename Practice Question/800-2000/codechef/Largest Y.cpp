@@ -174,15 +174,12 @@ signed main() {
 
   int t; cin>>t;
   while(t--) {
-    ll n, k;cin>>n;
+    ll n, k;cin>>n>>k;
 
     ll cnt=0;
 
     vector<ll> arr(n);
-    // int arr[n];
-
-    // int bbrr[n];
-
+    
     for (int i = 0; i < n; i++) {
       cin>>arr[i];
     }
