@@ -78,6 +78,7 @@ void _print(vector<vector<T>> v)
   }
   cerr << "]";
 }
+
 template <class T, class V>
 void _print(map<T, V> v)
 {
@@ -145,50 +146,62 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-// void frequencyCount(vector<ll> &arr, ll N, ll P)
-// {
-//   map<int, int> p;
+void solve(int n,string &s) {
+  if (n % 2 == 1) {
+        cout << -1 << endl;
+        return;
+    }
+    vector<int> cnt(26);
+    for (int i = 0; i < n; ++i) {
+        ++cnt[s[i] - 'a'];
+    }
+    for (int i = 0; i < 26; ++i) {
+        if (cnt[i] * 2 > n) {
+            cout << -1 << endl;
+            return;
+        }
+    }
+    int pairs = 0;
+    vector<int> cnt_pairs(26);
+    for (int i = 0; i * 2 < n; ++i) {
+        if (s[i] == s[n - i - 1]) {
+           ++pairs;
+           ++cnt_pairs[s[i] - 'a'];
+        }
+    }
+    for (int i = 0; i < 26; ++i) {
+        if (cnt_pairs[i] * 2 > pairs) {
+            cout << cnt_pairs[i] << endl;
+            return;
+        }
+    }
+    cout << (pairs + 1) / 2 << endl;
+}
 
-//   for (int i = 0; i < N; i++)
-//   {
-//     p[arr[i]]++;
-//   }
 
-//   for (int i = 0; i < N; i++)
-//   {
-//     if (p.find(i + 1) != p.end())
-//     {
-//       arr[i] = p[i + 1];
-//     }
-//     else
-//       arr[i] = 0;
-//   }
-// }
 
-// void count(ll n,vector<ll> &v,ll ptr[],ll d,ll mx);
 
 signed main() {
 
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
+  ll t; cin >> t;
+  while (t--) {
+   
+		string s;cin>>s;
+		int res=0,a=0;
+		if(s[0]=='_') a=1;
+		if(s.size()==1&&s[0]=='^') a=1;
+		for(int i=0;i<s.size();i++){
+			if(s[i]=='_'&&s[i+1]!='^') a++;
+		}
+		
+		cout<<a<<endl;
 
-  int t; cin>>t;
-  while(t--) {
-    ll n, k;cin>>n;
-
-    ll cnt=0;
-
-    vector<ll> arr(n);
-    // int arr[n];
-
-    // int bbrr[n];
-
-    for (int i = 0; i < n; i++) {
-      cin>>arr[i];
-    }
     
     
-    
+
+   
   }
-
+  return 0;
 }
