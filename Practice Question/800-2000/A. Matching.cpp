@@ -42,6 +42,7 @@ void _print(T t)
   cerr << t;
 }
 
+
 template <class T, class V>
 void _print(pair<T, V> p)
 {
@@ -51,6 +52,7 @@ void _print(pair<T, V> p)
   _print(p.ss);
   cerr << "}";
 }
+
 
 template <class T>
 void _print(vector<T> v)
@@ -63,6 +65,7 @@ void _print(vector<T> v)
   }
   cerr << "]";
 }
+
 
 template <class T>
 void _print(vector<vector<T>> v)
@@ -79,6 +82,7 @@ void _print(vector<vector<T>> v)
   cerr << "]";
 }
 
+
 template <class T, class V>
 void _print(map<T, V> v)
 {
@@ -90,6 +94,7 @@ void _print(map<T, V> v)
   }
   cerr << "]";
 }
+
 
 template <class T>
 void _print(set<T> v)
@@ -136,17 +141,29 @@ void rotateMatrix(vector<vector<int>> &v, int n)
 ll m = 998244353;
 
 
-
-
-
-
 signed main() {
-
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
   ll t;cin>>t;
   while(t--) {
     string s;cin>>s;
+
+    ll len =s.size();
+
+    ll ans=1;
+
+    if(s[0]=='0') cout<<0<<endl;
+    else {
+      for (int i = 0; i < len; i++) {
+        if(s[i]=='?') {
+          if(i)  ans=ans*10;
+          else ans=ans*9;
+        }
+      }
+
+      cout<<ans<<endl;
+      
+    }
    
     
 
