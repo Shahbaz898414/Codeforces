@@ -146,24 +146,23 @@ signed main() {
   cin.tie(nullptr);
   ll t;cin>>t;
   while(t--) {
-    string s;cin>>s;
 
-    ll len =s.size();
+    ll n;cin>>n;
+    
 
-    ll ans=1;
+    ll arr[n],brr[n];
 
-    if(s[0]=='0') cout<<0<<endl;
-    else {
-      for (int i = 0; i < len; i++) {
-        if(s[i]=='?') {
-          if(i)  ans=ans*10;
-          else ans=ans*9;
-        }
-      }
-
-      cout<<ans<<endl;
-      
+    for (ll i = 0; i < n; i++) {
+      cin>>arr[i];
     }
+
+    for (ll i = 0; i < n; i++) {
+      cin>>brr[i];
+    }
+    
+    
+      
+    
    
     
 

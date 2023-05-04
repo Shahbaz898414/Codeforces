@@ -103,6 +103,52 @@ void _print(set<T> v)
   cerr << "]";
 }
 
+
+long long fgbv(long long x, long long y, long long p) {
+    long long ret = 1;
+    while (y > 0) {
+        if (y % 2 == 1) {
+            ret = (ret * x) % p;
+        }
+        y /= 2;
+        x = (x * x) % p;
+
+
+
+    }
+    return ret;
+} 
+const int kjh = 1e5+1;
+
+ll Q[kjh],W[kjh];
+void fact() {
+
+
+  Q[0] = W[0] = 1;
+
+
+
+  for (int i = 1; i < kjh; i++) {
+
+
+
+       Q[i] = (i * Q[i - 1]) % mod;
+
+
+
+
+
+
+
+
+       W[i] = fgbv(Q[i], mod - 2, mod);
+
+  }
+}
+
+
+
+
 const long long inf = 1e18;
 const int MOD = 998244353;
 const int MAX = 1e6;
@@ -146,57 +192,7 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-int isWinner(vector<int> &a, vector<int> &b)
-{
-  int c1 = 0, cnt;
 
-  for (auto it : a)
-  {
-    cnt += it;
-  }
-
-  for (int i = 0; i < a.size() - 1; i++)
-  {
-    if (i < a.size() - 2 && a[i] == 10 && a[i + 1] != 10)
-    {
-      cnt += a[i + 1];
-      cnt += a[i + 2];
-      i++;
-    }
-    else if (a[i] == 10)
-    {
-      cnt += a[i + 1];
-    }
-  }
-
-  for (auto val : b)
-  {
-    cnt -= val;
-  }
-
-  for (int i = 0; i < a.size() - 1; i++)
-  {
-    if (i < a.size() - 2 && b[i] == 10 && b[i + 1] != 10)
-    {
-      cnt -= b[i + 1];
-      cnt -= b[i + 2];
-      i++;
-    }
-    else if (b[i] == 10)
-    {
-      cnt -= b[i + 1];
-    }
-  }
-
-  if (cnt < 0)
-    return 2;
-  if (cnt == 0)
-    return 0;
-
-  return 1;
-  
-}
-// void count(ll n,vector<ll> &v,ll ptr[],ll d,ll mx);
 
 signed main()
 {
@@ -204,80 +200,34 @@ signed main()
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  ll n, k;
-  cin >> n >> k;
+  fact();
 
-  // cout<<1<<endl;
+  ll n;
+      cin>>n;
+      map<ll,ll> pm;
+      for(ll j=0;j<n;j++)
+      {
+          ll f,y;
 
-  vector<ll> a(n), b(n);
 
-  for (int i = 0; i < n; i++)
-  {
-    cin >> a[i];
-  }
+          cin>>f>>y;
 
-  for (int i = 0; i < k; i++)
-  {
-    cin >> b[i];
-  }
 
-  cout << frequencyCount(a, b) << endl;
 
-  // cout<<1<<endl;
+          ++pm[f];
+      }
+      ll cnt=1;
+      for(map<ll,ll>::iterator itr=pm.begin();itr!=pm.end();itr++) {
 
-  // int n=a.size();
-  // int k=b.size();
 
-  // bool fl = false, l = false;
 
-  // int sum = 0, s1 = 0;
+          cnt=(cnt*(Q[itr->second]%mod))%mod;
+      }
 
-  // for (int i = 0; i < n; i++)
-  // {
-  //   if (a[i] >= 10)
-  //   {
-  //     fl = true;
-  //     continue;
-  //   }
 
-  //   if (fl)
-  //   {
-  //     a[i] = 2 * a[i];
-  //   }
-  // }
 
-  // for (int i = 0; i < n; i++)
-  // {
-  //   sum += a[i];
 
-  //   cout << a[i] << " ";
-  // }
-
-  // cout << endl;
-  // for (int i = 0; i < k; i++)
-  // {
-  //   if (b[i] >= 10)
-  //   {
-  //     l = true;
-  //     continue;
-  //   }
-
-  //   if (l)
-  //   {
-  //     b[i] = 2 * b[i];
-  //   }
-  // }
-
-  // for (int i = 0; i < k; i++)
-  // {
-  //   s1 += b[i];
-
-  //   cout << b[i] << " ";
-  // }
-
-  // cout << endl;
-
-  // cout<<sum<<" "<<s1<<endl;
-
+      cout<<(cnt*W[n])%mod<<"\n";
+  
   return 0;
 }
