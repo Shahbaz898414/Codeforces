@@ -103,51 +103,36 @@ void _print(set<T> v)
   cerr << "]";
 }
 
-
-long long fgbv(long long x, long long y, long long p) {
-    long long ret = 1;
-    while (y > 0) {
-        if (y % 2 == 1) {
-            ret = (ret * x) % p;
-        }
-        y /= 2;
-        x = (x * x) % p;
-
-
-
+long long fgbv(long long x, long long y, long long p)
+{
+  long long ret = 1;
+  while (y > 0)
+  {
+    if (y % 2 == 1)
+    {
+      ret = (ret * x) % p;
     }
-    return ret;
-} 
-const int kjh = 1e5+1;
+    y /= 2;
+    x = (x * x) % p;
+  }
+  return ret;
+}
+const int kjh = 1e5 + 1;
 
-ll Q[kjh],W[kjh];
-void fact() {
-
+ll Q[kjh], W[kjh];
+void fact()
+{
 
   Q[0] = W[0] = 1;
 
+  for (int i = 1; i < kjh; i++)
+  {
 
+    Q[i] = (i * Q[i - 1]) % mod;
 
-  for (int i = 1; i < kjh; i++) {
-
-
-
-       Q[i] = (i * Q[i - 1]) % mod;
-
-
-
-
-
-
-
-
-       W[i] = fgbv(Q[i], mod - 2, mod);
-
+    W[i] = fgbv(Q[i], mod - 2, mod);
   }
 }
-
-
-
 
 const long long inf = 1e18;
 const int MOD = 998244353;
@@ -164,33 +149,20 @@ bool isValid(string s)
   return true;
 }
 
-void rotateMatrix(vector<vector<int>> &v, int n)
-{
-  for (int i = 0; i < n / 2; i++)
-  {
-    for (int j = i; j < n - i - 1; j++)
-    {
-      int ptr = v[i][j];
-      v[i][j] = v[n - 1 - j][i];
-      v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
-      v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
-      v[j][n - 1 - i] = ptr;
-    }
-  }
-}
-
-
-
-long long erfd(long long a, long long b)
-{
-  if (b == 0)
-    return 1;
-  long long ans = erfd(a, b / 2);
-  if (b % 2)
-    return (ans % m * ans % m * a) % m;
-  else
-    return ans % m * ans % m;
-}
+// void rotateMatrix(vector<vector<int>> &v, int n)
+// {
+//   for (int i = 0; i < n / 2; i++)
+//   {
+//     for (int j = i; j < n - i - 1; j++)
+//     {
+//       int ptr = v[i][j];
+//       v[i][j] = v[n - 1 - j][i];
+//       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+//       v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+//       v[j][n - 1 - i] = ptr;
+//     }
+//   }
+// }
 
 
 
@@ -199,35 +171,189 @@ signed main()
 
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
+  ll t;
+  cin >> t;
+  while (t--)
+  {
+    ll n, k;
+    cin >> n ;
+  ll cnt,ans;
+    ll arr[n];
 
-  fact();
+    for (ll i = 0; i < n; i++) {
+    
+      cin>>arr[i];
+    }
 
-  ll n;
-      cin>>n;
-      map<ll,ll> pm;
-      for(ll j=0;j<n;j++)
-      {
-          ll f,y;
+     cnt = arr[0] + arr[1] + arr[2]; 
+// void rotateMatrix(vector<vector<int>> &v, int n)
+// {
+//   for (int i = 0; i < n / 2; i++)
+//   {
+//     for (int j = i; j < n - i - 1; j++)
+//     {
+//       int ptr = v[i][j];
+//       v[i][j] = v[n - 1 - j][i];
+//       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+//       v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+//       v[j][n - 1 - i] = ptr;
+//     }
+//   }
+// }
+
+     ll m1 = arr[0], m2 = arr[1], m3 = arr[2]; 
+
+     // void rotateMatrix(vector<vector<int>> &v, int n)
+// {
+//   for (int i = 0; i < n / 2; i++)
+//   {
+//     for (int j = i; j < n - i - 1; j++)
+//     {
+//       int ptr = v[i][j];
+//       v[i][j] = v[n - 1 - j][i];
+//       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+//       v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+//       v[j][n - 1 - i] = ptr;
+//     }
+//   }
+// }
+     ans = cnt;
+
+    for (int i = 3; i < n; i++) { 
+      // void rotateMatrix(vector<vector<int>> &v, int n)
+// {
+//   for (int i = 0; i < n / 2; i++)
+//   {
+//     for (int j = i; j < n - i - 1; j++)
+//     {
+//       int ptr = v[i][j];
+//       v[i][j] = v[n - 1 - j][i];
+//       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+//       v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+//       v[j][n - 1 - i] = ptr;
+//     }
+//   }
+// }
+            cnt += arr[i]; 
+
+            // void rotateMatrix(vector<vector<int>> &v, int n)
+// {
+//   for (int i = 0; i < n / 2; i++)
+//   {
+//     for (int j = i; j < n - i - 1; j++)
+//     {
+//       int ptr = v[i][j];
+//       v[i][j] = v[n - 1 - j][i];
+//       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+//       v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+//       v[j][n - 1 - i] = ptr;
+//     }
+//   }
+// }
+            if (arr[i] >= m1) { 
+                m3 = m2; 
+                m2 = m1; 
+                m1 = arr[i]; 
+            } else if (arr[i] >= m2) { 
+              // void rotateMatrix(vector<vector<int>> &v, int n)
+// {
+//   for (int i = 0; i < n / 2; i++)
+//   {
+//     for (int j = i; j < n - i - 1; j++)
+//     {
+//       int ptr = v[i][j];
+//       v[i][j] = v[n - 1 - j][i];
+//       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+//       v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+//       v[j][n - 1 - i] = ptr;
+//     }
+//   }
+// }
+                m3 = m2; 
+                m2 = arr[i]; 
+            } else if (arr[i] >= m3) { 
+              // void rotateMatrix(vector<vector<int>> &v, int n)
+// {
+//   for (int i = 0; i < n / 2; i++)
+//   {
+//     for (int j = i; j < n - i - 1; j++)
+//     {
+//       int ptr = v[i][j];
+//       v[i][j] = v[n - 1 - j][i];
+//       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+//       v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+//       v[j][n - 1 - i] = ptr;
+//     }
+//   }
+// }
+                m3 = arr[i]; 
+            } 
+// void rotateMatrix(vector<vector<int>> &v, int n)
+// {
+//   for (int i = 0; i < n / 2; i++)
+//   {
+//     for (int j = i; j < n - i - 1; j++)
+//     {
+//       int ptr = v[i][j];
+//       v[i][j] = v[n - 1 - j][i];
+//       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+//       v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+//       v[j][n - 1 - i] = ptr;
+//     }
+//   }
+// }
+            // void rotateMatrix(vector<vector<int>> &v, int n)
+// {
+//   for (int i = 0; i < n / 2; i++)
+//   {
+//     for (int j = i; j < n - i - 1; j++)
+//     {
+//       int ptr = v[i][j];
+//       v[i][j] = v[n - 1 - j][i];
+//       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+//       v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+//       v[j][n - 1 - i] = ptr;
+//     }
+//   }
+// }
+            ll cur_ans = cnt - (i - 2) * m1 - (i - 3) * m2 - (i - 4) * m3; 
+            // void rotateMatrix(vector<vector<int>> &v, int n)
+// {
+//   for (int i = 0; i < n / 2; i++)
+//   {
+//     for (int j = i; j < n - i - 1; j++)
+//     {
+//       int ptr = v[i][j];
+//       v[i][j] = v[n - 1 - j][i];
+//       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+//       v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+//       v[j][n - 1 - i] = ptr;
+//     }
+//   }
+// }
+            ans = max(ans, cur_ans); 
+        } 
 
 
-          cin>>f>>y;
+        // void rotateMatrix(vector<vector<int>> &v, int n)
+// {
+//   for (int i = 0; i < n / 2; i++)
+//   {
+//     for (int j = i; j < n - i - 1; j++)
+//     {
+//       int ptr = v[i][j];
+//       v[i][j] = v[n - 1 - j][i];
+//       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+//       v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+//       v[j][n - 1 - i] = ptr;
+//     }
+//   }
+// }
 
+        cout << ans << endl;  
+    
 
-
-          ++pm[f];
-      }
-      ll cnt=1;
-      for(map<ll,ll>::iterator itr=pm.begin();itr!=pm.end();itr++) {
-
-
-
-          cnt=(cnt*(Q[itr->second]%mod))%mod;
-      }
-
-
-
-
-      cout<<(cnt*W[n])%mod<<"\n";
-  
+   
+  }
   return 0;
 }
