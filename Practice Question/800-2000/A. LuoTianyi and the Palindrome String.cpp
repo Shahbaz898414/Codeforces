@@ -161,6 +161,8 @@ signed main()
 
    ll l=s.size();
 
+   cout<<s<<endl;
+
    
 
 
