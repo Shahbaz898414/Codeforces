@@ -161,6 +161,16 @@ signed main()
 
    ll l=s.size();
 
+
+   ll l=0,r=n-1;
+
+   while(l<r){
+    if(s[i]!=s[r]){
+      l++;r--;
+    }
+    
+   }
+
    cout<<s<<endl;
 
    
