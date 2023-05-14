@@ -162,6 +162,16 @@ signed main()
     
    string s;cin>>s;
 
+
+   vector<ll> v(n);
+
+   for (int i = 0; i < n; i++)
+   {
+    /* code */
+    cin>>v[i];
+   }
+   
+
    ll l=s.size();
 
 
