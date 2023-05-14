@@ -157,18 +157,27 @@ signed main()
 
   int t; cin >> t;
   while (t--) {
+
+    ll n;cin>> n;
+    
    string s;cin>>s;
 
    ll l=s.size();
 
 
    ll l=0,r=n-1;
-
+ll cnt=0;
    while(l<r){
     if(s[i]!=s[r]){
       l++;r--;
-    }
+    }else cnt++;
     
+   }
+
+
+   if(cnt>0)  cout<<s<<endl;
+   else{
+    cout<<cnt<<endl;
    }
 
    cout<<s<<endl;
