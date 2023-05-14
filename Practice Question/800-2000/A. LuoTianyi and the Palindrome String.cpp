@@ -164,12 +164,20 @@ signed main()
 
 
    vector<ll> v(n);
-
+    ll g=0;
    for (int i = 0; i < n; i++)
    {
     /* code */
     cin>>v[i];
    }
+
+   for (int i  = 0; i < n; i++)
+   {
+    /* code */
+    if(v[i]%2)  g++;
+    else g--;
+   }
+   
    
 
    ll l=s.size();
@@ -185,12 +193,14 @@ ll cnt=0;
    }
 
 
-   if(cnt>0)  cout<<s<<endl;
+  cout<<s<<endl;
+
+   if(cnt>0 and g%2)  cout<<s<<endl;
    else{
     cout<<cnt<<endl;
    }
 
-   cout<<s<<endl;
+   
 
    
 
