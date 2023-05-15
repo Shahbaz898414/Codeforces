@@ -196,12 +196,12 @@ ll cnt=0;
    }
 
 
-  cout<<s<<endl;
+  // cout<<s<<endl;
 
-   if(cnt>0 and g%2)  cout<<s<<endl;
-   else{
-    cout<<cnt<<endl;
-   }
+  //  if(cnt>0 and g%2)  cout<<s<<endl;
+  //  else{
+  //   cout<<cnt<<endl;
+  //  }
 
    
 
