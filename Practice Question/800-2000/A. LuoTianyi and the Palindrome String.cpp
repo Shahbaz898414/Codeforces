@@ -183,7 +183,7 @@ signed main()
    
    
 
-   ll l=s.size();
+  //  ll l=s.size();
 
 
    ll l=0,r=n-1;
