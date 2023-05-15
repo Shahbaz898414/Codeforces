@@ -103,9 +103,9 @@ void _print(set<T> v)
   cerr << "]";
 }
 
-const long long inf = 1e18;
-const int MOD = 998244353;
-const int MAX = 1e6;
+// const long long inf = 1e18;
+// const int MOD = 998244353;
+// const int MAX = 1e6;
 
 bool isValid(string s)
 {
@@ -117,6 +117,9 @@ bool isValid(string s)
   }
   return true;
 }
+
+
+
 
 void rotateMatrix(vector<vector<int>> &v, int n)
 {
