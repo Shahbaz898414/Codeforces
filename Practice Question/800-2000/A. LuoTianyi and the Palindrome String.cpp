@@ -187,7 +187,7 @@ signed main()
 
 
    ll l=0,r=n-1;
-ll cnt=0;
+   ll cnt=0;
    while(l<r){
     if(s[i]!=s[r]){
       l++;r--;
@@ -196,12 +196,7 @@ ll cnt=0;
    }
 
 
-  // cout<<s<<endl;
 
-  //  if(cnt>0 and g%2)  cout<<s<<endl;
-  //  else{
-  //   cout<<cnt<<endl;
-  //  }
 
    
 
