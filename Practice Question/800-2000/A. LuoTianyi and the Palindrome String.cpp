@@ -194,15 +194,6 @@ signed main()
     }else cnt++;
     
    }
-
-
-
-
-   
-
-   
-
-
   }
   return 0;
 }
