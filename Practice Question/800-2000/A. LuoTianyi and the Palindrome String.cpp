@@ -206,3 +206,12 @@ signed main()
   }
   return 0;
 }
+
+
+/*
+Recall is a useful metric in case of cancer detection,
+where we want to minimize the number of False
+negatives for any practical use since we don't want our
+model to mark a patient suffering from cancer as safe. 
+
+*/
