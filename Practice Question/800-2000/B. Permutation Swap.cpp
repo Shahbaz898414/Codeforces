@@ -150,23 +150,24 @@ long long erfd(long long a, long long b)
 }
 
 
-signed main()
-{
-
+signed main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
   int t; cin >> t;
   while(t--) {
     ll n;cin>> n;
-
     vector<ll> v(n);
 
-
-    for (int i = 0; i < n; i++)
-    {
-      /* code */
+    for (int i = 0; i < n; i++) {
       cin>>v[i];
     }
+
+    for (int i = 0; i < n; i++){ 
+      if(i+1!=v[i]){
+
+      }
+    }
+    
     
 
         
@@ -175,4 +176,24 @@ signed main()
   return 0;
 }
 
+
+/*
+
+
+#include<bits/stdc++.h>
+using namespace std;
+int t,n,a[1000001],b[1000001];
+main(){
+	cin>>t;while(t--){
+		cin>>n;int ans=0;
+		for(int i=1;i<=n;i++){
+			scanf("%d",&a[i]);
+			ans=__gcd(ans,abs(a[i]-i));
+		}printf("%d\n",ans);
+	}
+	return 0;
+}
+
+
+*/
 
