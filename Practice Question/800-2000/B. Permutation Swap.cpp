@@ -159,26 +159,18 @@ signed main()
   while(t--) {
     ll n;cin>> n;
 
-    ll sum=0;
-    if(n%2) {
-      for (int i = 0; i < n; i++) {
-        cout<<i+1<<" ";
-      }
-      cout<<endl;
-    }else {
-      for (int i = 2; i <=2*n; i+=2) {
-        cout<<i<<" ";
-
-        sum+=i;
-      }
+    vector<ll> v(n);
 
 
-      cout<<endl;
-    // cout<<sum<<" ";      
+    for (int i = 0; i < n; i++)
+    {
+      /* code */
+      cin>>v[i];
     }
-    // cout<<n*(n+1)/2<<endl;
-    // if((n*(n+1)/2)%n==0) cout<<1<<endl;
-    // else cout<<0<<endl;
+    
+
+        
+   
   }
   return 0;
 }
