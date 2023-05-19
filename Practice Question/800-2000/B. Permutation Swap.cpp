@@ -156,16 +156,16 @@ signed main() {
   int t; cin >> t;
   while(t--) {
     ll n;cin>> n;
-    vector<ll> v(n);
+    vector<ll> v(n+1);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 1; i <=n; i++) {
       cin>>v[i];
     }
 
     ll ans=0;
 
-    for (int i = 0; i < n; i++){ 
-      ans=__gcd(ans,abs(v[i]-i+1));
+    for (int i = 1; i <=n; i++){ 
+      ans=__gcd(ans,abs(v[i]-i));
     }
 
 
@@ -192,6 +192,16 @@ main(){
 	}
 	return 0;
 }
+
+
+1
+2
+3
+4
+3
+2
+3
+
 
 
 */
