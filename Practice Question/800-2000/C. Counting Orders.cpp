@@ -172,20 +172,20 @@ signed main() {
 
       sort(v2.begin(),v2.end(),greater<>());
 
-    for (int i = 0; i < n; i++)
-    {
-      /* code */
-      cout<<v1[i]<<" ";
-    }
-    cout<<endl;
+    // for (int i = 0; i < n; i++)
+    // {
+    //   /* code */
+    //   cout<<v1[i]<<" ";
+    // }
+    // cout<<endl;
 
-    for (int i = 0; i < n; i++)
-    {
-      /* code */
-      cout<<v2[i]<<" ";
-    }
+    // for (int i = 0; i < n; i++)
+    // {
+    //   /* code */
+    //   cout<<v2[i]<<" ";
+    // }
 
-    cout<<endl;
+    // cout<<endl;
     
      
      
