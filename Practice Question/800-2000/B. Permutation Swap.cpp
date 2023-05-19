@@ -162,10 +162,10 @@ signed main() {
       cin>>v[i];
     }
 
-    ll ans;
+    ll ans=0;
 
     for (int i = 0; i < n; i++){ 
-      ans=__gcd(ans,v[i]-i+1);
+      ans=__gcd(ans,abs(v[i]-i+1));
     }
 
 
