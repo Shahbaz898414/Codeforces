@@ -172,6 +172,13 @@ signed main() {
 
       sort(v2.begin(),v2.end(),greater<>());
 
+      ll result = 1;
+        for (int i=0; i<n; i++){
+            int geq_count = v1.size() - (upper_bound(v1.begin(), v1.end(), v2[i]) - v1.begin());
+            result = result * max(geq_count - i, 0) % mod;
+        }
+        cout << result << "\n";
+
     // for (int i = 0; i < n; i++)
     // {
     //   /* code */
