@@ -156,7 +156,7 @@ signed main() {
   int t; cin >> t;
   while(t--) {
      ll n;cin>> n;
-     ll ans=0;
+     ll ans=1;
      vector<ll> v1(n+1),v2(n+1);
 
      for(ll i = 0; i < n; i++){
@@ -170,36 +170,23 @@ signed main() {
      }
 
 
-      sort(v2.begin(),v2.end(),greater<>());
+      sort(v2.begin(),v2.end());
 
-      ll result = 1;
-        for (int i=0; i<n; i++){
-            int geq_count = v1.size() - (upper_bound(v1.begin(), v1.end(), v2[i]) - v1.begin());
-            result = result * max(geq_count - i, 0) % mod;
-        }
-        cout << result << "\n";
+      ll result = 0;
 
-    // for (int i = 0; i < n; i++)
-    // {
-    //   /* code */
-    //   cout<<v1[i]<<" ";
-    // }
-    // cout<<endl;
+      for (int i = n-1; i >=0; i--){
+        int avail=(v1.end()-upper_bound(a.begin(),a.end(),v2[i]));
+        avail-=result;
 
-    // for (int i = 0; i < n; i++)
-    // {
-    //   /* code */
-    //   cout<<v2[i]<<" ";
-    // }
+        result=max(result,0);
 
-    // cout<<endl;
+        (ans*=avail) %=mod;
+        result++;
+      }
+      
+        
+      cout<<ans<<endl;
     
-     
-     
-
-
-
-   
     
   }
   return 0;
