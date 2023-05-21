@@ -118,9 +118,6 @@ bool isValid(string s)
   return true;
 }
 
-
-
-
 void rotateMatrix(vector<vector<int>> &v, int n)
 {
   for (int i = 0; i < n / 2; i++)
@@ -149,50 +146,47 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-
-signed main() {
+signed main()
+{
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  int t; cin >> t;
-  while(t--) {
-     ll n;cin>> n;
-     ll ans=1;
-     vector<ll> v1(n+1),v2(n+1);
+  int t;
+  cin >> t;
+  while (t--)
+  {
+    ll n;
+    cin >> n;
+    ll ans = 1;
+    vector<ll> v1(n), v2(n);
 
-     for(ll i = 0; i < n; i++){
-       cin>>v1[i];
-     }
+    for (ll i = 0; i < n; i++)
+    {
+      cin >> v1[i];
+    }
 
-     sort(v1.begin(),v1.end());
+    sort(v1.begin(), v1.end());
 
-     for(ll i = 0; i < n; i++) {
-       cin>>v2[i];
-     }
+    for (ll i = 0; i < n; i++)
+    {
+      cin >> v2[i];
+    }
 
+    sort(v2.begin(), v2.end());
 
-      sort(v2.begin(),v2.end());
+    ll result = 0;
 
-      ll result = 0;
+    for (int i = n - 1; i >= 0; i--)
+    {
+      int avail = (v1.end() - upper_bound(v1.begin(), v1.end(), v2[i]));
+      avail -= result;
 
-      for (int i = n-1; i >=0; i--){
-        int avail=(v1.end()-upper_bound(a.begin(),a.end(),v2[i]));
-        avail-=result;
+      avail = max(avail, 0);
 
-        result=max(result,0);
+      (ans *= avail) %= mod;
+      result++;
+    }
 
-        (ans*=avail) %=mod;
-        result++;
-      }
-      
-        
-      cout<<ans<<endl;
-    
-    
+    cout << ans << endl;
   }
   return 0;
 }
-
-
-
-
-
