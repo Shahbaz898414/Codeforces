@@ -167,7 +167,9 @@ signed main() {
             l=i;
           
         }
-    }if(l!=n-1)l--;
+    }
+    
+    if(l!=n-1)l--;
     
     for(int i=l-1;i>=0;i--){
         if(a[0]>a[i]){
