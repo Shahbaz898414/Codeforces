@@ -189,8 +189,7 @@ ll solve(vector<ll> &arr, ll n)
   return ans;
 }
 
-signed main()
-{
+signed main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
   int t;cin >> t;
