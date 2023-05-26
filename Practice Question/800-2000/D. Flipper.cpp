@@ -155,22 +155,39 @@ signed main() {
   cin.tie(nullptr);
   int t; cin >> t;
   while(t--) {
-    ll n;cin>> n;
-    vector<ll> v(n+1);
-
-
-    for (int i = 1; i <=n; i++) {
-      cin>>v[i];
+    ll n;
+    cin>>n;
+    ll a[n],h=0,l=0,p;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }ll m=0;
+    for(int i=1;i<n;i++){
+        if(m<a[i]){
+            m=a[i];
+            l=i;
+          
+        }
+    }if(l!=n-1)l--;
+    
+    for(int i=l-1;i>=0;i--){
+        if(a[0]>a[i]){
+            h=i;
+            break;
+        }
+        
     }
+    h++;
+    for(int i=l+1;i<n;i++){
+        cout<<a[i]<<" ";
+    }for(int i=l;i>=h;i--){
+        cout<<a[i]<<" ";
+    }for(int i=0;i<h;i++){
+        cout<<a[i]<<" ";
+    }cout<<endl;
 
    
 
-    for (int i = 1; i <=n; i++){ 
-      ans=__gcd(ans,abs(v[i]-i));
-    }
-
-
-    cout<<ans<<endl;
+    
     
   }
   return 0;
