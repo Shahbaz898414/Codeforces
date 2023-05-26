@@ -157,10 +157,16 @@ signed main()
     ll n;
     cin >> n;
     ll a[n], h = 0, l = 0, p;
-    for (int i = 0; i < n; i++)
-      cin >> a[i];
-
-    ll m = 0;
+    for(int i=0;i<n;i++)cin>>a[i];
+		n=unique(a,a+n)-a;
+		
+		int ans=0;
+		for(int i=0;i<n;i++)
+		{
+			if(i==0||i==n-1||a[i]>a[i-1]&&a[i]>a[i+1]||a[i]<a[i-1]&&a[i]<a[i+1])
+			ans++;			
+		}
+		cout<<ans<<"\n";
    
   }
 }
