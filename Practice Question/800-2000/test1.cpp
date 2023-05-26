@@ -1,72 +1,69 @@
-// C++ program which returns the Number of sub sequences
-// (or subsets) which are divisible by m.
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <string>
 
-#define ll long long 
 using namespace std;
 
-// Use Dynamic Programming to find
-// sum of subsequences.
-ll sumSubSequence(vector<ll> arr, ll len, ll m)
-{
-	// Find sum of array elements
-	int sum = 0;
-	for (auto x : arr)
-	sum += x;
+class FastReader {
+    istream& in;
+    string buffer;
+    int ptr;
 
-	// dp[i][j] would be > 0 if arr[0..i-1] has
-	// a subsequence with sum equal to j.
-	vector<vector<int> > dp(len + 1, vector<int>(sum + 1, 0));
+public:
+    FastReader() : in(cin), buffer(""), ptr(0) {}
+    FastReader(istream& input) : in(input), buffer(""), ptr(0) {}
 
-	// There is always sum equals zero
-	for (int i = 0; i <= len; i++)
-		dp[i][0]++;
+    char readNextChar() {
+        if (ptr == buffer.length()) {
+            getline(in, buffer);
+            ptr = 0;
+        }
+        if (ptr < buffer.length()) {
+            return buffer[ptr++];
+        }
+        return '\0';
+    }
 
-	// Fill up the dp table
-	for (int i = 1; i <= len; i++) {
+    int nextInt() {
+        string s = next();
+        return stoi(s);
+    }
 
-		dp[i][arr[i - 1]]++;
-		for (int j = 1; j <= sum; j++) {
+    string next() {
+        string str = "";
+        char c = readNextChar();
+        while (c == ' ' || c == '\n' || c == '\r' || c == '\t') {
+            c = readNextChar();
+        }
+        while (c != ' ' && c != '\n' && c != '\r' && c != '\t' && c != '\0') {
+            str += c;
+            c = readNextChar();
+        }
+        return str;
+    }
+};
 
-			if (dp[i - 1][j] > 0) {
-				dp[i][j]++;
-				dp[i][j + arr[i - 1]]++;
-			}
-		}
-	}
-
-
-	// Initialize the counter
-	int count = 0;
-	for (int j = 1; j <= sum; j++)
-
-		// Check if the sum exists
-		if (dp[len][j] > 0)
-
-			// check sum is divisible by m
-			if (j % m == 0)
-				count += dp[len][j];
-
-    cout<<"fjjf"<<endl;
-    
-
-	return count;
-}
-
-// Driver Code
-int main()
-{
-
-   ll t;cin>>t;
-
-   while(t--) {
-     ll n,m;cin>>n>>m;
-
-     vector<ll> arr(n);
-	
-	cout << sumSubSequence(arr, n, m) << endl;
-   }
-
-	
-	return 0;
+int main() {
+    FastReader fr;
+    int tc = fr.nextInt();
+    while (tc-- > 0) {
+        int n = fr.nextInt();
+        string s = fr.next();
+        int ans = 1;
+        int count = 1;
+        for (int i = 1; i <= n; i++) {
+            if (i == n) {
+                ans = max(ans, count);
+                break;
+            }
+            if (s[i] == s[i - 1]) {
+                count++;
+            } else {
+                ans = max(ans, count);
+                count = 1;
+            }
+        }
+        cout << ans + 1 << endl;
+    }
+    return 0;
 }

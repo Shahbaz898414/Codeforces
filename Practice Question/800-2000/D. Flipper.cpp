@@ -103,40 +103,9 @@ void _print(set<T> v)
   cerr << "]";
 }
 
-long long fgbv(long long x, long long y, long long p)
-{
-  long long ret = 1;
-  while (y > 0)
-  {
-    if (y % 2 == 1)
-    {
-      ret = (ret * x) % p;
-    }
-    y /= 2;
-    x = (x * x) % p;
-  }
-  return ret;
-}
-const int kjh = 1e5 + 1;
-
-ll Q[kjh], W[kjh];
-void fact()
-{
-
-  Q[0] = W[0] = 1;
-
-  for (int i = 1; i < kjh; i++)
-  {
-
-    Q[i] = (i * Q[i - 1]) % mod;
-
-    W[i] = fgbv(Q[i], mod - 2, mod);
-  }
-}
-
-const long long inf = 1e18;
-const int MOD = 998244353;
-const int MAX = 1e6;
+// const long long inf = 1e18;
+// const int MOD = 998244353;
+// const int MAX = 1e6;
 
 bool isValid(string s)
 {
@@ -149,49 +118,62 @@ bool isValid(string s)
   return true;
 }
 
-// void rotateMatrix(vector<vector<int>> &v, int n)
-// {
-//   for (int i = 0; i < n / 2; i++)
-//   {
-//     for (int j = i; j < n - i - 1; j++)
-//     {
-//       int ptr = v[i][j];
-//       v[i][j] = v[n - 1 - j][i];
-//       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
-//       v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
-//       v[j][n - 1 - i] = ptr;
-//     }
-//   }
-// }
 
+
+
+void rotateMatrix(vector<vector<int>> &v, int n)
+{
+  for (int i = 0; i < n / 2; i++)
+  {
+    for (int j = i; j < n - i - 1; j++)
+    {
+      int ptr = v[i][j];
+      v[i][j] = v[n - 1 - j][i];
+      v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+      v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+      v[j][n - 1 - i] = ptr;
+    }
+  }
+}
+
+ll m = 998244353;
+
+long long erfd(long long a, long long b)
+{
+  if (b == 0)
+    return 1;
+  long long ans = erfd(a, b / 2);
+  if (b % 2)
+    return (ans % m * ans % m * a) % m;
+  else
+    return ans % m * ans % m;
+}
 
 
 signed main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  ll t; cin >> t;
+  int t; cin >> t;
   while(t--) {
-    string s;cin>>s;
+    ll n;cin>> n;
+    vector<ll> v(n+1);
 
-    ll len=s.size();
 
-    for (int i = 0; i < len; i++)
-    {
-      
-      if(s[i]=='?' and i<len/2){
-        s[i]='0';
-      }else {
-        s[i]='1';
-      }
+    for (int i = 1; i <=n; i++) {
+      cin>>v[i];
+    }
+
+   
+
+    for (int i = 1; i <=n; i++){ 
+      ans=__gcd(ans,abs(v[i]-i));
     }
 
 
-    cout<<s<<endl;
+    cout<<ans<<endl;
     
-
-
-   
   }
-
   return 0;
 }
+
+
