@@ -190,22 +190,25 @@ ll solve(vector<ll> &arr, ll n)
   return ans;
 }
 
-signed main() {
+signed main()
+{
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  int t;cin >> t;
-  while (t--) {
-    ll n;cin >> n;
+  int t;
+  cin >> t;
+  while (t--)
+  {
+    ll n;
+    cin >> n;
     vector<ll> arr(n, 0);
-    for (ll i = 0; i < n; i++) cin >> arr[i];
+    for (ll i = 0; i < n; i++)
+      cin >> arr[i];
 
     ll ans = solve(arr, n);
     reverse(arr.begin(), arr.end());
-    cout<<ans<<endl;
+    cout << ans << endl;
     ans = max(ans, solve(arr, n));
 
     cout << ans << endl;
   }
-
-
 }
