@@ -118,9 +118,6 @@ bool isValid(string s)
   return true;
 }
 
-
-
-
 void rotateMatrix(vector<vector<int>> &v, int n)
 {
   for (int i = 0; i < n / 2; i++)
@@ -149,50 +146,57 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-
-signed main() {
+signed main()
+{
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  int t; cin >> t;
-  while(t--) {
+  int t;
+  cin >> t;
+  while (t--)
+  {
     ll n;
-    cin>>n;
-    ll a[n],h=0,l=0,p;
-    for(int i=0;i<n;i++){
-        cin>>a[i];
-    }ll m=0;
-    for(int i=1;i<n;i++){
-        if(m<a[i]){
-            m=a[i];
-            l=i;
-          
-        }
+    cin >> n;
+    ll a[n], h = 0, l = 0, p;
+    for (int i = 0; i < n; i++)
+    {
+      cin >> a[i];
     }
-    
-    if(l!=n-1)l--;
-    
-    for(int i=l-1;i>=0;i--){
-        if(a[0]>a[i]){
-            h=i;
-            break;
-        }
-        
+
+    ll m = 0;
+    for (int i = 1; i < n; i++)
+    {
+      if (m < a[i])
+      {
+        m = a[i];
+        l = i;
+      }
+    }
+
+    if (l != n - 1)
+      l--;
+
+    for (int i = l - 1; i >= 0; i--)
+    {
+      if (a[0] > a[i])
+      {
+        h = i;
+        break;
+      }
     }
     h++;
-    for(int i=l+1;i<n;i++){
-        cout<<a[i]<<" ";
-    }for(int i=l;i>=h;i--){
-        cout<<a[i]<<" ";
-    }for(int i=0;i<h;i++){
-        cout<<a[i]<<" ";
-    }cout<<endl;
-
-   
-
-    
-    
+    for (int i = l + 1; i < n; i++)
+    {
+      cout << a[i] << " ";
+    }
+    for (int i = l; i >= h; i--)
+    {
+      cout << a[i] << " ";
+    }
+    for (int i = 0; i < h; i++)
+    {
+      cout << a[i] << " ";
+    }
+    cout << endl;
   }
   return 0;
 }
-
-
