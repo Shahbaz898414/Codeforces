@@ -195,18 +195,18 @@ signed main()
   cin.tie(nullptr);
   int t;
   cin >> t;
-  while (t--)
-  {
-    ll n;
-    cin >> n;
+  while (t--) {
+    ll n;cin >> n;
     vector<ll> arr(n, 0);
-    for (ll i = 0; i < n; i++)
-      cin >> arr[i];
+    for (ll i = 0; i < n; i++) cin >> arr[i];
 
     ll ans = solve(arr, n);
     reverse(arr.begin(), arr.end());
+    cout<<ans<<endl;
     ans = max(ans, solve(arr, n));
-    
+
     cout << ans << endl;
   }
+
+  
 }
