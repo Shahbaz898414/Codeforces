@@ -193,8 +193,7 @@ signed main()
 {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  int t;
-  cin >> t;
+  int t;cin >> t;
   while (t--) {
     ll n;cin >> n;
     vector<ll> arr(n, 0);
@@ -208,5 +207,5 @@ signed main()
     cout << ans << endl;
   }
 
-  
+
 }
