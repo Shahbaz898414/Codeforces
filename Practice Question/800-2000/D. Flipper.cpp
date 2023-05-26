@@ -158,9 +158,7 @@ signed main()
     cin >> n;
     ll a[n], h = 0, l = 0, p;
     for (int i = 0; i < n; i++)
-    {
       cin >> a[i];
-    }
 
     ll m = 0;
     for (int i = 1; i < n; i++)
@@ -198,5 +196,4 @@ signed main()
     }
     cout << endl;
   }
-  return 0;
 }
