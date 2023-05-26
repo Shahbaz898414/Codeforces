@@ -161,41 +161,6 @@ signed main()
       cin >> a[i];
 
     ll m = 0;
-    for (int i = 1; i < n; i++)
-    {
-      if (m < a[i])
-      {
-        m = a[i];
-        l = i;
-      }
-    }
-
-    if (l != n - 1)
-      l--;
-
-    for (int i = l - 1; i >= 0; i--)
-    {
-      if (a[0] > a[i])
-      {
-        h = i;
-        break;
-      }
-    }
-
-    h++;
-    
-    for (int i = l + 1; i < n; i++)
-    {
-      cout << a[i] << " ";
-    }
-    for (int i = l; i >= h; i--)
-    {
-      cout << a[i] << " ";
-    }
-    for (int i = 0; i < h; i++)
-    {
-      cout << a[i] << " ";
-    }
-    cout << endl;
+   
   }
 }

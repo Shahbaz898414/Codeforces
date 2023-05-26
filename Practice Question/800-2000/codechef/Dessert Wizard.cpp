@@ -146,6 +146,53 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
+
+ll solve(vector<ll> & arr,ll n)
+{
+    vector<ll>prefix(n,0);
+        
+        ll j=0;
+        ll curr=0;
+        ll res=INT_MIN;
+        while(j<n)
+        {
+            curr+=arr[j];
+            res=max(res,curr);
+            if(curr<0)
+            curr=0;
+            prefix[j]=res;
+            j++;
+        }
+        
+        
+        vector<ll> suffix(n,0);
+        curr=0;
+        res=INT_MAX;
+        j=n-1;
+        while(j>=0)
+        {
+            curr+=arr[j];
+            res=min(res,curr);
+            if(curr>0)
+            {
+                curr=0;
+            }
+            suffix[j]=res;
+            j--;
+        }
+        
+        ll ans=INT_MIN;
+        
+        for(ll i=1;i<n;i++)
+        {
+            ll x=abs(prefix[i-1]-suffix[i]);
+            ans=max(ans,x);
+        }
+    return ans;
+    
+}
+
+
 signed main()
 {
   ios::sync_with_stdio(false);
@@ -154,48 +201,14 @@ signed main()
   cin >> t;
   while (t--)
   {
-    ll n;
-    cin >> n;
-    ll a[n], h = 0, l = 0, p;
-    for (int i = 0; i < n; i++)
-      cin >> a[i];
+     ll n;
+        cin>>n;
+        vector<ll> arr(n,0);
+        for(ll i=0;i<n;i++)
+        cin>>arr[i];
 
-    ll m = 0;
-    for (int i = 1; i < n; i++)
-    {
-      if (m < a[i])
-      {
-        m = a[i];
-        l = i;
-      }
-    }
 
-    if (l != n - 1)
-      l--;
-
-    for (int i = l - 1; i >= 0; i--)
-    {
-      if (a[0] > a[i])
-      {
-        h = i;
-        break;
-      }
-    }
-
-    h++;
-    
-    for (int i = l + 1; i < n; i++)
-    {
-      cout << a[i] << " ";
-    }
-    for (int i = l; i >= h; i--)
-    {
-      cout << a[i] << " ";
-    }
-    for (int i = 0; i < h; i++)
-    {
-      cout << a[i] << " ";
-    }
-    cout << endl;
+     
+   
   }
 }
