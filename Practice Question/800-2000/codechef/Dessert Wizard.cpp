@@ -208,7 +208,10 @@ signed main()
         cin>>arr[i];
 
 
-     
+       ll ans=solve(arr,n);
+        reverse(arr.begin(),arr.end());
+        ans=max(ans,solve(arr,n));
+        cout<<ans<<endl;
    
   }
 }
