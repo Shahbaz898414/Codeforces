@@ -157,7 +157,7 @@ signed main()
     ll n;
     cin >> n;
     ll a[n];
-    ll h = 0, l = 0, p;
+   
     for (int i = 0; i < n; i++)
       cin >> a[i];
 
