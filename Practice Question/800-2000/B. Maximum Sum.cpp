@@ -158,14 +158,42 @@ signed main()
     ll n, k;
     cin >> n >> k;
 
-    ll arr[n];
+    ll a[n + 1];
 
-    for (ll i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
-      cin >> arr[i];
+      cin >> a[i];
+    }
+    sort(a + 1, a + 1 + n);
+     for (ll i = 1; i <=n; i++)
+      {
+      
+        cout<<a[i]<<" ";
+      }
+      cout<<endl;
+    for (int i = 2; i <= n; i++)
+      a[i] += a[i - 1];
+
+      for (ll i = 1; i <=n; i++)
+      {
+        
+        cout<<a[i]<<" ";
+      }
+
+      cout<<endl;
+      
+    long long ans = 0;
+    for (int i = 0; i <= k; i++){
+      // cout<<a[n - k + i] - a[i * 2]<<endl;
+       ans = max(ans, a[n - k + i] - a[i * 2]);
+      
     }
 
-    sort(a, a + n);
+    // cout<<"main"<<endl;
+     
+
+    cout << ans << endl;
+    
   }
   return 0;
 }
