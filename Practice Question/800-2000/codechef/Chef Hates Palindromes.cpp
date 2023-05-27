@@ -185,7 +185,7 @@ signed main()
 			else if(n == 7) cout << "3 aaababb";
 			else if(n == 8) cout << "3 aaababbb";
 			else {
-				cout << "4";
+				cout << "4 ";
 				string result = "aabbab";
 				for(int i = 0; i<n; ++i) {
 					cout << result[i%6];
