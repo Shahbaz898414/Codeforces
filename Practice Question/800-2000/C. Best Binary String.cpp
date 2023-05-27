@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-// #include<iostream>
 using namespace std;
 #define ll long long
 #define mod 1000000007
@@ -119,6 +118,9 @@ bool isValid(string s)
   return true;
 }
 
+
+
+
 void rotateMatrix(vector<vector<int>> &v, int n)
 {
   for (int i = 0; i < n / 2; i++)
@@ -147,59 +149,34 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-signed main()
-{
+
+signed main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
   int t; cin >> t;
   while(t--) {
-    int n, a; cin >> n >> a;
-    if (a == 1)
+    string s;cin>>s;
+
+
+
+    for (ll i = 0; i < s.size(); i++)
     {
-      cout << n << ' ';
-      for (int i = 0; i < n; ++i)
-      {
-        cout << 'a';
-      }
-    }
-    else if (a > 2)
-    {
-      cout << "1 ";
-      string result = "abc";
-      for (int i = 0; i < n; ++i)
-      {
-        cout << result[i % 3];
-      }
-    }
-    else
-    {
-      if (n == 1)
-        cout << "1 a";
-      else if (n == 2)
-        cout << "1 ab";
-      else if (n == 3)
-        cout << "2 aab";
-      else if (n == 4)
-        cout << "2 aabb";
-      else if (n == 5)
-        cout << "3 aaabb";
-      else if (n == 6)
-        cout << "3 aaabbb";
-      else if (n == 7)
-        cout << "3 aaababb";
-      else if (n == 8)
-        cout << "3 aaababbb";
-      else
-      {
-        cout << "4 ";
-        string result = "aabbab";
-        for (int i = 0; i < n; ++i)
-        {
-          cout << result[i % 6];
+      /* code */
+      if(s[i]=='?'){
+        if(!i){
+          s[i]='0';
+        }else {
+          s[i]=s[i-1];
         }
       }
     }
 
-    cout << "\n";
+
+    cout<<s<<endl;
+    
+    
   }
+  return 0;
 }
+
+
