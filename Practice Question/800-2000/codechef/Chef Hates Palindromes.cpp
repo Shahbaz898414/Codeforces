@@ -147,17 +147,15 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-
-
-signed main() {
+signed main()
+{
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  int t;cin >> t;
-  while (t--){
-    ll n,m;cin >> n>>m;
-    
-   
+  int t;
+  cin >> t;
+  while (t--)
+  {
+    ll n, m;
+    cin >> n >> m;
   }
-
-
 }
