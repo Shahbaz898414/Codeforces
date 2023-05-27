@@ -41,21 +41,21 @@ void solve()
 
 int main() {
   // your code goes here
-  solve();
-      long long n;
-      cin>>n;
-      map<long long,long long> m;
-      for(long long j=0;j<n;j++)
-      {
-          long long x,y;
-          cin>>x>>y;
-          ++m[x];
-      }
-      long long p=1;
-      for(map<long long,long long>::iterator itr=m.begin();itr!=m.end();itr++)
-      {
-          p=(p*(fac[itr->second]%MOD))%MOD;
-      }
-      cout<<(p*inv[n])%MOD<<"\n";
+  
+  ll t;cin>>t;
+
+  while(t--) {
+    ll n;cin>>n;
+
+    pair<ll,ll> pr;
+
+    for (ll i = 0; i < ; i++)
+    {
+        /* code */
+        ll x,y;cin>>x>>y;
+        pr.make_pair(x,y);
+    }
+    
+  }
   return 0;
 }

@@ -118,9 +118,6 @@ bool isValid(string s)
   return true;
 }
 
-
-
-
 void rotateMatrix(vector<vector<int>> &v, int n)
 {
   for (int i = 0; i < n / 2; i++)
@@ -149,34 +146,34 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-
-signed main() {
+signed main()
+{
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  int t; cin >> t;
-  while(t--) {
-    string s;cin>>s;
-
-
+  int t;
+  cin >> t;
+  while (t--)
+  {
+    string s;
+    cin >> s;
 
     for (ll i = 0; i < s.size(); i++)
     {
       /* code */
-      if(s[i]=='?'){
-        if(!i){
-          s[i]='0';
-        }else {
-          s[i]=s[i-1];
+      if (s[i] == '?')
+      {
+        if (!i)
+        {
+          s[i] = '0';
+        }
+        else
+        {
+          s[i] = s[i - 1];
         }
       }
     }
 
-
-    cout<<s<<endl;
-    
-    
+    cout << s << endl;
   }
   return 0;
 }
-
-
