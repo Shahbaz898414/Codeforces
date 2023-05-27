@@ -43,6 +43,11 @@ void _print(T t)
   cerr << t;
 }
 
+
+
+
+
+
 template <class T, class V>
 void _print(pair<T, V> p)
 {
@@ -155,7 +160,41 @@ signed main()
   cin >> t;
   while (t--)
   {
-    ll n, m;
-    cin >> n >> m;
+    int n, a;
+		cin >> n >> a;
+		if(a == 1) {
+			cout << n << ' ';
+			for(int i = 0; i<n; ++i) {
+				cout << 'a';
+			}
+		}
+		else if(a>2) {
+			cout << "1 ";
+			string result = "abc";
+			for(int i = 0; i<n; ++i) {
+				cout << result[i%3];
+			}
+		}
+		else {
+			if(n == 1) cout << "1 a";
+			else if(n == 2) cout << "1 ab";
+			else if(n == 3) cout << "2 aab";
+			else if(n == 4) cout << "2 aabb";
+			else if(n == 5) cout << "3 aaabb";
+			else if(n == 6) cout << "3 aaabbb";
+			else if(n == 7) cout << "3 aaababb";
+			else if(n == 8) cout << "3 aaababbb";
+			else {
+				cout << "4";
+				string result = "aabbab";
+				for(int i = 0; i<n; ++i) {
+					cout << result[i%6];
+				}
+			}
+		}
+
+
+
+		cout << "\n";
   }
 }
