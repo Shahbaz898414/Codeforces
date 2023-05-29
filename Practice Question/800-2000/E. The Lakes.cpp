@@ -135,6 +135,7 @@ void rotateMatrix(vector<vector<int>> &v, int n)
 
 ll m = 998244353;
 
+ll ans = 0;
 long long erfd(long long a, long long b)
 {
   if (b == 0)
@@ -144,6 +145,23 @@ long long erfd(long long a, long long b)
     return (ans % m * ans % m * a) % m;
   else
     return ans % m * ans % m;
+}
+
+void dfs(int i, int j, int n, int m, vector<vector<int>> &a, vector<vector<int>> &vis)
+{
+  ans += a[i][j];
+  vis[i][j] = 1;
+
+  if (i - 1 >= 0 and vis[i - 1][j] == 0 and a[i - 1][j] > 0)
+    dfs(i - 1, j, n, m, a, vis);
+
+  if (j - 1 >= 0 and vis[i][j-1] == 0 and a[i][j-1] > 0)
+    dfs(i, j-1, n, m, a, vis);
+
+  if (i +1 < n and vis[i + 1][j] == 0 and a[i + 1][j] > 0)
+    dfs(i + 1, j, n, m, a, vis);
+  if (j + 1 < m and vis[i][j+1] == 0 and a[i][j+1] > 0)
+    dfs(i, j+1, n, m, a, vis);
 }
 
 signed main()
@@ -157,7 +175,40 @@ signed main()
     int n, m;
     cin >> n >> m;
 
-   
+    vector<vector<int>> a(n, vector<int>(m));
+
+    for (int i = 0; i < n; i++)
+    {
+      /* code */
+      for (int j = 0; j < m; j++)
+      {
+        /* code */
+        cin >> a[i][j];
+      }
+    }
+
+    vector<vector<int>> vis(n, vector<int>(m));
+
+    ll tut = 0;
+    ans = 0;
+
+    for (ll i = 0; i < n; i++)
+    {
+      /* code */
+      for (ll j = 0; j < m; j++)
+      {
+        /* code */
+        if (vis[i][j] == 0 and a[i][j] > 0)
+        {
+          dfs(i, j, n, m, a, vis);
+          tut = max(ans, tut);
+
+          ans = 0;
+        }
+      }
+    }
+
+    cout << tut << endl;
   }
   return 0;
 }
