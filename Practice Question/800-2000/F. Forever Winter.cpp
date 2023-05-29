@@ -158,7 +158,26 @@ signed main()
     cin >> n >> m;
 
     vector<int> adj[n + 1];
-    
+
+    for (int i = 0; i < m; i++)
+    {
+      /* code */
+      int a, b;
+      cin >> a >> b;
+      adj[a].push_back(b);
+      adj[b].push_back(a);
+    }
+
+    int leaf = -1;
+
+    for (int i = 1; i <= n; i++)
+    {
+      /* code */
+      if (adj[j].size() == 1)
+      {
+        leaf = i;
+      }
+    }
   }
   return 0;
 }
