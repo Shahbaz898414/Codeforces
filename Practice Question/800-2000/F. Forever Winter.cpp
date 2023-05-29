@@ -152,23 +152,69 @@ signed main()
   cin.tie(nullptr);
   int t;
   cin >> t;
-  while (t--) {
-    int n, k;
-    cin >> n >> k;
-    vector<int> a(n);
-    for (auto &c : a)
-      cin >> c;
-    sort(a.begin(), a.end());
-    vector<ll> psum(n + 1);
-    for (int i = 0; i < n; i++) {
-      psum[i + 1] = psum[i] + a[i];
+  while (t--)
+  {
+    int n, m;
+    cin >> n >> m;
+
+    vector<int> adj[n + 1];
+    vector<int> inOrder(n + 1, 0);
+    while (m--)
+    {
+      int a, b;
+      cin >> a >> b;
+      adj[a].push_back(b);
+      adj[b].push_back(a);
+
+      inOrder[a]++;
+      inOrder[b]++;
     }
-    ll ans = 0;
-    for (int i = 0; i <= k; i++) {
-      int y = k - i; 
-      ans = max(ans, psum[n - y] - psum[2 * i]);
+
+    for (auto it : inOrder)
+    {
+      cout << it << " ";
     }
-    cout << ans << '\n';
+
+    cout << endl;
+    vector<bool> vis(n + 1, false);
+    queue<pair<int, int>> q;
+
+    for (int i = 1; i <= n; i++)
+    {
+      if (inOrder[i] == 1)
+      {
+        q.push({i, 0});
+        vis[i] = true;
+      }
+    }
+
+    unordered_map<int, int> mp;
+
+    while (q.size() != 0)
+    {
+      int node = q.front().first;
+      int lvl = q.front().second;
+      q.pop();
+      mp[lvl]++;
+
+      for (auto it : adj[node])
+      {
+        if (!vis[it])
+        {
+          inOrder[it]--;
+          if (inOrder[it] == 1)
+          {
+            q.push({it, lvl + 1});
+            vis[it] = true;
+          }
+        }
+      }
+    }
+
+    int x = mp[1] / mp[2];
+    int y = mp[0] / mp[1];
+
+    cout << x << " " << y << endl;
   }
   return 0;
 }
