@@ -170,28 +170,28 @@ signed main()
       inOrder[b]++;
     }
 
-    for (int i =1; i <=n; i++)
-    {
+    // for (int i =1; i <=n; i++)
+    // {
     
-      cout<<i<<" --> ";
-      for (int j = 0; j <adj[i].size(); j++)
-      {
-        cout<<adj[i][j]<<" ";
-      }
+    //   cout<<i<<" --> ";
+    //   for (int j = 0; j <adj[i].size(); j++)
+    //   {
+    //     cout<<adj[i][j]<<" ";
+    //   }
 
-      cout<<endl;
+    //   cout<<endl;
       
-    }
+    // }
 
-    cout<<endl;
+    // cout<<endl;
     
 
-    for (auto it : inOrder)
-    {
-      cout << it << " ";
-    }
+    // for (auto it : inOrder)
+    // {
+    //   cout << it << " ";
+    // }
 
-    cout << endl;
+    // cout << endl;
     vector<bool> vis(n + 1, false);
     queue<pair<int, int>> q;
 
@@ -231,6 +231,8 @@ signed main()
     int y = mp[0] / mp[1];
 
     cout << x << " " << y << endl;
+
+    
   }
   return 0;
 }
