@@ -191,6 +191,7 @@ signed main()
         continue;
       l++;
       int r = t3 - l;
+      
       ans = max(ans, min(i, l + t1) + min(m - i, r + t2));
     }
     cout << ans << endl;
