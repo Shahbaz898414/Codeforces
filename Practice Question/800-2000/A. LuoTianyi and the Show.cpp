@@ -157,25 +157,15 @@ signed main()
     int n, m;
     cin >> n >> m;
 
-    vector<ll>  v(n*m);
+    vector<ll>  v(n);
 
-    for (int i = 0; i < n*m; i++)
+    for (int i = 0; i <n; i++)
     {
-      /* code */
+     
       cin>>v[i];
     }
 
-    sort(v.begin(),v.end());
-
-    // for(auto it:v){
-    //   cout<<it<<" ";
-    // }
-
-    // cout<<endl;
-
-    cout<<(v[n*m-1]-v[0])*(n*m-min(n,m))+(min(n,m)-1)*max(v[n*m-1]-v[1],v[n*m-2]-v[0])<<endl;
     
-
    
   }
   return 0;
