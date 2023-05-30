@@ -146,7 +146,7 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-int a[200005];
+
 
 signed main()
 {
@@ -159,46 +159,7 @@ signed main()
     int n, m;
     cin >> n >> m;
 
-    int t1 = 0, t2 = 0, t3 = 0, l = 0;
-
-    for (int i = 0; i < n; i++)
-    {
-
-      int x;
-      cin >> x;
-
-      if (x == -1)
-      {
-        t1++;
-      }
-      else if (x == -2)
-      {
-        t2++;
-      }
-      else
-      {
-        if (!a[x])
-          t3++;
-        a[x] = 1;
-      }
-    }
-
-    int ans = min(max(t1 + t3, t2 + t3), m);
-
-    for (int i = 1; i <= m; i++)
-    {
-      if (a[i] <= 0)
-        continue;
-      l++;
-      int r = t3 - l;
-
-      ans = max(ans, min(i, l + t1) + min(m - i, r + t2));
-    }
-
-    cout << ans << endl;
-
-    for (int i = 1; i <= m; i++)
-      a[i] = 0;
+   
   }
   return 0;
 }
