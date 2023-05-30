@@ -45,16 +45,23 @@ int main() {
   ll t;cin>>t;
 
   while(t--) {
-    ll n;cin>>n;
+    ll n,q;cin>>n>>q;
 
-    pair<ll,ll> pr;
+   ll arr[n];
+    ll brr[n]={0};
+   for (ll i = 0; i < n; i++){
+    cin>>arr[i];
+   }
 
-    for (ll i = 0; i < ; i++)
-    {
-        /* code */
-        ll x,y;cin>>x>>y;
-        pr.make_pair(x,y);
-    }
+   while(q--){
+    ll x,y,k;cin>>x>>y>>k;
+    x--;
+    y--;
+    brr[x]=1
+    brr[y+1]=-1;
+   }
+   
+   
     
   }
   return 0;

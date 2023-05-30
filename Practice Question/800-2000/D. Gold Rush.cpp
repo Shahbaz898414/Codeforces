@@ -146,6 +146,27 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
+bool ans =false;
+
+void f(ll a,ll n) {
+  if(a==n){
+    if(a==n) ans=true;
+
+    return ;
+  }
+
+
+  long long small =a/2;
+  long long big=a*2;
+
+  if(a+small<=n and small>0 and a%2==0){
+    f(a+small,n);
+
+  } 
+
+  if(a+big<=n)  f(a+big,n);
+}
+
 signed main()
 {
   ios::sync_with_stdio(false);
@@ -156,39 +177,14 @@ signed main()
   {
     int n, m;
     cin >> n >> m;
-
-    vector<int> adj[n + 1];
-
-    for (int i = 0; i < m; i++)
-    {
-      /* code */
-      int a, b;
-      cin >> a >> b;
-      adj[a].push_back(b);
-      adj[b].push_back(a);
-    }
-
-    int leaf = -1;
-
-    for (int i = 1; i <= n; i++)
-    {
-      /* code */
-      if (adj[i].size() == 1)
-      {
-        leaf = i;
-      }
-    }
-
-    int par=adj[leaf][0];
-    int ans=0;
-
-    for(int i:adj[par]){
-        if(adj[i].size()>1){
-          ans=i;
-        }
-    }
-
-    cout<<adj[ans].size()<<" "<<(adj[par].size()-1)<<endl;
+    if(n==m) cout<<"YES"<<endl;
+    else if(n%3==0){
+      ans=false;
+      f(m,n);
+      if(ans)  cout<<"YES"<<endl;
+      else cout<<"NO"<<endl;
+    }else cout<<"NO"<<endl;
+   
   }
   return 0;
 }
