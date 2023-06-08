@@ -157,9 +157,13 @@ signed main()
   while (t--)
   {
     int n, m;
-    cin >> n >> m;
+    cin >> n ;
+
+     vector<ll> v(n);
 
    
   }
+
+  
   return 0;
 }
