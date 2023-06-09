@@ -13,7 +13,7 @@ int main() {
 
         ll len=s.size(); 
 
-        int ans=n;
+        int ans=len;
 
 
         for (char i = 'a'; i <='z'; i++)
@@ -21,21 +21,24 @@ int main() {
           /* code */
           int l=0,r=0;
 
-          for (int j = 0; j <n; j++)
+          for (int j = 0; j <len; j++)
           {
-            /* code */
+           
             if(s[j]==i){
-              r=max(res,l);
+              r=max(r,l);
               l=0;
             }else{
               l++;
             }
           }
+
+          r=max(r,l);
+          ans=min(ans,r);
           
         }
         
 
 
-          
+         cout<<ans<<endl; 
     }
 }
