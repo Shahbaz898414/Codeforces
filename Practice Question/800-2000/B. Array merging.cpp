@@ -133,7 +133,7 @@ void rotateMatrix(vector<vector<int>> &v, int n)
   }
 }
 
-int ans;
+// int ans;
 
 void dfs(int node,vector<vector<pair<int,int>>> &adj,int par,int ire,int idx){
   ans=max(ans,ire);
@@ -167,25 +167,21 @@ signed main()
   cin >> t;
   while (t--) {
 
-    ans=0;
-    int n, m;
-    cin >> n;
+    ll n;cin>>n;
 
-    vector<vector<pair<int,int>>> adj(n);
+    ll arr[n];
+    ll b[n];
 
 
-    for (int i = 0; i < n-1; i++) {
-      int u,v;cin>>u>>v;
-      u--;v--;
-
-      adj[u].push_back({v,i});
-      adj[v].push_back({u,i});
-
+    for (ll i = 0; i < n; i++) {
+      cin>>arr[i];
     }
 
-
-    dfs(0,adj,-1,1,-1);
-    cout<<ans<<endl;
+    for (ll i = 0; i < n; i++) {
+      cin>>b[i];
+    }
+    
+    
     
   }
 
