@@ -135,16 +135,16 @@ void rotateMatrix(vector<vector<int>> &v, int n)
 
 // int ans;
 
-void dfs(int node,vector<vector<pair<int,int>>> &adj,int par,int ire,int idx){
-  ans=max(ans,ire);
-  for(auto &[nb,it]:adj[node]){
-    if(nb==par) continue;
-    dfs(nb,adj,node,ire+(it<idx),it);
+void dfs(int node, vector<vector<pair<int, int>>> &adj, int par, int ire, int idx)
+{
+  ans = max(ans, ire);
+  for (auto &[nb, it] : adj[node])
+  {
+    if (nb == par)
+      continue;
+    dfs(nb, adj, node, ire + (it < idx), it);
   }
 }
-
-
-
 
 // long long erfd(long long a, long long b)
 // {
@@ -157,52 +157,52 @@ void dfs(int node,vector<vector<pair<int,int>>> &adj,int par,int ire,int idx){
 //     return ans % m * ans % m;
 // }
 
-
-
 int main()
 {
-  // ios::sync_with_stdio(false);
-  // cin.tie(nullptr);
+
   int t;
   cin >> t;
-  while (t--) {
+  while (t--)
+  {
 
-   ll n;
-  cin>>n;
-  ll a[n];
-  ll b[n];
-  
-  for(ll i=0;i<n;i++)
-  cin>>a[i];
-  
-  for(ll i=0;i<n;i++)
-  cin>>b[i];
-  
-  ll ans=0;
-  
-  ll cnt1[2*n+1]={0};
-  ll cnt2[2*n+1]={0};
-  
-  for(ll i=0;i<n;i++){
-      ll j=i;
-      while(j<n && a[j]==a[i])
-      j++;
-      cnt1[a[i]]=max(cnt1[a[i]],j-i);
-      i=--j;
-  }
-  
-  for(ll i=0;i<n;i++){
-      ll j=i;
-      while(j<n && b[j]==b[i])
-      j++;
-      cnt2[b[i]]=max(cnt2[b[i]],j-i);
-      i=--j;
-  }
-  
-  for(ll i=1;i<=2*n;i++)
-  ans=max(ans,cnt1[i]+cnt2[i]);
-  
-  cout<<ans<<"\n";    
+    ll n;
+    cin >> n;
+    ll a[n];
+    ll b[n];
+
+    for (ll i = 0; i < n; i++)
+      cin >> a[i];
+
+    for (ll i = 0; i < n; i++)
+      cin >> b[i];
+
+    ll ans = 0;
+
+    ll cnt1[2 * n + 1] = {0};
+    ll cnt2[2 * n + 1] = {0};
+
+    for (ll i = 0; i < n; i++)
+    {
+      ll j = i;
+      while (j < n && a[j] == a[i])
+        j++;
+      cnt1[a[i]] = max(cnt1[a[i]], j - i);
+      i = --j;
+    }
+
+    for (ll i = 0; i < n; i++)
+    {
+      ll j = i;
+      while (j < n && b[j] == b[i])
+        j++;
+      cnt2[b[i]] = max(cnt2[b[i]], j - i);
+      i = --j;
+    }
+
+    for (ll i = 1; i <= 2 * n; i++)
+      ans = max(ans, cnt1[i] + cnt2[i]);
+
+    cout << ans << "\n";
   }
 
   return 0;
