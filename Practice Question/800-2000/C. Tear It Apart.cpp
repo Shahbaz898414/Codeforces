@@ -2,43 +2,39 @@
 #define ll long long
 using namespace std;
 
+int main()
+{
+  int t;
+  cin >> t;
 
+  while (t--)
+  {
 
-int main() {
-    int t;
-    cin>>t;
-    
-    while(t--){
-        string s;cin>>s;
-
-        ll len=s.size(); 
-
-        int ans=len;
-
-
-        for (char i = 'a'; i <='z'; i++)
-        {
-          /* code */
-          int l=0,r=0;
-
-          for (int j = 0; j <len; j++)
-          {
-           
-            if(s[j]==i){
-              r=max(r,l);
-              l=0;
-            }else{
-              l++;
-            }
-          }
-
-          r=max(r,l);
-          ans=min(ans,r);
-          
-        }
-        
-
-
-         cout<<ans<<endl; 
-    }
+    // cout<<(int)log2(5)+1<<endl;
+    // 		string s;
+    // 		cin>>s;
+    // 		int ans=1e9;
+    // 		for (char i='a';i<='z';i++)
+    // 		{
+    // 			int cnt=0,l=0;
+    // 			for (int j=0;j<s.size();j++)
+    // 			{
+    // 				if (s[j]==i)
+    // 				{
+    // 				    	cout<<"in loop "<<((int)log2(l)+1)<<" ";
+    // 					cnt=max(cnt,(int)log2(l)+1);
+    // 					l=0;
+    // 				}
+    // 				else
+    // 				{
+    // 					l++;
+    // 				}
+    // 			}
+    // 			cout<<endl;
+    // 			cout<<"out loop "<<((int)log2(l)+1)<<endl;
+    // 			cnt=max(cnt,(int)log2(l)+1);
+    // 			ans=min(ans,cnt);
+    // 		}
+    // 		cout<<"main ans"<<ans<<endl;
+  }
 }
