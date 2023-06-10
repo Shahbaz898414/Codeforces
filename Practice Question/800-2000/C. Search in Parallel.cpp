@@ -196,47 +196,51 @@ signed main()
   cin >> t;
   while (t--)
   {
-   ll n,s1,s2;cin>>n>>s1>>s2;
+    ll n, s1, s2;
+    cin >> n >> s1 >> s2;
 
-   vector<pair<int,int>> v;
+    vector<pair<int, int>> v;
 
-   for (int i = 0; i < n; i++) {
-      int x;cin>>x;
-      v.push_back({x,i+1});
-   }
-   
-
-   vector<int>  a;
-   vector<int> b;
-   int p1=s1,p2=s2;
-
-   for (int i = 0; i < n; i++)
-   {
-    /* code */
-    if(p1<=p2){
-      a.push_back(v[i].second);
-      p1+=s1;
-    }else{
-      b.push_back(v[i].second);
-      p2+=s2;
+    for (int i = 0; i < n; i++)
+    {
+      int x;
+      cin >> x;
+      v.push_back({x, i + 1});
     }
-   }
 
-   cout<<a.size()<<" ";
-   
-   for(int i=0;i<a.size();i++) {
-    cout<<a[i]<<" ";
-   }
-   cout<<endl;
+    vector<int> a;
+    vector<int> b;
+    int p1 = s1, p2 = s2;
 
-    cout<<b.size()<< ' ';
-    for(int i=0;i<b.size();i++) {
-    cout<<b[i]<<" ";
-   }
-   cout<<endl;
+    for (int i = 0; i < n; i++)
+    {
+      /* code */
+      if (p1 <= p2)
+      {
+        a.push_back(v[i].second);
+        p1 += s1;
+      }
+      else
+      {
+        b.push_back(v[i].second);
+        p2 += s2;
+      }
+    }
 
+    cout << a.size() << " ";
 
+    for (int i = 0; i < a.size(); i++)
+    {
+      cout << a[i] << " ";
+    }
+    cout << endl;
+
+    cout << b.size() << ' ';
+    for (int i = 0; i < b.size(); i++)
+    {
+      cout << b[i] << " ";
+    }
+    cout << endl;
   }
   return 0;
 }
-
