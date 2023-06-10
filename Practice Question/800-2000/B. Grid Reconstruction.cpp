@@ -194,8 +194,9 @@ signed main()
   cin.tie(nullptr);
   ll t;
   cin >> t;
-  while (t--) {
-    int n;cin >> n;
+  while (t--)
+  {
+    int n; cin >> n;
     int ans[3][n + 1];
 
     ans[1][1] = 2 * n - 1;
@@ -216,13 +217,8 @@ signed main()
     }
 
     for (int i = 1; i <= 2; i++)
-    
       for (int j = 1; j <= n; j++)
         cout << ans[i][j] << (j == n ? '\n' : ' ');
-      
-    
-
-
   }
   return 0;
 }
