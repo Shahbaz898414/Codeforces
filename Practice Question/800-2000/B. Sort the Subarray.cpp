@@ -150,15 +150,20 @@ signed main() {
     ll n;cin>>n;
     
 
-    ll arr[n],brr[n];
+    ll arr[n+1],brr[n+1];
 
-    for (ll i = 0; i < n; i++) {
+    for (ll i = 1; i <=n; i++) {
       cin>>arr[i];
     }
 
-    for (ll i = 0; i < n; i++) {
+    for (ll i =1; i <=n; i++) {
       cin>>brr[i];
     }
+
+    ll l=1,r=n;
+
+    while(l<=n&&arr[l]==brr[l])l++;
+		while(r>0&&arr[r]==brr[r])r--;
     
     
       
