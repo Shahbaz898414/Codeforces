@@ -208,6 +208,9 @@ signed main()
       v.push_back({x, i + 1});
     }
 
+    sort(v.begin(),v.end());
+    reverse(v.begin(),v.end());
+
     vector<int> a;
     vector<int> b;
     int p1 = s1, p2 = s2;
