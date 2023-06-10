@@ -144,100 +144,71 @@ signed main()
   while (t--)
   {
 
-    ll n;
-    cin >> n;
-
-    ll arr[n + 1], brr[n + 1];
-
-    set<int> st;
-    // vector<int> v(n);
-
-    for (ll i = 0; i <n; i++)
-    {
-      cin >> arr[i];
-
-      st.insert(arr[i]);
+     int n;cin>>n; vector<int>v(n); set<int>st;
+    for(int i=0;i<n;i++){
+        cin>>v[i];
+        st.insert(v[i]);
     }
 
-    int ab;
-
-    for (int i = 0; i <= n; i++)
-    {
-      /* code */
-      if (st.find(i) == st.end())
-      {
-        ab = i;
-        break;
-      }
+    int absent;
+    for(int i=0;i<=n;i++){
+        if(st.find(i)==st.end()){
+            absent=i;
+            break;
+        }
     }
 
-    if (st.find(ab + 1) == st.end() and ab != n)
-    {
-      cout << "YES" << endl;
+    if(st.find(absent+1)==st.end() && absent!=n){
+        cout<<"Yes"<<endl;
     }
-    else if (ab == n)
-    {
-      cout << "NO" << endl;
+    else if(absent==n){
+        cout<<"No"<<endl;
     }
     else
     {
-      int l, r;
+         int start_ind;
+         int last_ind;
+         for(int i=0;i<n;i++){
+            if(v[i]==absent+1){
+                start_ind=i;
+                break;
+            }
+         }
 
-      for (int i = 0; i < n; i++)
-      {
-        /* code */
-        if (arr[i] == ab + 1)
-        {
-          l = i;
-          break;
-        }
-      }
+          for(int i=n-1;i>=0;i--){
+            if(v[i]==absent+1){
+                last_ind=i;
+                break;
+            }
+         }
 
-      for (int i =n-1; i >=0; i--) { 
-      
-        if (arr[i] == ab + 1)
-        {
-          r = i;
-          break;
-        }
-      }
+         for(int i=start_ind;i<=last_ind;i++){
+            v[i]=absent;
+         }
 
+         set<int>st1;
+         for(int i=0;i<n;i++){
+            st1.insert(v[i]);
+         }
+         int ab;
+         for(int i=0;i<=n+1;i++){
+            if(st1.find(i)==st1.end()){
+                ab=i;
+                break;
+            }
+         }
 
-      for (int i = l; i <=r; i++)
-      {
-        /* code */
-        arr[i]=ab;
-
-
-      }
-
-      set<int> st1;
-
-      for (int i = 0; i < n; i++)
-      {
-        /* code */
-        st1.insert(arr[i]);
-      }
-
-      int ab1;
-
-      for (int i = 0; i <=n+1; i++)
-      {
-        /* code */
-        if(st1.find(i)==st1.end()){
-          ab1=i;
-          break;
-        }
-      }
-      
-
-      if(ab==ab1) cout<<"YES"<<endl;
-      else cout<<"NO"<<endl;
-      
-      
+         if(ab==absent+1)
+            cout<<"Yes"<<endl;
+         
+         else
+         
+             cout<<"No"<<endl;
+         
+         
     }
 
-    
+
   }
   return 0;
 }
