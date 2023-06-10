@@ -152,7 +152,7 @@ signed main()
     set<int> st;
     // vector<int> v(n);
 
-    for (ll i = 1; i <= n; i++)
+    for (ll i = 0; i <n; i++)
     {
       cin >> arr[i];
 
@@ -161,46 +161,81 @@ signed main()
 
     int ab;
 
-    for (int i = 0; i <=n; i++)
+    for (int i = 0; i <= n; i++)
     {
       /* code */
-      if(st.find(i)==st.end()){
-        ab=i;
+      if (st.find(i) == st.end())
+      {
+        ab = i;
         break;
       }
     }
 
-    if(st.find(ab+1)==st.end() and ab!=n){
-      cout<<"YES"<<endl;
-    }else if(ab==n){
-      cout<<"NO"<<endl;
-    }else{
-      int l,r;
+    if (st.find(ab + 1) == st.end() and ab != n)
+    {
+      cout << "YES" << endl;
+    }
+    else if (ab == n)
+    {
+      cout << "NO" << endl;
+    }
+    else
+    {
+      int l, r;
 
-      for (int i = 0; i <n ; i++)
+      for (int i = 0; i < n; i++)
       {
         /* code */
-        if(arr[i]==ab+1){
-          l=i;
+        if (arr[i] == ab + 1)
+        {
+          l = i;
           break;
         }
       }
 
-       for (int i = 0; i <n ; i++)
-      {
-        /* code */
-        if(arr[i]==ab+1){
-          l=i;
+      for (int i =n-1; i >=0; i--) { 
+      
+        if (arr[i] == ab + 1)
+        {
+          r = i;
           break;
         }
       }
 
 
+      for (int i = l; i <=r; i++)
+      {
+        /* code */
+        arr[i]=ab;
+
+
+      }
+
+      set<int> st1;
+
+      for (int i = 0; i < n; i++)
+      {
+        /* code */
+        st1.insert(arr[i]);
+      }
+
+      int ab1;
+
+      for (int i = 0; i <=n+1; i++)
+      {
+        /* code */
+        if(st1.find(i)==st1.end()){
+          ab1=i;
+          break;
+        }
+      }
+      
+
+      if(ab==ab1) cout<<"YES"<<endl;
+      else cout<<"NO"<<endl;
+      
       
     }
-
-
-    
 
     
   }
