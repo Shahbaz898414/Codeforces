@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 #define ll long long
 #define mod 1000000007
@@ -42,7 +42,6 @@ void _print(T t)
   cerr << t;
 }
 
-
 template <class T, class V>
 void _print(pair<T, V> p)
 {
@@ -52,7 +51,6 @@ void _print(pair<T, V> p)
   _print(p.ss);
   cerr << "}";
 }
-
 
 template <class T>
 void _print(vector<T> v)
@@ -65,7 +63,6 @@ void _print(vector<T> v)
   }
   cerr << "]";
 }
-
 
 template <class T>
 void _print(vector<vector<T>> v)
@@ -82,7 +79,6 @@ void _print(vector<vector<T>> v)
   cerr << "]";
 }
 
-
 template <class T, class V>
 void _print(map<T, V> v)
 {
@@ -94,7 +90,6 @@ void _print(map<T, V> v)
   }
   cerr << "]";
 }
-
 
 template <class T>
 void _print(set<T> v)
@@ -140,38 +135,43 @@ void rotateMatrix(vector<vector<int>> &v, int n)
 
 ll m = 998244353;
 
-
-signed main() {
+signed main()
+{
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  ll t;cin>>t;
-  while(t--) {
+  ll t;
+  cin >> t;
+  while (t--)
+  {
 
-    ll n;cin>>n;
-    
+    ll n;
+    cin >> n;
 
-    ll arr[n+1],brr[n+1];
+    ll arr[n + 1], brr[n + 1];
 
-    for (ll i = 1; i <=n; i++) {
-      cin>>arr[i];
+    for (ll i = 1; i <= n; i++)
+    {
+      cin >> arr[i];
     }
 
-    for (ll i =1; i <=n; i++) {
-      cin>>brr[i];
+    for (ll i = 1; i <= n; i++)
+    {
+      cin >> brr[i];
     }
 
-    ll l=1,r=n;
+    ll l = 1, r = n;
 
-    while(l<=n&&arr[l]==brr[l])l++;
-		while(r>0&&arr[r]==brr[r])r--;
-    
-    
-      
-    
-   
-    
+    while (l <= n && arr[l] == brr[l])
+      l++;
+    while (r > 0 && arr[r] == brr[r])
+      r--;
 
-   
+    while(l>1&&brr[l-1]<=brr[l])l--;
+		while(r<n&&brr[r+1]>=brr[r])r++;
+
+    cout<<l<<" "<<r<<endl;
+
+    
   }
   return 0;
 }
