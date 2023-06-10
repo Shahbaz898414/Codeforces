@@ -194,12 +194,8 @@ signed main()
   cin.tie(nullptr);
   ll t;
   cin >> t;
-  while (t--)
-  {
-
-    int n;
-    cin >> n;
-
+  while (t--) {
+    int n;cin >> n;
     int ans[3][n + 1];
 
     ans[1][1] = 2 * n - 1;
