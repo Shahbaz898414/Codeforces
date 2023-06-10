@@ -166,12 +166,12 @@ signed main()
     while (r > 0 && arr[r] == brr[r])
       r--;
 
-    while(l>1&&brr[l-1]<=brr[l])l--;
-		while(r<n&&brr[r+1]>=brr[r])r++;
+    while (l > 1 && brr[l - 1] <= brr[l])
+      l--;
+    while (r < n && brr[r + 1] >= brr[r])
+      r++;
 
-    cout<<l<<" "<<r<<endl;
-
-    
+    cout << l << " " << r << endl;
   }
   return 0;
 }
