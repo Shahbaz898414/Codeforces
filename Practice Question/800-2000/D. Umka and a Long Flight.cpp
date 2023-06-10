@@ -8,12 +8,8 @@ int main() {
 
    ll t;cin>>t;
    while(t--) {
-     ll n,m,k;cin>>n>>m>>k;
-     vector<ll> v;
+     ll n,m;cin>>n;
     
-    
-
-
     
    }
 
