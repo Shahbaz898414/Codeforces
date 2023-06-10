@@ -216,12 +216,13 @@ signed main()
     }
 
     for (int i = 1; i <= 2; i++)
-    {
+    
       for (int j = 1; j <= n; j++)
-      {
         cout << ans[i][j] << (j == n ? '\n' : ' ');
-      }
-    }
+      
+    
+
+
   }
   return 0;
 }
