@@ -149,29 +149,60 @@ signed main()
 
     ll arr[n + 1], brr[n + 1];
 
+    set<int> st;
+    // vector<int> v(n);
+
     for (ll i = 1; i <= n; i++)
     {
       cin >> arr[i];
+
+      st.insert(arr[i]);
     }
 
-    for (ll i = 1; i <= n; i++)
+    int ab;
+
+    for (int i = 0; i <=n; i++)
     {
-      cin >> brr[i];
+      /* code */
+      if(st.find(i)==st.end()){
+        ab=i;
+        break;
+      }
     }
 
-    ll l = 1, r = n;
+    if(st.find(ab+1)==st.end() and ab!=n){
+      cout<<"YES"<<endl;
+    }else if(ab==n){
+      cout<<"NO"<<endl;
+    }else{
+      int l,r;
 
-    while (l <= n && arr[l] == brr[l])
-      l++;
-    while (r > 0 && arr[r] == brr[r])
-      r--;
+      for (int i = 0; i <n ; i++)
+      {
+        /* code */
+        if(arr[i]==ab+1){
+          l=i;
+          break;
+        }
+      }
 
-    while (l > 1 && brr[l - 1] <= brr[l])
-      l--;
-    while (r < n && brr[r + 1] >= brr[r])
-      r++;
+       for (int i = 0; i <n ; i++)
+      {
+        /* code */
+        if(arr[i]==ab+1){
+          l=i;
+          break;
+        }
+      }
 
-    cout << l << " " << r << endl;
+
+      
+    }
+
+
+    
+
+    
   }
   return 0;
 }
