@@ -196,80 +196,47 @@ signed main()
   cin >> t;
   while (t--)
   {
-   int n;
-        cin >> n;
-        int max = 2 * n;
-        int min = 2;
-        // maximum to minimum
-        for (int i = 0; i < n;)
-        {
-            if (i < n)
-            {
-                cout << max << " ";
-                max -= 2;
-                i++;
-            }
-            if (i < n)
-            {
-                cout << min << " ";
-                min += 2;
-                i++;
-            }
-        }
-        cout << endl;
-        max = (2 * n) - 1;
-        min = 1;
-        // minimum to maximum
-        for (int i = 0; i < n;)
-        {
-            if (i < n)
-            {
-                cout << min << " ";
-                min += 2;
-                i++;
- 
-            }
-            if(i==1){
-                cout<<n+1<<" ";
-                i++;
-                max-=2;
-                continue;
-            }
-            if(i==n-1){
-                cout<<2*n-1;
-                i++;
-                max-=2;
-                continue;
-            }
-            if (i < n)
-            {
-                cout << max << " ";
-                max -= 2;
-                i++;
-            }
-        }
-        cout << endl;
+   ll n,s1,s2;cin>>n>>s1>>s2;
+
+   vector<pair<int,int>> v;
+
+   for (int i = 0; i < n; i++) {
+      int x;cin>>x;
+      v.push_back({x,i+1});
+   }
+   
+
+   vector<int>  a;
+   vector<int> b;
+   int p1=s1,p2=s2;
+
+   for (int i = 0; i < n; i++)
+   {
+    /* code */
+    if(p1<=p2){
+      a.push_back(v[i].second);
+      p1+=s1;
+    }else{
+      b.push_back(v[i].second);
+      p2+=s2;
+    }
+   }
+
+   cout<<a.size()<<" ";
+   
+   for(int i=0;i<a.size();i++) {
+    cout<<a[i]<<" ";
+   }
+   cout<<endl;
+
+    cout<<b.size()<< ' ';
+    for(int i=0;i<b.size();i++) {
+    cout<<b[i]<<" ";
+   }
+   cout<<endl;
+
+
   }
   return 0;
 }
 
-/*
-
-
-#include<iostream>
-using namespace std;
-int main(){
-    int n,t;
-    cin>>t;
-    while(t--) { 
-        cin>>n;
-        for(int i=0;i<n/2;i++) cout<<2*n-i*2<<" "<<2*i+2<<" ";
-        cout<<endl;
-        for(int i=0;i<n/2;i++) cout<<2*i+1<<" "<<n+2*i+1<<" ";
-        cout<<endl;
-    }
-}
-
-
-
-*/
