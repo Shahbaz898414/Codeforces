@@ -146,76 +146,86 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-void solve(int n,string &s) {
-  if (n % 2 == 1) {
-        cout << -1 << endl;
-        return;
+void solve(int n, string &s)
+{
+  if (n % 2 == 1)
+  {
+    cout << -1 << endl;
+    return;
+  }
+  vector<int> cnt(26);
+  for (int i = 0; i < n; ++i)
+  {
+    ++cnt[s[i] - 'a'];
+  }
+  for (int i = 0; i < 26; ++i)
+  {
+    if (cnt[i] * 2 > n)
+    {
+      cout << -1 << endl;
+      return;
     }
-    vector<int> cnt(26);
-    for (int i = 0; i < n; ++i) {
-        ++cnt[s[i] - 'a'];
+  }
+  int pairs = 0;
+  vector<int> cnt_pairs(26);
+  for (int i = 0; i * 2 < n; ++i)
+  {
+    if (s[i] == s[n - i - 1])
+    {
+      ++pairs;
+      ++cnt_pairs[s[i] - 'a'];
     }
-    for (int i = 0; i < 26; ++i) {
-        if (cnt[i] * 2 > n) {
-            cout << -1 << endl;
-            return;
-        }
+  }
+  for (int i = 0; i < 26; ++i)
+  {
+    if (cnt_pairs[i] * 2 > pairs)
+    {
+      cout << cnt_pairs[i] << endl;
+      return;
     }
-    int pairs = 0;
-    vector<int> cnt_pairs(26);
-    for (int i = 0; i * 2 < n; ++i) {
-        if (s[i] == s[n - i - 1]) {
-           ++pairs;
-           ++cnt_pairs[s[i] - 'a'];
-        }
-    }
-    for (int i = 0; i < 26; ++i) {
-        if (cnt_pairs[i] * 2 > pairs) {
-            cout << cnt_pairs[i] << endl;
-            return;
-        }
-    }
-    cout << (pairs + 1) / 2 << endl;
+  }
+  cout << (pairs + 1) / 2 << endl;
 }
 
-
-
-
-signed main() {
+signed main()
+{
 
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  ll t; cin >> t;
-  while (t--) {
-   
-		 int n;
-        cin >> n;
-        
-        int ans[3][n + 1];
-        
-        ans[1][1] = 2 * n - 1;
-        ans[2][n] = 2 * n;
+  ll t;
+  cin >> t;
+  while (t--)
+  {
 
-        for (int i = 2; i <= n; i++) {
-            if (i % 2 == 0) {
-                ans[1][i] = i;
-                ans[2][i - 1] = i - 1;
-            } else {
-                ans[1][i] = n + (i - 1);
-                ans[2][i - 1] = n + (i - 1) - 1;
-            }
-        }
+    int n;
+    cin >> n;
 
-        for (int i = 1; i <= 2; i++) {
-            for (int j = 1; j <= n; j++) {
-                cout << ans[i][j] << (j == n ? '\n' : ' ');
-            }
-        }
+    int ans[3][n + 1];
 
-    
-    
+    ans[1][1] = 2 * n - 1;
+    ans[2][n] = 2 * n;
 
-   
+    for (int i = 2; i <= n; i++)
+    {
+      if (i % 2 == 0)
+      {
+        ans[1][i] = i;
+        ans[2][i - 1] = i - 1;
+      }
+      else
+      {
+        ans[1][i] = n + (i - 1);
+        ans[2][i - 1] = n + (i - 1) - 1;
+      }
+    }
+
+    for (int i = 1; i <= 2; i++)
+    {
+      for (int j = 1; j <= n; j++)
+      {
+        cout << ans[i][j] << (j == n ? '\n' : ' ');
+      }
+    }
   }
   return 0;
 }
