@@ -6,12 +6,14 @@ using namespace std;
 
 int main() {
 
-   ll t;cin>>t;
-   while(t--) {
+  //  ll t;cin>>t;
+  //  while(t--) {
      ll n,m,k;cin>>n;
+
+     
     
     
-   }
+  //  }
 
 	
 	return 0;
