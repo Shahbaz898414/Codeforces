@@ -8,7 +8,7 @@ int main() {
 
    ll t;cin>>t;
    while(t--) {
-     ll n,m,k;cin>>n>>m>>k;
+     ll n,m,k;cin>>n;
     
     
    }
