@@ -1,15 +1,13 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 #define ll long long
 using namespace std;
 
-int main()
-{
+int main() {
 
   char a, b;
   cin >> a >> b;
 
-  ll s1 = a - 'A';
-  ll s2 = b - 'B';
+  ll s1 = a - 'A';ll s2 = b - 'A';
 
   ll arr[] = {0, 3, 4, 8, 9, 14, 23};
 
