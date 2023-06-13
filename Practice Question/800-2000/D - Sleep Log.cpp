@@ -147,28 +147,32 @@ int main()
 
   // cout<<endl;
 
-
   int q;
-  cin>>q;
-  while(q--){
-      ll l, r;
-      cin>>l>>r;
-      ll in1=lower_bound(all(ghum),l)-ghum.begin();
-      ll in2=upper_bound(all(uthse),r)-uthse.begin();
-      ll sum=pref[in2]-pref[in1];
-      ll in3=in1*2+1;
-      if(in3>1){
-          if(arr[in3-1]>l){
-              sum+=max(arr[in3-1]-max(l,arr[in3-2]),0ll);
-          }
+  cin >> q;
+  while (q--)
+  {
+    ll l, r;
+    cin >> l >> r;
+    ll in1 = lower_bound(all(ghum), l) - ghum.begin();
+    ll in2 = upper_bound(all(uthse), r) - uthse.begin();
+    ll sum = pref[in2] - pref[in1];
+    ll in3 = in1 * 2 + 1;
+    if (in3 > 1)
+    {
+      if (arr[in3 - 1] > l)
+      {
+        sum += max(arr[in3 - 1] - max(l, arr[in3 - 2]), 0ll);
       }
-      ll in4=in2*2+1;
-      if(in4<n){
-          if(arr[in4]<=r){
-              sum+=max(min(r,arr[in4+1]-1)-arr[in4],0ll);
-          }
+    }
+    ll in4 = in2 * 2 + 1;
+    if (in4 < n)
+    {
+      if (arr[in4] <= r)
+      {
+        sum += max(min(r, arr[in4 + 1] - 1) - arr[in4], 0ll);
       }
-      cout<<sum<<nl;
+    }
+    cout << sum << nl;
   }
 
   return 0;
