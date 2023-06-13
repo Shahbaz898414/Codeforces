@@ -8,7 +8,7 @@ int main()
   ll n, m;
   cin >> n >> m;
 
-  int H, W, U = 1e9, D = -1e9, L = 1e9, R = -1e9;
+  int  U = 1e9, D = -1e9, L = 1e9, R = -1e9;
 
   char arr[502][502];
 
@@ -25,11 +25,13 @@ int main()
       {
         U = min(U, i);
         D = max(D, i);
-        L = min(U, j);
-        R = max(D, j);
+        L = min(L, j);
+        R = max(R, j);
       }
     }
   }
+
+  // cout<<U<<" "<<D<<" "<<L<<" "<<R<<endl;
 
   for (int i = U; i <= D; i++)
     for (int j = L; j <= R; j++)
