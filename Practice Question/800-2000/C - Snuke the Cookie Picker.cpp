@@ -17,10 +17,10 @@ int main()
 
   for (int i = 0; i < n; i++)
   {
-    /* code */
+    
     for (int j = 0; j < m; j++)
     {
-      /* code */
+      
 
       if (s[i][j] == '#')
       {
@@ -31,6 +31,19 @@ int main()
       }
     }
   }
+
+
+  for (int i = U; i <=D; i++)
+  {
+   
+    for (int i = L; i <=R; i++)
+    {
+     
+      if(s[i][j]=='.') cout<<i+1<<" "<<j+1<<endl;
+    }
+    
+  }
+  
 
   return 0;
 }
