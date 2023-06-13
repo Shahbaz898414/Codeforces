@@ -13,9 +13,9 @@ int main()
   for (ll i = 0; i < n; i++)
   {
     for (ll j = 0; j < m; j++)
-    {
+    
       cin >> arr[i][j];
-    }
+    
   }
 
   return 0;
