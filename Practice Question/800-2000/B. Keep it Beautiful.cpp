@@ -4,14 +4,15 @@ using namespace std;
 
 int main() {
 
-  char a, b;
-  cin >> a >> b;
+  ll t;cin>>t;
 
-  ll s1 = a - 'A';ll s2 = b - 'A';
+  while(t--) {
+    ll n;cin>>n;
 
-  ll arr[] = {0, 3, 4, 8, 9, 14, 23};
+    vector<ll> arr(n);
 
-  cout << abs(arr[s2] - arr[s1]) << endl;
-
+    
+  }
+ 
   return 0;
 }
