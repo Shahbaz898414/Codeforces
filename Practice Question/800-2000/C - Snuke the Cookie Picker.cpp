@@ -32,15 +32,9 @@ int main()
   }
 
   for (int i = U; i <= D; i++)
-  {
-
     for (int j = L; j <= R; j++)
-    {
-
       if (arr[i][j] == '.')
         cout << i + 1 << " " << j + 1 << endl;
-    }
-  }
 
   return 0;
 }
