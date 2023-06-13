@@ -17,12 +17,11 @@ int main()
 
   for (int i = 0; i < n; i++)
   {
-    
+
     for (int j = 0; j < m; j++)
     {
-      
 
-      if (s[i][j] == '#')
+      if (arr[i][j] == '#')
       {
         U = min(U, i);
         D = max(D, i);
@@ -32,18 +31,16 @@ int main()
     }
   }
 
-
-  for (int i = U; i <=D; i++)
+  for (int i = U; i <= D; i++)
   {
-   
-    for (int i = L; i <=R; i++)
+
+    for (int j = L; j <= R; j++)
     {
-     
-      if(s[i][j]=='.') cout<<i+1<<" "<<j+1<<endl;
+
+      if (arr[i][j] == '.')
+        cout << i + 1 << " " << j + 1 << endl;
     }
-    
   }
-  
 
   return 0;
 }
