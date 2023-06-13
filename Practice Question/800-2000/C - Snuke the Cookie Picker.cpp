@@ -8,14 +8,28 @@ int main()
   ll n, m;
   cin >> n >> m;
 
-  char arr[n][m];
+  int H, W, U = 1e9, D = -1e9, L = 1e9, R = -1e9;
 
-  for (ll i = 0; i < n; i++)
+  char arr[502][502];
+
+  for (int i = 0; i < n; i++)
+    cin >> arr[i];
+
+  for (int i = 0; i < n; i++)
   {
-    for (ll j = 0; j < m; j++)
-    
-      cin >> arr[i][j];
-    
+    /* code */
+    for (int j = 0; j < m; j++)
+    {
+      /* code */
+
+      if (s[i][j] == '#')
+      {
+        U = min(U, i);
+        D = max(D, i);
+        L = min(U, j);
+        R = max(D, j);
+      }
+    }
   }
 
   return 0;
