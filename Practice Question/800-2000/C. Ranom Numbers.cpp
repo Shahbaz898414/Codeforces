@@ -59,6 +59,4 @@ int main()
     ll ans = solve(n - 1, 0, 0);
     cout << ans << "\n";
   }
-
-
 }
