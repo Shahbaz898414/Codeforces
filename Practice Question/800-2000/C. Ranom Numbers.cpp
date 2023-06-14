@@ -27,7 +27,11 @@ ll solve(int in, int mx, int changed) {
   int sign = 1;
   if (s[in] - 'A' < mx)
     sign = -1;
+
+  
   ll res = sign * val[s[in] - 'A'] + solve(in - 1, max(mx, int(s[in] - 'A')), changed);
+
+
   if (!changed)
   {
     for (int i = 0; i < 5; i++)
