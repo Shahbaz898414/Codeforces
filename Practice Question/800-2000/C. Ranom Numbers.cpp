@@ -27,12 +27,12 @@ ll solve(int in, int mx, int changed)
   if (s[in] - 'A' < mx)
     sign = -1;
 
-  ll res = sign * val[s[in] - 'A'] + solve(in - 1, max(mx, int(s[in] - 'A')), changed);
-
+  ll res = sign * val[s[in] - 'A'] + solve(in - 1, max(mx, int(s[in] - 'A')), changed); // ye wala part nhi samja
+//
   if (!changed)
   {
     for (int i = 0; i < 5; i++)
-    {
+    { // i =0=A
       if (i != s[in] - 'A')
       {
         sign = 1;
@@ -42,6 +42,8 @@ ll solve(int in, int mx, int changed)
       }
     }
   }
+
+  // ABCDEEDCBA  //  EBCDEEDCBA
   return dp[in][mx][changed] = res;
 }
 
