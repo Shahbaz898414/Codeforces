@@ -43,9 +43,12 @@ int main()
 
       sum += c[i];
     }
+
     if (f == 1)
       cout << "NO" << endl;
     else
       cout << "YES" << endl;
+
+      
   }
 }
