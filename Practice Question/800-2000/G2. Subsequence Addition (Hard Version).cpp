@@ -11,9 +11,12 @@ using namespace std;
 #define pb push_back
 #define ppb pop_back
 
-const int mxn = 200005;
-ll val[] = {1, 10, 100, 1000, 10000};
+// const int mxn = 200005;
+// ll val[] = {1, 10, 100, 1000, 10000};
 // ll dp[mxn][7][2], n;
+
+
+
 
 int main()
 {

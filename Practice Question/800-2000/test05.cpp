@@ -1,68 +1,73 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
-typedef bool                   boo;
-typedef int                    li;
-typedef long                   il;
-typedef long long int          ll;
+const int MOD = 1000000007;
 
+// bool check_bitwise_AND(const std::vector<int>& A, int B) {
+//     int N = A.size();
 
-const ll MOD =                 1e9+7;
-const int N = 1e5+1;
-///_________ L E T ' S  B E G I N ____________
+//     // Iterate over all possible subsets
+//     for (int mask = 1; mask < (1 << N); mask++) {
+//         int bitwiseAnd = A[__builtin_ctz(mask)]; // Get the first element in the subset
+//         for (int i = mask & (mask - 1); i != 0; i = mask & (i - 1)) {
+//             bitwiseAnd &= A[__builtin_ctz(i)]; // Calculate the bitwise AND of the elements in the subset
+//         }
+//         if (bitwiseAnd == B) {
+//             return true; // Subset with bitwise AND equal to B found
+//         }
+//     }
 
-ll fac[N],inv[N];
+//     return false; // No subset found with bitwise AND equal to B
+// }
 
-long long modpow(long long x, long long y, long long p) {
-    long long ret = 1;
-    while (y > 0) {
-        if (y % 2 == 1) {
-            ret = (ret * x) % p;
+void check_bitwise_AND() {
+     int n, k;
+    cin >> n >> k;
+    string s;
+    cin >> s;
+
+    int ans = 1;
+    int count = 0;
+    bool start = false;
+    int count2 = 0;
+    bool check = false;
+
+    for (int i = 0; i < n; i++) {
+        if (s[i] == 'a' || s[i] == 'i' || s[i] == 'u' || s[i] == 'o' || s[i] == 'e') {
+            if (!start) {
+                if (check) {
+                    count2++;
+                    ans = (ans * count2) % MOD;
+                }
+            }
+            count++;
+            start = true;
+            check = true;
+            count2 = 0;
+        } else {
+            if (!start) {
+                count2++;
+            }
         }
-        y /= 2;
-        x = (x * x) % p;
-
-
-
+        if (count == k) {
+            start = false;
+            count = 0;
+        }
     }
-    return ret;
-} 
 
-
-void solve()
-{
-   fac[0] = inv[0] = 1;
-   for (int i = 1; i < N; i++) {
-       fac[i] = (i * fac[i - 1]) % MOD;
-       inv[i] = modpow(fac[i], MOD - 2, MOD);
-
-  }
+    cout << ans << endl;
 }
 
 int main() {
-  // your code goes here
-  
-  ll t;cin>>t;
 
+  int t;cin>>t;
   while(t--) {
-    ll n,q;cin>>n>>q;
+    int n,m;cin>>n>>m;
 
-   ll arr[n];
-    ll brr[n]={0};
-   for (ll i = 0; i < n; i++){
-    cin>>arr[i];
-   }
 
-   while(q--){
-    ll x,y,k;cin>>x>>y>>k;
-    x--;
-    y--;
-    brr[x]=1
-    brr[y+1]=-1;
-   }
-   
-   
-    
   }
-  return 0;
+    
+    return 0;
 }
