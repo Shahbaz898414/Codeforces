@@ -21,15 +21,15 @@ void solve()
   cin >> n;
   vector<int> a(n);
   for (int i = 0; i < n; ++i)
- 
     cin >> a[i];
-  
+
   sort(a.begin(), a.end());
   if (a[0] != 1)
   {
     cout << "NO\n";
     return;
   }
+
   vector<int> dp(5005, 0);
 
   dp[1] = 1;
@@ -47,11 +47,15 @@ void solve()
     }
   }
 
+  // for (int j = 0; j <5000; j++)
+  //   {
+  //     cout<<dp[j] <<" ";
+  //   }
+
+  //   cout<<endl;
+
   cout << "YES\n";
-
 }
-
-
 
 int main()
 {
