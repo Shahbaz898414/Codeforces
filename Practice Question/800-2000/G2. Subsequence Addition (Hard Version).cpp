@@ -21,9 +21,9 @@ void solve()
   cin >> n;
   vector<int> a(n);
   for (int i = 0; i < n; ++i)
-  {
+ 
     cin >> a[i];
-  }
+  
   sort(a.begin(), a.end());
   if (a[0] != 1)
   {
@@ -31,7 +31,9 @@ void solve()
     return;
   }
   vector<int> dp(5005, 0);
+
   dp[1] = 1;
+
   for (int i = 1; i < n; ++i)
   {
     if (!dp[a[i]])
@@ -44,8 +46,12 @@ void solve()
       dp[j] |= dp[j - a[i]];
     }
   }
+
   cout << "YES\n";
+
 }
+
+
 
 int main()
 {
