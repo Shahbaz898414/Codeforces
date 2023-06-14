@@ -53,8 +53,12 @@ int main()
   {
     cin >> s;
     n = s.size();
+
+    ll len;
     memset(dp, -1, sizeof(dp[0]) * (n + 2));
     ll ans = solve(n - 1, 0, 0);
     cout << ans << "\n";
   }
+
+
 }
