@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long
+#define int long long
 #define mod 1000000007
 #define Time cerr << "time taken : " << (float)clock() / CLOCKS_PER_SEC << " secs" << endl;
 #define pb push_back
@@ -107,68 +107,256 @@ void _print(set<T> v)
 // const int MOD = 998244353;
 // const int MAX = 1e6;
 
-bool isValid(string s)
-{
-  int len = s.size();
-  for (int i = 0; i < len / 2; i++)
-  {
-    if (s[i] != s[len - 1 - i])
-      return false;
-  }
-  return true;
-}
+// bool isValid(string s)
+// {
+//   int len = s.size();
+//   for (int i = 0; i < len / 2; i++)
+//   {
+//     if (s[i] != s[len - 1 - i])
+//       return false;
+//   }
+//   return true;
+// }
 
-void rotateMatrix(vector<vector<int>> &v, int n)
-{
-  for (int i = 0; i < n / 2; i++)
-  {
-    for (int j = i; j < n - i - 1; j++)
-    {
-      int ptr = v[i][j];
-      v[i][j] = v[n - 1 - j][i];
-      v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
-      v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
-      v[j][n - 1 - i] = ptr;
-    }
-  }
-}
+// void rotateMatrix(vector<vector<int>> &v, int n)
+// {
+//   for (int i = 0; i < n / 2; i++)
+//   {
+//     for (int j = i; j < n - i - 1; j++)
+//     {
+//       int ptr = v[i][j];
+//       v[i][j] = v[n - 1 - j][i];
+//       v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+//       v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+//       v[j][n - 1 - i] = ptr;
+//     }
+//   }
+// }
 
-ll m = 998244353;
+// ll m = 998244353;
 
-long long erfd(long long a, long long b)
-{
-  if (b == 0)
-    return 1;
-  long long ans = erfd(a, b / 2);
-  if (b % 2)
-    return (ans % m * ans % m * a) % m;
-  else
-    return ans % m * ans % m;
-}
+// long long erfd(long long a, long long b)
+// {
+//   if (b == 0)
+//     return 1;
+//   long long ans = erfd(a, b / 2);
+//   if (b % 2)
+//     return (ans % m * ans % m * a) % m;
+//   else
+//     return ans % m * ans % m;
+// }
 
-signed main()
-{
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-  int t;
-  cin >> t;
-  while (t--) {
-    int n, k;
-    cin >> n >> k;
-    vector<int> a(n);
-    for (auto &c : a)
-      cin >> c;
-    sort(a.begin(), a.end());
-    vector<ll> psum(n + 1);
+// signed main()
+// {
+//   ios::sync_with_stdio(false);
+//   cin.tie(nullptr);
+//   int t;
+//   cin >> t;
+//   while (t--) {
+//     int n, k;
+//     cin >> n >> k;
+//     vector<int> a(n);
+//     for (auto &c : a)
+//       cin >> c;
+//     sort(a.begin(), a.end());
+//     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+//     cout << ans << '\n';
+//   }
+//   return 0;
+// }
+
+
+signed main() {
+    int t;
+    cin >> t;
+    while (t-- > 0) {
+         int n, k; cin >> n >> k;
+    string str;
+    cin >> str;
+
+    int main = 1;
+    //     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+    int cnt = 0;
+    //     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+    bool st = false;
+    //     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+    int vbt = 0;
+    //     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+    bool fl = false;
+
+//     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
     for (int i = 0; i < n; i++) {
-      psum[i + 1] = psum[i] + a[i];
+        if (str[i] == 'a'|| str[i] == 'i'|| str[i] == 'u'|| str[i] == 'e' || str[i] == 'o') {
+          //     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+            if (!st) {
+              //     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+                if (fl) {
+                    vbt++;
+                    //     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+                    main = (main * vbt) % mod;
+                    //     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+                }
+            }
+            cnt++;
+            //     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+            st = true;
+            //     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+            fl = true;
+            //     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+            vbt = 0;
+        } else {
+            if (!st) {
+              //     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+                vbt++;
+                //     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+            }
+        }
+        if (cnt == k) {
+          //     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+            st = false;
+            //     vector<ll> psum(n + 1);
+//     for (int i = 0; i < n; i++) {
+//       psum[i + 1] = psum[i] + a[i];
+//     }
+//     ll ans = 0;
+//     for (int i = 0; i <= k; i++) {
+//       int y = k - i; 
+//       ans = max(ans, psum[n - y] - psum[2 * i]);
+//     }
+            cnt = 0;
+        }
     }
-    ll ans = 0;
-    for (int i = 0; i <= k; i++) {
-      int y = k - i; 
-      ans = max(ans, psum[n - y] - psum[2 * i]);
+
+    cout << main << endl;
     }
-    cout << ans << '\n';
-  }
-  return 0;
+
+    return 0;
 }

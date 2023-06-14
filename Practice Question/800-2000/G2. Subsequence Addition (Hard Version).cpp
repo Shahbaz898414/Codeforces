@@ -15,9 +15,6 @@ using namespace std;
 // ll val[] = {1, 10, 100, 1000, 10000};
 // ll dp[mxn][7][2], n;
 
-
-
-
 int main()
 {
   ios_base::sync_with_stdio(false);
@@ -35,15 +32,15 @@ int main()
     sort(c + 1, c + 1 + n);
     long long sum = 1;
     if (c[1] != 1)
-    {
+
       f = 1;
-    }
+
     for (int i = 2; i <= n; i++)
     {
       if (c[i] > sum)
-      {
+
         f = 1;
-      }
+
       sum += c[i];
     }
     if (f == 1)

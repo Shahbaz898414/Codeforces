@@ -1,84 +1,361 @@
-#include <iostream>
-#include <vector>
 #include <bits/stdc++.h>
+
 using namespace std;
 
-const int MOD = 1000000007;
+const long long mod = 1e9 + 7;
 
-// bool check_bitwise_AND(const std::vector<int>& A, int B) {
-//     int N = A.size();
+typedef long long ll;
+#define pb push_back
+#define fi first
+#define se second
 
-//     // Iterate over all possible subsets
-//     for (int mask = 1; mask < (1 << N); mask++) {
-//         int bitwiseAnd = A[__builtin_ctz(mask)]; // Get the first element in the subset
-//         for (int i = mask & (mask - 1); i != 0; i = mask & (i - 1)) {
-//             bitwiseAnd &= A[__builtin_ctz(i)]; // Calculate the bitwise AND of the elements in the subset
-//         }
-//         if (bitwiseAnd == B) {
-//             return true; // Subset with bitwise AND equal to B found
-//         }
-//     }
-
-//     return false; // No subset found with bitwise AND equal to B
-// }
-
-void check_bitwise_AND()
+ll bit(ll x, ll y)
 {
-  int n, k;
-  cin >> n >> k;
-  string s;
-  cin >> s;
-
-  int main = 1;
-  int cnt = 0;
-  bool st = false;
-  int vnb = 0;
-  bool fl = false;
-
-  for (int i = 0; i < n; i++)
+  ll vnt = 1, vbg = x;
+  while (y > 0)
   {
-    if (s[i] == 'a' || s[i] == 'i' || s[i] == 'u' || s[i] == 'o' || s[i] == 'e')
-    {
-      if (!st)
-      {
-        if (fl)
-        {
-          vnb++;
-          main = (main * vnb) % MOD;
-        }
-      }
-      cnt++;
-      st = true;
-      fl = true;
-      vnb = 0;
-    }
-    else
-    {
-      if (!st)
-      {
-        vnb++;
-      }
-    }
-    if (cnt == k)
-    {
-      st = false;
-      cnt = 0;
-    }
+    if (y % 2)
+      vnt *= vbg, vnt %= mod;
+    vbg *= vbg, y /= 2, vbg %= mod;
   }
-
-  cout << main << endl;
+  return vnt;
 }
 
 int main()
 {
-
+  ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
   int t;
   cin >> t;
   while (t--)
   {
-    int n, m;
-    cin >> n >> m;
-  }
 
-  return 0;
+    ll l, r, center, vbg;
+     // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+    ll n, m, makin;
+
+    string s;
+     // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+    cin >> n >> s;
+
+    makin = 0;
+
+    l = 0, r = 0, center = 0, vbg = 0;
+     // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+    for (int i = 0; i < n; i++)
+      makin += (s[i] == '*');
+       // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+    for (int i = 0; i < s.size(); i++)
+    {
+      if (s[i] == '4')
+        vbg += l, r++, vbg %= mod;
+      else if (s[i] == '0')
+        l += r;
+    }
+    center += bit(2, makin) * vbg;
+     // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+    center %= mod;
+
+    l = 0, r = 0, vbg = 0;
+    for (int i = 0; i < s.size(); i++)
+    {
+      if (s[i] == '4')
+       // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+        r++;
+      if (s[i] == '0')
+        l += r;
+      if (s[i] == '*')
+        vbg += l, vbg %= mod;
+    }
+
+
+     // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+    center += bit(2, makin - 1) * vbg;
+     // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+    center %= mod;
+
+    l = 0, r = 0, vbg = 0;
+    for (int i = 0; i < s.size(); i++)
+    {
+      if (s[i] == '4')
+        vbg += l, r++, vbg %= mod;
+
+         // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+      else if (s[i] == '*')
+
+       // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+        l += r;
+    }
+    center += bit(2, makin - 1) * vbg;
+     // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+    center %= mod;
+
+    l = 0, r = 0, vbg = 0;
+    for (int i = 0; i < s.size(); i++)
+    {
+       // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+      if (s[i] == '*')
+        r++;
+         // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+      if (s[i] == '0')
+        l += r;
+      if (s[i] == '4')
+       // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+        vbg += l, vbg %= mod;
+    }
+    center += bit(2, makin - 1) * vbg;
+
+     // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+    center %= mod;
+
+    l = 0;
+    for (int i = 0; i < s.size(); i++)
+      l += (s[i] == '*');
+
+       // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+    l = (l * (l - 1) * (l - 2) / 6) % mod;
+    center += bit(2, makin - 3) * l;
+
+     // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+    center %= mod;
+
+    l = 0, r = 0, vbg = 0;
+    for (int i = 0; i < s.size(); i++)
+    {
+      if (s[i] == '*')
+        vbg += l, vbg %= mod, r++;
+
+         // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+      if (s[i] == '0')
+        l += r;
+    }
+    center += bit(2, makin - 2) * vbg;
+    center %= mod;
+
+     // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+
+    l = 0, r = 0, vbg = 0;
+    for (int i = 0; i < s.size(); i++)
+    {
+      if (s[i] == '4')
+        r++;
+      else if (s[i] == '*')
+      {
+        vbg += l, vbg %= mod;
+
+         // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+        l += r;
+      }
+    }
+    center += bit(2, makin - 2) * vbg;
+    center %= mod;
+
+     // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+
+    l = 0, r = 0, vbg = 0;
+    for (int i = 0; i < s.size(); i++)
+    {
+
+       // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+      if (s[i] == '4')
+        vbg += l, vbg %= mod;
+
+         // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+      else if (s[i] == '*')
+      {
+        l += r;
+         // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+        r++;
+      }
+    }
+    center += bit(2, makin - 2) * vbg;
+
+     // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+    center %= mod;
+
+
+     // l = 0, r = 0, vbg = 0;
+    // for (int i = 0; i < s.size(); i++)
+    // {
+    //   if (s[i] == '4')
+    //     vbg += l, r++, vbg %= mod;
+    //   else if (s[i] == '*')
+    //     l += r;
+    // }
+    cout << center << endl;
+  }
 }
