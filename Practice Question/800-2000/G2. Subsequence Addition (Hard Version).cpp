@@ -31,8 +31,8 @@ int main()
       cin >> c[i];
     sort(c + 1, c + 1 + n);
     long long sum = 1;
+    
     if (c[1] != 1)
-
       f = 1;
 
     for (int i = 2; i <= n; i++)
@@ -49,6 +49,6 @@ int main()
     else
       cout << "YES" << endl;
 
-      
+
   }
 }
