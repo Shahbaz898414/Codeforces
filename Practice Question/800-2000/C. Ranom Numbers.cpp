@@ -11,15 +11,14 @@ using namespace std;
 #define pb push_back
 #define ppb pop_back
 
-
-
 const int mxn = 200005;
 ll val[] = {1, 10, 100, 1000, 10000};
 ll dp[mxn][7][2], n;
 
 string s;
 
-ll solve(int in, int mx, int changed) {
+ll solve(int in, int mx, int changed)
+{
   if (in == -1)
     return 0;
   if (dp[in][mx][changed] != -1)
@@ -28,9 +27,7 @@ ll solve(int in, int mx, int changed) {
   if (s[in] - 'A' < mx)
     sign = -1;
 
-  
   ll res = sign * val[s[in] - 'A'] + solve(in - 1, max(mx, int(s[in] - 'A')), changed);
-
 
   if (!changed)
   {
@@ -48,14 +45,14 @@ ll solve(int in, int mx, int changed) {
   return dp[in][mx][changed] = res;
 }
 
-
-
-int main() {
+int main()
+{
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
   cout.tie(NULL);
 
-  _test {
+  _test
+  {
     cin >> s;
     n = s.size();
 
