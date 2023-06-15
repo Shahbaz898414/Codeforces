@@ -25,6 +25,16 @@ int main()
   cin >> t;
   while (t--)
   {
+    ll n;cin>>n;
+
+     vector<ll> v(n);
+
+     for (int i = 0; i < n; i++)
+     {
+      /* code */
+      cin>>arr[i];
+     }
+     
     
 
   }
