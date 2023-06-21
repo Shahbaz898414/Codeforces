@@ -11,16 +11,8 @@ using namespace std;
 #define pb push_back
 #define ppb pop_back
 
-// const int mxn = 200005;
-// ll val[] = {1, 10, 100, 1000, 10000};
-// ll dp[mxn][7][2], n;
-
-
-// vector<int> res;
-
 bool solve(int mid,vector<ll> &v){
   vector<int> res;
-
   int val=v[0]-mid;
   res.push_back(val);
   for (int i = 1; i <v.size(); i++)
@@ -29,12 +21,10 @@ bool solve(int mid,vector<ll> &v){
       res.push_back(val);
     }
   
-  
   if(res.size()<=3) return true;
   else return false;
 
 }
-
 
 
 
@@ -43,7 +33,7 @@ int main() {
   cin.tie(NULL);
   cout.tie(NULL);
 
-  int t, c[5003];
+  int t;
   cin >> t;
   while (t--) {
     ll n;cin>>n;
@@ -68,9 +58,8 @@ int main() {
         lo=mid+1;
       
     }
-     
-     cout<<ans<<endl;
-    
 
+
+    cout<<ans<<endl;
   }
 }
