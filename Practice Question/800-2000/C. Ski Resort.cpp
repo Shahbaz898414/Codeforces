@@ -19,6 +19,30 @@ int main()
     for (int i = 0; i < n; i++)
       cin >> v[i];
 
-      
+    ll cnt = 0, ans = 0;
+    for (int i = 0; i < n; i++)
+    {
+      /* code */
+      if (v[i] <= q)
+      {
+        cnt++;
+      }
+      else
+      {
+
+        if (cnt >= k)
+        {
+          ans = ans + cnt - k + 1;
+        }
+        cnt++;
+      }
+
+      if (cnt >= k)
+      {
+        ans = ans + cnt - k + 1;
+      }
+    }
+
+    cout << cnt << endl;
   }
 }
