@@ -24,21 +24,21 @@ bool solve(int mid,vector<ll> &v){
   int val=v[0]-mid;
   res.push_back(val);
   for (int i = 1; i <v.size(); i++)
-  {
-    /* code */
     if(abs(val-v[i])>mid){
       val=v[i]-mid;
       res.push_back(val);
     }
-  }
+  
   
   if(res.size()<=3) return true;
   else return false;
 
 }
 
-int main()
-{
+
+
+
+int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
   cout.tie(NULL);
