@@ -29,9 +29,8 @@ int main()
 
      vector<ll> v(n);
 
-     for (int i = 0; i < n; i++)
-     {
-      /* code */
+     for (int i = 0; i < n; i++){
+      
       cin>>arr[i];
      }
      
