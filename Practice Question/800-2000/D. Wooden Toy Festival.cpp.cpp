@@ -63,9 +63,10 @@ int main() {
       if(solve(mid,v)){
         ans=mid;
         hi=mid-1;
-      }else {
-        lo=mid+1;
       }
+      else 
+        lo=mid+1;
+      
     }
      
      cout<<ans<<endl;
