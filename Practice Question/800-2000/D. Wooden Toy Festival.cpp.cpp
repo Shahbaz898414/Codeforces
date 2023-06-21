@@ -2,14 +2,7 @@
 using namespace std;
 
 #define ll long long
-#define _test   \
-  int _TEST;    \
-  cin >> _TEST; \
-  while (_TEST--)
-#define ff first
-#define ss second
-#define pb push_back
-#define ppb pop_back
+
 
 bool solve(int mid,vector<ll> &v){
   vector<int> res;
