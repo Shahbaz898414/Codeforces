@@ -15,8 +15,11 @@ using namespace std;
 // ll val[] = {1, 10, 100, 1000, 10000};
 // ll dp[mxn][7][2], n;
 
+
+vector<int> res;
+
 bool solve(int mid,vector<ll> &v){
-  vector<int> res;
+  // vector<int> res;
 
   int val=v[0]-mid;
   res.push_back(val);
@@ -65,6 +68,7 @@ int main()
       }
     }
      
+     cout<<ans<<endl;
     
 
   }
