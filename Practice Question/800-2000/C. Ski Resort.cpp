@@ -30,19 +30,15 @@ int main()
       else
       {
 
-        if (cnt >= k)
-        {
-          ans = ans + cnt - k + 1;
-        }
-        cnt++;
+        // if (cnt >= k)
+        //   ans = ans + cnt - k + 1;
+        cnt=0;
       }
 
       if (cnt >= k)
-      {
         ans = ans + cnt - k + 1;
-      }
     }
 
-    cout << cnt << endl;
+    cout << ans << endl;
   }
 }
