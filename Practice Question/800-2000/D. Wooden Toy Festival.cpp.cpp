@@ -16,10 +16,10 @@ using namespace std;
 // ll dp[mxn][7][2], n;
 
 
-vector<int> res;
+// vector<int> res;
 
 bool solve(int mid,vector<ll> &v){
-  // vector<int> res;
+  vector<int> res;
 
   int val=v[0]-mid;
   res.push_back(val);
