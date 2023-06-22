@@ -20,6 +20,6 @@ int main()
     //   cin >> v[i];
 
     ll cnt = 0, ans = 0;
-   
+    cout<<(int)sqrt(n-1)<<endl;
   }
 }
