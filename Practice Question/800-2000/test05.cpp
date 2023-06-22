@@ -35,7 +35,7 @@ int main()
 
     for (ll i = 0; i < n; i++)
       cin >> v[i];
-
+ sort(v.begin(),v.end());
     int cnt=0;
 
     for (ll i = 0; i < n; i++)
@@ -44,7 +44,7 @@ int main()
       for (ll j = 0; j < n; j++)
       {
         /* code */
-          if(v[j]%v[i]==0) cnt++;
+          if(v[j]%v[i]==0  and v[i]!=v[j]) cnt++;
       }
     }
 
