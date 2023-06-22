@@ -34,8 +34,22 @@ int main()
     vector<ll> v(n);
 
     for (ll i = 0; i < n; i++)
-    {
       cin >> v[i];
+
+    int cnt=0;
+
+    for (ll i = 0; i < n; i++)
+    {
+      /* code */
+      for (ll j = 0; j < n; j++)
+      {
+        /* code */
+          if(v[j]%v[i]==0) cnt++;
+      }
     }
+
+    cout<<cnt<<endl;
+    
+    
   }
 }
