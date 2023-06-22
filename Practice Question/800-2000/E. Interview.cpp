@@ -29,8 +29,7 @@ int main()
     while (hi >= lo)
     {
       int mid = (lo + hi) / 2;
-      cout << "?"
-           << " ";
+      cout << "?"<< " ";
       cout << mid - lo + 1 << " ";
       for (int i = lo; i <= mid; i++)
       {
@@ -51,7 +50,6 @@ int main()
         lo = mid + 1;
       }
     }
-    cout << "!"
-         << " " << ans << endl;
+    cout << "!"<< " " << ans << endl;
   }
 }
