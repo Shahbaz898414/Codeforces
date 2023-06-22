@@ -29,10 +29,6 @@ int main()
   while (t--)
   {
 
-    int m,a;cin>>m>>a;
-
-    cout<<m*10<<" "<<m/5*10<<endl;
-
-    cout<<(m*10)+ ((m/5)*10);  
+   
   }
 }
