@@ -31,22 +31,17 @@ int main()
       int mid = (lo + hi) / 2;
       cout << "?"<< " ";
       cout << mid - lo + 1 << " ";
-      for (int i = lo; i <= mid; i++)
-      {
+      for (int i = lo; i <= mid; i++) 
         cout << i << " ";
-      }
-      // cout<<endl;
-      int x;
-      cin >> x;
+      
+      cout<<endl;
+      int x; cin >> x;
       int res = pre[mid] - pre[lo - 1];
-      if (x > res)
-      {
-
+      if (x > res) {
         ans = mid;
         hi = mid - 1;
       }
       else
-     
         lo = mid + 1;
       
     }
