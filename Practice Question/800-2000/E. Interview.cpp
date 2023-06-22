@@ -46,9 +46,9 @@ int main()
         hi = mid - 1;
       }
       else
-      {
+     
         lo = mid + 1;
-      }
+      
     }
     cout << "!"<< " " << ans << endl;
   }
