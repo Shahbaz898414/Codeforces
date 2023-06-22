@@ -15,11 +15,13 @@ int main()
 
     ll n, k, q;
     cin >> n ;
-    vector<ll> v(n);
+    // vector<ll> v(n);
     // for (int i = 0; i < n; i++)
     //   cin >> v[i];
 
     ll cnt = 0, ans = 0;
-    cout<<(int)sqrt(n-1)<<endl;
+    long long int x=sqrt(n-1);
+        cout<<x<<endl;
+
   }
 }
