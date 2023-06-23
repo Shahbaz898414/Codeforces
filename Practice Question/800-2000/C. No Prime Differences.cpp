@@ -24,25 +24,29 @@ typedef long long ll;
 int main()
 {
   ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-  int t;
-  cin >> t;
-  while (t--)
-  {
-
-    int n,k;
-    cin >> n>>k;
+  int t; cin >> t;
+  while (t--) {
+    int n,m;
+    cin >> n>>m;
     // vector<ll> v(n);
 
     // for (ll i = 0; i < n; i++)
     //   cin >> v[i];
-//  sort(v.begin(),v.end());
-    int cnt=0;
+    //  sort(v.begin(),v.end());
+
+    int cnt=1;
 
     int b1,b2,b3;
-
-   
-
-  
     
+    for (int i = 1; i <=n; i++) {
+      for (int j = 1; j <=k; j++) {
+        cout<<cnt<<" ";
+        cnt++;
+      }
+      cout<<endl;
+    }
+
+
+
   }
 }

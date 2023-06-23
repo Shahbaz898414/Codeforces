@@ -21,35 +21,80 @@ ll bit(ll x, ll y)
   return vnt;
 }
 
+
+bool isPrime(int num) {
+    if (num <= 1)
+        return false;
+    
+    for (int i = 2; i <= sqrt(num); i++) {
+        if (num % i == 0)
+            return false;
+    }
+    
+    return true;
+}
+
+
+void fillGrid(int n, int m) {
+    vector<vector<int>> grid(n, vector<int>(m));
+
+    int num = 1;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            // Find a non-prime number to assign to the current cell
+            while (isPrime(num))
+                num++;
+            
+            grid[i][j] = num;
+            num++;
+        }
+    }
+
+    // Print the grid
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            cout << grid[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
   ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-  int t;
-  cin >> t;
-  while (t--)
-  {
 
-    int n;
-    cin >> n;
-    vector<ll> v(n);
+  int n, m;
+    cin >> n >> m;
 
-    for (ll i = 0; i < n; i++)
-      cin >> v[i];
- sort(v.begin(),v.end());
-    int cnt=0;
+    fillGrid(n, m);
 
-    for (ll i = 0; i < n; i++)
-    {
-      /* code */
-      for (ll j = 0; j < n; j++)
-      {
-        /* code */
-          if(v[j]%v[i]==0  and v[i]!=v[j]) cnt++;
-      }
-    }
+    return 0;
+//   int t;
+//   cin >> t;
+//   while (t--)
+//   {
 
-    cout<<cnt<<endl;
+//     int n;
+//     cin >> n;
+//     vector<ll> v(n);
+
+//     for (ll i = 0; i < n; i++)
+//       cin >> v[i];
+//  sort(v.begin(),v.end());
+//     int cnt=0;
+
+//     for (ll i = 0; i < n; i++)
+//     {
+//       /* code */
+//       for (ll j = 0; j < n; j++)
+//       {
+//         /* code */
+//           if(v[j]%v[i]==0  and v[i]!=v[j]) cnt++;
+//       }
+//     }
+
+//     cout<<cnt<<endl;
     
     
-  }
+//   }
 }
