@@ -27,7 +27,7 @@ int main()
   int t; cin >> t;
   while (t--) {
     int n,m;
-    cin >> n>>m;
+    cin >> n;
     // vector<ll> v(n);
 
     // for (ll i = 0; i < n; i++)
@@ -38,16 +38,20 @@ int main()
 
     int b1,b2,b3;
     
-    for(int i=1;i<n;i+=2)
-		{
-			for(int j=1;j<=m;j++) cout<<i*m+j<<" ";
-			cout<<endl;
-		} 
-		for(int i=0;i<n;i+=2)
-		{
-			for(int j=1;j<=m;j++) cout<<i*m+j<<" ";
-			cout<<endl;
-		}
+    vector<int> points[n];
+	for (int i = 0; i < n; i++) {
+		int a, b;
+		cin >> a >> b;
+		a--; b--;
+		points[a].push_back(b);
+	}
+	for (int i = 0; i < n ; i++)
+		sort(points[i].rbegin(), points[i].rend());
+	ll res = 0;
+	for (int i = 0; i < n; i++) 
+		for (int j = 0; j < points[i].size() && j <= i; j++)
+			res += points[i][j] + 1;
+	cout << res << endl;
 
 
 
