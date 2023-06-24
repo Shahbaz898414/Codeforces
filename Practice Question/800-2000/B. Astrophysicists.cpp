@@ -8,14 +8,14 @@ int main()
   cin.tie(NULL);
   cout.tie(NULL);
 
-  int t;
-  cin >> t;
-  while (t--)
-  {
+  int t; cin >> t;
+  while (t--) {
     ll x, k, g;
     cin >> x >> k >> g;
     ll m = x * ((g - 1) / 2) / g;
     cout << min(k, m) * g << endl;
   }
+
+
   return 0;
 }
