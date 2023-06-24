@@ -21,46 +21,49 @@ typedef long long ll;
 //   return vnt;
 // }
 
+void solve(){
+	int n;
+	cin>>n;
+	vector<int> a(n);
+	for (int i=0;i<n;i++){
+		cin>>a[i];
+	}
+	vector<int> b;
+	int p=0;
+	while (p<n){
+		if (a[p]==0){
+			b.push_back(p-b.size());
+			p++;
+			continue;
+		}
+		int t=p;
+		while (t<n && a[t]==1) t++;
+		if (t==n){
+			cout<<"NO\n";
+			return;
+		}
+		int len=b.size();
+		b.push_back(t-len);
+		for (int i=p;i<t;i++){
+			b.push_back(p-len);
+		}
+		p=t+1;
+	}
+	cout<<"YES"<<endl;
+	for (int i=n-1;i>=0;i--){
+		cout<<b[i]<<" ";
+	}
+	cout<<endl;
+}
+
+
 int main()
 {
   ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
   int t;
   cin >> t;
-  while (t--)
-  {
-    int n, m;
-    cin >> n;
-    // vector<ll> v(n);
+  while (t--) {
 
-    // for (ll i = 0; i < n; i++)
-    //   cin >> v[i];
-    //  sort(v.begin(),v.end());
-
-    int cnt = 1;
-
-    int b1, b2, b3;
-
-    vector<int> points[n];
-    for (int i = 0; i < n; i++)
-    {
-      int a, b;
-      cin >> a >> b;
-      a--;
-      b--;
-      points[a].push_back(b);
-    }
-    for (int i = 0; i < n; i++)
-      sort(points[i].rbegin(), points[i].rend());
-
-    ll res = 0;
-
-    for (int i = 0; i < n; i++)
-      for (int j = 0; j < points[i].size() && j <= i; j++)
-        res += points[i][j] + 1;
-
-      
-    cout << res << endl;
-
-    
+    solve();    
   }
 }
