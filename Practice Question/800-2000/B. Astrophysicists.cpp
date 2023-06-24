@@ -12,14 +12,10 @@ int main()
   cin >> t;
   while (t--)
   {
-
-    int n, c1 = 0, c2 = 0, ctr = 0,m,k;
-    cin >> n>>m>>k;
-    
-
-    
+    ll x, k, g;
+    cin >> x >> k >> g;
+    ll m = x * ((g - 1) / 2) / g;
+    cout << min(k, m) * g << endl;
   }
-
   return 0;
 }
-
