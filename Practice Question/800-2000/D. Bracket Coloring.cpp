@@ -19,33 +19,24 @@ int main()
     cin >> s;
     vector<int> a(n);
 
-    for (int i = 0; i < n; i++)
-    {
-      if (s[i] == ')')
-        ctr++;
-      else
-        ctr--;
+    for (int i = 0; i < n; i++) {
+      if (s[i] == ')') ctr++;
+      else ctr--;
 
-      if (ctr < 0)
-      {
+      if (ctr < 0) {
         c1 = 1;
         a[i] = 1;
-      }
-      else if (ctr > 0)
-      {
+      } else if (ctr > 0) {
         c2 = 1;
         a[i] = 2;
-      }
-      else
+      } else
         a[i] = a[i - 1];
     }
 
     if (ctr != 0)
       cout << -1 << endl;
-    else
-    {
-      if (c2 && c1)
-      {
+    else {
+      if (c2 && c1) {
         cout << 2 << endl;
         for (int i = 0; i < n; i++)
           cout << a[i] << " ";
