@@ -23,8 +23,6 @@ int main()
 
     m=min(m,30);
 
-    // cout<<(1<<m)<<endl;
-
 
     cout<<min(n+1,(1<<m))<<endl;
     
