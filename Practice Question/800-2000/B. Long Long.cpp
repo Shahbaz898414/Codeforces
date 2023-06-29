@@ -12,35 +12,29 @@ int main()
   cin >> t;
   while (t--)
   {
-    int n;
-    cin >> n;
-
-    vector<int> a(n);
-    for (int i = 0; i < n; i++)
-    {
-      cin >> a[i];
-    }
-
-    int sum = 0;
-    int cnt = 0;
-    bool open = false;
-
-    for (int i = 0; i < n; i++)
-    {
-      sum += abs(a[i]);
-      if (a[i] < 0 && !open)
-      {
-        open = true;
-        cnt++;
-      }
-      if (a[i] > 0)
-      {
-        open = false;
-      }
-    }
-
-    cout << sum << " " << cnt << endl;
-    // in >> arr[i];
+    ll n;
+     cin>>n;
+     ll a[n];
+     for(ll i=0;i<n;i++)
+     cin>>a[i];
+     ll ans=0;
+     ll op=0;
+     
+     for(ll i=0;i<n;i++){
+         if(a[i]>=0){
+             ans+=a[i];
+             continue;
+         }
+         op++;
+         ll j=i;
+         while(j<n && a[j]<=0){
+            ans+=abs(a[j]);
+            j++;
+         }
+         i=--j;
+     } 
+     
+     cout<<ans<<" "<<op<<"\n";
   
 }
 
