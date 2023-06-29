@@ -27,10 +27,8 @@ int main()
 
   int t;
   cin >> t;
-  while (t--)
-  {
-    ll n;
-    cin >> n;
+  while (t--) {
+    ll n; cin >> n;
 
     vector<pair<ll,ll>> arr(n);
 
@@ -45,8 +43,7 @@ int main()
       adj[x].push_back(y);
     }
 
-    ll q;
-    cin >> q;
+    ll q; cin >> q;
 
     ll leaf[n + 1] = {0};
 
