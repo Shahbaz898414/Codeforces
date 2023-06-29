@@ -16,6 +16,7 @@ int main()
 
     for (int i = 0; i < n; i++) {
       ll x,y;cin>>x>>y;
+      
     }
 
     ll q;cin>>q;
