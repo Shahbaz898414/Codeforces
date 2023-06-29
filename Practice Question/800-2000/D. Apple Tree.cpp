@@ -14,10 +14,9 @@ int main()
 
     vector<pair<ll,ll>> v(n);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) 
       ll x,y;cin>>x>>y;
-      
-    }
+    
 
     ll q;cin>>q;
     
