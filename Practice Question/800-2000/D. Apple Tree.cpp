@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long
+#define ll long long int
 
 void dfs(ll s, ll p, vector<ll> adj[], ll leaf[])
 {
@@ -28,26 +28,31 @@ int main()
   int t;
   cin >> t;
   while (t--) {
-    ll n; cin >> n;
-
-    vector<pair<ll,ll>> arr(n);
-
-    vector<ll> adj[n + 1];
-
-    for (int i = 0; i < n; i++)
-    {
-      ll x, y;
-      cin >> x >> y;
-      // v.push_back({x,y})
-      adj[y].push_back(x);
-      adj[x].push_back(y);
+    ll n;
+    cin>>n;
+    vector<ll>adj[n+1];
+    
+    for(ll i=0;i<n-1;i++){
+        ll u,v;
+        cin>>u>>v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
     }
-
-    ll q; cin >> q;
-
-    ll leaf[n + 1] = {0};
-
-    dfs(1, -1, adj, leaf);
+    
+    ll q;
+    cin>>q;
+    
+    ll leaf[n+1]={0};
+    
+    dfs(1,-1,adj,leaf);
+    
+    for(ll i=0;i<q;i++){
+        ll x,y;
+        cin>>x>>y;
+        ll ans=leaf[x]*leaf[y];
+        cout<<ans<<"\n";
+    }
+    
   }
 
   return 0;
