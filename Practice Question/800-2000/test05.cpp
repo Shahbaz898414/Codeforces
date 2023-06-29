@@ -1,100 +1,101 @@
-#include <bits/stdc++.h>
-
+#include<bits/stdc++.h> 
 using namespace std;
+typedef long long int ll ; 
+const ll n = 1e5 + 2;
 
-const long long mod = 1e9 + 7;
+ll prime[n]; 
 
-typedef long long ll;
-#define pb push_back
-#define fi first
-#define se second
+void prime_sieve(){
 
-ll bit(ll x, ll y)
-{
-  ll vnt = 1, vbg = x;
-  while (y > 0)
-  {
-    if (y % 2)
-      vnt *= vbg, vnt %= mod;
-    vbg *= vbg, y /= 2, vbg %= mod;
-  }
-  return vnt;
-}
-
-
-bool isPrime(int num) {
-    if (num <= 1)
-        return false;
-    
-    for (int i = 2; i <= sqrt(num); i++) {
-        if (num % i == 0)
-            return false;
+    prime[0] = 0;
+    prime[1] = 0; 
+        
+    for(int i=2;i<n;i++){
+        prime[i] = 1; 
     }
     
-    return true;
+    for(ll i=2;i*i<n;i++){
+        if(prime[i]==1){
+            for(int j=i*i;j<n;j+=i){
+                prime[j] = 0; 
+            }
+        }
+    }
+    
+    
 }
 
 
-void fillGrid(int n, int m) {
-    vector<vector<int>> grid(n, vector<int>(m));
-
-    int num = 1;
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            // Find a non-prime number to assign to the current cell
-            while (isPrime(num))
-                num++;
+void solve(){
+    ll t;
+    cin>>t;
+    
+    
+    while(t--){
+        ll n,k;
+        cin>>n>>k;
+        
+        ll c1 = 0;
+        ll c2 = 1; 
+        
+        vector<ll> v1; 
+        vector<ll> v2{1} ;
+        
+        for(ll i=2;i<=n;i++){
+            if(!prime[i]){
+                v1.push_back(i); 
+                c1++; 
+            }
             
-            grid[i][j] = num;
-            num++;
+            else{
+                if(i*2<=n){
+                    v1.push_back(i);
+                    c1++; 
+                }
+                
+                else{
+                    v2.push_back(i);
+                    c2++; 
+                }
+            }
         }
-    }
-
-    // Print the grid
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            cout << grid[i][j] << " ";
+        
+        // cout<<c1<<" "<<c2<<endl; 
+        
+        if(k<=c2 or k>=c1){
+            cout<<"YES"<<endl; 
+            
+            if(k<=c2){
+                for(ll i=0;i<k;i++){
+                    cout<<v2[i]<<" "; 
+                }
+                cout<<endl; 
+            }
+            
+            else{
+                for(auto &it: v1){
+                    cout<<it<<" "; 
+                }
+                
+                for(ll i=0;i<k-c1;i++){
+                    cout<<v2[i]<<" "; 
+                }
+                
+                cout<<endl; 
+            }
         }
-        cout << endl;
+        
+        else{
+            cout<<"NO"<<endl; 
+        }
+        
+        
     }
 }
 
-int main()
-{
-  ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
-
-  int n, m;
-    cin >> n >> m;
-
-    fillGrid(n, m);
-
-    return 0;
-//   int t;
-//   cin >> t;
-//   while (t--)
-//   {
-
-//     int n;
-//     cin >> n;
-//     vector<ll> v(n);
-
-//     for (ll i = 0; i < n; i++)
-//       cin >> v[i];
-//  sort(v.begin(),v.end());
-//     int cnt=0;
-
-//     for (ll i = 0; i < n; i++)
-//     {
-//       /* code */
-//       for (ll j = 0; j < n; j++)
-//       {
-//         /* code */
-//           if(v[j]%v[i]==0  and v[i]!=v[j]) cnt++;
-//       }
-//     }
-
-//     cout<<cnt<<endl;
+int main() {
     
-    
-//   }
+    prime_sieve();
+	solve();
+	cout<<endl; 
 }

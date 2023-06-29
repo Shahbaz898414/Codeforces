@@ -12,7 +12,9 @@ int main()
   while (t--) {
     ll x, k, g;
     cin >> x >> k >> g;
+    
     ll m = x * ((g - 1) / 2) / g;
+
     cout << min(k, m) * g << endl;
   }
 
