@@ -159,13 +159,73 @@ signed main()
     cin >> n >> m >> h;
 
     ll sum = 0;
-    vector<ll> arr(n);
+    vector<ll> arr(m+1);
 
     for (ll i = 0; i < n; i++)
     {
-      /* code */
-      cin >> arr[i];
+      for (ll j = 0; j < m; j++)
+      {
+        
+        cin>>arr[j];
+      }
+
+      sort(arr.begin(),arr.end());
+      ll g=0,now=0,k=0;
+      
     }
+    
+
+      
   }
   return 0;
 }
+
+
+/*
+
+#include<bits/stdc++.h>
+using namespace std;
+
+const int N=2e5+10;
+typedef long long ll;
+
+int a[N];
+
+int main()
+{
+	int T;
+	cin>>T;
+	while(T--)
+	{
+		int n,m,h;
+		cin>>n>>m>>h;
+		int ans=1;
+		ll ans1=0,ans2=0;
+		for(int i=1;i<=n;i++)
+		{
+			for(int j=1;j<=m;j++) cin>>a[j];
+			sort(a+1,a+1+m);
+			ll t=0,now=0,k=0;
+			for(int j=1;j<=m;j++)
+			{
+				if(a[j]+now<=h)
+				{
+					t++;
+					now+=a[j];
+					k+=now;
+				}
+				else break;
+			}
+			if(i==1) ans1=t,ans2=k;
+			if(ans1<t) ans++;
+			else if(ans1==t&&k<ans2) ans++;
+			
+		}
+		printf("%d\n",ans);
+	}
+	return 0;
+}
+
+
+
+*/
