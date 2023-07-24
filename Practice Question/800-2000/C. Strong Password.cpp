@@ -176,38 +176,40 @@ signed main()
   int t;
   cin >> t;
   while (t--) {
-    string s;cin>>s;
-    ll n=s.size();
-    ll m;cin>>m;
-    string s1,s2;cin>>s1>>s2;
 
-    int it=-1;
+    solve();
+    // string s;cin>>s;
+    // ll n=s.size();
+    // ll m;cin>>m;
+    // string s1,s2;cin>>s1>>s2;
 
-    bool fl=false;
+    // int it=-1;
 
-    for (ll i = 0; i <m; i++)
-    {
-      /* code */
-      int st=it+1;
-      for (char x = s1[i]; x <=s1[i]; x++)
-      {
-        /* code */
-        int tmp=s.find(x,st);
-        if(tmp==-1) {
-          fl=true;
-          break;
-        }
+    // bool fl=false;
 
-        it=max(it,tmp);
+    // for (ll i = 0; i <m; i++)
+    // {
+    //   /* code */
+    //   int st=it+1;
+    //   for (char x = s1[i]; x <=s1[i]; x++)
+    //   {
+    //     /* code */
+    //     int tmp=s.find(x,st);
+    //     if(tmp==-1) {
+    //       fl=true;
+    //       break;
+    //     }
 
-      }
+    //     it=max(it,tmp);
 
-      if(fl) break;
+    //   }
+
+    //   if(fl) break;
       
-    }
+    // }
     
-    if(fl) yes
-    else no
+    // if(fl) yes
+    // else no
 
 
 
