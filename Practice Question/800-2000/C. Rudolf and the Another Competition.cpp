@@ -171,6 +171,18 @@ signed main()
 
       sort(arr.begin(),arr.end());
       ll g=0,now=0,k=0;
+      for (ll j = 0; j <m; j++)
+      {
+        /* code */
+        if(arr[j]+now<=h){
+          g++;
+          now+=arr[j];
+          k+=now;
+        }else{
+          break;
+        }
+      }
+      
       
     }
     
