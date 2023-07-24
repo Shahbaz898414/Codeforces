@@ -146,6 +146,28 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
+void solve(){
+	string s;
+	cin>>s;
+	int m;
+	cin>>m;
+	string L,R;
+	cin>>L>>R;
+	int it=-1;
+	for(int i=0;i<m;i++){
+		int st=it+1;
+		for(char x=L[i];x<=R[i];x++){
+			int tmp=s.find(x,st);
+			if(tmp==-1){
+				puts("YES");
+				return;
+			}
+			it=max(it,tmp);
+		}
+	}
+	puts("NO");
+}
+
 signed main()
 {
 
@@ -153,15 +175,42 @@ signed main()
   cin.tie(nullptr);
   int t;
   cin >> t;
-  while (t--)
-  {
+  while (t--) {
     string s;cin>>s;
-
+    ll n=s.size();
     ll m;cin>>m;
-
     string s1,s2;cin>>s1>>s2;
 
+    int it=-1;
+
+    bool fl=false;
+
+    for (ll i = 0; i <m; i++)
+    {
+      /* code */
+      int st=it+1;
+      for (char x = s1[i]; x <=s1[i]; x++)
+      {
+        /* code */
+        int tmp=s.find(x,st);
+        if(tmp==-1) {
+          fl=true;
+          break;
+        }
+
+        it=max(it,tmp);
+
+      }
+
+      if(fl) break;
+      
+    }
     
+    if(fl) yes
+    else no
+
+
+
       
   }
   return 0;
