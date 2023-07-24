@@ -161,9 +161,12 @@ signed main()
     ll sum = 0;
     vector<ll> arr(m+1);
 
-    for (ll i = 0; i < n; i++)
+    ll ans=1;
+    ll ans1=0,ans2=0;
+
+    for (ll i = 1; i <=n; i++)
     {
-      for (ll j = 0; j < m; j++)
+      for (ll j =1; j <=m; j++)
       {
         
         cin>>arr[j];
@@ -171,7 +174,7 @@ signed main()
 
       sort(arr.begin(),arr.end());
       ll g=0,now=0,k=0;
-      for (ll j = 0; j <m; j++)
+      for (ll j =1; j <=m; j++)
       {
         /* code */
         if(arr[j]+now<=h){
@@ -182,62 +185,22 @@ signed main()
           break;
         }
       }
+
+      if(i==1){
+          ans1=g;
+          ans2=k;
+      }
+
+      if(ans1<g) ans++;
+      else if(ans1==g and k<ans2)  ans++;
       
       
     }
     
-
+    cout<<ans<<endl;
       
   }
   return 0;
 }
 
 
-/*
-
-#include<bits/stdc++.h>
-using namespace std;
-
-const int N=2e5+10;
-typedef long long ll;
-
-int a[N];
-
-int main()
-{
-	int T;
-	cin>>T;
-	while(T--)
-	{
-		int n,m,h;
-		cin>>n>>m>>h;
-		int ans=1;
-		ll ans1=0,ans2=0;
-		for(int i=1;i<=n;i++)
-		{
-			for(int j=1;j<=m;j++) cin>>a[j];
-			sort(a+1,a+1+m);
-			ll t=0,now=0,k=0;
-			for(int j=1;j<=m;j++)
-			{
-				if(a[j]+now<=h)
-				{
-					t++;
-					now+=a[j];
-					k+=now;
-				}
-				else break;
-			}
-			if(i==1) ans1=t,ans2=k;
-			if(ans1<t) ans++;
-			else if(ans1==t&&k<ans2) ans++;
-			
-		}
-		printf("%d\n",ans);
-	}
-	return 0;
-}
-
-
-
-*/
