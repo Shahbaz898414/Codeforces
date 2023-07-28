@@ -155,24 +155,44 @@ signed main()
   while (t--)
   {
 
-    map<int, int> ma[4];
+   
     int n; cin >> n;
     
     long long ans = 0;
 
+    vector<ll> v(n);
 
-    for (int i = 0; i < n; i++)
+    vector<ll>  cnt(n+1,0),mx(n+1,0);
+
+    for (ll i = 0; i < n; i++) 
+      cin>>v[i];
+    
+
+    for (ll i = 0; i < n; i++)
     {
-      int x, y;
-      cin >> x >> y;
-      ans += ma[0][x]++;
-      ans += ma[1][y]++;
-      ans += ma[2][x + y]++;
-      ans += ma[3][x - y]++;
+      /* code */
+      if(v[i]<=n) cnt[v[i]]++;
+    }
+    
+
+    for (int i =1; i <=n; i++)
+    {
+      /* code */
+      for (ll j = 0; j <=n; j++)
+      {
+        /* code */
+        mx[j]+=cnt[i];
+      }
+      
+    }
+    
+
+    for(auto it:mx){
+      cout<<it<<" ";
     }
 
+    cout<<endl;
 
-    cout << 2 * ans << "\n";
 
   }
   return 0;
