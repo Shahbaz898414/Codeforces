@@ -203,17 +203,25 @@ signed main()
     {
       if (f1.find(it.ss - it.ff) != f1.end())
         ans += f1[it.ss - it.ff] * 2;
-      if (f2.find(it.ss - it.ff) != f2.end())
-        ans += f2[it.ss - it.ff] * 2;
+
+      if (f2.find(it.ss +it.ff) != f2.end())
+        ans += f2[it.ss + it.ff] * 2;
+
       if (dx.find(it.ff) != dx.end())
         ans += dx[it.ff] * 2;
+
       if (dy.find(it.ss) != dy.end())
         ans += dy[it.ss] * 2;
 
+
       ++f1[it.ss - it.ff];
+
       ++f2[it.ss + it.ff];
+
       ++dx[it.ff];
+
       ++dy[it.ss];
+
     }
 
     cout << ans << endl;
