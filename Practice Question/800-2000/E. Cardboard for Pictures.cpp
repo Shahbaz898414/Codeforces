@@ -155,48 +155,15 @@ signed main()
   while (t--)
   {
 
-    int n;
-    cin >> n;
+    ll n,c;cin>>n>>c;
 
-    long long ans = 0;
+    vector<ll>  arr(n);
 
-    vector<ll> v(n);
-
-    vector<ll> cnt(n + 1, 0), mx(n + 1, 0);
-
-    for (ll i = 0; i < n; i++)
-      cin >> v[i];
-
-    for (ll i = 0; i < n; i++)
-    {
-      /* code */
-      if (v[i] <= n)
-        cnt[v[i]]++;
+    for (ll i = 0; i < n; i++) {
+      cin>>arr[i];
     }
-
-    for (auto it : cnt)
-    {
-      cout << it << " ";
-    }
-
-    cout << endl;
-
-    for (int i = 1; i <= n; i++)
-    {
-      for (ll j = i; j <= n; j += i)
-      {
-        mx[j] += cnt[i];
-      }
-    }
-
-    for (auto it : mx)
-    {
-      cout << it << " ";
-    }
-
-    cout << endl;
-
-    cout << *max_element(mx.begin(), mx.end()) << endl;
+    
+   
   }
   return 0;
 }
