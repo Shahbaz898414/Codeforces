@@ -163,7 +163,6 @@ signed main()
       cin>>arr[i];
     }
     
-   
   }
   return 0;
 }
