@@ -147,6 +147,8 @@ long long erfd(long long a, long long b)
 }
 
 
+char s[1000001];
+
 
 signed main()
 {
@@ -157,7 +159,15 @@ signed main()
   cin >> t;
   while (t--) {
 
-    
+    ll n;cin>>n;
+
+    int c=1;
+     while ((n % c) == 0) c++;
+
+     for (int i = 0; i < n; i++) s[i] = 'a'+(i % c);
+        s[n] = '\0';
+
+        cout<<s<<endl;
 
 
       
