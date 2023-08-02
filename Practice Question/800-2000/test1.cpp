@@ -26,6 +26,8 @@ vector<int>  prefix1(string s){
 
 
 
+
+
 int main() {
    string pat="sh";
 
@@ -53,7 +55,11 @@ int main() {
         }
     }
 
-   for(auto it:v){
+
+
+
+
+   for(auto it:v) {
     cout<<it<<" ";
    }
 
