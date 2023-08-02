@@ -28,20 +28,5 @@ int main()
 
 /*
 
-10 kg aata
-5 package teil
-1 package saraf axial
-1kg tuvar ki dal
-1kg chane ki dal
-1kg chana
-1/2kg vatana
-1kg namak
-2 package chura
-2 package good day
-1 wheem bar soap
-
-1/2kg lala masur
-1/2kg urad ki daal
-
 
 */
