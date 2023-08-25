@@ -183,14 +183,15 @@ signed main()
     {
       
       psum[i] = psum[i - 1] + arr[i].ff;
-    }
-
-
-    for (ll i = 1; i <=n; i++)
-    {
-      /* code */
       cout<<psum[i]<<" ";
     }
+
+
+    // for (ll i = 1; i <=n; i++)
+    // {
+    //   /* code */
+    //   cout<<psum[i]<<" ";
+    // }
 
     cout<<endl;
 
@@ -217,19 +218,6 @@ signed main()
   }
   return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
