@@ -187,15 +187,15 @@ signed main()
     }
 
 
-    for (ll i = 1; i <=n; i++)
-    {
-      /* code */
-      cout<<psum[i]<<" ";
-    }
+    // for (ll i = 1; i <=n; i++)
+    // {
+    //   /* code */
+    //   cout<<psum[i]<<" ";
+    // }
 
-    cout<<endl;
+    // cout<<endl;
 
-    cout<<endl;
+    // cout<<endl;
     
 
     vector<ll> ans(n + 1, n);
