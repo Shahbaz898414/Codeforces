@@ -183,15 +183,15 @@ signed main()
     {
       
       psum[i] = psum[i - 1] + arr[i].ff;
-      cout<<psum[i]<<" ";
+      // cout<<psum[i-1]<<" "<<arr[i].ff<<endl;
     }
 
 
-    // for (ll i = 1; i <=n; i++)
-    // {
-    //   /* code */
-    //   cout<<psum[i]<<" ";
-    // }
+    for (ll i = 1; i <=n; i++)
+    {
+      /* code */
+      cout<<psum[i]<<" ";
+    }
 
     cout<<endl;
 
@@ -205,8 +205,15 @@ signed main()
       
       ans[arr[i].ss] += (psum[n] - psum[i] - (n - i) * arr[i].first);
 
+      // cout<<(psum[n] - psum[i] - (n - i) * arr[i].first)<<" ";
+
       ans[arr[i].ss] += ((i - 1) * arr[i].first - psum[i - 1]);
+
+
+      //  cout<<(psum[n] - psum[i] - (n - i) * arr[i].first)+((i - 1) * arr[i].first - psum[i - 1])<<" "<<ans[arr[i].ss]<<endl;
     }
+
+    cout<<endl;
 
     for (ll i = 1; i <= n; i++)
     {
