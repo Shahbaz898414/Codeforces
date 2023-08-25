@@ -171,12 +171,12 @@ signed main()
 
     sort(arr.begin() + 1, arr.end());
 
-    for(auto it:arr){
-      cout<<it.first<<" "<<it.second<<endl;
-    }
+    // for(auto it:arr){
+    //   cout<<it.first<<" "<<it.second<<endl;
+    // }
 
 
-    cout<<endl;
+    // cout<<endl;
     vector<ll> psum(n + 1, 0);
 
     for (ll i = 1; i <= n; i++)
