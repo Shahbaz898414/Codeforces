@@ -155,16 +155,71 @@ signed main()
   while (t--)
   {
 
-    ll n,c;cin>>n>;
+    ll n,c;cin>>n;
 
-    vector<ll>  arr(n);
+    vector<pair<ll,ll>>  arr(n+1);
 
-    for (ll i = 0; i < n; i++) {
-      cin>>arr[i];
+    for (ll i = 1; i <=n; i++) {
+      cin>>arr[i].first;
+
+      arr[i].second=i;
     }
+
+    sort(arr.begin()+1,arr.end());
+
+    vector<ll> psum(n+1,0);
+
+    for (ll i =1; i <=n; i++)
+    {
+      /* code */
+      psum[i]=psum[i-1]+arr[i].ff;
+    }
+
+
+    vector<ll>  ans(n+1,n);
+
+
+    for (ll i =1; i <=n; i++)
+    {
+      /* code */
+      ans[arr[i].ss]=(psum[n]- psum[i]- (n-i)*arr[i].first);
+
+
+      ans[arr[i].ss]+=((i-1)*arr[i].first-psum[i-1]);
+    }
+    
+    
+    for (ll i =1; i <=n; i++)
+    {
+      /* code */
+      cout<<ans[i]<<" ";
+
+    }
+
+    cout<<endl;
+    
+
+    
     
   }
   return 0;
 }
 
-// importiogic
+/*
+
+fo(i,1,n)
+        {
+            //a[j] - a[i]
+            ansvec[a[i].second]+=(psum[n] - psum[i] - (n - i)*a[i].first);
+ 
+            //a[i] - a[j];
+            ansvec[a[i].second]+=((i-1)*a[i].first - psum[i-1]);
+        }
+ 
+        fo(i,1,n)
+        {
+            cout<<ansvec[i]<<" ";
+        }
+        cout<<"\n";
+
+*/
