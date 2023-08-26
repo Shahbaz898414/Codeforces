@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 using namespace std;
+#define ll long long
 
 
 vector<int>  prefix1(string s){
@@ -29,41 +30,21 @@ vector<int>  prefix1(string s){
 
 
 int main() {
-   string pat="sh";
+  
 
-   vector<int> prefix=prefix1(pat);
-   string txt="shnknfncshcmclshnuxshnnmcsh";
+  ll t;cin>>t;
 
-    int pos=-1;
-    int i(0);
-    int j(0);
-    vector<int>  v;
-    while(i<txt.size()){
-        if(txt[i]==pat[j]){
-            j++;
-            i++;
-        }else{
-            if(j!=0){
-                j=prefix[j-1];
-            }else i++;
-        }
-        if(j==pat.size()){
-             pos=i-pat.size();
-            v.push_back(pos+1);
-           
-            // break;
-        }
-    }
+  while(t--) {
+    ll n;cin>>n;
 
+    vector<ll>  arr(n);
 
-
-
-
-   for(auto it:v) {
-    cout<<it<<" ";
-   }
-
-//    cout<<endl;
+    for (ll i = 0; i < n; i++)
+        
+        cin>>arr[i];
+    
+    
+  }
 
 
 

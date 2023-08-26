@@ -157,42 +157,43 @@ signed main()
   while (t--)
   {
 
-    ll n, c;
-    cin >> n;
+    string s;cin>>s;
 
-   
-    ll mx = -2e9, cnt = 0;
-     ll m = (n * (n - 1)) / 2;
-     vector<ll> a(m), b(n);
-    for (ll i = 0; i < m; i++)
+    s="0"+s;
+    ll n=s.size();
+
+    ll k=n;
+
+    for (ll i = n-1; i >=0; i--)
     {
-      
-      cin >> a[i];
+      /* code */
+      if(s[i]>='5'){
+        s[i]='0';
+        k=i;
+        ll j=i-1;
+        while(s[j]=='9'){
+          s[j]='0';
+          j--;
+        }
+
+        s[j]++;
+      }
     }
 
-    sort(a.begin(),a.end());
 
-    for (ll i = 0; i < m; i+=(--n))
+    for (ll i = k; i < n; i++)
     {
-      
-      cout<<a[i]<<" ";
-
-      // cout<<i<<" ";
+      /* code */
+      s[i]='0';
     }
 
-    cout<<"1000000000"<<endl;
-    line
-
-
-    // int ans[300000];
-
-   
-    // for(auto it:a) {
-    //   cout<<it<<" ";
-    // }
-
-    // cout<<endl;
-
+    if(s[0]=='0')  s=s.substr(1);
+    
+    
+    cout<<s<<endl;
   }
   return 0;
 }
+
+
+
