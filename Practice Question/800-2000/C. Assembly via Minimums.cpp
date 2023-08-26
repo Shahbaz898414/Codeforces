@@ -160,40 +160,27 @@ signed main()
     ll n, c;
     cin >> n;
 
-    vector<ll>  a(n),b(n);
-    ll mx=-2e9,cnt=0;
-
-    for (ll i = 0; i <n; i++)
+   
+    ll mx = -2e9, cnt = 0;
+     ll m = (n * (n - 1)) / 2;
+     vector<ll> a(m), b(n);
+    for (ll i = 0; i < m; i++)
     {
       /* code */
-      cin>>a[i];
+      cin >> a[i];
     }
 
-    int ans[300000];
+    sort(a.begin(),a.end());
 
+    // int ans[300000];
+    
+   
+    // for(auto it:a) {
+    //   cout<<it<<" ";
+    // }
 
-   
-   
+    // cout<<endl;
+
   }
   return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
