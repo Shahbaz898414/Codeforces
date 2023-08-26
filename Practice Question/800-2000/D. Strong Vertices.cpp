@@ -160,66 +160,46 @@ signed main()
     ll n, c;
     cin >> n;
 
-    vector<pair<ll, ll>> arr(n + 1);
+    vector<ll>  a(n),b(n);
+    ll mx=-2e9,cnt=0;
 
-    for (ll i = 1; i <= n; i++)
+    for (ll i = 0; i <n; i++)
     {
-      cin >> arr[i].first;
-
-      arr[i].second = i;
+      /* code */
+      cin>>a[i];
     }
 
-    sort(arr.begin() + 1, arr.end());
-
-    // for(auto it:arr){
-    //   cout<<it.first<<" "<<it.second<<endl;
-    // }
+    int ans[300000];
 
 
-    // cout<<endl;
-    vector<ll> psum(n + 1, 0);
-
-    for (ll i = 1; i <= n; i++)
+    for (ll i = 0; i < n; i++)
     {
-      
-      psum[i] = psum[i - 1] + arr[i].ff;
-      // cout<<psum[i-1]<<" "<<arr[i].ff<<endl;
+      /* code */
+      cin>>b[i];
+
+      mx=max(mx,a[i]-b[i]);
     }
 
-
-    // for (ll i = 1; i <=n; i++)
-    // {
-    //   /* code */
-    //   cout<<psum[i]<<" ";
-    // }
-
-    // cout<<endl;
-
-    // cout<<endl;
+    for (ll i = 0; i <n; i++)
+    {
+      /* code */
+      if(a[i]-b[i]==mx){
+        ans[++cnt]=i+1;
+      }
+    }
     
 
-    vector<ll> ans(n + 1, n);
+    cout<<cnt<<endl;
 
-    for (ll i = 1; i <= n; i++)
+    for (ll i = 1; i <=cnt; i++)
     {
-      
-      ans[arr[i].ss] += (psum[n] - psum[i] - (n - i) * arr[i].first);
-
-      // cout<<(psum[n] - psum[i] - (n - i) * arr[i].first)<<" ";
-
-      ans[arr[i].ss] += ((i - 1) * arr[i].first - psum[i - 1]);
-
-
-      //  cout<<(psum[n] - psum[i] - (n - i) * arr[i].first)+((i - 1) * arr[i].first - psum[i - 1])<<" "<<ans[arr[i].ss]<<endl;
+      /* code */
+      cout<<ans[i]<<" ";
     }
-
+    
     cout<<endl;
 
-    for (ll i = 1; i <= n; i++)  
-      cout << ans[i] << " ";
-    
-
-    cout << endl;
+   
   }
   return 0;
 }
