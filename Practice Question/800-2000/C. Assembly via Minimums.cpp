@@ -166,14 +166,26 @@ signed main()
      vector<ll> a(m), b(n);
     for (ll i = 0; i < m; i++)
     {
-      /* code */
+      
       cin >> a[i];
     }
 
     sort(a.begin(),a.end());
 
+    for (ll i = 0; i < m; i+=(--n))
+    {
+      
+      // cout<<a[i]<<" ";
+
+      cout<<i<<" ";
+    }
+
+    // cout<<"1000000000"<<endl;
+    line
+
+
     // int ans[300000];
-    
+
    
     // for(auto it:a) {
     //   cout<<it<<" ";
