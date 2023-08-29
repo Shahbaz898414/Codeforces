@@ -160,66 +160,10 @@ signed main()
     ll n, c;
     cin >> n;
 
-    vector<pair<ll, ll>> arr(n + 1);
-
-    for (ll i = 1; i <= n; i++)
-    {
-      cin >> arr[i].first;
-
-      arr[i].second = i;
-    }
-
-    sort(arr.begin() + 1, arr.end());
-
-    // for(auto it:arr){
-    //   cout<<it.first<<" "<<it.second<<endl;
-    // }
+   
 
 
-    // cout<<endl;
-    vector<ll> psum(n + 1, 0);
-
-    for (ll i = 1; i <= n; i++)
-    {
-      
-      psum[i] = psum[i - 1] + arr[i].ff;
-      // cout<<psum[i-1]<<" "<<arr[i].ff<<endl;
-    }
-
-
-    // for (ll i = 1; i <=n; i++)
-    // {
-    //   /* code */
-    //   cout<<psum[i]<<" ";
-    // }
-
-    // cout<<endl;
-
-    // cout<<endl;
-    
-
-    vector<ll> ans(n + 1, n);
-
-    for (ll i = 1; i <= n; i++)
-    {
-      
-      ans[arr[i].ss] += (psum[n] - psum[i] - (n - i) * arr[i].first);
-
-      // cout<<(psum[n] - psum[i] - (n - i) * arr[i].first)<<" ";
-
-      ans[arr[i].ss] += ((i - 1) * arr[i].first - psum[i - 1]);
-
-
-      //  cout<<(psum[n] - psum[i] - (n - i) * arr[i].first)+((i - 1) * arr[i].first - psum[i - 1])<<" "<<ans[arr[i].ss]<<endl;
-    }
-
-    cout<<endl;
-
-    for (ll i = 1; i <= n; i++)  
-      cout << ans[i] << " ";
-    
-
-    cout << endl;
+   
   }
   return 0;
 }

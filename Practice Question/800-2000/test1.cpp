@@ -4,16 +4,20 @@
 using namespace std;
 #define ll long long
 
-ll mod =1e9+7;
+
 
 
 
 
 int main() {
 
+
+    // cout<<1<<endl;
     ll dp[1005][1005];
 
     dp[1][1]=1;
+
+    ll mod =1e9+7;
 
     for (ll i =2; i < 1005; i++)
     {
@@ -26,6 +30,23 @@ int main() {
         }
         
     }
+
+
+    // for (ll i =2; i < 1005; i++)
+    // {
+    //     /* code */
+    //     for (ll j = 1; j <=i; j++)
+    //     {
+    //         /* code */
+
+    //         cout<<
+    //     }
+        
+    // }
+
+
+
+    cout<<2<<endl;
     
 
 

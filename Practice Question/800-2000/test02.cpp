@@ -7,12 +7,74 @@ int main() {
   // ll t;cin>>t;
   // while(t--) {
      
-    ll n;cin>>n;
-    char arr[n][n];
+   // cout<<1<<endl;
+    ll dp[1005][1005];
 
-      for (ll i = 0; i < n; i++)
-        for (ll j = 0; j < n; j++) 
-          cin>>arr[i][j];
+    dp[1][1]=1;
+
+    ll mod =1e9+7;
+
+    for (ll i =2; i < 1005; i++)
+    {
+        /* code */
+        for (ll j = 1; j <=i; j++)
+        {
+            /* code */
+
+            dp[i][j]=(dp[i-1][j-1]+dp[i-1][j]*j)%mod;
+        }
+        
+    }
+
+
+    for (ll i =2; i < 1005; i++)
+    {
+        /* code */
+        for (ll j = 1; j <=i; j++)
+        {
+            /* code */
+
+            cout<<dp[i][j]<<" ";
+        }
+        
+    }
+
+
+
+    // cout<<2<<endl;
+    
+
+
+
+
+  ll t;cin>>t;
+
+  while(t--) {
+    ll n;cin>>n;
+
+    ll ans=0;
+
+
+    for (ll i = 0; i <=n; i++)
+    {
+        /* code */
+        ans=(ans+dp[n][i])%mod;
+    }
+
+    cout<<ans<<endl;
+    
+
+    // vector<ll>  arr(n);
+
+    // for (ll i = 0; i < n; i++)   
+    //     cin>>arr[i];
+    
+    
+
+
+
+  }
+
         
       
       
