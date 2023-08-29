@@ -157,13 +157,28 @@ signed main()
   while (t--)
   {
 
-    ll n, c;
+    ll n, c=0;
     cin >> n;
 
-   
+    vector<ll>  arr(n+1);
+
+    map<ll,ll> mp;
+
+
+    for (ll i =1; i <=n; i++) {
+      
+      cin>>arr[i];
+      mp[arr[i]]++;
+    }
+
+
+    
 
 
    
+
+
+
   }
   return 0;
 }
