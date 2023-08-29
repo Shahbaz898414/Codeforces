@@ -192,7 +192,7 @@ signed main()
  
         for (int i =1; i <=n; i++)
         {
-            /* code */
+           
             if(A[i]==1)  sum--;
         }
  
