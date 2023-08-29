@@ -190,11 +190,12 @@ signed main()
             continue;
         }
  
+
+ 
         for (int i =1; i <=n; i++)
-        {
            
             if(A[i]==1)  sum--;
-        }
+        
  
 
 
@@ -202,8 +203,6 @@ signed main()
 
         else cout<<"YES"<<endl;
         
-
-
 
   }
   return 0;
