@@ -196,17 +196,12 @@ signed main()
             if(A[i]==1)  sum--;
         }
  
+
+
         if(sum<0) cout<<"NO"<<endl;
+
         else cout<<"YES"<<endl;
         
-
-
-
-
-    
-
-
-   
 
 
 
