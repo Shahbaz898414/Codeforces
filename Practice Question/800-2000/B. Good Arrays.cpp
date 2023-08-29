@@ -157,19 +157,50 @@ signed main()
   while (t--)
   {
 
-    ll n, c=0;
-    cin >> n;
+   int n;
+        cin >> n;
+        vector<int> A(n+1);
+ 
+        int mi = INT_MAX;
+        int mx = INT_MIN;
+        long long sum = 0;
+ 
+        map<int, int> mp;
+        for (int i = 1; i <=n; i++)
+        {
+            cin >> A[i];
+          
+            mp[A[i]]++;
+ 
+            sum+=A[i];
+        }
+ 
+        
+ 
+        if (n == 1)
+        {
+            cout << "NO" << endl;
+            continue;
+        }
+ 
+        sum-=n;
+        if (mp.size() == n)
+        {
+            cout << "YES" << endl;
+            continue;
+        }
+ 
+        for (int i =1; i <=n; i++)
+        {
+            /* code */
+            if(A[i]==1)  sum--;
+        }
+ 
+        if(sum<0) cout<<"NO"<<endl;
+        else cout<<"YES"<<endl;
+        
 
-    vector<ll>  arr(n+1);
 
-    map<ll,ll> mp;
-
-
-    for (ll i =1; i <=n; i++) {
-      
-      cin>>arr[i];
-      mp[arr[i]]++;
-    }
 
 
     
