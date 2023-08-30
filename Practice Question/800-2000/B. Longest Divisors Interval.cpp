@@ -149,10 +149,7 @@ long long erfd(long long a, long long b)
 }
 
 
-bool cmp(string a, string b)
-{
-        return a+b<b+a;
-}
+
 
 signed main()
 {
@@ -162,7 +159,15 @@ signed main()
   cin >> t;
   while (t--) {
 
-   int n; cin >> n;
+    ll n;cin>>n;
+ 
+  
+ 
+    ll cnt=1;
+ 
+   while(n%cnt==0) cnt++;
+ 
+    cout<<cnt-1<<endl;
        
         
 

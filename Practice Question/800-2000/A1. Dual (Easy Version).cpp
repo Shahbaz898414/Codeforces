@@ -149,6 +149,10 @@ long long erfd(long long a, long long b)
 }
 
 
+bool cmp(string a, string b)
+{
+        return a+b<b+a;
+}
 
 signed main()
 {
@@ -157,16 +161,32 @@ signed main()
   int t;
   cin >> t;
   while (t--) {
-      ll n;cin>>n;
 
-      vector<ll>  arr(2*n+1);
-
-      for (ll i =1; i <=2*n; i++) {
-        cin>>arr[i];
-      }
-      
-  
+    ll n;cin>>n;
+ 
+  //  vector<ll>  arr(n);
+ 
+    ll cnt=1;
+ 
+   while(n%cnt==0) cnt++;
+ 
+    cout<<cnt-1<<endl;
+       
+        
 
   }
   return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
