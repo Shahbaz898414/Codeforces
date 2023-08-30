@@ -148,37 +148,40 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-
 bool cmp(string a, string b)
 {
-        return a+b<b+a;
+  return a + b < b + a;
 }
 
 signed main()
 {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  int t;
-  cin >> t;
-  while (t--) {
+  // int t;
+  // cin >> t;
+  // while (t--) {
 
-   int n; cin >> n;
-       
-        
+  int n; cin >> n;
 
-  }
+  string arr[n];
+
+
+  for (int i = 0; i < n; i++)
+    cin >> arr[i];
+
+
+  sort(arr, arr + n, cmp);
+
+
+  // for (int i = 0; i < n; i++)
+  //   cout << arr[i]<<endl;
+
+
+
+
+    for(int i = 0; i < n; i++)
+        cout << arr[i];
+
+  // }
   return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
