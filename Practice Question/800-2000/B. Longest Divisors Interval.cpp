@@ -148,74 +148,34 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
+
+bool cmp(string a, string b)
+{
+        return a+b<b+a;
+}
+
 signed main()
 {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  int t;
-  cin >> t;
-  while (t--)
-  {
+  // int t;
+  // cin >> t;
+  // while (t--) {
 
    int n;
-        cin >> n;
-        vector<int> A(n+1);
- 
-        int mi = INT_MAX;
-        int mx = INT_MIN;
-        long long sum = 0;
- 
-        map<int, int> mp;
-        for (int i = 1; i <=n; i++)
-        {
-            cin >> A[i];
-          
-            mp[A[i]]++;
- 
-            sum+=A[i];
-        }
- 
-        
- 
-        if (n == 1)
-        {
-            cout << "NO" << endl;
-            continue;
-        }
- 
-        sum-=n;
-        if (mp.size() == n)
-        {
-            cout << "YES" << endl;
-            continue;
-        }
- 
-
-
-        for (int i =1; i <=n; i++) 
-            if(A[i]==1)  sum--;
-        
- 
-
-
-        if(sum<0) cout<<"NO"<<endl;
-
-        else cout<<"YES"<<endl;
+  cin>>n;
+  string a[n];
+  for(int i=0;i<n;i++)
+        cin>>a[i];
+  sort(a,a+n,cmp);
+  for(int i=0;i<n;i++)
+    cout<<a[i];
+       
         
 
-  }
+  // }
   return 0;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
