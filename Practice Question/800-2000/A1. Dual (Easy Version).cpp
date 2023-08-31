@@ -148,10 +148,9 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-
 bool cmp(string a, string b)
 {
-        return a+b<b+a;
+  return a + b < b + a;
 }
 
 signed main()
@@ -160,32 +159,34 @@ signed main()
   cin.tie(nullptr);
   int t;
   cin >> t;
-  while (t--) {
+  while (t--)
+  {
 
-    ll n;cin>>n;
- 
- 
-    ll cnt=1;
- 
-   while(n%cnt==0) cnt++;
- 
-    cout<<cnt-1<<endl;
-       
-        
-
+    ll n;
+    cin >> n;
+    int a[n];
+    int mx = INT_MIN, idx = -1;
+    for (int i = 0; i < n; ++i)
+    {
+      cin >> a[i];
+      if (abs(a[i]) > mx)
+      {
+        mx = abs(a[i]);
+        idx = i;
+      }
+    }
+    cout << 2 * n - 1 << "\n";
+    for (int i = 0; i < n; ++i)
+    {
+      a[i] += a[idx];
+      cout << i + 1 << ' ' << idx + 1 << "\n";
+    }
+    if (a[idx] >= 0)
+      for (int i = 1; i < n; ++i)
+        cout << i + 1 << ' ' << i << "\n";
+    else
+      for (int i = n - 2; i >= 0; --i)
+        cout << i + 1 << ' ' << i + 2 << "\n";
   }
   return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
