@@ -164,7 +164,6 @@ signed main()
 
     ll n;cin>>n;
  
-  //  vector<ll>  arr(n);
  
     ll cnt=1;
  

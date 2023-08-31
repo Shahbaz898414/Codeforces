@@ -148,9 +148,6 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-
-
-
 signed main()
 {
   ios::sync_with_stdio(false);

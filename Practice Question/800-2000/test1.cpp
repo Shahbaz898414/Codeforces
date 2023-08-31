@@ -12,75 +12,27 @@ using namespace std;
 int main() {
 
 
-    // cout<<1<<endl;
-    ll dp[1005][1005];
-
-    dp[1][1]=1;
-
-    ll mod =1e9+7;
-
-    for (ll i =2; i < 1005; i++)
-    {
-        /* code */
-        for (ll j = 1; j <=i; j++)
-        {
-            /* code */
-
-            dp[i][j]=(dp[i-1][j-1]+dp[i-1][j]*j)%mod;
-        }
-        
-    }
-
-
-    // for (ll i =2; i < 1005; i++)
-    // {
-    //     /* code */
-    //     for (ll j = 1; j <=i; j++)
-    //     {
-    //         /* code */
-
-    //         cout<<
-    //     }
-        
-    // }
-
-
-
-    cout<<2<<endl;
-    
-
-
-
-
-  ll t;cin>>t;
-
-  while(t--) {
     ll n;cin>>n;
-
-    ll ans=0;
-
-
-    for (ll i = 0; i <=n; i++)
-    {
-        /* code */
-        ans=(ans+dp[n][i])%mod;
-    }
-
-    cout<<ans<<endl;
-    
-
-    // vector<ll>  arr(n);
-
-    // for (ll i = 0; i < n; i++)   
-    //     cin>>arr[i];
-    
-    
-
-
-
-  }
-
 
 
     return 0;
 }
+
+
+
+/*
+
+
+
+Built Kubernetes Cluster on AWS from Scratch with Minukube.Setup and Managed Docker Containers for Django and React Applications into Kubernetes Pods. 
+Managed Deployment, Replication, Autohealing, auto scalingfor Kubernetes Cluster.
+
+Managed network and Services with Host IP allocation through Proxy on
+AWS EC2 and Route53.
+
+
+Achievement: Reduced Downtime by 75% on Production Environments.
+
+
+
+*/
