@@ -10,6 +10,7 @@ using namespace std;
 #define line cout << endl;
 #define ff first
 #define ss second
+#define all(x) x.rbegin(), x.rend()
 #define vi vector<int>
 #define no cout << "NO" << endl;
 #define yes cout << "YES" << endl;
@@ -153,48 +154,103 @@ bool cmp(string a, string b)
   return a + b < b + a;
 }
 
+
+ll n;
+
+bool isPermutation(vector<ll> a) {
+    for (int i = 0; i < n; ++i) {
+        if (a[i] <= 0 || a[i] > n) {
+            return false;
+        }
+    }
+    set<ll> s(a.begin(), a.end());
+    return s.size() == n;
+}
+
+
+
+vector<ll> prefSumToArray(vector<ll> p) {
+  
+    vector<ll> res(n);
+    res[0] = p[0];
+    for (int i = 1; i < n; ++i) {
+        res[i] = p[i] - p[i - 1];
+    }
+    return res;
+
+}
+
+
+
+void solve() {
+    cin >> n;
+    vector<ll> a(n - 1);
+    for (int i = 0; i + 1 < n; ++i) {
+        cin >> a[i];
+    }
+    ll x = n * (n + 1) / 2;
+    if (a.back() != x) {
+        a.push_back(x);
+        vector<ll> b = prefSumToArray(a);
+        if (isPermutation(b)) {
+            cout << "YES\n";
+        } else {
+            cout << "NO\n";
+        }
+        return;
+    }
+
+    map<ll, int> cnt;
+    cnt[a[0]]++;
+    for (int i = 1; i < n - 1; ++i) {
+        cnt[a[i] - a[i - 1]]++;
+    }
+    vector<int> cntGt1;
+    for (auto p: cnt) {
+        if (p.second > 1) {
+            cntGt1.push_back(p.first);
+        }
+    }
+    if (cntGt1.size() > 1) {
+        cout << "NO\n";
+        return;
+    }
+    if (cntGt1.size() == 1) {
+        int x1 = cntGt1[0];
+        if (cnt[x1] > 2) {
+            cout << "NO\n";
+            return;
+        }
+    }
+    vector<int> cnt0;
+    for (int i = 1; i <= n; ++i) {
+        if (cnt[i] == 0) {
+            cnt0.push_back(i);
+        }
+    }
+    if (cnt0.size() != 2) {
+        cout << "NO\n";
+        return;
+    }
+    cout << "YES\n";
+}
+
+
+
 signed main()
 {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  int T, n, k;
-  cin >> T;
-  while (T--)
-  {
-    cin >> n >> k;
-    int a[n + 1];
-    for (int i = 1; i <= n; i++)
-      cin >> a[i];
-    int j, r, cnt = 0;
-    for (j = 1; j <= n; j++)
-    {
-      if (a[j] == a[1])
-        cnt++;
-      if (cnt == k)
-        break;
-    }
-    if (cnt < k)
-    {
-      cout << "no\n";
-      continue;
-    }
-    else if (a[1] == a[n])
-    {
-      cout << "yes\n";
-      continue;
-    }
-    cnt = 0;
-    for (r = n; r >= 1; r--)
-    {
-      if (a[r] == a[n])
-        cnt++;
-      if (cnt == k)
-        break;
-    }
-    if (cnt < k || r <= j)
-      cout << "no\n";
-    else
-      cout << "yes\n";
-  }
+
+  ll t;
+  cin >> t;
+  while (t--)
+  
+   solve();
+   
+
+
+  
+
   return 0;
 }
