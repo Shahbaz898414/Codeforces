@@ -150,34 +150,7 @@ long long erfd(long long a, long long b)
 
 
 
-void solve() {
-    ll n, c; // Change n and c to long long
-    cin >> n >> c;
-    vector<ll> a(n); // Change vector type to long long
-    for (ll i = 0; i < n; ++i) 
-        cin >> a[i];
-    
-    ll l = 0, r = 1e9; // Changed l to start from 0
-    while (l <= r) {
-        ll mid = l + (r - l) / 2; // Change mid to long long
-        ll sumall = 0; // Changed sumall to a long long to avoid overflow
-        for (ll i = 0; i < n; ++i) {
-            sumall += (a[i] + 2 * mid) * (a[i] + 2 * mid);
-            if (sumall > c)
-                break;
-        }
-        if (sumall == c) {
-            cout << mid << "\n";
-            return;
-        }
-        if (sumall > c) {
-            r = mid - 1;
-        } else {
-            l = mid + 1;
-        }
-    }
-    cout << "-1\n"; // Print -1 if no solution is found
-}
+
 
 int main() {
     ios::sync_with_stdio(false);
@@ -185,7 +158,52 @@ int main() {
     int t;
     cin >> t;
     while (t--) {
-        solve();
+       ll n,k;cin>>n>>k;
+
+       vector<ll> arr(n);
+
+
+       for (ll i = 0; i < n; i++)
+       {
+        /* code */
+        cin>>arr[i];
+       }
+
+       sort(arr.begin(),arr.end());
+
+      ll cnt=1,ans=1;
+
+       for (ll i = 1; i < n; i++)
+       {
+        /* code */
+          if(arr[i]-arr[i-1]>k){
+            cnt=1;
+          }else{
+            cnt++;
+          }
+
+          ans=max(ans,cnt);
+          cout<<ans<<" ";
+       }
+
+
+      cout<<endl;
+
+       cout<<n-ans<<endl;
+       
     }
     return 0;
 }
+
+/*
+
+
+3
+2 3 8 10 19
+
+
+
+1 3 3 4 5 7 8 10
+
+
+*/
