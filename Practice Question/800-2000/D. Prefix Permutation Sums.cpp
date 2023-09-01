@@ -136,23 +136,23 @@ void rotateMatrix(vector<vector<int>> &v, int n)
   }
 }
 
+
+
 ll m = 998244353;
 
 long long erfd(long long a, long long b)
 {
-  if (b == 0)
-    return 1;
+  
+  if (b == 0) return 1;
   long long ans = erfd(a, b / 2);
-  if (b % 2)
-    return (ans % m * ans % m * a) % m;
-  else
-    return ans % m * ans % m;
+  if (b % 2) return (ans % m * ans % m * a) % m;
+  else return ans % m * ans % m;
+
 }
 
-bool cmp(string a, string b)
-{
-  return a + b < b + a;
-}
+
+
+
 
 signed main()
 {
@@ -161,19 +161,18 @@ signed main()
 
   ll t;
   cin >> t;
-  while (t--) {
-    int n; cin >> n;
+  while (t--)
+  {
+    int n;
+    cin >> n;
 
     long long A[n];
     for (int i = 0; i < (n - 1); ++i)
       cin >> A[i];
-    
 
     long long sum = n;
     sum *= (sum + 1ll);
     sum /= 2ll;
-
-
 
     if (A[n - 2] > sum)
     {
@@ -253,8 +252,6 @@ signed main()
       else
         cout << "YES\n";
     }
-
-
   }
 
   return 0;
