@@ -158,52 +158,16 @@ int main() {
     int t;
     cin >> t;
     while (t--) {
-       ll n,k;cin>>n>>k;
+       ll n,k,b;cin>>n>>k>>b;
 
-       vector<ll> arr(n);
+       if(n+k>=10 || n+b>=10 || k+b>=10){
+        yes
+       }else no
 
-
-       for (ll i = 0; i < n; i++)
-       {
-        /* code */
-        cin>>arr[i];
-       }
-
-       sort(arr.begin(),arr.end());
-
-      ll cnt=1,ans=1;
-
-       for (ll i = 1; i < n; i++)
-       {
-        /* code */
-          if(arr[i]-arr[i-1]>k){
-            cnt=1;
-          }else{
-            cnt++;
-          }
-
-          ans=max(ans,cnt);
-          // cout<<ans<<" ";
-       }
-
-
-      // cout<<endl;
-
-       cout<<n-ans<<endl;
        
+
+             
     }
     return 0;
 }
 
-/*
-
-
-3
-2 3 8 10 19
-
-
-
-1 3 3 4 5 7 8 10
-
-
-*/
