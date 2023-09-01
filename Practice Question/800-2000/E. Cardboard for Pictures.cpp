@@ -146,21 +146,41 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-int f(int mid, vector<ll> arr, ll c)
-{
-  int sum = 0;
-  mid = mid * 2;
-  for (auto it : arr)
-  {
-    sum += (it + mid) * (mid + it);
-    if (sum > c)
-      return 1;
-    if (sum == c)
-      return 0;
-  }
 
-  return -1;
-}
+
+
+void solve() {
+
+
+    int n, c; cin >> n >> c;
+    vector<int> a(n);
+    for(int i = 0; i < n; ++i) cin >> a[i];
+    int l = 1, r = 1e9;
+    while(l <= r) {
+        int mid = l + (r - l) / 2;
+        int sumall = 0;
+        for(int i = 0; i < n; ++i) {
+            sumall += (a[i] + 2 * mid) * (a[i] + 2 * mid);
+            if(sumall > c) break;
+        }
+        if(sumall == c) {
+            cout << mid << "\n";
+            return;
+        }
+        if(sumall > c) {
+            r = mid - 1;
+        } else {
+            l = mid + 1;
+        }
+    }
+
+
+}  
+
+
+
+
+
 
 signed main()
 {
@@ -171,35 +191,9 @@ signed main()
   while (t--)
   {
 
-    ll n, c;
-    cin >> n >> c;
-
-    vector<ll> arr(n);
-
-    for (ll i = 0; i < n; i++)
-    {
-      cin >> arr[i];
-    }
-
-    int s = 1;
-    int e = 1e9;
-
-    while (s <= e)
-    {
-      int mid = (s + e) / 2;
-      int k = f(mid, arr, c);
-      if (k == 1)
-        e = mid - 1;
-      else if (k == -1)
-        s = mid + 1;
-      else
-      {
-        cout << mid << endl;
-        break;
-      }
-    }
+    solve();
   }
   return 0;
 }
 
-// importiogic
+
