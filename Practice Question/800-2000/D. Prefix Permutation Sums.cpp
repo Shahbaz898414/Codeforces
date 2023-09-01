@@ -154,104 +154,6 @@ bool cmp(string a, string b)
   return a + b < b + a;
 }
 
-ll n;
-
-bool isPermutation(vector<ll> a)
-{
-  for (int i = 0; i < n; ++i)
-  {
-    if (a[i] <= 0 || a[i] > n)
-    {
-      return false;
-    }
-  }
-  set<ll> s(a.begin(), a.end());
-  return s.size() == n;
-}
-
-vector<ll> prefSumToArray(vector<ll> p)
-{
-
-  vector<ll> res(n);
-  res[0] = p[0];
-  for (int i = 1; i < n; ++i)
-  {
-    res[i] = p[i] - p[i - 1];
-  }
-  return res;
-}
-
-void solve()
-{
-
-  cin >> n;
-  vector<ll> a(n - 1);
-  for (int i = 0; i + 1 < n; ++i)
-  {
-    cin >> a[i];
-  }
-
-  ll x = n * (n + 1) / 2;
-
-  if (a.back() != x)
-  {
-    a.push_back(x);
-    vector<ll> b = prefSumToArray(a);
-    if (isPermutation(b))
-    {
-      cout << "YES\n";
-    }
-    else
-    {
-      cout << "NO\n";
-    }
-    return;
-  }
-
-  map<ll, int> cnt;
-  cnt[a[0]]++;
-  for (int i = 1; i < n - 1; ++i)
-  {
-    cnt[a[i] - a[i - 1]]++;
-  }
-  vector<int> cntGt1;
-  for (auto p : cnt)
-  {
-    if (p.second > 1)
-    {
-      cntGt1.push_back(p.first);
-    }
-  }
-  if (cntGt1.size() > 1)
-  {
-    cout << "NO\n";
-    return;
-  }
-  if (cntGt1.size() == 1)
-  {
-    int x1 = cntGt1[0];
-    if (cnt[x1] > 2)
-    {
-      cout << "NO\n";
-      return;
-    }
-  }
-  vector<int> cnt0;
-  for (int i = 1; i <= n; ++i)
-  {
-    if (cnt[i] == 0)
-    {
-      cnt0.push_back(i);
-    }
-  }
-  if (cnt0.size() != 2)
-  {
-    cout << "NO\n";
-    return;
-  }
-  cout << "YES\n";
-}
-
 signed main()
 {
   ios::sync_with_stdio(false);
@@ -260,8 +162,94 @@ signed main()
   ll t;
   cin >> t;
   while (t--)
+  {
 
-    solve();
+    int n;
+    cin >> n;
+
+    long long A[n];
+    for (int i = 0; i < (n - 1); ++i)
+    {
+      cin >> A[i];
+    }
+
+    long long sum = n;
+    sum *= (sum + 1ll);
+    sum /= 2ll;
+
+    if (A[n - 2] > sum)
+    {
+      cout << "NO\n";
+      continue;
+    }
+
+    set<long long> avail;
+    for (int i = 1; i <= n; ++i)
+      avail.insert(i);
+    int c = 0;
+    long long val = -1, star = -1;
+    int f = 0;
+    for (int i = 1; i < (n - 1); ++i)
+    {
+      long long dif = A[i] - A[i - 1];
+      if (avail.find(dif) == avail.end())
+      {
+        val = dif;
+      }
+      else
+        avail.erase(dif);
+    }
+
+    if (A[n - 2] == sum)
+    {
+      // either from start
+      if (avail.size() == 2)
+      {
+        // it means from start
+        long long cur_sum = 0;
+        for (auto &x : avail)
+          cur_sum += x;
+
+        if (cur_sum == A[0])
+          cout << "YES\n";
+        else
+          cout << "NO\n";
+      }
+      else if (avail.size() > 3)
+        cout << "NO\n";
+      else
+      {
+        // it means from middle
+        if (avail.find(A[0]) == avail.end())
+        {
+          cout << "NO\n";
+        }
+        else
+        {
+          avail.erase(A[0]);
+          long long cur_sum = 0;
+          for (auto &x : avail)
+            cur_sum += x;
+          if (cur_sum == val)
+            cout << "YES\n";
+          else
+            cout << "NO\n";
+        }
+      }
+    }
+    else
+    {
+      // last value is removed
+      if (avail.size() > 2)
+        cout << "NO\n";
+      else if (avail.find(A[0]) == avail.end())
+      {
+        cout << "NO\n";
+      }
+      else
+        cout << "YES\n";
+    }
+  }
 
   return 0;
 }
