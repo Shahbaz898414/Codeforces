@@ -161,21 +161,19 @@ signed main()
 
   ll t;
   cin >> t;
-  while (t--)
-  {
-
-    int n;
-    cin >> n;
+  while (t--) {
+    int n; cin >> n;
 
     long long A[n];
     for (int i = 0; i < (n - 1); ++i)
-    {
       cin >> A[i];
-    }
+    
 
     long long sum = n;
     sum *= (sum + 1ll);
     sum /= 2ll;
+
+
 
     if (A[n - 2] > sum)
     {
@@ -184,13 +182,17 @@ signed main()
     }
 
     set<long long> avail;
+
     for (int i = 1; i <= n; ++i)
       avail.insert(i);
+
     int c = 0;
     long long val = -1, star = -1;
     int f = 0;
+
     for (int i = 1; i < (n - 1); ++i)
     {
+
       long long dif = A[i] - A[i - 1];
       if (avail.find(dif) == avail.end())
       {
@@ -202,6 +204,7 @@ signed main()
 
     if (A[n - 2] == sum)
     {
+
       // either from start
       if (avail.size() == 2)
       {
@@ -219,6 +222,7 @@ signed main()
         cout << "NO\n";
       else
       {
+
         // it means from middle
         if (avail.find(A[0]) == avail.end())
         {
@@ -249,10 +253,9 @@ signed main()
       else
         cout << "YES\n";
     }
+
+
   }
-
-
-  
 
   return 0;
 }
