@@ -172,6 +172,7 @@ int main()
     vector<int> indegree(n);
     vector<vector<int>> graph(n);
     vector<vector<int>> P(n);
+
     for (int i = 0; i < n; ++i)
     {
       int k;
@@ -217,19 +218,22 @@ int main()
 
     for (auto &x : first)
     {
-      cout << x << " -";
+      // cout << x << " -";
+
       long long tot = 0;
+
       for (auto &y : P[x])
       {
-        cout << y << " " << cost[y] << "\n";
+        // cout << y << " " << cost[y] << "\n";
         tot += cost[y];
       }
-      cout << tot << " \n";
+
+      // cout << tot << " \n";
       if (P[x].size())
         cost[x] = min(cost[x], tot);
     }
 
-    cout << "\n";
+    // cout << "\n";
 
     for (auto &x : cost)
       cout << x << " ";
