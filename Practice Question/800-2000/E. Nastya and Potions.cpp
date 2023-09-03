@@ -146,9 +146,6 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-
-
-
 int main()
 {
   ios::sync_with_stdio(false);
@@ -158,78 +155,86 @@ int main()
   while (t--)
   {
 
-     int n,m;
-        cin>>n>>m;
-        
-        long long cost[n];
-        for(int i=0;i<n;++i)cin>>cost[i];
-        
-        for(int i=0;i<m;++i){
-            int idx;
-            cin>>idx;
-            cost[idx-1] = 0;
+    int n, m;
+    cin >> n >> m;
+    long long cost[n];
+
+    for (int i = 0; i < n; ++i)
+      cin >> cost[i];
+
+    for (int i = 0; i < m; ++i)
+    {
+      int idx;
+      cin >> idx;
+      cost[idx - 1] = 0;
+    }
+
+    vector<int> indegree(n);
+    vector<vector<int>> graph(n);
+    vector<vector<int>> P(n);
+    for (int i = 0; i < n; ++i)
+    {
+      int k;
+      cin >> k;
+      vector<int> temp;
+      for (int j = 0; j < k; ++j)
+      {
+        int x;
+        cin >> x;
+        temp.push_back(x - 1);
+        graph[x - 1].push_back(i);
+        indegree[i]++;
+      }
+      P[i] = temp;
+    }
+
+    queue<int> bfs;
+    vector<int> first;
+    for (int i = 0; i < n; ++i)
+    {
+      if (indegree[i] == 0)
+      {
+        bfs.push(i);
+        indegree[i]--;
+        first.push_back(i);
+      }
+    }
+
+    while (!bfs.empty())
+    {
+      int node = bfs.front();
+      bfs.pop();
+      for (auto &x : graph[node])
+      {
+        indegree[x]--;
+        if (indegree[x] == 0)
+        {
+          bfs.push(x);
+          first.push_back(x);
         }
-        
-        vector<int>indegree(n);
-        vector<vector<int>>graph(n);
-        vector<vector<int>>P(n);
-        for(int i=0;i<n;++i){
-            int k;
-            cin>>k;
-            vector<int>temp;
-            for(int j=0;j<k;++j){
-                int x;
-                cin>>x;
-                temp.push_back(x-1);
-                graph[x-1].push_back(i);
-                indegree[i]++;
-            }
-            P[i] = temp;
-        }
-        
-         
-        queue<int>bfs;
-        vector<int>first;
-        for(int i=0;i<n;++i){
-            if(indegree[i] == 0){
-                bfs.push(i);
-                indegree[i]--;
-                first.push_back(i);
-                
-            }
-        }
-        
-        while(!bfs.empty()){
-            int node = bfs.front();
-            bfs.pop();
-            for(auto&x:graph[node]){
-                indegree[x]--;
-                if(indegree[x] == 0){
-                    bfs.push(x);
-                    first.push_back(x);
-                }
-            }
-        }
-         
-         
-         
-        for(auto&x:first){
-           // cout<<x<<" -";
-            long long tot = 0;
-            for(auto&y:P[x]){
-             //   cout<<y<<" "<<cost[y]<<"\n";
-                tot += cost[y];
-            }
-            //cout<<tot<<" \n";
-            if(P[x].size())cost[x] = min(cost[x],tot);
-        }//cout<<"\n";
-        
-        for(auto&x:cost)cout<<x<<" ";
-        cout<<"\n";
-    
+      }
+    }
+
+    for (auto &x : first)
+    {
+      cout << x << " -";
+      long long tot = 0;
+      for (auto &y : P[x])
+      {
+        cout << y << " " << cost[y] << "\n";
+        tot += cost[y];
+      }
+      cout << tot << " \n";
+      if (P[x].size())
+        cost[x] = min(cost[x], tot);
+    }
+
+    cout << "\n";
+
+    for (auto &x : cost)
+      cout << x << " ";
+
+    cout << "\n";
   }
   return 0;
 }
-
-
-
