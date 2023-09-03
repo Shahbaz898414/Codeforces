@@ -158,7 +158,74 @@ int main()
   while (t--)
   {
 
-    ll n;cin>>n;
+     int n,m;
+        cin>>n>>m;
+        
+        long long cost[n];
+        for(int i=0;i<n;++i)cin>>cost[i];
+        
+        for(int i=0;i<m;++i){
+            int idx;
+            cin>>idx;
+            cost[idx-1] = 0;
+        }
+        
+        vector<int>indegree(n);
+        vector<vector<int>>graph(n);
+        vector<vector<int>>P(n);
+        for(int i=0;i<n;++i){
+            int k;
+            cin>>k;
+            vector<int>temp;
+            for(int j=0;j<k;++j){
+                int x;
+                cin>>x;
+                temp.push_back(x-1);
+                graph[x-1].push_back(i);
+                indegree[i]++;
+            }
+            P[i] = temp;
+        }
+        
+         
+        queue<int>bfs;
+        vector<int>first;
+        for(int i=0;i<n;++i){
+            if(indegree[i] == 0){
+                bfs.push(i);
+                indegree[i]--;
+                first.push_back(i);
+                
+            }
+        }
+        
+        while(!bfs.empty()){
+            int node = bfs.front();
+            bfs.pop();
+            for(auto&x:graph[node]){
+                indegree[x]--;
+                if(indegree[x] == 0){
+                    bfs.push(x);
+                    first.push_back(x);
+                }
+            }
+        }
+         
+         
+         
+        for(auto&x:first){
+           // cout<<x<<" -";
+            long long tot = 0;
+            for(auto&y:P[x]){
+             //   cout<<y<<" "<<cost[y]<<"\n";
+                tot += cost[y];
+            }
+            //cout<<tot<<" \n";
+            if(P[x].size())cost[x] = min(cost[x],tot);
+        }//cout<<"\n";
+        
+        for(auto&x:cost)cout<<x<<" ";
+        cout<<"\n";
     
   }
   return 0;
@@ -166,25 +233,3 @@ int main()
 
 
 
-/*
-
-
-
-Dear Jera Burmeister,
-
-My name is Shahbaz, and I am a final-year BTech undergraduate from Mumbai, India. I am reaching out to you to inquire about potential internship opportunities within Amazon.
-
-Throughout my academic journey, I have gained valuable experience as a tech consultant, working on various web development projects for clients. Additionally, I have completed internships at reputable companies such as NULL CLASS, TLE, where I developed my skills in software development. I am now seeking a 3-month internship opportunity in Amazon to further enhance my skills and gain industry experience.
-
-I noticed a job opening on the Amazon career page, Job ID: 2415936 (https://www.amazon.jobs/en-gb/jobs/2415936/software-dev-engineer-intern), for a Software Engineering position, which I believe aligns with my skills and experience.
-
-Please find my resume and GitHub for your review.
-I would be grateful if you could refer me to the hiring manager or provide any relevant information about the opening.
-
-Thank you for considering my request. I look forward to the possibility of contributing to Amazon and being a part of the team. If there is any additional information or documentation required, please let me know.
-
-Best regards,
-Shahbaz Khan
-
-
-*/
