@@ -191,14 +191,16 @@ int main()
         }
       }
 
-      for(auto it:odd) cout<<it<<" ";
+      // for(auto it:odd) cout<<it<<" ";
 
-      line
+      // line
 
-      for(auto it:even) cout<<it<<" ";
+      // for(auto it:even) cout<<it<<" ";
 
-      line
+      // line
 
+
+      //   cout<<maxs<<" maxs"<<endl;
 
       
       if (count == n) cout << maxs << endl;
