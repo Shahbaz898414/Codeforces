@@ -160,42 +160,28 @@ int main()
   while (t--)
   {
 
-    ll n; cin >> n;
+    ll n,x; cin >> n>>x;
 
-    vector<ll> arr(n + 1, INT_MAX); vector<ll> dp(n + 1, 0);
+    vector<ll> ar(n+1),br(n+1),cr(n+1);
 
-    for (ll i = 1; i <= n; i++) {
-
-      ll q; cin >> q;
-
-      dp[i] = min(dp[i - 1] + 1, arr[q]);
-
-      arr[q] = min(arr[q], dp[i - 1]);
-
-      cout<<dp[i]<<" "<<arr[q];line
-
+    for (ll i = 1; i <=n; i++)
+    {
+      /* code */
+      cin>>ar[i];
     }
 
+    for (ll i = 1; i <=n; i++)
+    {
+      /* code */
+      cin>>br[i];
+    }
+
+    for (ll i = 1; i <=n; i++)
+    {
+      /* code */
+      cin>>cr[i];
+    }
     
-    
-    // for (auto it : dp) {
-    //   cout << it << " ";
-    // }
-
-    // line
-    
-    // for (auto it : arr) {
-    //   cout << it << " ";
-    // }
-
-
-    // line
-
-
-
-    cout<< n - dp[n] ;
-
-    line 
 
 
 
