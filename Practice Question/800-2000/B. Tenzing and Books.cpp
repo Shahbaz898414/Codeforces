@@ -168,24 +168,28 @@ int main()
 
     for (ll i = 0; i <3; i++)
     {
-      /* code */
+     
       for (ll i = 1; i <=n; i++)
       {
-        /* code */
+       
         cin>>arr[i];
       }
 
       for (ll i = 1; i <=n; i++)
       {
-        /* code */
-        if
+       
+        if((x|arr[i])==x)temp|=arr[i]; 
+				else break;
       }
       
       
     }
     
     
+    if(temp==x)cout<<"yes\n";
 
+
+		else cout<<"no\n";
 
 
   }
@@ -194,31 +198,3 @@ int main()
 }
 
 
-/*
-
-
-
-#include<bits/stdc++.h>
-using namespace std;
-long long t,n,x,temp,a[200005];
-int main(){
-	cin>>t;
-	while(t--){
-		cin>>n>>x;
-		temp=0;
-
-		for(int k=1;k<=3;k++){
-			for(int i=1;i<=n;i++)cin>>a[i];
-			for(int i=1;i<=n;i++)
-				if((x|a[i])==x)temp|=a[i];
-				else break;
-		}
-
-		if(temp==x)cout<<"yes\n";
-		else cout<<"no\n";
-	}
-} 
-
-
-
-*/
