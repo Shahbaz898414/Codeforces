@@ -151,10 +151,7 @@ int main()
 {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  int t;
-  cin >> t;
-  while (t--)
-  {
+  
 
     ll t;
     cin >> t;
@@ -165,10 +162,8 @@ int main()
       int n;
       long long int m1 = 0, m2 = 0, count = 0, maxs = -1e9;
       cin >> n;
-      for (int i = 1; i <= n; i++)
-      {
-        int a;
-        cin >> a;
+      for (int i = 1; i <= n; i++) {
+        int a; cin >> a;
         if (i % 2 == 0)
         {
           if (a > 0)
@@ -192,11 +187,12 @@ int main()
           }
         }
       }
-      if (count == n)
-        cout << maxs << endl;
-      else
-        cout << max(m1, m2) << endl;
+
+      if (count == n) cout << maxs << endl;
+      else cout << max(m1, m2) << endl;
+
+      
     }
-  }
+  
   return 0;
 }
