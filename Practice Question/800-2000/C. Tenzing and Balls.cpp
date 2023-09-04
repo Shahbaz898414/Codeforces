@@ -147,8 +147,6 @@ void rotateMatrix(vector<vector<int>> &v, int n)
 //     return ans % m * ans % m;
 // }
 
-
-
 // ll solve(ll ind,ll cond,vector<vector<ll>>&res,vector<ll>&v,vector<vector<ll>>&dp) {
 //   if(ind==v.size()){
 //     return 0;
@@ -166,7 +164,6 @@ void rotateMatrix(vector<vector<int>> &v, int n)
 //       ans=min(ans,solve(res[v[ind]][id],0,res,v,dp));
 //     }
 
-
 //     return dp[ind][cond]=ans;
 //   }else {
 
@@ -179,77 +176,49 @@ void rotateMatrix(vector<vector<int>> &v, int n)
 //     return dp[ind][cond]=ans;
 //   }
 
-
-
-
 // }
-
-
 
 int main()
 {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  
 
-    ll t; cin >> t;
+  ll t;
+  cin >> t;
 
-    while (t--) {
+  while (t--)
+  {
 
-          ll n;cin>>n;
+    ll n;
+    cin >> n;
 
-          vector<ll>  arr(n+1,INT_MAX);
+    vector<ll> arr(n + 1, INT_MAX);
 
-          vector<ll>  dp(n+1,0);
+    vector<ll> dp(n + 1, 0);
 
-         
+    for (ll i = 1; i <= n; i++)
+    {
+      ll q;
+      cin >> q;
+      dp[i] = min(dp[i - 1] + 1, arr[q]);
 
-          for(ll i =1; i <=n; i++) {
-             ll q;cin>>q;
-             dp[i]=min(dp[i-1]+1,arr[q]);
-
-             arr[q]=min(arr[q],dp[i-1]);
-            
-          }
-
-          for(auto it:dp){
-            cout<<it<<" ";
-          }
-          line
-          for(auto it:arr){
-            cout<<it<<" ";
-          }
-line          
-          cout<<n-dp[n];
-
-          line
-
+      arr[q] = min(arr[q], dp[i - 1]);
     }
-  
+
+    for (auto it : dp)
+    {
+      cout << it << " ";
+    }
+    line for (auto it : arr)
+    {
+      cout << it << " ";
+    }
+    line
+            cout
+        << n - dp[n];
+
+    line
+  }
+
   return 0;
 }
-
-
-
-/*
-
-
-
-A millionaire won't judge
-you for starting a business
-
-A bodybuilder won't judge
-you for working out
-
-A NBA player won't judge
-you for playing ball
-
-It's always those people
-that are going no where...
-
-they want to judge you for
-doing something with your life..
-
-
-
-*/
