@@ -186,10 +186,7 @@ int main()
     }
     
     
-    if(temp==x)cout<<"yes\n";
-
-
-		else cout<<"no\n";
+    if(temp==x)yes else no
 
 
   }
