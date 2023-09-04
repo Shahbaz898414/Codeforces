@@ -147,36 +147,7 @@ void rotateMatrix(vector<vector<int>> &v, int n)
 //     return ans % m * ans % m;
 // }
 
-// ll solve(ll ind,ll cond,vector<vector<ll>>&res,vector<ll>&v,vector<vector<ll>>&dp) {
-//   if(ind==v.size()){
-//     return 0;
-//   }
 
-//   if(dp[ind][cond]!=-1){
-//     return dp[ind][cond];
-//   }
-
-//   if (cond==1) {
-
-//     ll ans=cond+solve(ind+1,1,res,v,dp);
-//     ll id=upper_bound(res[v[ind]].begin(),res[v[ind]].begin(),ind)-res[v[ind]].begin();
-//     if(id!=res[v[ind]].size()){
-//       ans=min(ans,solve(res[v[ind]][id],0,res,v,dp));
-//     }
-
-//     return dp[ind][cond]=ans;
-//   }else {
-
-//     ll ans=cond+solve(ind+1,1,res,v,dp);
-//     ll id=upper_bound(res[v[ind]].begin(),res[v[ind]].begin(),ind)-res[v[ind]].begin();
-//     if(id!=res[v[ind]].size()){
-//       ans=min(ans,solve(res[v[ind]][id],0,res,v,dp));
-//     }
-
-//     return dp[ind][cond]=ans;
-//   }
-
-// }
 
 int main()
 {
@@ -193,8 +164,6 @@ int main()
 
     vector<ll> arr(n + 1, INT_MAX); vector<ll> dp(n + 1, 0);
 
-
-
     for (ll i = 1; i <= n; i++) {
 
       ll q; cin >> q;
@@ -205,19 +174,29 @@ int main()
 
     }
 
-    // for (auto it : dp)
-    // {
-    //   cout << it << " ";
-    // }
-    // line for (auto it : arr)
-    // {
-    //   cout << it << " ";
-    // }
-    // line
-            cout
-        << n - dp[n];
+    
+    
+    for (auto it : dp) {
+      cout << it << " ";
+    }
 
     line
+    
+    for (auto it : arr) {
+      cout << it << " ";
+    }
+
+    
+    line
+
+
+
+    cout<< n - dp[n] ;
+
+    line 
+
+
+
   }
 
   return 0;
