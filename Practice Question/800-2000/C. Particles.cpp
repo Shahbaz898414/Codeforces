@@ -188,10 +188,15 @@ int main()
         }
       }
 
+
+
       if (count == n) cout << maxs << endl;
       else cout << max(m1, m2) << endl;
 
-      
+
+
+
+
     }
   
   return 0;
