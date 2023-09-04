@@ -153,15 +153,15 @@ int main()
   cin.tie(nullptr);
   
 
-    ll t;
-    cin >> t;
+    ll t; cin >> t;
 
-    while (t--)
-    {
+    while (t--) {
 
       int n;
       long long int m1 = 0, m2 = 0, count = 0, maxs = -1e9;
       cin >> n;
+
+      vector<ll> odd,even;
       for (int i = 1; i <= n; i++) {
         int a; cin >> a;
         if (i % 2 == 0)
@@ -170,6 +170,8 @@ int main()
             m1 += a;
           else
           {
+
+            even.push_back(a);
             count++;
             if (a > maxs)
               maxs = a;
@@ -181,6 +183,7 @@ int main()
             m2 += a;
           else
           {
+             odd.push_back(a);
             count++;
             if (a > maxs)
               maxs = a;
@@ -188,12 +191,22 @@ int main()
         }
       }
 
+      for(auto it:odd) cout<<it<<" ";
 
+      line
 
-      if (count == n) cout << maxs << endl;
+      for(auto it:even) cout<<it<<" ";
+
+      line
 
 
       
+      if (count == n) cout << maxs << endl;
+
+
+
+
+
       else cout << max(m1, m2) << endl;
 
 
