@@ -162,25 +162,28 @@ int main()
 
     ll n,x; cin >> n>>x;
 
-    vector<ll> ar(n+1),br(n+1),cr(n+1);
+    ll arr[n+1];
 
-    for (ll i = 1; i <=n; i++)
+    ll temp=0;
+
+    for (ll i = 0; i <3; i++)
     {
       /* code */
-      cin>>ar[i];
-    }
+      for (ll i = 1; i <=n; i++)
+      {
+        /* code */
+        cin>>arr[i];
+      }
 
-    for (ll i = 1; i <=n; i++)
-    {
-      /* code */
-      cin>>br[i];
+      for (ll i = 1; i <=n; i++)
+      {
+        /* code */
+        if
+      }
+      
+      
     }
-
-    for (ll i = 1; i <=n; i++)
-    {
-      /* code */
-      cin>>cr[i];
-    }
+    
     
 
 
@@ -189,3 +192,33 @@ int main()
 
   return 0;
 }
+
+
+/*
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+long long t,n,x,temp,a[200005];
+int main(){
+	cin>>t;
+	while(t--){
+		cin>>n>>x;
+		temp=0;
+
+		for(int k=1;k<=3;k++){
+			for(int i=1;i<=n;i++)cin>>a[i];
+			for(int i=1;i<=n;i++)
+				if((x|a[i])==x)temp|=a[i];
+				else break;
+		}
+
+		if(temp==x)cout<<"yes\n";
+		else cout<<"no\n";
+	}
+} 
+
+
+
+*/
