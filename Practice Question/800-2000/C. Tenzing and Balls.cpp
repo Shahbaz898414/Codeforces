@@ -189,31 +189,31 @@ int main()
   while (t--)
   {
 
-    ll n;
-    cin >> n;
+    ll n; cin >> n;
 
-    vector<ll> arr(n + 1, INT_MAX);
+    vector<ll> arr(n + 1, INT_MAX); vector<ll> dp(n + 1, 0);
 
-    vector<ll> dp(n + 1, 0);
 
-    for (ll i = 1; i <= n; i++)
-    {
-      ll q;
-      cin >> q;
+
+    for (ll i = 1; i <= n; i++) {
+
+      ll q; cin >> q;
+
       dp[i] = min(dp[i - 1] + 1, arr[q]);
 
       arr[q] = min(arr[q], dp[i - 1]);
+
     }
 
-    for (auto it : dp)
-    {
-      cout << it << " ";
-    }
-    line for (auto it : arr)
-    {
-      cout << it << " ";
-    }
-    line
+    // for (auto it : dp)
+    // {
+    //   cout << it << " ";
+    // }
+    // line for (auto it : arr)
+    // {
+    //   cout << it << " ";
+    // }
+    // line
             cout
         << n - dp[n];
 
