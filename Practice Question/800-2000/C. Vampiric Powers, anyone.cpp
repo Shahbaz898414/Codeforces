@@ -170,3 +170,21 @@ int main()
 }
 
 
+/*
+
+cin>>n;
+		int a=0;
+		set<int>s{0};
+		for(int i=1;i<=n;++i)
+		{
+			int k;cin>>k;
+			a^=k;
+			s.insert(a);
+		}
+		for(auto p:s)
+			for(auto u:s)
+				if(p!=u)a=max(a,p^u);
+		cout<<a<<"\n";
+
+
+*/
