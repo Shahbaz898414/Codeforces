@@ -155,36 +155,44 @@ int main()
   while (t--)
   {
 
-    ll n;cin>>n;
-    vector<ll> arr(n);
+    int n;
+    cin >> n;
 
-    for (ll i = 0; i < n; i++)
+    int A[n];
+    int ans = 0;
+    int lim = 0;
+    for (int i = 0; i < n; ++i)
     {
-     
-      cin>>arr[i];
+      cin >> A[i];
+      lim |= A[i];
     }
-    
-    
+    // cout<<lim<<" ";
+    lim = (1 << 8);
+    for (int i = 1; i < lim; ++i)
+    {
+      vector<int> count(lim + 1);
+      // count[0] = 1;
+      int f = 0;
+      int cur = 0;
+      for (int j = 0; j < n; ++j)
+      {
+        if (A[j] == 0)
+          continue;
+        cur ^= A[j];
+        int look = cur ^ i;
+        if (cur == i || count[look] > 0)
+        {
+
+          f = 1;
+          break;
+        }
+        count[cur]++;
+      }
+
+      if (f)
+        ans = max(ans, i);
+    }
+    cout << ans << "\n";
   }
   return 0;
 }
-
-
-/*
-
-cin>>n;
-		int a=0;
-		set<int>s{0};
-		for(int i=1;i<=n;++i)
-		{
-			int k;cin>>k;
-			a^=k;
-			s.insert(a);
-		}
-		for(auto p:s)
-			for(auto u:s)
-				if(p!=u)a=max(a,p^u);
-		cout<<a<<"\n";
-
-
-*/
