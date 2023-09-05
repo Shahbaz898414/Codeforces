@@ -158,9 +158,25 @@ int main()
   while (t--)
   {
 
-   
+    string str1, str2;
+    cin >> str1 >> str2;
+    int sum = 0;
+    while (str1.size() < str2.size())
+    {
+      str1 = '0' + str1;
+    }
 
+    int i = 0;
+    for (; i < str1.size(); ++i)
+    {
+      if (str1[i] < str2[i])
+      {
+        sum += str2[i] - str1[i] + 9 * (str1.size() - i - 1);
+        break;
+      }
+    }
 
+    cout << sum << endl;
   }
 
   return 0;
