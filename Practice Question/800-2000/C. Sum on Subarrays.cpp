@@ -157,7 +157,18 @@ int main()
 
   while (t--)
   {
+    ll n,k;cin>>n>>k;
 
+    vector<ll>  ans(n);
+
+    if(k==0){
+      for (ll i = 0; i < n; i++)
+      {
+        /* code */
+        
+      }
+      
+    }
     
   }
 
