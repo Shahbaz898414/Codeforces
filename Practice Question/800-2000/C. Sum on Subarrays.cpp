@@ -165,8 +165,44 @@ int main()
       for (ll i = 0; i < n; i++)
       {
         /* code */
-        
+        cout<<-1<<" ";
       }
+
+      line
+
+      
+    }else {
+      for (ll i = 0; i < n; i++)
+      {
+        /* code */
+        if(k>=n-i){
+          ans[i]=1000;
+          k-=(n-i);
+        }else {
+          ans[i]=k;
+          for (ll j = i+1; j <i+k; j++)
+          {
+            /* code */
+            ans[j]=-1;
+          }
+          
+           for(int j=i+k;j<n;j++){
+              ans[j]=-2;
+
+            }
+            break;
+
+        }
+      }
+      
+
+      for (ll i = 0; i < n; i++)
+      {
+        /* code */
+        cout<<ans[i]<<" ";
+      }
+
+      cout<<endl;
       
     }
     
