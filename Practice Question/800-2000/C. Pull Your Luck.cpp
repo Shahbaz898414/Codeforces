@@ -152,33 +152,13 @@ int main()
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  ll t;
-  // ll t;
-  cin >> t;
+  ll t;cin >> t;
 
-  while (t--)
-  {
+  while (t--) {
+    ll n, m,k; cin >> n >> m>>k;
 
-    ll n, m;
-    cin >> n >> m;
-    ll k[n];
-    for (ll i = 0; i < n; i++)
-      cin >> k[i];
-    sort(k, k + n);
-
-    for (ll i = 0; i < m; i++)
-    {
-      ll a, b, c;
-      cin >> a >> b >> c;
-      auto it = upper_bound(k, k + n, b - 2 * sqrtl(a * c));
-      if (*it < b + 2 * sqrt(a * c))
-      {
-        cout << "YES\n";
-        cout << (long long)(*it) << endl;
-      }
-      else
-        cout << "NO\n";
-    }
+    
+    
   }
 
   return 0;
