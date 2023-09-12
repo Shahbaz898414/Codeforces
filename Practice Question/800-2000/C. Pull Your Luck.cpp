@@ -163,3 +163,29 @@ int main()
 
   return 0;
 }
+
+
+
+/*
+
+
+
+Dear Developer,
+
+My name is Shahbaz, and I am a final-year BTech undergraduate from Mumbai, India. I am reaching out to you to inquire about potential internship opportunities within Google.
+
+Throughout my academic journey, I have gained valuable experience as a tech consultant, working on various web development projects for clients. Additionally, I have completed internships at reputable companies such as NULL CLASS, TLE, where I developed my skills in software development. I am now seeking a job opportunity in Google to further enhance my skills and gain industry experience.
+
+I noticed a job opening on the Google career page,(https://www.google.com/about/careers/applications/jobs/results/95391258974790342-software-engineer/), for a Software Engineering position, which I believe aligns with my skills and experience.
+
+Please find my resume and GitHub for your review.
+I would be grateful if you could refer me to the hiring manager or provide any relevant information about the opening.
+
+Thank you for considering my request. I look forward to the possibility of contributing to Google and being a part of the team. If there is any additional information or documentation required, please let me know.
+
+Best regards,
+Shahbaz Khan
+
+
+
+*/
