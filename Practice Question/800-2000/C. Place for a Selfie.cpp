@@ -152,45 +152,73 @@ int main()
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-ll t;
+  ll t;
   // ll t;
   cin >> t;
 
-  while (t--) {
+  while (t--)
+  {
 
-    
-    ll n;cin>>n;
+    int n, m1;
+    cin >> n >> m1;
+    vector<int> v;
+    for (int i = 0; i < n; i++)
+    {
+      int m;
+      cin >> m;
+      v.push_back(m);
+    }
 
-    vector<ll>  a(n+1);
-    for (ll i = 0; i < n; i++)  cin>>a[i];
+    sort(v.begin(), v.end());
+    for (int i = 0; i < m1; i++)
+    {
+      int a, b, c;
+      cin >> a >> b >> c;
+      if (c < 0)
+      {
+        cout << "NO" << endl;
+      }
+      else
+      {
+        int ans = -1;
+        int lo = 0;
+        bool flag = false;
+        int hi = n - 1;
+        while (hi >= lo)
+        {
+          int mid = (lo + hi) / 2;
+          int val = 4 * a * c;
+          if ((b - v[mid]) * (b - v[mid]) < val)
+          {
+            ans = v[mid];
+            flag = true;
+            break;
+          }
+          else
+          {
+            if (b < v[mid])
+            {
+              hi = mid - 1;
+            }
+            else
+            {
+              lo = mid + 1;
+            }
+          }
+        }
 
-
-    long long s=1;
-		bool p=true;
-
-    sort(a.begin(),a.end());
-		if(a[1]!=1)
-			p=false;
-		for(int i=2;i<=n;i++)
-		{
-			if(s<a[i])
-				p=false;
-
-
-			s+=a[i];
-		}
-
-
-
-		if(p==true) puts("Yes");
-		else puts("No");
-
-    
-    
+        if (flag == false)
+        {
+          cout << "NO" << endl;
+        }
+        else
+        {
+          cout << "YES" << endl;
+          cout << ans << endl;
+        }
+      }
+    }
   }
 
   return 0;
 }
-
-
-
