@@ -154,15 +154,14 @@ long long erfd(long long a, long long b)
 
 
 
-signed main()
-{
+int32_t main() {
+
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
-  ll t;
-  cin >> t;
-  while (t--)
-  {
+  ll t; cin >> t;
+
+  while (t--) {
     ll n,k;
         cin>>n>>k;
         ll arr[n+1];
@@ -170,15 +169,16 @@ signed main()
         for(ll i=1;i<=n;i++){
             cin>>arr[i];
             arr[i]+=arr[i-1];
+
+            // cout<<arr[i]<<" ";
         }
+
+        // cout<<endl;
         ll hrr[n];
         for(ll i=0;i<n;i++){
             cin>>hrr[i];
  
         }
- 
- 
- 
  
         ll l=1,r=n;
         ll ans=0;
@@ -186,6 +186,8 @@ signed main()
         if(arr[1]<=k){
             ans=1;
         }
+
+
         while(r>=l){
             ll mid=(r+l)/2;
  
@@ -202,13 +204,12 @@ signed main()
  
                 if(len>=mid){
                     val=min(val,arr[i+1]-arr[i-mid+1]);
-                }
+                } 
             }
  
             if(val<=k){
                 ans=mid;
-                l=mid+1;
-                
+                l=mid+1;    
             }else{
                 r=mid-1;
             }
