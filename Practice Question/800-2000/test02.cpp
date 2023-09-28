@@ -1,132 +1,57 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#define ll long long
 using namespace std;
-#define ll long long 
 
-int main() {
+const ll MOD = 1000000007;
 
-  // ll t;cin>>t;
-  // while(t--) {
-     
-   // cout<<1<<endl;
-    ll dp[1005][1005];
-
-    dp[1][1]=1;
-
-    ll mod =1e9+7;
-
-    for (ll i =2; i < 1005; i++)
-    {
-        /* code */
-        for (ll j = 1; j <=i; j++)
-        {
-            /* code */
-
-            dp[i][j]=(dp[i-1][j-1]+dp[i-1][j]*j)%mod;
-        }
-        
-    }
-
-
-    for (ll i =2; i < 1005; i++)
-    {
-        /* code */
-        for (ll j = 1; j <=i; j++)
-        {
-            /* code */
-
-            cout<<dp[i][j]<<" ";
-        }
-        
-    }
-
-
-
-    // cout<<2<<endl;
-    
-
-
-
-
-  ll t;cin>>t;
-
-  while(t--) {
-    ll n;cin>>n;
-
-    ll ans=0;
-
-
-    for (ll i = 0; i <=n; i++)
-    {
-        /* code */
-        ans=(ans+dp[n][i])%mod;
-    }
-
-    cout<<ans<<endl;
-    
-
-    // vector<ll>  arr(n);
-
-    // for (ll i = 0; i < n; i++)   
-    //     cin>>arr[i];
-    
-    
-
-
-
-  }
-
-        
-      
-      
-
-  // }
-
-}
-
-
-/*
-
-
-#include<bits/stdc++.h>
-using namespace std;
-int n;
-string s1,S,k;
-main()
+// Function to calculate the factorial of a number modulo MOD
+long long factorial(int n)
 {
-	cin>>n;
-	for(int i=0;i<n;i++)
-	{
-	cin>>k;
-	s1+=k;
-	}
-S=s1;
-reverse(S.begin(),S.end());
-	if(S==s1)
-	cout<<"YES";
-	else cout<<"NO";
+  long long result = 1;
+  for (int i = 1; i <= n; i++)
+  {
+    result = (result * i) % MOD;
+  }
+  return result;
 }
 
-
-#include<bits/stdc++.h>
-using namespace std;
 int main()
 {
-	int n;
-	string s1,s2,s;
-	cin>>n;
-	for(int i=0;i<n;i++)
-	{
-		cin>>s;
-		s1+=s;
-	}
-	s2=s1;
-	reverse(s2.begin(),s2.end());
-	if(s2==s1)
-	{
-		cout<<"YEm";
-	}
-	else cout<<"NO";
+
+  ll t;
+  cin >> t;
+
+  while (t--)
+  {
+    ll N, X;
+    cin >> N >> X;
+
+    vector<ll> A(N);
+    ll even_count = 0, odd_count = 0;
+
+    for (ll i = 0; i < N; i++)
+    {
+      cin >> A[i];
+      if (A[i] % 2 == 0)
+      {
+        even_count++;
+      }
+      else
+      {
+        odd_count++;
+      }
+    }
+
+    // Calculate the factorial of even_count and odd_count
+    long long even_factorial = factorial(even_count);
+    long long odd_factorial = factorial(odd_count);
+
+    // Calculate the total count of valid permutations
+    long long result = (even_factorial * odd_factorial) % MOD;
+
+    cout << result << endl;
+  }
+
+  return 0;
 }
-
-
-*/

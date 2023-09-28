@@ -163,11 +163,100 @@ signed main()
   cin >> t;
   while (t--)
   {
-     string s;cin>>s;
+    ll n;
+        // cin>>n;
+        string s;
+        cin>>s;
+        n=s.length();
+ 
+        ll cnt=0;
+        // ll ans=0;
+        ll cntb=0;
+        vector<ll> vec;
+        for(ll i=0;i<n;i++){
+            if(s[i]=='A'){
+                cnt++;
+ 
+                if(cntb!=0){
+                    vec.push_back(-cntb);
+                }
+                cntb=0;
+            }else{
+                vec.push_back(cnt);
+                cntb++;
+                cnt=0;
+            }
+        }
 
-     ll len=s.size();
+        for(auto it:vec){
+          cout<<it<<" ";
+        }
 
-     
+        cout<<endl;
+ 
+ 
+ 
+        if(cntb!=0){
+            vec.push_back(-cntb);
+        }else if(cnt!=0){
+            vec.push_back(cnt);
+        }
+ 
+ 
+        ll m=vec.size();
+ 
+        if(vec[0]<0){
+            vec[0]=-1;
+        }
+ 
+        if(vec[m-1]<0){
+            vec[m-1]=-1;
+        }
+ 
+ 
+
+        ll ans=0;
+ 
+
+
+        bool check=false;
+        ll mn=INT_MAX;
+        for(ll i=0;i<m;i++){
+            if(vec[i]>0){
+                mn=min(mn,vec[i]);
+                ans+=vec[i];
+            }
+ 
+            if(vec[i]<=-2){
+                check=true;
+            }
+        }
+ 
+        cout<<mn<<endl;
+
+
+ 
+        if(check){
+            cout<<ans<<endl;
+            continue;
+        }
+
+        cout<<vec[0]<<" "<<vec[m-1]<<endl;
+ 
+        ll temp=min(vec[0],vec[m-1]);
+        mn=min(mn,temp);
+
+        cout<<mn<<endl;
+ 
+        if(mn>=0) {
+            ans-=mn;
+ 
+        }
+ 
+
+
+        cout<<ans<<endl;
+ 
   }
 
   return 0;
