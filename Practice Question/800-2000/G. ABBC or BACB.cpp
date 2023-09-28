@@ -232,7 +232,7 @@ signed main()
             }
         }
  
-        cout<<mn<<endl;
+        // cout<<mn<<endl;
 
 
  
@@ -241,12 +241,12 @@ signed main()
             continue;
         }
 
-        cout<<vec[0]<<" "<<vec[m-1]<<endl;
+        // cout<<vec[0]<<" "<<vec[m-1]<<endl;
  
         ll temp=min(vec[0],vec[m-1]);
         mn=min(mn,temp);
 
-        cout<<mn<<endl;
+        // cout<<mn<<endl;
  
         if(mn>=0) {
             ans-=mn;
