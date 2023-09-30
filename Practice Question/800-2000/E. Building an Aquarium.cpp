@@ -191,12 +191,11 @@ int32_t main()
       }
       else
       {
-        // cout<<mid<<" "<<an<<endl;
-
+       
         r = mid - 1;
       }
     }
-    
+
     cout << ans << endl;
   }
 
