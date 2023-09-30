@@ -161,87 +161,42 @@ int32_t main()
 
   while (t--)
   {
-    ll n, k;
-    cin >> n >> k;
-    ll arr[n + 1];
-    arr[0] = 0;
-    for (ll i = 1; i <= n; i++)
-    {
-      cin >> arr[i];
-      arr[i] += arr[i - 1];
-      cout << arr[i] << " ";
-    }
-
-    cout << endl;
-    ll hrr[n];
+    ll n, x;
+    cin >> n >> x;
+    ll arr[n];
     for (ll i = 0; i < n; i++)
     {
-      cin >> hrr[i];
+      cin >> arr[i];
     }
 
-    ll l = 1, r = n;
+    ll l = 0, r = 2e9;
     ll ans = 0;
-
-    if (arr[1] <= k)
-    {
-      ans = 1;
-    }
-
-    cout << endl;
-
     while (r >= l)
     {
       ll mid = (r + l) / 2;
-
-      ll prev = 0;
-
-      ll val = k + 1;
-
-      for (ll i = 1; i < n; i++)
+      ll an = 0;
+      for (ll i = 0; i < n; i++)
       {
-        if (hrr[i - 1] % hrr[i] != 0)
+        if (arr[i] <= mid)
         {
-          prev = i;
-
-          // cout << i << " " << prev << endl;
-        }
-
-        // debug(prev);
-
-        // cout<<prev<<" ";
-
-
-        ll len = (i - prev + 1);
-
-        if (len >= mid) {
-          val = min(val, arr[i + 1] - arr[i - mid + 1]);
-
-          // cout << len << " " << val << " " << arr[i + 1] << " " << arr[i - mid + 1] << endl;
+          an += (mid - arr[i]);
         }
       }
 
-      // cout << endl;
-
-      // debug(val);
-
-      if (val <= k)
+      if (an <= x)
       {
+
         ans = mid;
         l = mid + 1;
       }
       else
       {
+        // cout<<mid<<" "<<an<<endl;
+
         r = mid - 1;
       }
-
-      // debug(r);
-
-      // debug(l);
-
-
-
     }
-
+    
     cout << ans << endl;
   }
 
