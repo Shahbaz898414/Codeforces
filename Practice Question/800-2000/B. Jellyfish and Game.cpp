@@ -182,7 +182,7 @@ int32_t main()
 
     for (ll i = 0; i < m; i++){
       cin>>brr[i];
-      sum2+=brr[i];
+      // sum2+=brr[i];
     }   
     
 
@@ -214,8 +214,8 @@ int32_t main()
 
 
 
-    if(arr[0]<brr[m]){
-      sum1+=brr[m]-arr[1];
+    if(arr[0]<brr[m-1]){
+      sum1+=brr[m-1]-arr[0];
     }
 
     if(k%2)  sum1=sum1-max(arr[n-1],brr[m-1])-min(arr[0],brr[0]);
