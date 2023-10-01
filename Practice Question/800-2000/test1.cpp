@@ -1,53 +1,38 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-#define ll long long
+typedef long long ll;
+int a[55],b[55];
+int main(){
+    int t;
+    scanf("%d",&t);
+    while(t--){
+        int n,m,k;
+        scanf("%d%d%d",&n,&m,&k);
+        ll ans=0;
+        for(int i=1;i<=n;i++)scanf("%d",a+i),ans+=a[i];
+        for(int i=1;i<=m;i++)scanf("%d",b+i);
 
-long long uniqueProductId = 1;
-ll modValue = 1e9 + 7;
-
-int main()
-{
-    ll numberOfTestCases = 1;
-    cin >> numberOfTestCases;
-
-    while (numberOfTestCases--) {
-        ll N,K;cin>>N>>K;
-
-        if(N>K || (N*(N+1))/2>K) {
-            cout<<"-1"<<endl;
-            continue;
+        for (int i = 1; i <=n; i++)
+        {
+            /* code */
+            cout<<a[i]<<" ";
         }
 
-        vector<ll> A(N, 1);
-        ll sum = N;
+        cout<<endl;
 
-        // Distribute the remaining sum evenly between even and odd indices
-        for (int i = 0; i < N && sum < K; i += 2) {
-            ll diff = min(9 - A[i], K - sum);
-            A[i] += diff;
-            sum += diff;
+
+         for (int i = 1; i <=m; i++)
+        {
+            /* code */
+            cout<<b[i]<<" ";
         }
 
-        // If sum is still less than K, distribute the remaining evenly among all elements
-        if (sum < K) {
-            for (int i = 0; i < N && sum < K; i++) {
-                ll diff = min(9 - A[i], K - sum);
-                A[i] += diff;
-                sum += diff;
-            }
-        }
-
-        if (sum == K) {
-            for (int i = 0; i < N; i++) {
-                cout << A[i] << " ";
-            }
-            cout << endl;
-        } else {
-            cout << -1 << endl;
-        }
-
-
+        cout<<endl;
+        
+        sort(a+1,a+1+n);
+        sort(b+1,b+1+m);
+        if(a[1]<b[m])ans+=b[m]-a[1];
+        if(k%2==0)ans=ans-max(a[n],b[m])+min(a[1],b[1]);
+        printf("%lld\n",ans);
     }
-
-    return 0;
 }
