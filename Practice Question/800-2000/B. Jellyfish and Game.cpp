@@ -170,7 +170,7 @@ int32_t main()
     ll sum2=0;
 
 
-    ll brr[n];
+    ll brr[m];
 
 
     for (ll i = 0; i < n; i++){
@@ -180,7 +180,7 @@ int32_t main()
     } 
     
 
-    for (ll i = 0; i < n; i++){
+    for (ll i = 0; i < m; i++){
       cin>>brr[i];
       sum2+=brr[i];
     }   
@@ -189,10 +189,14 @@ int32_t main()
     sort(arr,arr+n);
 
 
-    sort(brr,brr+n);
+    sort(brr,brr+m);
 
 
-    ll mi1,mi2,mx1,mx2;
+    ll mi1,mi2,mx1,mx2,fx,fy;
+
+    fx=min(arr[0],brr[0]);
+
+    fy=max(brr[m-1],arr[n-1]);
 
 
     mi1=arr[0];
@@ -206,8 +210,12 @@ int32_t main()
 
     mx2=brr[n-1];
 
+
+
     if(k%2){
-      
+
+    }else {
+
     }
 
 
