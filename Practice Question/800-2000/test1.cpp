@@ -12,22 +12,22 @@ int main(){
         for(int i=1;i<=n;i++)scanf("%d",a+i),ans+=a[i];
         for(int i=1;i<=m;i++)scanf("%d",b+i);
 
-        for (int i = 1; i <=n; i++)
-        {
-            /* code */
-            cout<<a[i]<<" ";
-        }
+        // for (int i = 1; i <=n; i++)
+        // {
+        //     /* code */
+        //     cout<<a[i]<<" ";
+        // }
 
-        cout<<endl;
+        // cout<<endl;
 
 
-         for (int i = 1; i <=m; i++)
-        {
-            /* code */
-            cout<<b[i]<<" ";
-        }
+        //  for (int i = 1; i <=m; i++)
+        // {
+        //     /* code */
+        //     cout<<b[i]<<" ";
+        // }
 
-        cout<<endl;
+        // cout<<endl;
         
         sort(a+1,a+1+n);
         sort(b+1,b+1+m);
