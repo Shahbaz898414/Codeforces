@@ -166,6 +166,7 @@ int32_t main()
 
     ll arr[n];
 
+
     ll sum1=0;
     ll sum2=0;
 
@@ -175,7 +176,6 @@ int32_t main()
 
     for (ll i = 0; i < n; i++){
        cin >> arr[i];
-
        sum1+=arr[i];
     } 
     
@@ -194,7 +194,9 @@ int32_t main()
 
     ll mi1,mi2,mx1,mx2,fx,fy;
 
+
     fx=min(arr[0],brr[0]);
+
 
     fy=max(brr[m-1],arr[n-1]);
 
@@ -213,18 +215,17 @@ int32_t main()
 
 
     if(k%2){
-
+      // if(arr[0]>brr[0] and arr[n-1]>brr[m-1]){
+      //   cout<<sum1<<endl;
+      // }else if()
+      sum1=max(sum1,sum1-arr[0]+brr[m-1]);
+      
     }else {
-
+        sum1=sum1-max(arr[n-1],arr[m-1])+min(arr[0],brr[0]);
     }
 
 
-
-
-    
-
-
-
+  cout<<sum1<<endl;
     
 
 
