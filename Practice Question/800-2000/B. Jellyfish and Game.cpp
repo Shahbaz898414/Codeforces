@@ -159,19 +159,32 @@ int32_t main()
   ll t;
   cin >> t;
 
-  while (t--)
-  {
-    ll n, k,m;
-    cin >> n >>m>> k;
+  while (t--) {
+
+    ll n, k,m; cin >> n >>m>> k;
+
+
     ll arr[n];
 
+    ll sum1=0;
+    ll sum2=0;
+
+
     ll brr[n];
-    for (ll i = 0; i < n; i++)  cin >> arr[i];
+
+
+    for (ll i = 0; i < n; i++){
+       cin >> arr[i];
+
+       sum1+=arr[i];
+    } 
     
 
-    for (ll i = 0; i < n; i++)   cin>>brr[i];
+    for (ll i = 0; i < n; i++){
+      cin>>brr[i];
+      sum2+=brr[i];
+    }   
     
-
 
     sort(arr,arr+n);
 
@@ -181,13 +194,24 @@ int32_t main()
 
     ll mi1,mi2,mx1,mx2;
 
+
     mi1=arr[0];
+
 
     mi2=brr[0];
 
+
     mx1=arr[n-1];
 
+
     mx2=brr[n-1];
+
+    if(k%2){
+      
+    }
+
+
+
 
     
 
