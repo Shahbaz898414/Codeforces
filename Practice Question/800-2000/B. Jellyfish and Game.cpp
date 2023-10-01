@@ -214,19 +214,13 @@ int32_t main()
 
 
 
-    if(k%2){
-      // if(arr[0]>brr[0] and arr[n-1]>brr[m-1]){
-      //   cout<<sum1<<endl;
-      // }else if()
-      sum1=max(sum1,sum1-arr[0]+brr[m-1]);
-      
-    }else {
-        sum1=sum1-max(arr[n-1],arr[m-1])+min(arr[0],brr[0]);
+    if(arr[0]<brr[m]){
+      sum1+=brr[m]-arr[1];
     }
 
+    if(k%2)  sum1=sum1-max(arr[n-1],brr[m-1])-min(arr[0],brr[0]);
 
-  cout<<sum1<<endl;
-    
+    cout<<sum1<<endl;
 
 
   }
