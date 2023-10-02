@@ -163,12 +163,18 @@ int32_t main()
 
     ll n, k,m;  cin >> n >>m;
 
+
     ll sum=0;
+
 
     ll p;
 
+
     p=m/__gcd(n,m);
+
+
     cout<<p<<endl;
+
 
     if(p&p-1){
       cout<<-1<<endl;
