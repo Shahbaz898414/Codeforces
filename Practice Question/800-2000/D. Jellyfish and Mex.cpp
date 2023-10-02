@@ -187,6 +187,8 @@ int32_t main()
       continue;
     }
 
+    cout<<n<<endl;
+
     vector<vector<long long>> dp(n, vector<long long>(n + 1, 0));
 
     for (int i = 0; i <= n; i++)
@@ -228,3 +230,18 @@ int32_t main()
 
   return 0;
 }
+
+
+/*
+ 10kg aata
+ 5kg tel
+ 1kg chale ki dal
+ 1kg tuwar ki daal
+ 1packet sarafXL
+ 1 colgate
+ 4packet bishcuit
+ 4 packet  churha
+ 1 packet namak
+ 
+
+*/
