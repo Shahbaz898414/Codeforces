@@ -162,33 +162,68 @@ int32_t main()
   while (t--)
   {
 
-    ll n, k, m;
-    cin >> n >> m;
+    int n;
+    cin >> n;
 
-    ll sum = 0;
+    vector<int> a(n);
+    vector<int> cnt(n + 1, 0);
 
-    ll p;
-
-    p = m / __gcd(n, m);
-
-    // cout << p << endl;
-
-    if (p & p - 1) {
-      cout << -1 << endl;
-    }
-    else {
-      while (n) {
-
-        n = n % m;
-
-        sum += n;
-
-        n +=n;
+    for (int i = 0; i < n; i++)
+    {
+      cin >> a[i];
+      if (a[i] < n)
+      {
+        cnt[a[i]]++;
       }
-      cout << sum << endl;
+    }
+
+    n = 0;
+    while (cnt[n] > 0)
+      n++;
+
+    if (n == 0)
+    {
+      cout << 0 << endl;
+      continue;
+    }
+
+    vector<vector<long long>> dp(n, vector<long long>(n + 1, 0));
+
+    for (int i = 0; i <= n; i++)
+    {
+      dp[0][i] = (cnt[0] - 1) * i;
     }
 
 
+     for (ll i = 0; i < n; i++) { 
+      for (ll j = 0; j <n+1; j++) { 
+        cout<<dp[i][j]<<" ";
+      }
+      cout<<endl;
+    }
+
+    cout<<endl;
+
+    for (int i = 1; i < n; i++)
+    {
+      for (int j = 0; j <= n; j++)
+      {
+        dp[i][j] = dp[i - 1][j];
+        long long curr = (cnt[i] - 1) * j + i + dp[i - 1][i];
+        dp[i][j] = min(dp[i][j], curr);
+      }
+    }
+
+    for (ll i = 0; i < n; i++) { 
+      for (ll j = 0; j <n+1; j++) { 
+        cout<<dp[i][j]<<" ";
+      }
+      cout<<endl;
+    }
+    
+
+
+    cout << dp[n - 1][n] << endl;
   }
 
   return 0;
