@@ -181,10 +181,7 @@ int32_t main()
       cout<<sum<<endl;
     }
 
-
    
-
-
   }
 
   return 0;
@@ -194,33 +191,3 @@ int32_t main()
 
 
 
-/*
-
-
-
-#include<bits/stdc++.h>
-using namespace std;
-int main()
-{
-	int T,n,m,p;
-	long long s;
-	scanf("%d",&T);
-	while(T--)
-	{
-		scanf("%d%d",&n,&m),s=0;
-		p=m/__gcd(n,m);
-		if(p&p-1)
-			printf("-1\n");
-		else
-		{
-			while(n)
-				n%=m,s+=n,n*=2;
-			printf("%lld\n",s);
-		}
-	}
-	return 0;
-}
-
-
-
-*/
