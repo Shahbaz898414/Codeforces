@@ -159,53 +159,40 @@ int32_t main()
   ll t;
   cin >> t;
 
-  while (t--) {
+  while (t--)
+  {
 
-    ll n, k,m;  cin >> n >>m;
+    ll n, k, m;
+    cin >> n >> m;
 
-
-    ll sum=0;
-
+    ll sum = 0;
 
     ll p;
 
+    p = m / __gcd(n, m);
 
-    p=m/__gcd(n,m);
+    cout << p << endl;
 
+    if (p & p - 1)
+    {
+      cout << -1 << endl;
+    }
+    else
+    {
 
-    cout<<p<<endl;
+      while (n)
+      {
 
+        n = n % m;
 
-    if(p&p-1){
-      cout<<-1<<endl;
-    }else {
+        sum += n;
 
-
-      while(n){
-
-
-        n=n%m;
-
-
-        sum+=n;
-
-
-        n*=2;
-
-        
+        n *= 2;
       }
 
-
-      cout<<sum<<endl;
+      cout << sum << endl;
     }
-
-   
   }
 
   return 0;
 }
-
-
-
-
-
