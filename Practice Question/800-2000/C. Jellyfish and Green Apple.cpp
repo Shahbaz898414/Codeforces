@@ -179,11 +179,22 @@ int32_t main()
     if(p&p-1){
       cout<<-1<<endl;
     }else {
+
+
       while(n){
+
+
         n=n%m;
+
+
         sum+=n;
+
+
         n*=2;
+
+        
       }
+
 
       cout<<sum<<endl;
     }
