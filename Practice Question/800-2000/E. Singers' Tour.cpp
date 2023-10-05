@@ -153,19 +153,16 @@ long long erfd(long long a, long long b)
 vector<ll> check(int n, vector<ll> a, int x)
 {
   multiset<ll> s;
-  for (auto it : a) {
+  for (auto it : a)
+  {
     s.insert(it);
-
   }
-
 
   // for(auto it:s) {
   //   cout<<it<<" ";
   // }
 
   // cout<<endl;
-
-
 
   vector<ll> res;
 
@@ -206,40 +203,51 @@ int32_t main()
 
     ll n, k;
     cin >> n;
+    vector<ll> arr(n), ans(n);
 
-    vector<ll> arr(2 * n);
+    ll tot = 0;
 
-    for (ll i = 0; i < 2 * n; i++)
+    for (ll i = 0; i < n; i++)
+      cin >> arr[i], tot += arr[i];
+
+    ll sum = (n * (n + 1)) / 2;
+
+    if (tot % sum)
     {
-
-      cin >> arr[i];
-    }
-
-    sort(arr.begin(), arr.end());
-
-    bool fl = false;
-
-    for (int i = 0; i < 2 * n; i++)
-    {
-      int x = arr[i] + arr[2 * n - 1];
-      vector<ll> res = check(n, arr, x);
-      if (res.size())
-      {
-        cout << "YES" << endl;
-        cout << x << endl;
-        for (ll j = 0; j < n; j++)
-        {
-          cout << res[2 * j] << " " << res[2 * j + 1] << endl;
-        }
-        fl = true;
-      }
-
-      if (fl)
-        break;
-    }
-
-    if (!fl)
       cout << "NO" << endl;
+      continue;
+    }
+
+    tot /= sum;
+    bool fl = false;
+    for (ll i = 0; i < n; i++)
+    {
+
+      ll diff = arr[i] - arr[(n - 1 + i) % n];
+      diff = tot - diff;
+      if (diff <= 0 || (diff % n))
+      {
+        // cout<<"NO"<<endl;
+        fl = true;
+        break;
+      }
+      diff /= n;
+
+      ans[i] = diff;
+    }
+
+    if (fl)
+    {
+      no continue;
+    }
+
+    cout << "YES" << endl;
+    for (auto it : ans)
+    {
+      cout << it << " ";
+    }
+
+    cout << endl;
   }
 
   return 0;
