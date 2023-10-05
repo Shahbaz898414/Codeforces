@@ -187,7 +187,7 @@ int32_t main()
       continue;
     }
 
-    cout<<n<<endl;
+    // cout<<n<<endl;
 
     vector<vector<long long>> dp(n, vector<long long>(n + 1, 0));
 
@@ -197,14 +197,14 @@ int32_t main()
     }
 
 
-     for (ll i = 0; i < n; i++) { 
-      for (ll j = 0; j <n+1; j++) { 
-        cout<<dp[i][j]<<" ";
-      }
-      cout<<endl;
-    }
+    //  for (ll i = 0; i < n; i++) { 
+    //   for (ll j = 0; j <n+1; j++) { 
+    //     cout<<dp[i][j]<<" ";
+    //   }
+    //   cout<<endl;
+    // }
 
-    cout<<endl;
+    // cout<<endl;
 
     for (int i = 1; i < n; i++)
     {
@@ -216,32 +216,24 @@ int32_t main()
       }
     }
 
-    for (ll i = 0; i < n; i++) { 
-      for (ll j = 0; j <n+1; j++) { 
-        cout<<dp[i][j]<<" ";
-      }
-      cout<<endl;
-    }
+    // for (ll i = 0; i < n; i++) { 
+    //   for (ll j = 0; j <n+1; j++) { 
+    //     cout<<dp[i][j]<<" ";
+    //   }
+    //   cout<<endl;
+    // }
     
 
-
+    // cout<<endl;
     cout << dp[n - 1][n] << endl;
+
+
+
   }
 
   return 0;
 }
 
 
-/*
- 10kg aata
- 5kg tel
- 1kg chale ki dal
- 1kg tuwar ki daal
- 1packet sarafXL
- 1 colgate
- 4packet bishcuit
- 4 packet  churha
- 1 packet namak
- 
 
-*/
+
