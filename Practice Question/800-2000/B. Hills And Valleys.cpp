@@ -209,47 +209,11 @@ int32_t main()
     ll tot = 0;
 
     for (ll i = 0; i < n; i++) {
-      cin >> arr[i], tot += arr[i];
+      cin >> arr[i];
     }
 
 
-    ll sum = (n * (n + 1)) / 2;
-
-    if (tot % sum) {
-      cout << "NO" << endl;
-      continue;
-    }
-
-
-    tot /= sum;
-    bool fl = false;
-    for (ll i = 0; i < n; i++) {
-
-      ll diff = arr[i] - arr[(n - 1 + i) % n];
-      diff = tot - diff;
-      if (diff <= 0 || (diff % n))
-      {
-        // cout<<"NO"<<endl;
-        fl = true;
-        break;
-      }
-      diff /= n;
-
-      ans[i] = diff;
-    }
-
-    if (fl) {
-      no
-      continue;
-    }
-
-    cout << "YES" << endl;
-    for (auto it : ans)
-    {
-      cout << it << " ";
-    }
-
-    cout << endl;
+   
   }
 
   return 0;
