@@ -223,7 +223,7 @@ int32_t main()
     for (ll i = 0; i < n; i++)
     {
 
-      ll diff = arr[i] - arr[(n - 1 + i) % n];
+      ll diff = arr[i] - arr[( i) % n];
       diff = tot - diff;
       if (diff <= 0 || (diff % n))
       {
