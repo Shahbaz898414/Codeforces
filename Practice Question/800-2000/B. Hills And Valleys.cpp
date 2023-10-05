@@ -150,43 +150,11 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-vector<ll> check(int n, vector<ll> a, int x)
+ll cost(int pos, ll n, vector<ll> v)
 {
-  multiset<ll> s;
-  for (auto it : a)
-  {
-    s.insert(it);
-  }
-
-  // for(auto it:s) {
-  //   cout<<it<<" ";
-  // }
-
-  // cout<<endl;
-
-  vector<ll> res;
-
-  for (ll i = 0; i < n; i++)
-  {
-    /* code */
-    auto it1 = s.end();
-    it1--;
-    int y = x - *it1;
-    s.erase(it1);
-    auto it2 = s.find(y);
-    if (it2 == s.end())
-    {
-      return {};
-    }
-
-    res.push_back(x - y);
-    res.push_back(y);
-    x = max(x - y, y);
-
-    s.erase(it2);
-  }
-
-  return res;
+  if (pos == 0 || pos == n - 1)
+    return 0;
+  return (v[pos] > v[pos - 1] && v[pos] > v[pos + 1]) || (v[pos] < v[pos - 1] && v[pos] < v[pos + 1]);
 }
 
 int32_t main()
@@ -204,16 +172,40 @@ int32_t main()
     ll n, k;
     cin >> n;
     vector<ll> arr(n);
-    vector<ll> ans(n);
+    // vector<ll> ans(n);
 
     ll tot = 0;
 
-    for (ll i = 0; i < n; i++) {
+    for (ll i = 0; i < n; i++)
+    {
       cin >> arr[i];
     }
 
+    ll sum = 0;
+    ll ans = 0;
 
-   
+    for (ll i = 1; i < n - 1; i++)
+    {
+
+      sum += cost(i, n, arr);
+    }
+
+    ans = sum;
+
+    for (ll i = 1; i < n - 1; i++)
+    {
+      /* code */
+      ll old = arr[i];
+      ll base = cost(i, n, arr) + cost(i - 1, n, arr) + cost(i + 1, n, arr);
+      arr[i] = arr[i - 1];
+      ans = min(ans, sum - base + cost(i, n, arr) + cost(i - 1, n, arr) + cost(i + 1, n, arr));
+      arr[i] = arr[i + 1];
+      ans = min(ans, sum - base + cost(i, n, arr) + cost(i - 1, n, arr) + cost(i + 1, n, arr));
+
+      arr[i] = old;
+    }
+
+    cout << ans << endl;
   }
 
   return 0;
