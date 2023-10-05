@@ -218,15 +218,12 @@ int32_t main()
       {
         cout << "YES" << endl;
         cout << x << endl;
-
         for (ll j = 0; j < n; j++)
         {
-          /* code */
           cout << res[2 * j] << " " << res[2 * j + 1] << endl;
         }
         fl = true;
       }
-
       if (fl)
         break;
     }
