@@ -168,8 +168,7 @@ signed main()
     }
     else
     {
-      if (2 * temp <= (h + c))
-      {
+      if (2 * temp <= (h + c)) {
         cout << "2"
              << "\n";
       }
