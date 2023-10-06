@@ -11,7 +11,7 @@ using namespace std;
 #define ff first
 #define ss second
 #define vi vector<int>
-#define no cout << "NO" << endl;
+#define No cout << "NO" << endl;
 #define yes cout << "YES" << endl;
 #define printv(v)                      \
   for (int i = 0; i < (v.size()); i++) \
@@ -156,55 +156,29 @@ signed main()
   cin >> t;
   while (t--)
   {
-    ll n;
-    cin >> n;
+   int n;
+		cin>>n;
+		vector <ll> v(2*n);
+		for(auto &e:v) cin>>e;
+		vector <ll> nums;
+		sort(v.begin(),v.end());
+		ll store = 1e18;
+		ll sum = 0;
+		for(int  i=2*(n-1);i>=0;i-=2){
+			if(v[i]!=v[i+1]) goto no;
+			v[i]-=2*sum;
+			if(v[i]<=0 || v[i]%(i+2)!=0) goto no;
+			if(v[i]/(i+2)>=store) goto no;
+			store = v[i]/(i+2);
+			sum += store;
+			//printf("%lld %lld ", store,-store);
+		}
+		printf("YES\n");
+		continue;
+		no:
+		printf("NO\n");
 
-    vector<ll> arr(2 * n + 1);
 
-    set<ll> se;
-
-    for (ll i = 1; i <= 2 * n; i++)
-    {
-      cin >> arr[i];
-      se.insert(arr[i]);
-    }
-
-    if (se.size() != n)
-    {
-      cout << "NO" << endl;
-      continue;
-    }
-
-    vector<ll> v;
-
-    for (auto it : se)
-    {
-      v.pb(it);
-    }
-
-    int sum = 0;
-    int f = 1;
-
-    for (ll i = n - 1; i >= 0; i--)
-    {
-      int num;
-      v[i] -= sum;
-      if (v[i] > 0 and v[i] % (2 * (i + 1)) == 0)
-      {
-        v[i] /= (2 * (i + 1));
-        sum += 2 * v[i];
-      }
-      else
-      {
-        f = 0;
-        break;
-      }
-    }
-
-    if (f)
-      cout << "YES" << endl;
-    else
-      cout << "NO" << endl;
   }
   return 0;
 }
