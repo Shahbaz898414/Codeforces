@@ -161,9 +161,21 @@ signed main()
 
       vector<ll>  arr(2*n+1);
 
+      set<ll> se;
+
       for (ll i =1; i <=2*n; i++) {
         cin>>arr[i];
+        se.insert(arr[i]);
       }
+
+      if(se.size()!=n){
+        cout<<"NO"<<endl;
+        continue;
+      }
+
+      vector<ll>  v;
+
+      for
       
   
 
