@@ -161,8 +161,7 @@ signed main()
     ll h, c, temp;
     cin >> h >> c >> temp;
 
-    if (temp == h)
-    {
+    if (temp == h) {
       cout << "1"
            << "\n";
       continue;
