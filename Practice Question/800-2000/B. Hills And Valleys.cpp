@@ -150,7 +150,10 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-ll cost(int pos, ll n, vector<ll> v)
+
+ll n;
+vector<ll> v;
+ll cost(int pos)
 {
   if (pos == 0 || pos == n - 1)
     return 0;
@@ -169,16 +172,17 @@ int32_t main()
   while (t--)
   {
 
-    ll n, k;
+    // ll n, k;
     cin >> n;
-    vector<ll> arr(n);
+    // vector<ll> arr(n);
     // vector<ll> ans(n);
-
+  v.clear(); 
+    v.resize(n);
     ll tot = 0;
 
     for (ll i = 0; i < n; i++)
     {
-      cin >> arr[i];
+      cin >> v[i];
     }
 
     ll sum = 0;
@@ -187,7 +191,7 @@ int32_t main()
     for (ll i = 1; i < n - 1; i++)
     {
 
-      sum += cost(i, n, arr);
+      sum += cost(i);
     }
 
     ans = sum;
@@ -195,14 +199,14 @@ int32_t main()
     for (ll i = 1; i < n - 1; i++)
     {
       /* code */
-      ll old = arr[i];
-      ll base = cost(i, n, arr) + cost(i - 1, n, arr) + cost(i + 1, n, arr);
-      arr[i] = arr[i - 1];
-      ans = min(ans, sum - base + cost(i, n, arr) + cost(i - 1, n, arr) + cost(i + 1, n, arr));
-      arr[i] = arr[i + 1];
-      ans = min(ans, sum - base + cost(i, n, arr) + cost(i - 1, n, arr) + cost(i + 1, n, arr));
+      ll old = v[i];
+      ll base = cost(i) + cost(i - 1) + cost(i + 1);
+      v[i] = v[i - 1];
+      ans = min(ans, sum - base + cost(i) + cost(i - 1) + cost(i + 1));
+      v[i] = v[i + 1];
+      ans = min(ans, sum - base + cost(i) + cost(i - 1) + cost(i + 1));
 
-      arr[i] = old;
+      v[i] = old;
     }
 
     cout << ans << endl;
