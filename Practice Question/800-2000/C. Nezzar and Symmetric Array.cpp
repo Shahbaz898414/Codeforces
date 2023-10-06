@@ -148,37 +148,63 @@ long long erfd(long long a, long long b)
     return ans % m * ans % m;
 }
 
-
-
 signed main()
 {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
   int t;
   cin >> t;
-  while (t--) {
-      ll n;cin>>n;
+  while (t--)
+  {
+    ll n;
+    cin >> n;
 
-      vector<ll>  arr(2*n+1);
+    vector<ll> arr(2 * n + 1);
 
-      set<ll> se;
+    set<ll> se;
 
-      for (ll i =1; i <=2*n; i++) {
-        cin>>arr[i];
-        se.insert(arr[i]);
+    for (ll i = 1; i <= 2 * n; i++)
+    {
+      cin >> arr[i];
+      se.insert(arr[i]);
+    }
+
+    if (se.size() != n)
+    {
+      cout << "NO" << endl;
+      continue;
+    }
+
+    vector<ll> v;
+
+    for (auto it : se)
+    {
+      v.pb(it);
+    }
+
+    int sum = 0;
+    int f = 1;
+
+    for (ll i = n - 1; i >= 0; i--)
+    {
+      int num;
+      v[i] -= sum;
+      if (v[i] > 0 and v[i] % (2 * (i + 1)) == 0)
+      {
+        v[i] /= (2 * (i + 1));
+        sum += 2 * v[i];
       }
-
-      if(se.size()!=n){
-        cout<<"NO"<<endl;
-        continue;
+      else
+      {
+        f = 0;
+        break;
       }
+    }
 
-      vector<ll>  v;
-
-      for
-      
-  
-
+    if (f)
+      cout << "YES" << endl;
+    else
+      cout << "NO" << endl;
   }
   return 0;
 }
