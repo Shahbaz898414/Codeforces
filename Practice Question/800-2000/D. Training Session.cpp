@@ -159,50 +159,49 @@ int32_t main()
   ll t;
   cin >> t;
 
-  while (t--) {
+  while (t--)
+  {
 
-    ll n,k;cin>>n;
+    ll n, k;
+    cin >> n;
 
-    vector<ll>  a(n),b(n),ca(n+1),cb(n+1);
+    vector<ll> a(n), b(n), ca(n + 1), cb(n + 1);
 
     for (ll i = 0; i < n; i++)
     {
       /* code */
-      cin>>a[i]>>b[i];
+      cin >> a[i] >> b[i];
       ca[a[i]]++;
       cb[b[i]]++;
     }
 
     ll ans;
 
-    ans=(n*1ll*(n-1)*(n-2))/6;
+    ans = (n * 1ll * (n - 1) * (n - 2)) / 6;
 
-    for(auto it:ca){
-      cout<<it<<" ";
+    for (auto it : ca)
+    {
+      cout << it << " ";
     }
 
-    cout<<endl;
+    cout << endl;
 
-    for(auto it:cb){
-      cout<<it<<" ";
+    for (auto it : cb)
+    {
+      cout << it << " ";
     }
 
-    cout<<endl;
+    cout << endl;
 
-    cout<<ans<<endl;
+    cout << ans << endl;
 
-    for (ll i = 0; i <n; i++) {
-      ans-=(ca[a[i]]-1)*1ll*(cb[b[i]] - 1);
+    for (ll i = 0; i < n; i++)
+    {
+      ans -= (ca[a[i]] - 1) * 1ll * (cb[b[i]] - 1);
     }
-    
-    cout<<ans<<endl;
 
+    cout << ans << endl;
   }
-
 
   return 0;
 }
-
-
-
-
