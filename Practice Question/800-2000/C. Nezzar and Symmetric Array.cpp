@@ -165,18 +165,26 @@ signed main()
     sort(v.begin(), v.end());
     ll store = 1e18;
     ll sum = 0;
-    for (int i = 2 * (n - 1); i >= 0; i -= 2)
-    {
+    for (int i = 2 * (n - 1); i >= 0; i -= 2) {
       if (v[i] != v[i + 1])
         goto no;
+
+        
       v[i] -= 2 * sum;
+
+
       if (v[i] <= 0 || v[i] % (i + 2) != 0)
         goto no;
+
+
       if (v[i] / (i + 2) >= store)
         goto no;
+
       store = v[i] / (i + 2);
+
       sum += store;
     }
+
     printf("YES\n");
     continue;
   no:
