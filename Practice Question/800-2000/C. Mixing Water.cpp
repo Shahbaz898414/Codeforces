@@ -152,16 +152,51 @@ signed main()
 {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  int t=1;
-  // cin >> t;
+  int t = 1;
+  cin >> t;
   while (t--)
   {
-    
+    // ll h,c,temp;cin>>h>>c>>temp;
+
+    ll h, c, temp;
+    cin >> h >> c >> temp;
+
+    if (temp == h)
+    {
+      cout << "1"
+           << "\n";
+      continue;
+    }
+    else
+    {
+      if (2 * temp <= (h + c))
+      {
+        cout << "2"
+             << "\n";
+      }
+      else
+      {
+
+        ll x = (temp - c) / (2 * temp - h - c);
+        ll y = x + 1;
+
+        long double try1 = ((x * h) + (x - 1) * c) / (1.0 * (2 * x - 1));
+        long double try2 = ((y * h) + (y - 1) * c) / (1.0 * (2 * y - 1));
+
+        long double diff1 = abs(try1 - temp);
+        long double diff2 = abs(try2 - temp);
+
+        if (diff1 <= diff2)
+        {
+          cout << 2 * x - 1 << "\n";
+        }
+        else
+        {
+          cout << 2 * y - 1 << "\n";
+        }
+      }
+    }
   }
-
-
 
   return 0;
 }
-
-
