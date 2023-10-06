@@ -12,7 +12,7 @@ using namespace std;
 #define ss second
 #define vi vector<int>
 #define No cout << "NO" << endl;
-#define Yes cout << "YES" << endl;
+#define yes cout << "YES" << endl;
 #define printv(v)                      \
   for (int i = 0; i < (v.size()); i++) \
   {                                    \
@@ -152,53 +152,58 @@ signed main()
 {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  int t;
-  cin >> t;
+  int t=1;
+  // cin >> t;
   while (t--)
   {
-    int n;
-    cin >> n;
-    vector<ll> v(2 * n);
-    for (auto &e : v)
-      cin >> e;
-    vector<ll> nums;
+    ll n;cin>>n;
 
-    sort(v.begin(), v.end());
+    vector<ll> arr(n),ans(n),cnt(30);
 
-    ll store = 1e18;
-
-    ll sum = 0;
-
-    for (int i = 2 * (n - 1); i >= 0; i -= 2) {
-
-
-      if (v[i] != v[i + 1]) goto no;
-
-
-      v[i] -= 2 * sum;
-
-
-      if (v[i] <= 0 || v[i] % (i + 2) != 0) goto no;
-
-
-      if (v[i] / (i + 2) >= store) goto no;
-
-
-      store = v[i] / (i + 2);
-
-
-      sum += store;
-
-
-      cout<< sum <<" "<< v[i] << " " << store <<endl;
-
-
+    for (ll i = 0; i < n; i++) {
+      cin>>arr[i];
     }
 
-    Yes
-    continue;
-     no:
-    No
+    for(auto it:arr){
+      ll v=0;
+
+      while(it){
+        if(it&1){
+          cnt[v]++;
+          
+        }
+        it=it>>1;
+          v++;
+      }
+    }
+
+    ll real=0;
+
+    for (ll i = 0; i < n; i++)
+    {
+      /* code */
+      ll val=0;
+      for (ll j = 0; j <30; j++)
+      {
+        /* code */
+        if(cnt[j]){
+          val=val+(1<<j);
+          cnt[j]--;
+        }
+      }
+
+      real+=val*val;
+      
+    }
+    
+    cout<<real<<endl;
+    
+
   }
+
+
+
   return 0;
 }
+
+
