@@ -1,20 +1,35 @@
 
 
-#include <bits/stdc++.h>
-using namespace std;
-#define ll long long
-#define mod 1000000007
-#define Time cerr << "time taken : " << (float)clock() / CLOCKS_PER_SEC << " secs" << endl;
-#define pb push_back
-// #define mp make_pair
-#define line cout << endl;
-#define ff first
-#define ss second
+#include <iostream>
+#include <vector>
+#include <string>
+#include <climits>
+#include <math.h>
+#include <stack>
+#include <list>
+#include <algorithm>
+#include <queue>
+#include <map>
+#include <set>
+#include <iomanip>
+#include <utility>
+#define int int64_t
 #define vi vector<int>
 #define vii vector<pair<int, int>>
 #define vs vector<string>
 #define vc vector<char>
 #define vb vector<bool>
+#define pb push_back
+#define vvi vector<vector<int>>
+#define pii pair<int, int>
+#define mp make_pair
+#define all(x) (x).begin(), (x).end()
+#define vin(x, v)     \
+    for (auto &x : v) \
+        cin >> x;
+#define vout(x, v)   \
+    for (auto x : v) \
+        cout << x << " ";
 #define MEM(a, b) memset(a, (b), sizeof(a))
 #define loop(i, j, k) for (int i = j; i < k; i += 1)
 #define rloop(i, j, k) for (int i = j; i >= k; i -= 1)
@@ -22,167 +37,187 @@ using namespace std;
 #define rrep(i, j) rloop(i, j, 0)
 #define MP make_pair
 #define endl "\n"
-#define No cout << "NO" << endl;
-#define yes cout << "YES" << endl;
-#define printv(v)                      \
-  for (int i = 0; i < (v.size()); i++) \
-  {                                    \
-    cout << v[i] << " ";               \
-  }                                    \
-  line;
-#define onesbits(x) __builtin_popcountll(x)
-#define zerobits(x) __builtin_ctzll(x)
-#define sp(x, y) fixed << setprecision(y) << x
-#define w(x) \
-  int x;     \
-  cin >> x;  \
-  while (x--)
-#define tk(x) \
-  int x;      \
-  cin >> x;
-#define fast ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
-#ifndef ONLINE_JUDGE
-#define debug(x)     \
-  cerr << #x << " "; \
-  _print(x);         \
-  cerr << endl;
-#else
-#define debug(x)
-#endif
-template <class T>
-void _print(T t)
-{
-  cerr << t;
-}
+#define INF (int)1e18
+#define EPS 1e-18
+#define PI 3.1415926535897932384626433832795
+#define MOD 1000000007
+//cout <<setprecision(15)
+#define NEED_FOR_SPEED_MOST_WANTED    \
+    ios_base::sync_with_stdio(false); \
+    cin.tie(NULL)
+using namespace std;
 
+
+#ifndef ONLINE_JUDGE
+#define deb(x)         \
+    cerr << #x << " "; \
+    _print(x);         \
+    cerr << endl;
+#else
+#define deb(x)
+#endif
+
+void _print(int32_t t)
+{
+    cerr << t;
+}
+void _print(int t) { cerr << t; }
+void _print(string t) { cerr << t; }
+void _print(char t) { cerr << t; }
+void _print(long double t) { cerr << t; }
+void _print(double t) { cerr << t; }
+void _print(unsigned long long t) { cerr << t; }
+
+template <class T, class V>
+void _print(pair<T, V> p);
+template <class T>
+void _print(vector<T> v);
+template <class T>
+void _print(set<T> v);
+template <class T, class V>
+void _print(map<T, V> v);
+template <class T>
+void _print(multiset<T> v);
 template <class T, class V>
 void _print(pair<T, V> p)
 {
-  cerr << "{";
-  _print(p.ff);
-  cerr << ",";
-  _print(p.ss);
-  cerr << "}";
+    cerr << "{";
+    _print(p.first);
+    cerr << ",";
+    _print(p.second);
+    cerr << "}";
 }
-
 template <class T>
 void _print(vector<T> v)
 {
-  cerr << "[ ";
-  for (T i : v)
-  {
-    _print(i);
-    cerr << " ";
-  }
-  cerr << "]";
-}
-
-template <class T>
-void _print(vector<vector<T>> v)
-{
-  cerr << "[\n";
-  for (int l = 0; l < v.size(); l++)
-  {
+    cerr << "[ ";
+    for (T i : v)
     {
-      for (int k = 0; k < v[l].size(); k++)
-        cerr << v[l][k] << " ";
+        _print(i);
+        cerr << " ";
     }
-    cerr << "\n";
-  }
-  cerr << "]";
+    cerr << "]";
 }
-
-template <class T, class V>
-void _print(map<T, V> v)
-{
-  cerr << "[ ";
-  for (auto i : v)
-  {
-    _print(i);
-    cerr << " ";
-  }
-  cerr << "]";
-}
-
 template <class T>
 void _print(set<T> v)
 {
-  cerr << "[ ";
-  for (T i : v)
-  {
-    _print(i);
-    cerr << " ";
-  }
-  cerr << "]";
-}
-
-// const long long inf = 1e18;
-// const int MOD = 998244353;
-// const int MAX = 1e6;
-
-bool isValid(string s)
-{
-  int len = s.size();
-  for (int i = 0; i < len / 2; i++)
-  {
-    if (s[i] != s[len - 1 - i])
-      return false;
-  }
-  return true;
-}
-
-void rotateMatrix(vector<vector<int>> &v, int n)
-{
-  for (int i = 0; i < n / 2; i++)
-  {
-    for (int j = i; j < n - i - 1; j++)
+    cerr << "[ ";
+    for (T i : v)
     {
-      int ptr = v[i][j];
-      v[i][j] = v[n - 1 - j][i];
-      v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
-      v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
-      v[j][n - 1 - i] = ptr;
+        _print(i);
+        cerr << " ";
     }
-  }
+    cerr << "]";
 }
-
-ll m = 998244353;
-
-long long erfd(long long a, long long b)
+template <class T>
+void _print(multiset<T> v)
 {
-  if (b == 0)
-    return 1;
-  long long ans = erfd(a, b / 2);
-  if (b % 2)
-    return (ans % m * ans % m * a) % m;
-  else
-    return ans % m * ans % m;
+    cerr << "[ ";
+    for (T i : v)
+    {
+        _print(i);
+        cerr << " ";
+    }
+    cerr << "]";
 }
-
-vector<vector<int>>  graph[200010];
-
-map<int,int>  degree;
-
-void solve() {
-
-}
-
-
-signed main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-  int t = 1;
-  cin >> t;
-  while (t--)
-  {
-
-    solve();
-    
-  }
-
-  return 0;
+template <class T, class V>
+void _print(map<T, V> v)
+{
+    cerr << "[ ";
+    for (auto i : v)
+    {
+        _print(i);
+        cerr << " ";
+    }
+    cerr << "]";
 }
 
 
 
+vii graph[200010];
+map<int, int> degree;
 
+void dij(int C, vi &dist)
+{
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+
+    dist[C] = 0;
+    pq.push({0, C});
+    while (pq.size() > 0)
+    {
+        pair<int, int> alpha = pq.top();
+        pq.pop();
+        if (dist[alpha.second] < alpha.first)
+            continue;
+        for (auto x : graph[alpha.second])
+        {
+            if (dist[x.first] > dist[alpha.second] + x.second)
+            {
+                dist[x.first] = dist[alpha.second] + x.second;
+                pq.push({dist[x.first], x.first});
+            }
+        }
+    }
+}
+
+void solve()
+{
+    degree.clear();
+    int n, m;
+    cin >> n >> m;
+    rep(i, n + 5)
+    {
+        graph[i].clear();
+    }
+    int god = n + 2;
+    vi friends(m);
+    vin(x, friends);
+    rep(i, n - 1)
+    {
+        int a, b;
+        cin >> a >> b;
+        graph[a].pb({b, 1});
+        graph[b].pb({a, 1});
+        degree[a]++;
+        degree[b]++;
+    }
+    for (auto x : friends)
+    {
+        graph[god].pb({x, 0});
+    }
+    vi dist1(n + 3, INF);
+    vi dist2(n + 3, INF);
+
+    dij(1, dist1);
+    dij(god, dist2);
+    loop(i, 2, n + 1)
+    {
+        if (degree[i] == 1)
+        {
+            if (dist1[i] < dist2[i])
+            {
+                cout << "YES";
+                return;
+            }
+        }
+    }
+    cout << "NO";
+}
+
+signed main()
+{
+    NEED_FOR_SPEED_MOST_WANTED;
+    //#ifndef ONLINE_JUDGE
+    //FOR GETTING INPUT FROM input.txt
+    //freopen("input.txt", "r", stdin);
+    //FOR GETTING INPUT FROM input.txt
+    //freopen("output.txt", "w", stdout);
+    //	#endif
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+        cout << endl;
+    }
+}
