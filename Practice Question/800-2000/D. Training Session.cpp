@@ -172,24 +172,7 @@ int32_t main()
     }
 
     ll ans;
-
-    ans = (n * 1ll * (n - 1) * (n - 2)) / 6;
-
-    // for (auto it : ca)
-    // {
-    //   cout << it << " ";
-    // }
-
-    // cout << endl;
-
-    // for (auto it : cb)
-    // {
-    //   cout << it << " ";
-    // }
-
-    // cout << endl;
-
-    // cout << ans << endl;
+    ans = (n * 1ll * (n - 1) * (n - 2)) / 6; // observation
 
     for (ll i = 0; i < n; i++)
     {
