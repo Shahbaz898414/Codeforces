@@ -159,7 +159,7 @@ void dij(int C, vi &dist)
 const int N = 1e5 + 5;
 vector<int> adj[N];
 int val[N], xor_arr[N];
-bool vis[N];
+int vis[(int)1e7 + 1];
 int cnt = 0;
 
 int dfs1(int u)
@@ -200,42 +200,20 @@ int dfs2(int u)
 
 void solve()
 {
-  int n;
-  cin >> n;
+
+  int n, k;
+  cin >> n >> k;
   vector<int> a(n);
-  for (int i = 0; i < n; i++)
+  map<int, int> mp;
+  int cnt = 1;
+  for (int x : a)
   {
-    /* code */
-    cin>>a[i];
+    cin >> x;
+    if (mp[x /= vis[x]])
+      mp.clear(), cnt++;
+    mp[x] = 1;
   }
-  
-  set<int> st = {0};
-  vector<int> pre(n + 1);
-  int ans = 0;
-  for (int i = 0; i < n; i++)
-    pre[i + 1] += pre[i] + a[i];
-
-    // for(auto it:pre){
-    //   cout<<it<<" ";
-    // }
-
-    // cout<<endl;
-  for (int i = 0, j = 0; i < n; i++)
-  {
-    while (j < n && !st.count(pre[j + 1]))
-    {
-      j++;
-      st.insert(pre[j]);
-    }
-    st.erase(pre[i]);
-
-    cout<<j<<" "<<i<<endl;
-    ans += (j - i);
-  }
-
-
-  cout << ans << endl;
-
+  cout << cnt << '\n';
 }
 
 signed main()
@@ -247,8 +225,20 @@ signed main()
   // FOR GETTING INPUT FROM input.txt
   // freopen("output.txt", "w", stdout);
   //	#endif
+
+  for (int i = 1; i * i <= 1e7; i++)
+  {
+    /* code */
+    for (int j = i * i; j <= 1e7; j += i * i)
+    {
+      /* code */
+      vis[j] = i * i;
+    }
+  }
+
   int t = 1;
-  // cin >> t;
+
+  cin >> t;
   while (t--)
   {
     solve();
