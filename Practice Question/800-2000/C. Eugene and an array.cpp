@@ -186,9 +186,9 @@ int dfs2(int u)
     if (!vis[v])
     {
       tmp ^= dfs2(v);
-      //    cout<<u<<" "<<tmp<<endl;
     }
   }
+
   if (tmp == xor_arr[0])
   {
     tmp = 0;
@@ -198,68 +198,29 @@ int dfs2(int u)
   return tmp;
 }
 
+
 void solve()
 {
-  int n, k, u, v;
-  cin >> n >> k;
-
-  // vector<int>  ar(n);
-
-  for (int i = 0; i < n; i++)
-  {
-    cin >> val[i];
-    vis[i] = false;
-  }
-
-  for (int i = 0; i < n - 1; i++)
-  {
-    /* code */
-    cin >> u >> v;
-    u--;
-    v--;
-    adj[u].pb(v);
-    adj[v].pb(u);
-  }
-
-  dfs1(0);
-
-  // for (int i = 0; i < n; i++)
-  // {
-  //   cout<<vis[i]<<" ";
-  //   vis[i] = false;
-  // }
-
-  // cout<<endl;
-
-
-  bool ans = false;
-  if (xor_arr[0] == 0)
-  {
-    ans = true;
-  }
-  else
-  {
-    dfs2(0);
+   int n;
+    cin >> n;
+    vector<int> a(n);
+    cin >> a;
+    set<int> st = {0};
+    vector<int> pre(n + 1);
+    int ans = 0;
     for (int i = 0; i < n; i++)
-  {
-    cout<<vis[i]<<" ";
-    vis[i] = false;
-  }
-
-  cout<<endl;
-
-    if (cnt >= 2 and k != 2)
+        pre[i + 1] += pre[i] + a[i];
+    for (int i = 0, j = 0; i < n; i++)
     {
-      ans = true;
+        while (j < n && !st.count(pre[j + 1]))
+        {
+            j++;
+            st.insert(pre[j]);
+        }
+        st.erase(pre[i]);
+        ans += (j - i);
     }
-  }
-  cout << (ans ? "YES" : "NO") << endl;
-  cnt = 0;
-  for (int i = 0; i < n; i++)
-  {
-    adj[i].clear();
-    xor_arr[i] = val[i] = 0;
-  }
+    cout << ans << endl;
 }
 
 signed main()
@@ -277,7 +238,7 @@ signed main()
   {
     solve();
     // cout << endl;
+
+    
   }
 }
-
-// h1teshtr1path1
