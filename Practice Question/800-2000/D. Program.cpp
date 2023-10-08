@@ -230,14 +230,18 @@ void solve()
     mn[i][1] = cmn;
     pre[i][1] = curr;
   }
+
   for (int i = 0; i < q; i++)
   {
     int l, r;
     cin >> l >> r;
     l--;
     int pmx = mx[l][0], pmn = mn[l][0];
+
     int postmx = mx[r][1] - pre[r][1] + pre[l][0];
+
     int postmn = mn[r][1] - pre[r][1] + pre[l][0];
+
     cout << max(pmx, postmx) - min(pmn, postmn) + 1 << endl;
   }
 }
