@@ -200,55 +200,45 @@ int dfs2(int u)
   return tmp;
 }
 
-void solve()
-{
+void solve() {
 
-  int n, q;
-  cin >> n >> q;
-  string s;
-  cin >> s;
-  vector<vector<int>> mx(n + 1, vector<int>(2));
-  vector<vector<int>> mn(n + 1, vector<int>(2));
-  vector<vector<int>> pre(n + 1, vector<int>(2));
-  int curr = 0, cmx = 0, cmn = 0;
-  for (int i = 0; i < n; i++)
-  {
-    curr += (s[i] == '+') ? 1 : -1;
-    amax(cmx, curr);
-    amin(cmn, curr);
-    mx[i + 1][0] = cmx;
-    mn[i + 1][0] = cmn;
-    pre[i + 1][0] = curr;
-  }
-  curr = cmx = cmn = 0;
-  for (int i = n - 1; i >= 0; i--)
-  {
-    curr += (s[i] == '-') ? 1 : -1;
-    amax(cmx, curr);
-    amin(cmn, curr);
-    mx[i][1] = cmx;
-    mn[i][1] = cmn;
-    pre[i][1] = curr;
+  int n;cin>>n;
+
+  vi a(n);
+
+  map<int,int> mp;
+
+  int mx=0;
+
+
+  for (int i = 0; i < n; i++) {
+    cin>>a[i];
+
+    mp[a[i]]++;
+
+   
   }
 
-
-
-  for (int i = 0; i < q; i++)
-  {
-    int l, r;
-    cin >> l >> r;
-
-    l--;
+  for (int i = 0; i < n; i++) {
     
-    int pmx = mx[l][0], pmn = mn[l][0];
 
-    int postmx = mx[r][1] - pre[r][1] + pre[l][0];
-
-    int postmn = mn[r][1] - pre[r][1] + pre[l][0];
-
-    cout << max(pmx, postmx) - min(pmn, postmn) + 1 << endl;
-
+    mx=max(mx,mp[a[i]]);
   }
+  
+
+  int cnt = 0, mxcnt = 0;
+    for (auto it : mp)
+    {
+        if (it.second == mx)
+        {
+            mxcnt++;
+        }
+    }
+    int rem = n - mxcnt * mx;
+    cout << (mxcnt - 1) + (rem / (mx - 1)) << endl;
+
+
+
 
 
 }
