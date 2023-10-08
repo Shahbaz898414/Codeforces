@@ -14,7 +14,7 @@
 #include <set>
 #include <iomanip>
 #include <utility>
-#define int int64_t
+// #define int int64_t
 #define vi vector<int>
 #define vii vector<pair<int, int>>
 #define vs vector<string>
@@ -41,7 +41,9 @@
 #define INF (int)1e18
 #define EPS 1e-18
 #define PI 3.1415926535897932384626433832795
-#define MOD 1000000007
+// #define MOD 1000000007
+const int MOD = 998244353;
+#define df
 // cout <<setprecision(15)
 #define NEED_FOR_SPEED_MOST_WANTED    \
     ios_base::sync_with_stdio(false); \
@@ -58,10 +60,10 @@ using namespace std;
 #define deb(x)
 #endif
 
-void _print(int32_t t)
-{
-    cerr << t;
-}
+// void _print(int32_t t)
+// {
+//     cerr << t;
+// }
 void _print(int t) { cerr << t; }
 void _print(string t) { cerr << t; }
 void _print(char t) { cerr << t; }
@@ -136,14 +138,60 @@ void _print(map<T, V> v)
 vii graph[200010];
 map<int, int> degree;
 
+int mf = 0;
+
+const int N = 3 * 1e5 + 10;
+
+#define ll long long int
+
 int calculateSegments(int start, int end, int divisor)
 {
+    mf = 0;
     if (start > end)
         return 0;
     int segments = (end - start) / divisor;
+    segments += mf;
     if (start % divisor == 0)
         segments++;
-    return segments;
+
+    mf++;
+
+    int f = mf;
+    mf = 0;
+    return segments * f;
+}
+
+vector<ll > gfh(N + 1);
+vector<ll > gqh(N + 1);
+
+bool comp(pair<ll, ll> x, pair<ll, ll> y)
+{
+    return gfh[x.second] < gfh[y.second];
+}
+
+ll binmult(int a, int b)
+{
+    ll ans = 0;
+    while (b > 0)
+    {
+        if (b & 1)
+            ans = (ans + a) % MOD;
+        a = (a + a) % MOD;
+        b >>= 1;
+    }
+    return ans;
+}
+ll binpow(int a, int b)
+{
+    ll ans = 1;
+    while (b > 0)
+    {
+        if (b & 1)
+            ans = binmult(ans, a);
+        a = binmult(a, a);
+        b >>= 1;
+    }
+    return ans;
 }
 
 void dij(int C, vi &dist)
@@ -171,159 +219,51 @@ void dij(int C, vi &dist)
 
 void solve()
 {
-    //    int n;cin>>n;
-
-    //    vi ar;
-
-    //    for (int i = 0; i < n-1; i++)
-    //    {
-    //     /* code */cin>>ar[i];
-    //    }
-
-    // int n,p;
-    //   cin >> n>>p;
-
-    //   vi a(n),b(n);
-    //     for (int i = 0; i < n; i++)
-    //     {
-    //         /* code */
-    //         cin>>a[i];
-    //     }
-
-    //     for (int i = 0; i <n; i++)
-    //     {
-    //         /* code */
-    //         cin>>b[i];
-    //     }
-
-    // int numResidents, initialCost;
-    // cin >> numResidents >> initialCost;
-
-    // vector<int> sharingCapacities(numResidents), sharingCosts(numResidents);
-
-    // int main=0,sum=0;
-
-    // for(int i = 0; i < numResidents; i++){
-    //     cin >> sharingCapacities[i];
-    //     sum+=sharingCapacities[i];
-    // }
-
-    // for(int i = 0; i < numResidents; i++){
-    //     cin >> sharingCosts[i];
-
-    //     main+=sharingCosts[i];
-    // }
-
-    // multiset<pair<int, int>> residentsSet,pq;
-
-    // int g=0,esidents=1,mi=INT_MAX;
-
-    // for(int i = 0; i < numResidents; i++){
-    //     residentsSet.insert({sharingCosts[i], sharingCapacities[i]});
-
-    //     g+=main/sum;
-    //     pq.insert({g,main});
-
-    // }
-
-    // residentsSet.insert({initialCost, INT_MAX});
-    // pq.insert({initialCost, INT_MAX});
-
-    // int totalCost = initialCost;
-
-    // int lessCost=g;
-    // int remainingResidents = numResidents - 1;
-
-    // int hg=g/numResidents-1;
-
-    // while(!residentsSet.empty() && remainingResidents > 0 and esidents>0){
-    //     pair<int, int> top = *residentsSet.begin();
-    //      // vector<int> sharingCapacities(numResidents), sharingCosts(numResidents);
-
-    // // int main=0,sum=0;
-
-    // // for(int i = 0; i < numResidents; i++){
-    // //     cin >> sharingCapacities[i];
-    // //     sum+=sharingCapacities[i];
-    // // }
-
-    // // for(int i = 0; i < numResidents; i++){
-    // //     cin >> sharingCosts[i];
-
-    // //     main+=sharingCosts[i];
-    // // }
-    //     pair<int,int> dion=*pq.begin();
-
-    //     int shareCount = min({top.second, remainingResidents,mi*dion.second});
-    //     totalCost += shareCount * top.first;
-    //      // vector<int> sharingCapacities(numResidents), sharingCosts(numResidents);
-
-    // // int main=0,sum=0;
-
-    // // for(int i = 0; i < numResidents; i++){
-    // //     cin >> sharingCapacities[i];
-    // //     sum+=sharingCapacities[i];
-    // // }
-
-    // // for(int i = 0; i < numResidents; i++){
-    // //     cin >> sharingCosts[i];
-
-    // //     main+=sharingCosts[i];
-    // // }
-    //     remainingResidents -= shareCount;
-    //     esidents++;
-    //      // vector<int> sharingCapacities(numResidents), sharingCosts(numResidents);
-
-    // // int main=0,sum=0;
-
-    // // for(int i = 0; i < numResidents; i++){
-    // //     cin >> sharingCapacities[i];
-    // //     sum+=sharingCapacities[i];
-    // // }
-
-    // // for(int i = 0; i < numResidents; i++){
-    // //     cin >> sharingCosts[i];
-
-    // //     main+=sharingCosts[i];
-    // // }
-    //     top.second -= shareCount;
-    //     g-=shareCount;
-
-    //     if (top.second == 0 and esidents>0) {
-    //         residentsSet.erase(residentsSet.begin());
-    //         g+=(mi-mi);
-    //     } else {
-    //         residentsSet.insert({top.first, top.second});
-    //     }
-    // }
-
-    // cout << totalCost << endl;
-
-    int totalSegments, maxLength, divisor;
-    cin >> totalSegments >> maxLength >> divisor;
-
-    int result = 1;
-
-    if (divisor == 1)
+ ll m;
+    ll  n;
+    cin >> n;
+    vector<ll> a(n + 1);
+    for (ll i = 1; i < n + 1; i++)
     {
-        cout << 1 << endl;
+        /* code */
+        cin >> a[i];
     }
-    else if (divisor == 2)
+
+    gfh[0] = mf, a[0] = mf;
+    vector<pair<ll, ll>> v;
+    vector<pair<ll, ll>> mp;
+
+    ll mi = 0;
+    for (ll i = 1; i < n + 1; i++)
     {
-        int blackSegments = min(maxLength, totalSegments - 1) + calculateSegments(totalSegments, maxLength, totalSegments);
-        result = blackSegments;
-        cout << result << endl;
+        ll mx = 0;
+        for (int j = i; j <= n; j += i)
+        {
+            mx = max(mx, a[j]);
+            mi = min(mx, a[j]);
+        }
+        gfh[i] = max(mx,mi*mf);
+                // gfh[i] = mx;
+
+        gqh[i]= min(mx,mi*mf);
+        v.push_back({a[i], i});
+        mp.push_back({a[i]/i, i});
+
     }
-    else if (divisor == 3)
+
+    sort(v.begin(), v.end(), comp);
+
+    ll cnt = 0,main=0;
+
+    for (ll i = 1; i < n; i++)
     {
-        int blackSegments = min(maxLength, totalSegments - 1) + calculateSegments(totalSegments, maxLength, totalSegments);
-        result = maxLength + 1 - blackSegments - 1;
-        cout << result << endl;
+        cnt += ( (binpow(2, i) * gfh[v[i].second]) % MOD) % MOD;
+        main += ( (binpow(2, i+mf) * gqh[v[i].second]) % MOD) % MOD;
+
     }
-    else
-    {
-        cout << 0 << endl;
-    }
+
+    // cout << cnt << endl;
+    cout << max(cnt,main*mf) << endl;
 }
 
 signed main()
@@ -335,11 +275,15 @@ signed main()
     // FOR GETTING INPUT FROM input.txt
     // freopen("output.txt", "w", stdout);
     //	#endif
-    int t = 1;
-    cin >> t;
-    while (t--)
-    {
-        solve();
-        // cout << endl;
-    }
+    // cout << MOD << endl
+        //  << endl;
+
+    solve();
+    // int t = 1;
+    // // cin >> t;
+    // while (t--)
+    // {
+
+    //     // cout << endl;
+    // }
 }
