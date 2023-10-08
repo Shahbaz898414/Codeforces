@@ -23,6 +23,8 @@
 #define vvi vector<vector<int>>
 #define pii pair<int, int>
 #define mp make_pair
+#define amax(a, b) a = max(a, b)
+#define amin(a, b) a = min(a, b)
 #define all(x) (x).begin(), (x).end()
 #define vin(x, v)   \
   for (auto &x : v) \
@@ -201,37 +203,44 @@ int dfs2(int u)
 void solve()
 {
 
-  int n, k;
-  cin >> n >> k;
-
-  vector<int> a(n);
-
-  map<int, int> mp;
-
-  int cnt = 1;
-
-  for (int x : a)
+  int n, q;
+  cin >> n >> q;
+  string s;
+  cin >> s;
+  vector<vector<int>> mx(n + 1, vector<int>(2));
+  vector<vector<int>> mn(n + 1, vector<int>(2));
+  vector<vector<int>> pre(n + 1, vector<int>(2));
+  int curr = 0, cmx = 0, cmn = 0;
+  for (int i = 0; i < n; i++)
   {
-
-    cin >> x;
-
-    if (mp[x /= vis[x]])
-    {
-      cout << mp[x /= vis[x]] << " " << x << " " << vis[x] << endl;
-      mp.clear(), cnt++;
-    }
-
-    mp[x] = 1;
+    curr += (s[i] == '+') ? 1 : -1;
+    amax(cmx, curr);
+    amin(cmn, curr);
+    mx[i + 1][0] = cmx;
+    mn[i + 1][0] = cmn;
+    pre[i + 1][0] = curr;
   }
-
-  cout << endl;
-
-  cout << cnt << '\n';
-
-  
+  curr = cmx = cmn = 0;
+  for (int i = n - 1; i >= 0; i--)
+  {
+    curr += (s[i] == '-') ? 1 : -1;
+    amax(cmx, curr);
+    amin(cmn, curr);
+    mx[i][1] = cmx;
+    mn[i][1] = cmn;
+    pre[i][1] = curr;
+  }
+  for (int i = 0; i < q; i++)
+  {
+    int l, r;
+    cin >> l >> r;
+    l--;
+    int pmx = mx[l][0], pmn = mn[l][0];
+    int postmx = mx[r][1] - pre[r][1] + pre[l][0];
+    int postmn = mn[r][1] - pre[r][1] + pre[l][0];
+    cout << max(pmx, postmx) - min(pmn, postmn) + 1 << endl;
+  }
 }
-
-
 
 signed main()
 {
@@ -243,16 +252,6 @@ signed main()
   // freopen("output.txt", "w", stdout);
   //	#endif
 
-  for (int i = 1; i * i <= 1e7; i++)
-  {
-    /* code */
-    for (int j = i * i; j <= 1e7; j += i * i)
-    {
-      /* code */
-      vis[j] = i * i;
-    }
-  }
-
   // for (int i = 1; i  <= 30; i++)
   // {
   //   cout << vis[i] << " ";
@@ -263,14 +262,10 @@ signed main()
   int t = 1;
 
   cin >> t;
-  while (t--) {
+  while (t--)
+  {
 
     solve();
     // cout << endl;
-
   }
-
-
 }
-
-
