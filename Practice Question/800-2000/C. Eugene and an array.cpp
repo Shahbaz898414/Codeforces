@@ -198,29 +198,42 @@ int dfs2(int u)
   return tmp;
 }
 
-
 void solve()
 {
-   int n;
-    cin >> n;
-    vector<int> a(n);
-    cin >> a;
-    set<int> st = {0};
-    vector<int> pre(n + 1);
-    int ans = 0;
-    for (int i = 0; i < n; i++)
-        pre[i + 1] += pre[i] + a[i];
-    for (int i = 0, j = 0; i < n; i++)
+  int n;
+  cin >> n;
+  vector<int> a(n);
+  for (int i = 0; i < n; i++)
+  {
+    /* code */
+    cin>>a[i];
+  }
+  
+  set<int> st = {0};
+  vector<int> pre(n + 1);
+  int ans = 0;
+  for (int i = 0; i < n; i++)
+    pre[i + 1] += pre[i] + a[i];
+
+    // for(auto it:pre){
+    //   cout<<it<<" ";
+    // }
+
+    // cout<<endl;
+  for (int i = 0, j = 0; i < n; i++)
+  {
+    while (j < n && !st.count(pre[j + 1]))
     {
-        while (j < n && !st.count(pre[j + 1]))
-        {
-            j++;
-            st.insert(pre[j]);
-        }
-        st.erase(pre[i]);
-        ans += (j - i);
+      j++;
+      st.insert(pre[j]);
     }
-    cout << ans << endl;
+    st.erase(pre[i]);
+    ans += (j - i);
+  }
+
+
+  cout << ans << endl;
+
 }
 
 signed main()
@@ -233,12 +246,10 @@ signed main()
   // freopen("output.txt", "w", stdout);
   //	#endif
   int t = 1;
-  cin >> t;
+  // cin >> t;
   while (t--)
   {
     solve();
     // cout << endl;
-
-    
   }
 }
