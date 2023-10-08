@@ -234,7 +234,15 @@ void solve() {
             mxcnt++;
         }
     }
+
+    cout<<mx<<" "<<mxcnt<<endl;
+
+
     int rem = n - mxcnt * mx;
+
+    cout<<rem<<" "<<(rem / (mx - 1))<<endl;
+
+
     cout << (mxcnt - 1) + (rem / (mx - 1)) << endl;
 
 
