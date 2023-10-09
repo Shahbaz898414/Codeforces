@@ -173,8 +173,7 @@ void dfs(int curr,vector<bool>& visited,vector<int> adj[]){
     visited[curr] = true;
  
     for(auto u:adj[curr]){
-        if(!visited[u])
-            dfs(u,visited,adj);
+        if(!visited[u]) dfs(u,visited,adj);
     }
 }
 
@@ -213,12 +212,29 @@ void solve()
     for (int i = 1; i < n; i++){
         adj[a[i].first].pb(a[i-1].first);
     }
+
+    for(auto it:adj){
+      for(auto i:it){
+        cout<<i<<" ";
+      }
+      cout<<endl;
+    }
  
     sort(a.begin(),a.end(),cmp2);
  
     for (int i = 1; i < n; i++){
         adj[a[i].first].pb(a[i-1].first);
     }
+
+    cout<<endl;
+
+    for(auto it:adj){
+      for(auto i:it){
+        cout<<i<<" ";
+      }
+      cout<<endl;
+    }
+ 
  
     vector<bool> visited(n);
  
