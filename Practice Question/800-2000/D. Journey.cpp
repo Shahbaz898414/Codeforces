@@ -169,114 +169,14 @@ bool cmp2(pair<int, pair<int, int>> p1, pair<int, pair<int, int>> p2)
   return p1.second.second > p2.second.second;
 }
 
-void dfs(int curr,vector<bool>& visited,vector<int> adj[]){
-
-  // cout<<curr<<" ";
-    visited[curr] = true;
- 
-    for(auto u:adj[curr]){
-        if(!visited[u]) dfs(u,visited,adj);
-    }
-}
 
 
 void solve()
 {
-  int n;
-  cin >> n;
+  int n;cin>>n;
 
-  vector<pair<int, pair<int, int>>> a(n);
-  pair<int, int> mx = {INT_MIN, INT_MIN};
-
-  for (int i = 0; i < n; i++)
-  {
-
-    a[i].first = i;
-    cin >> a[i].second.first;
-  }
-
-  for (int i = 0; i < n; i++)
-  {
-
-    cin >> a[i].second.second;
-
-    if (a[i].second.first > mx.first || a[i].second.second > mx.first)
-    {
-      mx.first = max(a[i].second.first, a[i].second.second);
-      mx.second = i;
-    }
-  }
-
-  cout<<mx.second<<" "<<mx.first<<endl;
-  cout<<endl;
-
-
-
-   sort(a.begin(),a.end(),cmp);
-
-   for(auto it:a){
-    cout<<it.first<<" "<<it.second.first<<" "<<it.second.first<<endl;
-   }
- 
-  cout<<endl;
-  cout<<endl;
-
-    vector<int> adj[n+1];
- 
-    for (int i = 1; i < n; i++){
-        adj[a[i].first].pb(a[i-1].first);
-    }
-
-    // for(auto it:adj){
-    //   for(auto i:it){
-    //     cout<<i<<" ";
-    //   }
-    //   cout<<endl;
-    // }
- 
-
-    sort(a.begin(),a.end(),cmp2);
-
-     for(auto it:a){
-    cout<<it.first<<" "<<it.second.first<<" "<<it.second.first<<endl;
-   }
- 
-cout<<endl;
-cout<<endl;
-
-    for (int i = 1; i < n; i++){
-      adj[a[i].first].pb(a[i-1].first);
-    }
-
-    // cout<<endl;
-
-    // for(auto it:adj){
-    //   for(auto i:it){
-    //     cout<<i<<" ";
-    //   }
-    //   cout<<endl;
-    // }
-
-    cout<<mx.second<<" "<<mx.first<<endl;
-
-    
- 
- 
-    vector<bool> visited(n);
- 
-    dfs(mx.second,visited,adj);
-
-    // cout<<endl;
- 
-    for(auto u:visited){
-        cout<<u;
-    }
-
-
-    cout<<endl;
-
-
-
+  string s;cin>>s;
+  
 }
 
 signed main()

@@ -418,3 +418,31 @@ int32_t main() {
 
   }
 }
+
+
+
+/*
+
+
+Today was my 8th day out of the 100 days  hard challenge.
+
+So today, I solved 5 problems .
+
+1. H. Mad City (https://codeforces.com/problemset/problem/1873/H)
+
+
+2. D. Sum of XOR Functions (https://codeforces.com/problemset/problem/1879/D)
+
+
+3. G. ABBC or BACB (https://codeforces.com/problemset/problem/1873/G)
+
+
+4. G. The Morning Star (https://codeforces.com/problemset/problem/1850/G)
+
+
+5. C. Pull Your Luck (https://codeforces.com/problemset/problem/1804/C)
+
+
+
+
+*/
