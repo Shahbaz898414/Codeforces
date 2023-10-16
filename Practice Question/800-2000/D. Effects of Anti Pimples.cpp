@@ -1,5 +1,3 @@
-
-
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
@@ -260,32 +258,52 @@ bool comp(pair<ll, ll> p1, pair<ll, ll> p2)
   return p1.second < p2.second;
 }
 
-int32_t main() {
+int32_t main()
+{
 
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
+  ll hg = 998244353;
 
-  ll t=1; 
+  ll t = 1;
   // cin >> t;
 
-  while (t--) {
-
-  //  string s;cin>>s;
-
-  ll n;cin>>n;
-
-  vector<ll>  ar(n);
-
-  for (ll i = 0; i < n; i++)
+  while (t--)
   {
-    
-    cin>>ar[i];
-  }
 
-  ll ans=0;
+    ll n;
+    cin >> n;
 
+    vector<ll> ar(n + 1);
 
+    for (ll i = 1; i <= n; i++)
+    {
 
+      cin >> ar[i];
+    }
+
+    ll ans = 0;
+
+    for (ll i = 1; i <= n; i++)
+    {
+      /* code */
+
+      for (ll j = 2 * i; j <= n; j += i)
+      {
+        /* code */
+        ar[i] = max(ar[i], ar[j]);
+      }
+    }
+
+    sort(ar.begin(), ar.end());
+    long long int br = 0, otg = 0;
+    for (int i = 1; i <= n; i++)
+    {
+      otg = (otg + (br + 1) * ar[i]) % hg;
+      br = (br * 2 + 1) % hg;
+    }
+    cout << endl;
+    cout << otg << endl;
   }
 }
