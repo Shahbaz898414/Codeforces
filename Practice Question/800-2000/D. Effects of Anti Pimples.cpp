@@ -212,6 +212,8 @@ bool check(int GCD, int K)
     return false;
 }
 
+ll hg = 998244353;
+
 int conjugate(int x)
 {
   int res = 0;
@@ -251,6 +253,28 @@ int power(int a, int n)
   return res;
 }
 
+ll xpoweryMOD(ll x, ll y, ll fg)
+{
+    int res = 1;
+    if (x == 0)
+        return 0;
+    while (y)
+    {
+        if (y & 1)
+            (res *= x) %= fg;
+        y >>= 1;
+        (x *= x) %= fg;
+    }
+    return res;
+}
+ 
+ll func(ll val, ll x)
+{
+    int pw = xpoweryMOD(2, x, hg);
+    int ans = (val * pw) % hg;
+    return ans;
+}
+
 bool comp(pair<ll, ll> p1, pair<ll, ll> p2)
 {
   if (p1.first != p2.first)
@@ -272,58 +296,41 @@ int32_t main()
   while (t--)
   {
 
-    ll n;
-    cin >> n;
+      ll n;cin>>n;
+   vi maxi(n+1,0);
 
-    vector<ll> ar(n + 1);
-
-    for (ll i = 1; i <= n; i++)
-    {
-
-      cin >> ar[i];
-    }
-
-    ll ans = 0;
-
-    for (ll i = 1; i <= n; i++)
-    {
-      
-
-      for (ll j = 2 * i; j <= n; j += i)
-      {
-        
-        ar[i] = max(ar[i], ar[j]);
-      }
-    }
-
-    sort(ar.begin(), ar.end());
-
-    for(auto it:ar)  cout<<it<<" ";
-
-    cout<<endl;
-
-
-    long long int br = 0, otg = 0;
-
+   for (ll i = 1; i <=n; i++) {
     
-    for (int i = 1; i <= n; i++)
+    cin>>maxi[i];
+   }
+   
+   for (ll i = 1; i <=n; i++)
+   {
+    /* code */
+    for (ll j = 2*i; j <=n; j+=i)
     {
-
-
-      otg = (otg + (br + 1) * ar[i]) % hg;
-
-
-      br = (br * 2 + 1) % hg;
-
-
+      /* code */
+      maxi[i]=max(maxi[i],maxi[j]);
     }
+    
+   }
+
+   int sum=0;
+
+   sort(maxi.begin(),maxi.end());
+
+   for (int i = 1; i <=n; i++)
+   {
+    /* code */
+    sum=(sum+func(maxi[i],n-i))%hg;
 
 
-    cout << endl;
+   }
 
 
-    cout << otg << endl;
-
+   cout<<sum<<endl;
+   
+   
 
   }
 }
