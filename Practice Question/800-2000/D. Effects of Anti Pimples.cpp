@@ -287,16 +287,20 @@ int32_t main()
 
     for (ll i = 1; i <= n; i++)
     {
-      /* code */
+      
 
       for (ll j = 2 * i; j <= n; j += i)
       {
-        /* code */
+        
         ar[i] = max(ar[i], ar[j]);
       }
     }
 
     sort(ar.begin(), ar.end());
+
+    for(auto it:ar)  cout<<it<<" ";
+
+    cout<<endl;
     long long int br = 0, otg = 0;
     for (int i = 1; i <= n; i++)
     {
