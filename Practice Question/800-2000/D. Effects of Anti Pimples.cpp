@@ -301,13 +301,29 @@ int32_t main()
     for(auto it:ar)  cout<<it<<" ";
 
     cout<<endl;
+
+
     long long int br = 0, otg = 0;
+
+    
     for (int i = 1; i <= n; i++)
     {
+
+
       otg = (otg + (br + 1) * ar[i]) % hg;
+
+
       br = (br * 2 + 1) % hg;
+
+
     }
+
+
     cout << endl;
+
+
     cout << otg << endl;
+
+
   }
 }
