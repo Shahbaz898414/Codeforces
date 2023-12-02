@@ -303,30 +303,13 @@ int32_t main()
     vector<ll>  a(n);
     int cur=0;
 
-    for (ll i = 1; i <=n; i+=2)
+    for (ll i = 0; i < n; i++)
     {
       /* code */
-      for (ll j = i; j <=n; j*=2)
-      {
-        /* code */
-
-        if(i==1){cout<<j<<" "; debug(cur)}
-        if(i==2){cout<<j<<" "; debug(cur)}
-        a[cur++]=j;
-      }
-      
-      cout<<endl;
+      cin>>a[i];
     }
-
-
-    for (int i = 0; i < n; i++)
-    {
-      /* code */
-      cout<<a[i]<<" ";
-    }
-
-    cout<<endl;
     
-   
+
+
   }
 }
