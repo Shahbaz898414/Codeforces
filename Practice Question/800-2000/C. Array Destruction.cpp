@@ -203,43 +203,30 @@ int32_t main()
 
   while (t--)
   {
-
-    ll n, k;
+   int n;
     cin >> n;
-
-    vector<ll> arr(2 * n);
-
-    for (ll i = 0; i < 2 * n; i++)
-    {
-
-      cin >> arr[i];
+    string s;
+    cin >> s;
+ 
+    map<int, int> mp;
+ 
+    for (int i = 0; i < s.size(); i++) {
+        int sd=(s[i] - 'A' + 1);
+        cout<<sd<<" ";
+        mp[sd]++;
     }
+ cout<<endl;
+    int cnt = 0;
+ 
+    for (auto it : mp) {
 
-    sort(arr.begin(), arr.end());
-
-    bool fl = false;
-
-    for (int i = 0; i < 2 * n; i++)
-    {
-      int x = arr[i] + arr[2 * n - 1];
-      vector<ll> res = check(n, arr, x);
-      if (res.size())
-      {
-        cout << "YES" << endl;
-        cout << x << endl;
-        for (ll j = 0; j < n; j++)
-        {
-          cout << res[2 * j] << " " << res[2 * j + 1] << endl;
+      cout<<it.second<<" "<<it.first<<endl;
+        if (it.second >= (it.first)) {
+            cnt++;
         }
-        fl = true;
-      }
-
-      if (fl)
-        break;
     }
-
-    if (!fl)
-      cout << "NO" << endl;
+ 
+    cout << cnt << endl;
   }
 
   return 0;

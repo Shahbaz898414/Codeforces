@@ -284,6 +284,33 @@ bool comp(pair<ll, ll> p1, pair<ll, ll> p2)
 }
 
 
+/*
+
+Today was my 75th day out of the 100 days  hard challenge.
+So today. I solved 5 question.
+
+
+1. Maximum Odd Binary Number (https://leetcode.com/contest/weekly-contest-364/problems/maximum-odd-binary-number/).
+
+
+2. Beautiful Towers I (https://leetcode.com/contest/weekly-contest-364/problems/beautiful-towers-i/).
+
+
+3. Beautiful Towers II (https://leetcode.com/contest/weekly-contest-364/problems/beautiful-towers-ii/)
+
+
+4.Count Valid Paths in a Tree (https://leetcode.com/contest/weekly-contest-364/problems/count-valid-paths-in-a-tree/).
+
+
+5. Number of Even and Odd Bits (https://leetcode.com/contest/weekly-contest-337/problems/number-of-even-and-odd-bits/).
+
+
+
+#100dayschallenge #challenge #consistency #Cp #lessons #learning
+#competitiveprogramming
+
+*/
+
 
 int32_t main()
 {

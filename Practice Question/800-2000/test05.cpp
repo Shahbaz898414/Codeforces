@@ -161,8 +161,8 @@ int calculateSegments(int start, int end, int divisor)
     return segments * f;
 }
 
-vector<ll > gfh(N + 1);
-vector<ll > gqh(N + 1);
+vector<ll> gfh(N + 1);
+vector<ll> gqh(N + 1);
 
 bool comp(pair<ll, ll> x, pair<ll, ll> y)
 {
@@ -219,51 +219,33 @@ void dij(int C, vi &dist)
 
 void solve()
 {
- ll m;
-    ll  n;
-    cin >> n;
-    vector<ll> a(n + 1);
-    for (ll i = 1; i < n + 1; i++)
-    {
-        /* code */
-        cin >> a[i];
+    int n;cin>>n;
+    string s;
+    cin >> s;
+
+    int totalTime = 0;
+    int solvedProblems = 0;
+
+    map<int,int>  mp;
+
+    for(int i=0;i<s.size();i++){
+        mp[s[i]-'A'+1]++;
+
+        // cout<<s[i]-'A'+1<<" ";
     }
+    int cnt=0;
+    // cout<<endl;
 
-    gfh[0] = mf, a[0] = mf;
-    vector<pair<ll, ll>> v;
-    vector<pair<ll, ll>> mp;
+  for(auto it:mp){
+    // cout<<it.first<<" "<<it.second<<endl;
+    if(it.first<=it.second) cnt++;
+  }
 
-    ll mi = 0;
-    for (ll i = 1; i < n + 1; i++)
-    {
-        ll mx = 0;
-        for (int j = i; j <= n; j += i)
-        {
-            mx = max(mx, a[j]);
-            mi = min(mx, a[j]);
-        }
-        gfh[i] = max(mx,mi*mf);
-                // gfh[i] = mx;
+  cout<<cnt<<endl;
 
-        gqh[i]= min(mx,mi*mf);
-        v.push_back({a[i], i});
-        mp.push_back({a[i]/i, i});
 
-    }
-
-    sort(v.begin(), v.end(), comp);
-
-    ll cnt = 0,main=0;
-
-    for (ll i = 1; i < n; i++)
-    {
-        cnt += ( (binpow(2, i) * gfh[v[i].second]) % MOD) % MOD;
-        main += ( (binpow(2, i+mf) * gqh[v[i].second]) % MOD) % MOD;
-
-    }
-
-    // cout << cnt << endl;
-    cout << max(cnt,main*mf) << endl;
+// int n,k;cin>>n>>k;
+    
 }
 
 signed main()
@@ -276,14 +258,14 @@ signed main()
     // freopen("output.txt", "w", stdout);
     //	#endif
     // cout << MOD << endl
-        //  << endl;
+    //  << endl;
 
-    solve();
-    // int t = 1;
-    // // cin >> t;
-    // while (t--)
-    // {
+    int t = 1;
+    cin >> t;
+    while (t--)
+    {
 
-    //     // cout << endl;
-    // }
+        solve();
+        // cout << endl;
+    }
 }
