@@ -13,6 +13,8 @@ public:
     cout << "Grrrr...starting the car " << name << endl;
     cout<<endl;
   }
+
+  
   void setPrice(int p)
   {
     if (p > 1000)
@@ -24,10 +26,12 @@ public:
       price = 1000;
     }
   }
+  
+
   int getPrice()
   {
     return price;
-    
+
   }
 };
 int main()
