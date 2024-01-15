@@ -58,6 +58,74 @@ int main() {
 
 /*
 
+"Ensure'std :: unique(vec.begin(),vec.end());' for removing duplicates?"
+
+
+A)
+std::unique(vec.begin(), vec.end());
+
+B)
+std::remove_duplicates(vec.begin(),vec.end());'
+
+C)
+std::unique_copy(vec.begin(), vec.end(),vec.begin());'
+
+answer right option
+
+
+
+Which of the following is non-linear data structure?
+
+Array
+
+Stack
+
+Queue
+
+Tree
+
+
+1
+
+2
+
+3
+
+4
+
+5
+
+Data structure
+
+Find the error lines in the following code:
+
+#include 'stduo.h'
+
+#include 'String.h'
+
+int main() {
+
+char str[] = 'hey';
+ 
+}
+
+
+/////////////////////////////////////////////////////////
+
+Ensure 'std :: queue<int> q; q.empty();' for checking if a queue is empty.
+
+q.check_empty();'
+
+q.is_empty();'
+
+q.empty();'
+
+q.not_empty();'
+
+////////////////////////////////////////////////////
+
+
+
 
 
 */
