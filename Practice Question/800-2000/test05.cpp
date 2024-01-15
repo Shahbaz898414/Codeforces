@@ -269,3 +269,161 @@ signed main()
         // cout << endl;
     }
 }
+
+
+/*
+
+it the number of pairs
+
+Input Format
+
+The first line contains an integer n, the number of socks represented in ar.
+The second line contains n space-separated integers, ar[i], the colors of the socks in the pile.
+
+Constraints
+
+.1≤n ≤ 100
+
+· 1 ≤ ar[i] ≤ 100 where 0 ≤ i < n
+
+Sample Input
+
+STDIN
+
+9
+10 20 20 10 10 30 50 10 20 ar = [10, 20, 20, 10, 10, 38, 50, 10, 20]
+
+Sample Output
+
+Function
+
+n= 9
+
+3
+
+
+*/
+
+
+/*
+can you help me in my viva questions 
+i will text you question  you should answer me in my own word
+
+*/
+
+
+/*
+
+
+1) Networking
+
+What is the purpose of
+ARP in networking?
+
+Address Resolution Protocol
+
+Advanced Routing Protocol
+
+Automated Routing Process
+
+Address Redistribution Process
+
+
+The correct answer is:
+Address Resolution Protocol
+
+
+
+2)Error handling
+
+"Ensure 'throw std :: invalid_argument('Invalid Argument!');' for throwing
+an invalid argument
+error?"
+
+
+
+
+throw std :: overflow_error('Inyalid
+Argument!);
+
+throw std :: invalid_argument('Invalid
+Argument!');'
+
+throw std :: runtime_error('Invalid
+Argument!'):'
+
+Crrect answer
+std::invalid_argument
+
+
+4)
+Networking
+
+Which type of network
+topology involves a
+central hub or switch?
+
+Bus Topology
+
+Star Topology
+
+Ring Topology
+
+Mesh Topology
+
+
+5)
+What does the term
+"Composite Key" mean in
+the context of databases?
+
+wases?
+
+A key with a unique constraint
+
+A primary key in another table
+
+A key with a complex data type
+
+A key made up of multiple columns
+
+The correct answer is:
+
+A key made up of multiple columns
+
+
+6)
+In a linked list, how is a node located using the head node?
+
+
+Forward traversal
+
+Backward traversal
+
+Random access
+
+Recursive traversal
+
+
+right one
+Forward traversal
+
+7)
+"Ensure 'std:priority_queue<int,std :: vector<int>, std :: greater<int>> pq;' for sorting elements?"
+
+
+A) std :: less<int>'
+
+B) pq.emplace(2)'
+
+C) std :: priority_queue<int, std :: vector<int>> pq'
+
+Answer
+A) std::priority_queue<int, std::vector<int>, std::greater<int>> pq;
+
+8)
+
+
+
+
+*/
