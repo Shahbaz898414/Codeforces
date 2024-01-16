@@ -19,7 +19,7 @@ int max_contiguous_length(int N, int A[]) {
             a = b = 1;
         }
 
-       c = max(max_len, max(a, b));
+       c = max(c, max(a, b));
     }
 
     return c;
@@ -126,6 +126,65 @@ q.not_empty();'
 
 
 
+"Ensure 'std:partial_sum(vec.begin(), vec.end(),vec.begin());' for partial
+sum calculation?"
 
 
+A) std::partial_sum(vec.begin(), vec.end(),vec.begin(), std:multiplies<int>());'
+
+
+B) std:partial_sum(vec.begin(), vec.end(), vec.begin());
+
+
+C) std:partial_sum(vec.begin(), vec.end(),vec.begin(), std::minus<int>());'
+
+answer right one
+
+///////////////////////////////////////////////////////////////
+
+"Fix 'std :: deque<int> dq; dq.remove_back();' for removing the last element in a deque."
+
+A) dq.delete_back():'
+
+B) dq.pop_back():'
+
+C) dq.erase_back();'
+
+D) dq.remove_last();
+
+answer right one
+
+B) dq.pop_back();
+
+
+///////////////////////////////////////////////
+
+What is the purpose of ARP in networking?
+
+A) Address Resolution Protocol
+
+B) Advanced Routing Protocol
+
+C) Automated Routing Process
+
+D) Address Redistribution Process
+
+answer right one
+A) Address Resolution Protocol
+
+////////////////////////////////////////////////////
+
+throw std::length_error('Invalid Argument!') ;'
+
+A) catch ( ... ) ( /* handle exception / )
+
+B) catch (std:runtime_error e) { / handle
+exception / }'
+
+C) catch (std:length_error& e) { / handle
+exception / }'
+
+Answer right one
+C) catch (std:length_error& e) { / handle
+exception / }'
 */
