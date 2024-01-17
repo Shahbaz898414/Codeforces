@@ -1,429 +1,139 @@
-/*
- */
-
+#include <bits/stdc++.h>
 #include <iostream>
-#include <vector>
-#include <string>
-#include <climits>
-#include <math.h>
-#include <stack>
-#include <list>
-#include <algorithm>
-#include <queue>
-#include <map>
-#include <set>
-#include <iomanip>
-#include <utility>
-// #define int int64_t
-#define vi vector<int>
-#define vii vector<pair<int, int>>
-#define vs vector<string>
-#define vc vector<char>
-#define vb vector<bool>
-#define pb push_back
-#define vvi vector<vector<int>>
-#define pii pair<int, int>
-#define mp make_pair
-#define all(x) (x).begin(), (x).end()
-#define vin(x, v)     \
-    for (auto &x : v) \
-        cin >> x;
-#define vout(x, v)   \
-    for (auto x : v) \
-        cout << x << " ";
-#define MEM(a, b) memset(a, (b), sizeof(a))
-#define loop(i, j, k) for (int i = j; i < k; i += 1)
-#define rloop(i, j, k) for (int i = j; i >= k; i -= 1)
-#define rep(i, j) loop(i, 0, j)
-#define rrep(i, j) rloop(i, j, 0)
-#define MP make_pair
-#define endl "\n"
-#define INF (int)1e18
-#define EPS 1e-18
-#define PI 3.1415926535897932384626433832795
-// #define MOD 1000000007
-const int MOD = 998244353;
-#define df
-// cout <<setprecision(15)
-#define NEED_FOR_SPEED_MOST_WANTED    \
-    ios_base::sync_with_stdio(false); \
-    cin.tie(NULL)
 using namespace std;
 
-/*-----------------------------------D-E-B-U-G-----------------------------------------------*/
-#ifndef ONLINE_JUDGE
-#define deb(x)         \
-    cerr << #x << " "; \
-    _print(x);         \
-    cerr << endl;
-#else
-#define deb(x)
-#endif
-
-// void _print(int32_t t)
-// {
-//     cerr << t;
-// }
-void _print(int t) { cerr << t; }
-void _print(string t) { cerr << t; }
-void _print(char t) { cerr << t; }
-void _print(long double t) { cerr << t; }
-void _print(double t) { cerr << t; }
-void _print(unsigned long long t) { cerr << t; }
-
-template <class T, class V>
-void _print(pair<T, V> p);
-template <class T>
-void _print(vector<T> v);
-template <class T>
-void _print(set<T> v);
-template <class T, class V>
-void _print(map<T, V> v);
-template <class T>
-void _print(multiset<T> v);
-template <class T, class V>
-void _print(pair<T, V> p)
+#define ll long long
+class TargetFunction
 {
-    cerr << "{";
-    _print(p.first);
-    cerr << ",";
-    _print(p.second);
-    cerr << "}";
-}
-template <class T>
-void _print(vector<T> v)
-{
-    cerr << "[ ";
-    for (T i : v)
+public:
+    double apply(double x)
     {
-        _print(i);
-        cerr << " ";
+        return x * (x + 1) / 2;
     }
-    cerr << "]";
-}
-template <class T>
-void _print(set<T> v)
+};
+
+int main()
 {
-    cerr << "[ ";
-    for (T i : v)
+    ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    int test_case;
+    cin >> test_case;
+    while (test_case--)
     {
-        _print(i);
-        cerr << " ";
-    }
-    cerr << "]";
-}
-template <class T>
-void _print(multiset<T> v)
-{
-    cerr << "[ ";
-    for (T i : v)
-    {
-        _print(i);
-        cerr << " ";
-    }
-    cerr << "]";
-}
-template <class T, class V>
-void _print(map<T, V> v)
-{
-    cerr << "[ ";
-    for (auto i : v)
-    {
-        _print(i);
-        cerr << " ";
-    }
-    cerr << "]";
-}
+        ll qw;
+        ll wq;
 
-vii graph[200010];
-map<int, int> degree;
+        cin >> qw >> wq;
 
-int mf = 0;
+        int l = std::abs(wq - qw);
 
-const int N = 3 * 1e5 + 10;
+        ll fidd = abs(qw - wq);
 
-#define ll long long int
+        // while ((target.apply(n) - l) % 2 != 0)
+        // {
+        //     n += 1;
+        // }
+        ll gft = 0;
 
-int calculateSegments(int start, int end, int divisor)
-{
-    mf = 0;
-    if (start > end)
-        return 0;
-    int segments = (end - start) / divisor;
-    segments += mf;
-    if (start % divisor == 0)
-        segments++;
+        // while ((target.apply(n) - l) % 2 != 0)
+        // {
+        //     n += 1;
+        // }
+        ll r = sqrt(fidd);
 
-    mf++;
-
-    int f = mf;
-    mf = 0;
-    return segments * f;
-}
-
-vector<ll> gfh(N + 1);
-vector<ll> gqh(N + 1);
-
-bool comp(pair<ll, ll> x, pair<ll, ll> y)
-{
-    return gfh[x.second] < gfh[y.second];
-}
-
-ll binmult(int a, int b)
-{
-    ll ans = 0;
-    while (b > 0)
-    {
-        if (b & 1)
-            ans = (ans + a) % MOD;
-        a = (a + a) % MOD;
-        b >>= 1;
-    }
-    return ans;
-}
-ll binpow(int a, int b)
-{
-    ll ans = 1;
-    while (b > 0)
-    {
-        if (b & 1)
-            ans = binmult(ans, a);
-        a = binmult(a, a);
-        b >>= 1;
-    }
-    return ans;
-}
-
-void dij(int C, vi &dist)
-{
-    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-
-    dist[C] = 0;
-    pq.push({0, C});
-    while (pq.size() > 0)
-    {
-        pair<int, int> alpha = pq.top();
-        pq.pop();
-        if (dist[alpha.second] < alpha.first)
-            continue;
-        for (auto x : graph[alpha.second])
+        r *= 2;
+        if (l == 0)
         {
-            if (dist[x.first] > dist[alpha.second] + x.second)
-            {
-                dist[x.first] = dist[alpha.second] + x.second;
-                pq.push({dist[x.first], x.first});
-            }
+            std::cout << 0 << std::endl;
+            // return 0;
+
+            continue;
         }
+
+        while (r != gft)
+        {
+            ll mid = r + gft;
+            mid /= 2;
+            ll sum = mid * (mid + 1);
+            sum /= 2;
+
+            // while ((target.apply(n) - l) % 2 != 0)
+            // {
+            //     n += 1;
+            // }
+            if (sum >= fidd)
+                r = mid;
+            else
+                gft = mid + 1;
+        }
+
+        double p = std::sqrt(1 + 8 * l);
+
+        // while ((target.apply(n) - l) % 2 != 0)
+        // {
+        //     n += 1;
+        // }
+        double x = -1 + p;
+        int n = static_cast<int>(std::ceil(x / 2));
+
+        // TargetFunction target;
+        if (fidd % 2 == 0)
+        {
+            if (gft % 4 == 1)
+                gft += 2;
+
+            // while ((target.apply(n) - l) % 2 != 0)
+            // {
+            //     n += 1;
+            // }
+            else if (gft % 4 == 2)
+                gft++;
+        }
+        if (fidd % 2 == 1)
+        {
+
+            // while ((target.apply(n) - l) % 2 != 0)
+            // {
+            //     n += 1;
+            // }
+            if (gft % 4 == 3)
+                gft += 2;
+            else if (gft % 4 == 0)
+                gft++;
+        }
+        cout << gft << endl;
+
+        // std::cout << n << std::endl;
     }
-}
-
-void solve()
-{
-    int n;cin>>n;
-    string s;
-    cin >> s;
-
-    int totalTime = 0;
-    int solvedProblems = 0;
-
-    map<int,int>  mp;
-
-    for(int i=0;i<s.size();i++){
-        mp[s[i]-'A'+1]++;
-
-        // cout<<s[i]-'A'+1<<" ";
-    }
-    int cnt=0;
-    // cout<<endl;
-
-  for(auto it:mp){
-    // cout<<it.first<<" "<<it.second<<endl;
-    if(it.first<=it.second) cnt++;
-  }
-
-  cout<<cnt<<endl;
-
-
-// int n,k;cin>>n>>k;
-    
-}
-
-signed main()
-{
-    NEED_FOR_SPEED_MOST_WANTED;
-    // #ifndef ONLINE_JUDGE
-    // FOR GETTING INPUT FROM input.txt
-    // freopen("input.txt", "r", stdin);
-    // FOR GETTING INPUT FROM input.txt
-    // freopen("output.txt", "w", stdout);
-    //	#endif
-    // cout << MOD << endl
-    //  << endl;
-
-    int t = 1;
-    cin >> t;
-    while (t--)
-    {
-
-        solve();
-        // cout << endl;
-    }
+    return 0;
 }
 
 
 /*
 
-it the number of pairs
+def tot(n):
+return n * (n + 1) // 2
 
-Input Format
+t = int(input())
+for _ in range(t):
+# your code goes here
+n, m = map(int, input().split())
 
-The first line contains an integer n, the number of socks represented in ar.
-The second line contains n space-separated integers, ar[i], the colors of the socks in the pile.
+u = (n + 1) // 2
+v = (m + 1) // 2
 
-Constraints
+min_time_fill = max(u - 1, v - 1, n - u, m - v)
 
-.1≤n ≤ 100
+hi_u = min(1 + min_time_fill, n)
+lo_u = max(n - min_time_fill, 1)
 
-· 1 ≤ ar[i] ≤ 100 where 0 ≤ i < n
+hi_v = min(1 + min_time_fill, m)
+lo_v = max(m - min_time_fill, 1)
 
-Sample Input
-
-STDIN
-
-9
-10 20 20 10 10 30 50 10 20 ar = [10, 20, 20, 10, 10, 38, 50, 10, 20]
-
-Sample Output
-
-Function
-
-n= 9
-
-3
-
-
-*/
-
-
-/*
-can you help me in my viva questions 
-i will text you question  you should answer me in my own word
-
-*/
-
-
-/*
-
-
-1) Networking
-
-What is the purpose of
-ARP in networking?
-
-Address Resolution Protocol
-
-Advanced Routing Protocol
-
-Automated Routing Process
-
-Address Redistribution Process
-
-
-The correct answer is:
-Address Resolution Protocol
-
-
-
-2)Error handling
-
-"Ensure 'throw std :: invalid_argument('Invalid Argument!');' for throwing
-an invalid argument
-error?"
-
-
-
-
-throw std :: overflow_error('Inyalid
-Argument!);
-
-throw std :: invalid_argument('Invalid
-Argument!');'
-
-throw std :: runtime_error('Invalid
-Argument!'):'
-
-Crrect answer
-std::invalid_argument
-
-
-4)
-Networking
-
-Which type of network
-topology involves a
-central hub or switch?
-
-Bus Topology
-
-Star Topology
-
-Ring Topology
-
-Mesh Topology
-
-
-5)
-What does the term
-"Composite Key" mean in
-the context of databases?
-
-wases?
-
-A key with a unique constraint
-
-A primary key in another table
-
-A key with a complex data type
-
-A key made up of multiple columns
-
-The correct answer is:
-
-A key made up of multiple columns
-
-
-6)
-In a linked list, how is a node located using the head node?
-
-
-Forward traversal
-
-Backward traversal
-
-Random access
-
-Recursive traversal
-
-
-right one
-Forward traversal
-
-7)
-"Ensure 'std:priority_queue<int,std :: vector<int>, std :: greater<int>> pq;' for sorting elements?"
-
-
-A) std :: less<int>'
-
-B) pq.emplace(2)'
-
-C) std :: priority_queue<int, std :: vector<int>> pq'
-
-Answer
-A) std::priority_queue<int, std::vector<int>, std::greater<int>> pq;
-
-8)
-
-
+a = tot(hi_u) - tot(lo_u - 1)
+b = tot(hi_v) - tot(lo_v - 1)
+a %= mod
+b %= mod
+print((a * b) % mod)
 
 
 */
