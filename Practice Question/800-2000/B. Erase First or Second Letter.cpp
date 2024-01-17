@@ -24,19 +24,11 @@ int main()
     {
       se.insert(s[i]);
 
-      // cout<<se.size()<<" ";
+    
 
       ans+=se.size();
     }
 
-
-    // cout<<endl;
-    // for (auto it : se)
-    // {
-    //   cout << it << " ";
-    // }
-
-    // cout << endl;
 
     cout << ans<< endl;
 
