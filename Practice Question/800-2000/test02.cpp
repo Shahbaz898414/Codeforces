@@ -3,54 +3,37 @@ using namespace std;
 // const int MOD = 1e9 + 7;
 // const int MOD = 1;
 
-long long power(long long base, int exponent) {
-    long long result = 1;
-    while (exponent > 0) {
-        if (exponent % 2 == 1) {
-            result = (result * base) ;
-        }
-        base = (base * base) ;
-        exponent /= 2;
-    }
-    return result;
-}
-
-long long attractiveGroups(int n, vector <int> &a) {
-   // Write your code here.
-}
-
-
-
-int main() {
+int main()
+{
     int t;
     cin >> t; // Number of test cases
 
-    while (t--) {
-        int n, m;
-        cin >> n ;
+    while (t--)
+    {
+        int n;
+        cin >> n;
 
-        vector<int>  arr(n);
+        string s1, s2;
+        cin >> s1 >> s2;
+
+        int cnt1 = 0, cnt2 = 0, diff = 0;
 
         for (int i = 0; i < n; i++)
         {
-            /* code */
-            cin>>arr[i];
+            if (s1[i] == '1' and s2[i] == '0')
+            {
+                cnt1++;
+            }
+
+            if (s1[i] == '0' and s2[i] == '1')
+                cnt2++;
         }
 
-     
-
-        
-
-        
+        cout << max(cnt1, cnt2) << endl;
     }
 
     return 0;
 }
-
-
-
-
-
 
 /*
 
@@ -59,23 +42,23 @@ So today. I solved 5 question.
 
 
 1. 70. Climbing Stairs (https://leetcode.com/problems/climbing-stairs/description/?envType=daily-question&envId=2024-01-18).
- 
+
 
 
 2. Magical Numbers (https://www.codingninjas.com/studio/contests/weekly-contest-109/11006164/problems/29724?leftPanelTabValue=PROBLEM).
- 
+
 
 
 3. Satisfy the Need (https://www.codingninjas.com/studio/contests/weekly-contest-109/11006164/problems/29722?leftPanelTabValue=PROBLEM)
- 
 
 
-4. Spell Shortening (https://lnkd.in/dPGtdCKR).
- 
+
+4. A. Square (https://codeforces.com/contest/1921/problem/A).
+
 
 
 5. Not Prime Permutation (https://lnkd.in/dEfpMG-6).
- 
+
 
 
 
