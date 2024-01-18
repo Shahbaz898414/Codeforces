@@ -4,54 +4,32 @@ using namespace std;
 
 const long long mod = 1000000007;
 
-long long permulation(int n) {
+#define ll long long
+
+long long permulation(int n)
+{
     return (long long)n * (n + 1) / 2;
 }
 
-int main() {
+int subtractMod(int a, int b, int m) { return (a % m - b % m + m) % m; }
+
+int sum1toN(int n) { return (n * (n + 1) / 2) % mod; }
+int main()
+{
     int t;
-    std::cin >> t;
+    cin >> t;
 
-    while (t--) {
+    while (t--)
+    {
         int n, m;
-        std::cin >> n >> m;
-
-        int u = (n + 1) / 2;
-        int v = (m + 1) / 2;
-
-        int min_time_fill = max({u - 1, v - 1, n - u, m - v});
-        int min = max({(u - 1)+(v - 1), (v - 1)+(m - v), n - u+((v - 1)), m - v});
-
-
-        int r = std::min(1 + min_time_fill, n);
-
-          int tr = std::min(1 + min_time_fill, m);
-        int re = std::max(m - min_time_fill, 1);
-        int l = std::max(n - min_time_fill, 1);
-
-
-        int rv = std::min(1 + min_time_fill, m);
-
-          int fg = std::max(n - min_time_fill, 1);
-          int bv = std::max(m - min_time_fill, 1);
-
-
-        int lv = std::max(m - min_time_fill, 1);
-
-
-
-        long long a = permulation(r) - permulation(l - 1);
-        long long b = permulation(rv) - permulation(lv - 1);
-
-        
-        a %= mod;
-
-
-        b %= mod;
-
-        std::cout << (a * b) % mod << std::endl;
-
-
+        cin >> n >> m;
+        if (n < m)
+            swap(n, m);
+        int a = (n + 1) / 2, b = (n + 2) / 2, c = (m + 1) / 2, d = (m + 2) / 2, d2 = min({m, b}), p = c - (d2 - d);
+        int q = 0;
+        for (int i = a; i <= b; i++)
+            (q += (subtractMod(sum1toN(d2), sum1toN(p - 1), mod) % mod) * (i % mod) * 1ll) %= mod;
+        cout << q << endl;
     }
 
     return 0;
