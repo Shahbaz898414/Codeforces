@@ -37,7 +37,7 @@ int main()
 
 /*
 
-Today was my 2th day out of the 75 days  hard challenge.
+Today was my 3th day out of the 75 days  hard challenge.
 So today. I solved 5 question.
 
 
@@ -57,7 +57,7 @@ So today. I solved 5 question.
 
 
 
-5. Not Prime Permutation (https://lnkd.in/dEfpMG-6).
+5. B. Arranging Cats (https://codeforces.com/contest/1921/problem/B).
 
 
 
