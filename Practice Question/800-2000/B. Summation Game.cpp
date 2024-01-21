@@ -1,97 +1,31 @@
 #include <bits/stdc++.h>
-using namespace std;
+using namespace std; 
 
-#ifndef ONLINE_JUDGE
-// #include "algo/debug.h"
-#else
-#define dbg(...) ;
-#define debug(...) ;
-#endif
+void solve(){
+    int n, k, x;
+    cin >> n >> k >> x;
+    
+    int A[n + 1] = {};
+    for (int i = 1; i <= n; i++)
+        cin >> A[i];
+    
+    sort(A + 1, A + n + 1, greater<int>());
 
-void solve()
-{
-
-  int n, k, x;
-  cin >> n >> k >> x;
-
-  int arr[n + 1];
-
-  for (int i = 1; i <= n; i++)
-  {
-    /* code */
-    cin >> arr[i];
-  }
-
-  sort(arr + 1, arr + n + 1);
-
-  int pref[n + 1];
-
-  pref[0] = 0;
-
-  for (int i = 1; i <= n; i++)
-  {
-    /* code */
-    pref[i] = arr[i] + pref[i - 1];
-  }
-
-  int ans = INT_MIN;
-
-  for (int i = n; i >= 0; i--)
-  {
-    /* code */
-    int ch = (n - i);
-
-    if (ch > k)
-      break;
-
-    int r = min(r, i);
-
-    int sum = (pref[i - r] - (pref[i] - pref[r]));
-
-    ans = max(ans, sum);
-  }
-
-  cout << ans << endl;
+    for (int i = 1; i <= n; i++)
+        A[i] += A[i - 1];
+    
+    int ans = -1e9;
+    for (int i = 0; i <= k; i++)
+        ans = max(ans, A[n] - 2 * A[min(i + x, n)] + A[i]);
+    
+    cout<<ans<<"\n";
 }
 
-int main()
-{
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
-  cout.tie(NULL);
-
-  int t = 1;
-  cin >> t;
-
-  for (int tc = 1; tc <= t; tc++)
-  {
-    // debug(Testcase, tc);
-    solve();
-    // dbg();
-  }
-
-  return 0;
+int main(){
+    ios_base::sync_with_stdio(0); cin.tie(0); 
+    int tc; 
+    cin >> tc;
+    
+    while (tc--) 
+        solve();
 }
-
-/*
-
-
-n=8  k=5  x=3
-
-5 5 3 3 3 2 9 9
-ans= -5
-
-9 9 5 5 3 3 3 2
-
-3 3 2
-
--3 -3 -2
-
-
-
-
-
-
-
-
-*/
