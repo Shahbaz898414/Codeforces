@@ -20,23 +20,22 @@ void solve()
 
 	vector<int> neq;
 
-	for (int i = 0; i < n; i++)
-	{
-		int a, x;
-		cin >> a >> x;
+	for (int i = 0; i < n; i++) {
+		int a, x; cin >> a >> x;
 
-		if (a == 1)
-			l = max(l, x);
-		if (a == 2)
-			r = min(r, x);
-		if (a == 3)
-			neq.push_back(x);
+		if (a == 1) l = max(l, x);
+		if (a == 2) r = min(r, x);
+		if (a == 3) neq.push_back(x);
 	}
+
+
 	for (int x : neq)
 		if (x >= l and x <= r)
 			s++;
 
 	cout << max(r - l + 1 - s, 0) << "\n";
+
+
 }
 
 int main()
