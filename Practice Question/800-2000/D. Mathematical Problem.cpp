@@ -29,12 +29,39 @@ signed main()
   int tt;
   cin >> tt;
 
-  while (tt--) {
+  while (tt--)
+  {
+
+    int n; cin >> n;
+
+    int count = n;
+
+    if (n == 1) {
+      cout << 1 << "\n"; continue;
+    }
 
 
-    int n, odd = 0, even = 0, sum = 0; cin >> n;
+    count--;
 
+
+    cout << "196" + string(n - 3, '0') << "\n";
+
+
+    for (int dist = 0; dist * 2 + 3 <= n; dist++) {
+      if (count)
+      {
+        count--;
+        cout << "1" + string(dist, '0') + "6" + string(dist, '0') + "9" + string(n - (dist * 2 + 3), '0') << "\n";
+      }
+      if (count)
+      {
+        count--;
+        cout << "9" + string(dist, '0') + "6" + string(dist, '0') + "1" + string(n - (dist * 2 + 3), '0') << "\n";
+      }
+    }
 
 
   }
+
+  
 }
