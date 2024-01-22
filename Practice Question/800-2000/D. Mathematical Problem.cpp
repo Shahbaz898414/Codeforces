@@ -35,8 +35,6 @@ signed main()
     int n, odd = 0, even = 0, sum = 0; cin >> n;
 
 
-  
-
 
   }
 }
