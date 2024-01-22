@@ -4,6 +4,21 @@ using namespace std;
 
 #define int long long
 
+
+long long gcd(long long  a, long long  b) 
+{ 
+  if (b == 0) 
+    return a; 
+  return gcd(b, a % b); 
+} 
+  
+
+long long lcm(int a, int b) 
+{ 
+    return (a / gcd(a, b)) * b; 
+} 
+
+
 signed main()
 {
   ios_base::sync_with_stdio(false);
@@ -30,4 +45,8 @@ signed main()
     {
       cout << lcm(a, b) << endl;
     }
+
+
+  }
+  
   }
