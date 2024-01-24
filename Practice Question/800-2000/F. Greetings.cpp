@@ -2,6 +2,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+template <class T>
+using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
 #define int long long
 
 long long gcd(long long a, long long b)
@@ -22,30 +28,29 @@ void solve()
   int n;
   cin >> n;
 
-  vector<int> a(n);
+  vector<vector<int>> a(n, vector<int>(2));
   for (int i = 0; i < n; i++)
   {
-    cin >> a[i];
-    if (i & 1)
-      a[i] *= -1;
+    cin >> a[i][0] >> a[i][1];
   }
 
-  long long sum = 0;
-  set<long long> st{0};
+  sort(a.begin(), a.end());
+
+  set<int> st;
+  for (int i = 0; i < n; i++)
+  {
+    st.insert(a[i][1]);
+  }
+
+  long long ans = 0;
 
   for (int i = 0; i < n; i++)
   {
-    sum += a[i];
-    // cout<<sum<<" ";
-    if (st.find(sum) != st.end())
-    {
-      cout << "YES" << endl;
-      return;
-    }
-    st.insert(sum);
+    ans += st.order_of_key(a[i][1]);
+    st.erase(a[i][1]);
   }
 
-  cout << "NO" << endl;
+  cout << ans << endl;
 }
 
 signed main()
