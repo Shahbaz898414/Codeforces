@@ -17,48 +17,27 @@ long long lcm(int a, int b)
 
 void solve()
 {
-  int n;
-  cin >> n;
+ 
+  int n;cin>>n;
 
-  vector<int> arr(n);
+  vector<int> l(n),r(n),c(n);
 
-  int odd = 0, eve = 0;
 
-  for (int i = 0; i < n; i++)
-  {
-    cin >> arr[i];
-
-    if (arr[i] % 2)
-      odd++;
-    else
-      eve++;
+  for (int i = 0; i <n; i++) { 
+    cin>>l[i];
   }
 
-  if (n == 2)
-  {
-    cout << (1000000000000000000) << endl;
+
+  for (int i = 0; i <n; i++) { 
+    cin>>r[i];
   }
-  else
-  {
-
-    if (odd == n || eve == n)
-    {
-      for( int k=2;; k=k<<1){
-        set<int>se;
-        for(int i:arr)se.insert(i%k);
-
-        if(se.size()==2){
-          cout<<k<<endl;
-          return;
-        }
-      }
-    }
-    else
-    {
-
-      cout << 2 << endl;
-    }
+  
+  for (int i = 0; i <n; i++) { 
+    cin>>c[i];
   }
+
+  
+
 }
 
 signed main()
