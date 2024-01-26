@@ -18,23 +18,23 @@ long long lcm(int a, int b)
 void solve()
 {
  
-  int n;cin>>n;
+    int n;cin>>n;
 
-  vector<int> l(n),r(n),c(n);
-
-
-  for (int i = 0; i <n; i++) { 
-    cin>>l[i];
-  }
+    vector<int> l(n),r(n),c(n);
 
 
-  for (int i = 0; i <n; i++) { 
-    cin>>r[i];
-  }
-  
-  for (int i = 0; i <n; i++) { 
-    cin>>c[i];
-  }
+    for (int i = 0; i <n; i++) { 
+      cin>>l[i];
+    }
+
+
+    for (int i = 0; i <n; i++) { 
+      cin>>r[i];
+    }
+    
+    for (int i = 0; i <n; i++) { 
+      cin>>c[i];
+    }
 
   
 
@@ -59,10 +59,3 @@ signed main()
 
 
 
-
-/*
-
-
-
-
-*/
