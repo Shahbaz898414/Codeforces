@@ -9,30 +9,48 @@ long long gcd(long long a, long long b)
   return gcd(b, a % b);
 }
 
-long long lcm(int a, int b)
-{
+long long lcm(int a, int b) {
   return (a / gcd(a, b)) * b;
 }
 
 
+
 void solve() {
 
-  ll n,k;cin>>n>>k;
 
-  vector<ll> arr(n),brr(n);
+  int n, k; cin >> n >> k;
 
-  for (ll i = 0; i < n; i++) {
-    cin>>arr[i];
+
+  vector<int> a(n), b(n);
+
+
+  for (int i = 0; i < n; i++) cin >> a[i];
+
+
+  for (int i = 0; i < n; i++) cin >> b[i];
+
+
+  int ans = 0, a1 = 0, b1 = 0;
+
+
+  for (int i = 0; i < min(n, k); i++) {
+
+
+    a1 += a[i];
+
+
+    b1 = max(b1, b[i]);
+
+
+    ans = max(ans, a1 + b1 * (k - i - 1));
+
+
   }
 
-  for (ll i = 0; i < n; i++) {
-    cin>>brr[i];
-  }
-  
-  
+
+  cout << ans << endl;
 
 
-  
 }
 
 signed main()
@@ -51,23 +69,3 @@ signed main()
 }
 
 
-/*
-
-#include<iostream>
-using namespace std;
-int t,n,k,Max,a[200005],b[200005];
-int main(){
-	scanf("%d",&t);
-	while(t--){Max=0;
-		scanf("%d%d",&n,&k);
-		for(int i=1;i<=n;i++)scanf("%d",&a[i]),a[i]+=a[i-1];
-		for(int i=1;i<=n;i++){
-			scanf("%d",&b[i]);
-			b[i]=max(b[i],b[i-1]);
-			if(k>=i)Max=max(Max,a[i]+(k-i)*b[i]);
-		}printf("%d\n",Max);
-	}return 0;
-}
-
-
-*/
