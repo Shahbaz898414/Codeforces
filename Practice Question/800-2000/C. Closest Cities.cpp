@@ -45,3 +45,25 @@ signed main()
     solve();
   }
 }
+
+
+
+
+
+/*
+
+
+Today was my 14th day out of the 75 days hard challenge.
+So today. I solved 5 question.
+
+1. 232. Implement Queue using Stacks (https://leetcode.com/problems/implement-queue-using-stacks/description/?envType=daily-question&envId=2024-01-29).
+
+2. D - Three Activities (https://codeforces.com/contest/1914/problem/D).
+
+3. E1 - Game with Marbles (Easy Version) (https://codeforces.com/contest/1914/problem/E1)
+
+4. E2 - Game with Marbles (Hard Version) (https://codeforces.com/contest/1914/problem/E2).
+
+5. C. Closest Cities (https://codeforces.com/contest/1922/problem/C).
+
+*/
