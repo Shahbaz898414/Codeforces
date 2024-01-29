@@ -22,18 +22,19 @@ void solve()
 
   int cnt[2] = {0, 0};
 
-  
+
   for (int i = 0; i < s.length(); ++i) cnt[s[i] - '0']++;
   
 
-  for (int i = 0; i <= s.length(); ++i)
-  {
-    if (i == s.length() || cnt[1 - (s[i] - '0')] == 0)
-    {
+  for (int i = 0; i <= s.length(); ++i) {
+
+    if (i == s.length() || cnt[1 - (s[i] - '0')] == 0) {
       cout << s.length() - i << endl;
       break;
     }
+
     cnt[1 - (s[i] - '0')]--;
+    
   }
 
 
