@@ -17,51 +17,48 @@ long long lcm(int a, int b)
 void solve()
 {
 
-  int n;
-  cin >> n;
-
-  vector<int> a(n), b(n), c(n);
-  for (int &e : a)
-    cin >> e;
-  for (int &e : b)
-    cin >> e;
-  for (int &e : c)
-    cin >> e;
-
-  multiset<pair<int, int>> x, y;
-
-  for (int i = 0; i < n; i++)
-  {
-    x.insert({b[i], i});
-    y.insert({c[i], i});
-  }
-
-  int ans = 0;
-
-  for (int i = 0; i < n; i++) {
+  int n; cin>>n;
+ 
+        vector<int> a(n), b(n);
+        for(auto &e: a)     cin>>e;
 
 
-    x.erase({b[i], i});
+        for(auto &e: b)     cin>>e;
+ 
+        multiset<pair<int, int>> x;
+ 
+        for(int i=0; i<n; i++)
+            x.insert({a[i]+b[i], i});
+ 
+        int f = 1;
+ 
+        ll int ans = 0;
+ 
+        while(x.size())
+        {
+            int i = (*x.rbegin()).second;
+ 
+            if(f)
+            {
+                ans += a[i]-1;
+                x.erase({a[i]+b[i], i});
+            }
+            else
+            {
+                ans -= b[i]-1;
+                x.erase({a[i]+b[i], i});
+            }
+ 
+            f ^= 1;
+        }
+ 
+        cout<<ans<<"\n";
+  
 
-    y.erase({c[i], i});
-
-    if ((*x.rbegin()).second == (*y.rbegin()).second)
-      ans = max({ans, a[i] + (*(--x.end())).first + (*(--(--y.end()))).first,
-                 a[i] + (*(--y.end())).first + (*(--(--x.end()))).first});
-    else
-      ans = max(ans, a[i] + (*(--x.end())).first + (*(--y.end())).first);
 
 
 
-    x.insert({b[i], i});
-
-
-    y.insert({c[i], i});
-
-
-  }
-
-  cout << ans << "\n";
+  
 
 
 }
