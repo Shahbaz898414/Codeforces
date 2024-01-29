@@ -17,14 +17,70 @@ long long lcm(int a, int b)
 void solve()
 {
 
-  int n; cin>>n;
- 
-  vector<int> a(n), b(n);
-  for(auto &e: a)     cin>>e;
+ ll n;
+   cin >> n;
+   vector<ll> a(n), pref(n, 0ll), suff(n, 0ll), who(n);
+   for(ll i = 0; i < n; i++) cin >> a[i];
+   for(ll i = 0; i < n; i++)
+   {
+      ll prev = 1e18, next = 1e18;
+      if(i >= 1) prev = a[i - 1];
+      if(i + 1 < n) next = a[i + 1];
+      if(abs(a[i] - prev) > abs(a[i] - next)) who[i] = i + 1;
+      else who[i] = i - 1;
+   }
 
 
-       
-        int m;cin>>m;
+   for(int i = 0; i < n; i++)
+   {
+      if(i == 0) {pref[i] = 0; continue;}
+      if(who[i - 1] == i) pref[i] = pref[i - 1] + 1;
+      else pref[i] = pref[i - 1] + abs(a[i] - a[i - 1]);
+   }
+
+
+   for (int i = n - 1; i >= 0; i--) {
+
+      if(i == n - 1) {suff[i] = 0; continue;}
+
+      if(who[i + 1] == i) suff[i] = suff[i + 1] + 1;
+
+      else suff[i] = suff[i + 1] + abs(a[i] - a[i + 1]);
+
+   }
+
+  //  for(auto it:pref){
+  //   cout<<it<<" ";
+  //  }
+
+  //  cout<<endl;
+
+
+  //  for(auto it:suff){
+  //   cout<<it<<" ";
+  //  }
+
+  //  cout<<endl;
+
+
+   int m;
+   cin >> m;
+   while(m--) {
+
+
+      int x, y; cin >> x >> y;
+
+
+      --x; --y;
+
+
+      if(x < y) cout << 0ll + pref[y] - pref[x] << endl;
+  
+
+      else cout << 0ll + suff[y] - suff[x] << endl;
+
+
+   }
 
 
 
@@ -48,22 +104,3 @@ signed main()
 
 
 
-
-
-/*
-
-
-Today was my 14th day out of the 75 days hard challenge.
-So today. I solved 5 question.
-
-1. 232. Implement Queue using Stacks (https://leetcode.com/problems/implement-queue-using-stacks/description/?envType=daily-question&envId=2024-01-29).
-
-2. D - Three Activities (https://codeforces.com/contest/1914/problem/D).
-
-3. E1 - Game with Marbles (Easy Version) (https://codeforces.com/contest/1914/problem/E1)
-
-4. E2 - Game with Marbles (Hard Version) (https://codeforces.com/contest/1914/problem/E2).
-
-5. C. Closest Cities (https://codeforces.com/contest/1922/problem/C).
-
-*/
