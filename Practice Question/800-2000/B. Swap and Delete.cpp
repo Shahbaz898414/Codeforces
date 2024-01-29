@@ -14,16 +14,29 @@ long long lcm(int a, int b)
   return (a / gcd(a, b)) * b;
 }
 
-void solve() {
+void solve()
+{
 
-  ll n; cin >> n;
+  string s;
+  cin >> s;
 
-  string s; cin >> s;
+  int cnt[2] = {0, 0};
+  for (int i = 0; i < s.length(); ++i)
+  {
+    cnt[s[i] - '0']++;
+  }
 
+  for (int i = 0; i <= s.length(); ++i)
+  {
+    if (i == s.length() || cnt[1 - (s[i] - '0')] == 0)
+    {
+      cout << s.length() - i << endl;
+      break;
+    }
+    cnt[1 - (s[i] - '0')]--;
+  }
 
-
-
-
+  
 }
 
 signed main()
