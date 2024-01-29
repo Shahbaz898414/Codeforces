@@ -21,10 +21,10 @@ void solve()
   cin >> s;
 
   int cnt[2] = {0, 0};
-  for (int i = 0; i < s.length(); ++i)
-  {
-    cnt[s[i] - '0']++;
-  }
+
+  
+  for (int i = 0; i < s.length(); ++i) cnt[s[i] - '0']++;
+  
 
   for (int i = 0; i <= s.length(); ++i)
   {
@@ -36,11 +36,14 @@ void solve()
     cnt[1 - (s[i] - '0')]--;
   }
 
-  
+
+
+
 }
 
-signed main()
-{
+
+
+signed main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
