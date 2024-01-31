@@ -17,27 +17,66 @@ long long lcm(int a, int b)
 void solve()
 {
 
-    int m;
-    cin >> m;
-    
+    int m; cin >> m;
+
+
     vector<int> bits (31, 0);
-    
+
+
     while (m--) {
-        int t, v;
-        cin >> t >> v;
-        
-        if (t == 1) {
-            bits[v]++;
+
+
+      int t,v;cin>>t>>v;
+
+
+      if (t == 1) {
+
+
+        bits[v]++;
+
+
+      }else {
+
+
+        for ( int i = 29 ; i >= 0 ; i-- )  {
+
+
+          // cout<<(v>>i)<<" ";
+
+
+          int mn = min (v >> i, bits[i]);
+
+
+          // cout<<mn<<" ";
+
+
+          cout<<(mn * (1 << i))<<" ";
+
+
+          v -= mn * (1 << i);
+
+
         }
-        
-        else {
-            for (int i = 29; i >= 0; i--) {
-                int mn = min (v >> i, bits[i]);
-                v -= mn * (1 << i);
-            }
-            cout << (v == 0 ? "YES" : "NO") << endl;
-        }
+
+
+        cout<<endl;
+
+
+        cout << (v == 0 ? "YES" : "NO") << endl;
+
+
+      }
+
+
     }
+
+
+    // cout<<endl;
+    // for(auto it:bits){
+    //   cout<<it<<" ";
+    // }
+
+    // cout<<endl;
 
   
 
