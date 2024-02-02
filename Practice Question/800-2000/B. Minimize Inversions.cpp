@@ -14,14 +14,30 @@ long long lcm(int a, int b)
   return (a / gcd(a, b)) * b;
 }
 
-void solve() {
+void solve()
+{
 
-  int n,a,b;
-    cin>>n>>a>>b;
-   
-    cout<<((a+b+1<n||(a==n&&b==n))?"YES":"NO")<<endl;
-
-
+  int n;
+  cin >> n;
+  int a[n];
+  int b[n];
+  for (int i = 0; i < n; i++)
+  {
+    cin >> a[i];
+  }
+  for (int i = 0; i < n; i++)
+  {
+    cin >> b[a[i] - 1];
+  }
+  for (int i = 0; i < n; i++)
+  {
+    cout << i + 1 << " ";
+  }
+  cout << "\n";
+  for (int i = 0; i < n; i++)
+  {
+    cout << b[i] << " ";
+  }
 }
 
 signed main()
@@ -38,6 +54,3 @@ signed main()
     solve();
   }
 }
-
-
-
