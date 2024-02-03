@@ -34,16 +34,19 @@ vector<int> f(long long x)
   return res;
 }
 
+
+
 void solve()
 {
   long long x;
   cin >> x;
   auto ans = f(x);
   cout << ans.size() << '\n';
-  for (int i : ans)
-    cout << i << ' ';
+  for (int i : ans) cout << i << ' ';
   cout << '\n';
 }
+
+
 
 signed main()
 {
@@ -59,3 +62,9 @@ signed main()
     solve();
   }
 }
+
+
+/*
+
+
+*/
