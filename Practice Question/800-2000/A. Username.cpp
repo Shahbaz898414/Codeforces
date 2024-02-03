@@ -41,8 +41,3 @@ signed main()
 }
 
 
-/*
-
-Kotlin 1.7.20
-
-*/
