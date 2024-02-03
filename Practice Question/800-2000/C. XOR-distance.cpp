@@ -38,25 +38,34 @@ void solve(){
 
   int ans=0;
 
-  for (int i = cnt+1; i < 64; i++)
-  {
-    /* code */
-    if(((a&(1ll<<i))>0) && ((b&(1ll<<i))==0)){
+  for (int i = cnt+1; i < 64; i++) {
+  
+
+    if((( a & (1ll<<i))>0) && (( b & (1ll<<i)) == 0)){
       count++;
     }
+
+
   }
 
   for(int i=cnt;i>=0;i--){
+
     if(((a&(1ll<<i))>0) and ((b&(1ll<<i))==0)){
+
       if(count>0){
+
         ans+=(1ll<<i);
 
-        if(ans>r){
-          ans-=1ll<<i;
+        if(ans>r) {
+
+          ans -= (1ll<<i);
+          
         }
+
       }
 
       count++;
+
     }
   }
 
