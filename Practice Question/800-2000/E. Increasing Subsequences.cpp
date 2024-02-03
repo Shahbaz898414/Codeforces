@@ -19,22 +19,22 @@ vector<int> f(long long x)
   vector<int> res;
   if (x == 2)
   {
-    cout<<endl;
-    cout<<1<<" ";
+    // cout<<endl;
+    // cout<<1<<" ";
     res.push_back(0);
   }
   else if (x & 1)
   {
-    cout<<endl;
+    // cout<<endl;
     res = f(x - 1);
-    cout<<2<<" ";
+    // cout<<2<<" ";
     res.push_back(*min_element(res.begin(), res.end()) - 1);
   }
   else
   {
-    cout<<endl;
+    // cout<<endl;
     res = f(x / 2);
-    cout<<3<<" ";
+    // cout<<3<<" ";
     res.push_back(*max_element(res.begin(), res.end()) + 1);
   }
   return res;
@@ -72,7 +72,12 @@ signed main()
 
 /*
 
+For value X==2
+push 0 to res Vector
 For Odd value X
 F(X)=F(X=1)+min()
+min(here + denotes adding an element to the end of the array)
+For even value X
+F(X)=F(X/2)+max(here + denotes adding an element to the end of the array)
 
 */
