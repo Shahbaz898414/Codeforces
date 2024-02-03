@@ -14,69 +14,48 @@ long long lcm(int a, int b)
   return (a / gcd(a, b)) * b;
 }
 
+void solve()
+{
 
-
-
-
-void solve(){
-
-  ll a,b,r;cin>>a>>b>>r;
-
-  if(a<b) swap(a,b);
-
-  int x=1;
-
-  int cnt=0;
-
-  while(x<r){
-    x=x<<1;cnt++;
+  int a, b, r;
+  cin >> a >> b >> r;
+  if (a < b)
+    swap(a, b);
+  int x = 1;
+  int c = 0;
+  while (x < r)
+  {
+    x = x << 1;
+    c++;
   }
-
-  if(x>r) cnt--;
-
-  int count=0;
-
-  int ans=0;
-
-  for (int i = cnt+1; i < 64; i++) {
-  
-
-    if((( a & (1ll<<i))>0) && (( b & (1ll<<i)) == 0)){
+  if (x > r)
+    c--;
+  int count = 0;
+  int ans = 0;
+  for (int i = c + 1; i < 64; i++)
+  {
+    if ((((a & (1ll << i))) > 0) && (((b & (1ll << i))) == 0))
+    {
       count++;
     }
-
-
   }
-
-  for(int i=cnt;i>=0;i--){
-
-    if(((a&(1ll<<i))>0) and ((b&(1ll<<i))==0)){
-
-      if(count>0){
-
-        ans+=(1ll<<i);
-
-        if(ans>r) {
-
-          ans -= (1ll<<i);
-          
+  for (int i = c; i >= 0; i--)
+  {
+    if ((((a & (1ll << i))) > 0) && (((b & (1ll << i))) == 0))
+    {
+      if (count > 0)
+      {
+        ans += 1ll << i;
+        if (ans > r)
+        {
+          ans -= 1ll << i;
         }
-
       }
-
       count++;
-
     }
   }
-
-
-
-  cout<<abs((a^ans)-(b^ans))<<endl;
-  
-
+  cout << abs((a ^ ans) - (b ^ ans)) << endl;
 }
-
-
 
 signed main()
 {
@@ -92,4 +71,3 @@ signed main()
     solve();
   }
 }
-
