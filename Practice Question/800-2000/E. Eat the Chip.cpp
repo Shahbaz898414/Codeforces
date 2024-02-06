@@ -1,38 +1,45 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-int a[55],b[55];
-int main(){
-    int t;
-    scanf("%d",&t);
-    while(t--){
-        int n,m,k;
-        scanf("%d%d%d",&n,&m,&k);
-        ll ans=0;
-        for(int i=1;i<=n;i++)scanf("%d",a+i),ans+=a[i];
-        for(int i=1;i<=m;i++)scanf("%d",b+i);
 
-        // for (int i = 1; i <=n; i++)
-        // {
-        //     /* code */
-        //     cout<<a[i]<<" ";
-        // }
+int main()
+{
 
-        // cout<<endl;
+  int t;
+  cin >> t;
+  while (t--) {
 
-
-        //  for (int i = 1; i <=m; i++)
-        // {
-        //     /* code */
-        //     cout<<b[i]<<" ";
-        // }
-
-        // cout<<endl;
-        
-        sort(a+1,a+1+n);
-        sort(b+1,b+1+m);
-        if(a[1]<b[m])ans+=b[m]-a[1];
-        if(k%2==0)ans=ans-max(a[n],b[m])+min(a[1],b[1]);
-        printf("%lld\n",ans);
+    ll h, w, xa, ya, xb, yb;
+    cin >> h >> w >> xa >> ya >> xb >> yb;
+    if (xb < xa) {
+      cout << "Draw\n";
+      continue;
     }
+
+    ll steps = (xb - xa + 1) / 2;
+
+
+    if ((xb - xa) % 2 == 1) {
+      if (min(w, ya + steps) < min(w, yb + steps - 1)) cout << "Draw\n";
+      
+      else if (max(1ll, ya - steps) > max(1ll, yb - steps + 1)) cout << "Draw\n";
+      
+      else cout << "Alice\n";
+      
+    }
+    else {
+      
+      if (min(w, ya + steps) > min(w, yb + steps))
+        cout << "Draw\n";
+      
+      else if (max(1ll, ya - steps) < max(1ll, yb - steps))
+        cout << "Draw\n";
+      
+      else
+        cout << "Bob\n";
+      
+    }
+
+
+  }
 }
