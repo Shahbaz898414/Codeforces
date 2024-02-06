@@ -14,13 +14,20 @@ long long lcm(int a, int b)
   return (a / gcd(a, b)) * b;
 }
 
+void solve() {
+
+
+  string input; cin >> input;
+
+  
+  input.erase(input.find_last_not_of('0') + 1);
+
+
+  input.pop_back();
 
 
 
-void solve()
-{
-
-  string s;cin>>s;
+  cout << input << endl;
 
 
 }
@@ -39,5 +46,3 @@ signed main()
     solve();
   }
 }
-
-

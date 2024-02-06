@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
+#define INT_SIZE 32
 #define mod 1000000007
 #define Time cerr << "time taken : " << (float)clock() / CLOCKS_PER_SEC << " secs" << endl;
 #define pb push_back
@@ -118,9 +119,6 @@ bool isValid(string s)
   return true;
 }
 
-
-
-
 void rotateMatrix(vector<vector<int>> &v, int n)
 {
   for (int i = 0; i < n / 2; i++)
@@ -136,33 +134,47 @@ void rotateMatrix(vector<vector<int>> &v, int n)
   }
 }
 
+// ll m = 998244353;
 
+// long long erfd(long long a, long long b)
+// {
+//   if (b == 0)
+//     return 1;
+//   long long ans = erfd(a, b / 2);
+//   if (b % 2)
+//     return (ans % m * ans % m * a) % m;
+//   else
+//     return ans % m * ans % m;
+// }
 
-ll m = 998244353;
-long long erfd(long long a, long long b)
+int main()
 {
-  if (b == 0)
-    return 1;
-  long long ans = erfd(a, b / 2);
-  if (b % 2)
-    return (ans % m * ans % m * a) % m;
-  else
-    return ans % m * ans % m;
-}
-
-
-signed main()
-{
-
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
-  int t; cin >> t;
-  while(t--) {
-    ll n;cin>> n;
 
-    
+  ll t;
+  cin >> t;
+
+  while (t--)
+  {
+
+    int n,ans1=0,ans2=0;
+    	string s,t;
+    	cin>>n>>s>>t;
+    	for(int i=0;i<n;i++)
+    	{
+    		if(s[i]!=t[i])
+    			ans1++;
+			if(s[i]!=t[n-i-1])
+				ans2++;
+		}
+
+
+    cout<<min(2*ans1-(ans1%2),max(2,2*ans2-!(ans2%2)))<<endl;
+
+
+
   }
+
   return 0;
 }
-
-
