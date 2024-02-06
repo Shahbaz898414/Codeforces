@@ -17,48 +17,83 @@ long long lcm(int a, int b)
 void solve()
 {
 
-  ll a, b, r;
-  cin >> a >> b >> r;
-  if (a < b)
-    swap(a, b);
-  ll x = 1;
-  ll c = 0;
-  while (x < r)
+  ll n, m;
+  cin >> n >> m;
+
+  vector<pair<ll, ll>> adj[n];
+
+  for (ll i = 0; i < m; i++)
   {
-    x = x << 1;
-    c++;
+
+    ll u, v, w;
+    cin >> u >> v >> w;
+
+    u--;
+    v--;
+
+    adj[u].push_back({v, w});
+    adj[v].push_back({u, w});
   }
-  if (x > r)
-    c--;
-  ll count = 0;
-  ll ans = 0;
-  for (int i = c + 1; i < 64; i++)
+
+  vector<ll> s(n);
+
+  for (ll i = 0; i < n; i++)
   {
-    if ((((a & (1ll << i))) > 0) && (((b & (1ll << i))) == 0))
+    cin >> s[i];
+  }
+
+  vector<vector<ll>> dist(n, vector<ll>(n, 1e17));
+  vector<vector<ll>> vis(n, vector<ll>(n, 0));
+
+  priority_queue<array<ll, 3>, vector<array<ll, 3>>, greater<array<ll, 3>>> pq;
+
+  dist[0][0] = 0;
+  pq.push({0, 0, 0});
+
+  // dist[0][0] = 0;
+  // pq.push({0, 0, 0});
+
+  while (!pq.empty())
+  {
+    ll city = pq.top()[1];
+    ll bike = pq.top()[2];
+    pq.pop();
+
+    if (city == n - 1)
     {
-      count++;
+      cout << dist[city][bike] << endl;
+      return;
+    }
+
+    if (vis[city][bike])
+      continue;
+    vis[city][bike] = 1;
+
+    for (auto it : adj[city])
+    {
+      ll nbr = it.first;
+      ll wt = it.second;
+
+      ll newBike = bike;
+      if (s[nbr] < s[bike])
+        newBike = nbr;
+
+      if (dist[nbr][newBike] < dist[city][bike] + wt * s[bike])
+        continue;
+
+      dist[nbr][newBike] = dist[city][bike] + wt * s[bike];
+      pq.push({dist[nbr][newBike], nbr, newBike});
     }
   }
-  for (int i = c; i >= 0; i--)
-  {
-    if ((((a & (1ll << i))) > 0) && (((b & (1ll << i))) == 0))
-    {
-      if (count > 0)
-      {
-        ans += 1ll << i;
-        if (ans > r)
-        {
-          ans -= 1ll << i;
-        }
-      }
-      count++;
-    }
-  }
-  cout << abs((a ^ ans) - (b ^ ans)) << endl;
+
+  cout << -1 << endl;
+
+
 }
 
-signed main()
-{
+
+
+signed main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 

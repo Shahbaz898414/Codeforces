@@ -10,7 +10,10 @@ int main()
   while (t--) {
 
     ll h, w, xa, ya, xb, yb;
+
     cin >> h >> w >> xa >> ya >> xb >> yb;
+
+
     if (xb < xa) {
       cout << "Draw\n";
       continue;
@@ -28,18 +31,20 @@ int main()
       
     }
     else {
+
+      if (min(w, ya + steps) > min(w, yb + steps)) cout << "Draw\n";
       
-      if (min(w, ya + steps) > min(w, yb + steps))
-        cout << "Draw\n";
+      else if (max(1ll, ya - steps) < max(1ll, yb - steps)) cout << "Draw\n";
       
-      else if (max(1ll, ya - steps) < max(1ll, yb - steps))
-        cout << "Draw\n";
+      else cout << "Bob\n";
       
-      else
-        cout << "Bob\n";
       
     }
 
 
   }
+
+
 }
+
+
