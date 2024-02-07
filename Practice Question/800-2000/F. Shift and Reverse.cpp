@@ -52,7 +52,7 @@ void solve()
     }
 
     if (!cnt)
-      y = x;
+      y = x; 
     else
       z = x;
 
@@ -83,6 +83,8 @@ void solve()
     return f;
   };
 
+
+
   if (!cyclicSorted())
   {
 
@@ -93,13 +95,15 @@ void solve()
 
   int ans = 1e9;
 
-  if (f & 1)
-    ans = min(ans, min(n - y, 2 + y));
+  if (f & 1) ans = min(ans, min(n - y, 2 + y));
 
-  if (f & 2)
-    ans = min(ans, min(1 + n - z, 1 + z));
+  if (f & 2) ans = min(ans, min(1 + n - z, 1 + z));
+
+
 
   cout << ans << endl;
+
+
 }
 
 int main()
