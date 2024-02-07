@@ -25,7 +25,7 @@ void solve() {
    
    
   if(k2>=k||(arr[0]==arr[n-1]&&k1>=k)) cout<<"YES"<<endl;
-  
+
 	else cout<<"NO"<<endl;
    
    
@@ -46,5 +46,8 @@ int main()
 
 
 }
+
+
+
 
 
