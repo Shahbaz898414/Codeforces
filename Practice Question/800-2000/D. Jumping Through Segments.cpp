@@ -11,13 +11,14 @@ bool check(int k, vector<vector<int>> &seg)
   {
     ll = max(ll - k, e[0]);
     rr = min(rr + k, e[1]);
-    if (ll > rr)
-    {
-      return false;
-    }
+    if (ll > rr) return false;
+    
   }
+
   return true;
 }
+
+
 
 int solve(vector<vector<int>> &seg)
 {
