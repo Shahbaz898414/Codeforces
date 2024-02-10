@@ -74,11 +74,9 @@ void solve()
 
   auto cyclicSorted = [&]()
   {
-    if (helper())
-      f ^= 1;
+    if (helper()) f ^= 1;
     reverse(a.begin(), a.end());
-    if (helper())
-      f ^= 2;
+    if (helper()) f ^= 2;
 
     return f;
   };
