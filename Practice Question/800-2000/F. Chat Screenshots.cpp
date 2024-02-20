@@ -46,7 +46,6 @@ int main()
 
     int n, k, cycle = false;
     cin >> n >> k;
-
     set<int> adj[n + 1];
 
     vector<int> vis(n + 1), dfsVis(n + 1);
@@ -75,7 +74,7 @@ int main()
       }
 
       dfsVis[node] = 0;
-      
+
     };
 
     for (int i = 1; i <= n; i++)
