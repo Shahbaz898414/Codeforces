@@ -91,3 +91,47 @@ int main()
 
   }
 }
+
+
+/*
+
+
+𝐓𝐨𝐝𝐚𝐲 𝐰𝐚𝐬 𝐦𝐲 𝟑𝟓𝐬𝐭 𝐝𝐚𝐲 𝐨𝐮𝐭 𝐨𝐟 𝐭𝐡𝐞 𝟕𝟓 𝐝𝐚𝐲𝐬 𝐨𝐟 𝐡𝐚𝐫𝐝 𝐜𝐡𝐚𝐥𝐥𝐞𝐧𝐠𝐞𝐬. 𝐒𝐨 𝐭𝐨𝐝𝐚𝐲. 𝐈 𝐬𝐨𝐥𝐯𝐞𝐝 𝟓 𝐪𝐮𝐞𝐬𝐭𝐢𝐨𝐧𝐬.
+
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝟏 : F. Chat Screenshots
+Question is very simple, we need to use Topological Sorting.
+we just have to find cycle in directed graph.we need  cycle=false;
+set<int> adj[n + 1]; // build adj matrix
+vector<int> vis(n + 1), dfsVis(n + 1);  Run dfs function then set vis[node] = 1,dfsVis[node] = 1, then Run For  loop on (&i : adj[node]),  In For loop If  dfsVis[i]==1 then set cycle=true; Else call dfs(i); Outside of For loop  set dfsVis[node] = 0;
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐋𝐢𝐧𝐤 🔗: [https://codeforces.com/contest/1931/problem/F]
+
+
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝟐 : E. Anna and the Valentine's Day Gift
+Anna reverses a single element's digits, while Sasha combines and inserts two elements from the list, reducing its size by one each time. Players take turns removing numbers from a list until only one remains; if that number is ≥ 10^M, Sasha wins; otherwise, Anna wins. Very imp thing final element should have atleast M+1 digit. Anna strategy is pick element with most ending zeroes and reverse it.Sasha strategy follows by selecting the largest ending zero and combines it with another number.
+
+
+
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐋𝐢𝐧𝐤 🔗 : [https://codeforces.com/problemset/problem/1931/E]
+
+
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝟑 : 𝐀 - 𝐒𝐚𝐬𝐡𝐚 𝐚𝐧𝐝 𝐭𝐡𝐞 𝐁𝐞𝐚𝐮𝐭𝐢𝐟𝐮𝐥 𝐀𝐫𝐫𝐚𝐲
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐋𝐢𝐧𝐤 🔗: [https://lnkd.in/dekisFQf]
+
+
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝟒 : 𝐀 - 𝐑𝐞𝐜𝐨𝐯𝐞𝐫𝐢𝐧𝐠 𝐚 𝐒𝐦𝐚𝐥𝐥 𝐒𝐭𝐫𝐢𝐧𝐠
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐋𝐢𝐧𝐤 🔗: [https://lnkd.in/dkAJK6rW]
+
+
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝟓 : 𝐁 - 𝐌𝐚𝐤𝐞 𝐄𝐪𝐮𝐚𝐥
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐋𝐢𝐧𝐤 🔗: [https://lnkd.in/d59g29MY]
+
+
+#75dayschallenge
+#challenge
+#consistency
+#Cp
+#lessons
+#learning 
+
+
+*/
