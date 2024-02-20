@@ -74,7 +74,8 @@ int main() {
 /*
 
 
-Anna reverses a single element's digits, while Sasha combines and inserts two elements from the list, reducing its size by one each time. Players take turns removing numbers from a list until only one remains; if that number is ≥ 10^M, Sasha wins; otherwise, Anna wins. Very imp thing final element should have atleast M+1 digit. Anna strategy is pick element with most ending zeroes and reverse it.Sasha strategy follows by selecting the largest ending zero and combines it with another number.
+Players take turns removing numbers from a list until only one remains; if that number is ≥ 10^M, Sasha wins; otherwise, Anna wins. Very imp thing final element should have atleast M+1 digit. Anna strategy is pick element with most ending zeroes and reverse it.Sasha strategy follows by selecting the largest ending zero and combines it with another number.
+Store trailing zero of every A[i] in vector zero and then store digit in Sum variables, then store odd index zero[i] in sum variables and the compare  cout << (sum > m ? "Sasha" : "Anna") << "\n";
 
 
 

@@ -107,15 +107,12 @@ vector<int> vis(n + 1), dfsVis(n + 1);  Run dfs function then set vis[node] = 1,
 
 
 𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝟐 : E. Anna and the Valentine's Day Gift
-Anna reverses a single element's digits, while Sasha combines and inserts two elements from the list, reducing its size by one each time. Players take turns removing numbers from a list until only one remains; if that number is ≥ 10^M, Sasha wins; otherwise, Anna wins. Very imp thing final element should have atleast M+1 digit. Anna strategy is pick element with most ending zeroes and reverse it.Sasha strategy follows by selecting the largest ending zero and combines it with another number.
-
-
-
+Players take turns removing numbers from a list until only one remains; if that number is ≥ 10^M, Sasha wins; otherwise, Anna wins. Very imp thing final element should have atleast M+1 digit. Anna strategy is pick element with most ending zeroes and reverse it. Sasha strategy follows by selecting the largest ending zero and combines it with another number.Store trailing zero of every A[i] in vector zero and then store digit in Sum variables, then store odd index zero[i] in sum variables and then  cout << (sum > m ? "Sasha" : "Anna") << "\n";
 𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐋𝐢𝐧𝐤 🔗 : [https://codeforces.com/problemset/problem/1931/E]
 
 
-𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝟑 : 𝐀 - 𝐒𝐚𝐬𝐡𝐚 𝐚𝐧𝐝 𝐭𝐡𝐞 𝐁𝐞𝐚𝐮𝐭𝐢𝐟𝐮𝐥 𝐀𝐫𝐫𝐚𝐲
-𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐋𝐢𝐧𝐤 🔗: [https://lnkd.in/dekisFQf]
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝟑 : D. Divisible Pairs
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐋𝐢𝐧𝐤 🔗: [https://codeforces.com/problemset/problem/1931/D]
 
 
 𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝟒 : 𝐀 - 𝐑𝐞𝐜𝐨𝐯𝐞𝐫𝐢𝐧𝐠 𝐚 𝐒𝐦𝐚𝐥𝐥 𝐒𝐭𝐫𝐢𝐧𝐠
