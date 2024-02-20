@@ -112,6 +112,10 @@ Players take turns removing numbers from a list until only one remains; if that 
 
 
 𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝟑 : D. Divisible Pairs
+The number of beautiful pairs it is said to be beautiful If (A[i]+A[j]) %X ==0 and (A[i]-A[j])%Y==0. After solving these to equation we got 
+1. A[j] % X = (X - A[i] % X) % X
+2. A[i] % Y = A[j] % Y
+we use map<pair<ll,ll>,ll>Mp; In For Loop xMod = (X - (A[i] % X)) % X ;  yMod = A[i] % Y; answer += Mp[{xMod, yMod}]; Mp[{A[i] % X, A[i] % Y}]++;
 𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐋𝐢𝐧𝐤 🔗: [https://codeforces.com/problemset/problem/1931/D]
 
 
