@@ -52,6 +52,8 @@ int main()
 
 
 
+
+
 /*
 
 All numbers repeat every 2k - 2 positions. If the boy Vasya's number is calculated to be x, then it can be at positions of the form
