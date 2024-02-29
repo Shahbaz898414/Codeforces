@@ -15,41 +15,8 @@ int32_t main()
     {
         int n, k;
         ll ans;
-        cin >> n >> k >> ans;
-        vector<ll> v(n);
-        
-        for (int i = 0; i < n; i++)
-            cin >> v[i];
-        
-        string s;
-        cin >> s;
-        if (k == 0)
-        {
-            cout << ans << endl;
-            continue;
-        }
-        if (s == "AND")
-        {
-            for (int i = 0; i < n; i++)
-            {
-                ans = (ans & v[i]);
-            }
-        }
-        else if (s == "OR")
-        {
-            for (int i = 0; i < n; i++)
-            {
-                ans = (ans | v[i]);
-            }
-        }
-        else if (k % 2 != 0)
-        {
-            for (int i = 0; i < n; i++)
-            {
-                ans = (ans ^ v[i]);
-            }
-        }
-        cout << ans << endl;
+        cin >> n >> k ;
+       
     }
     return 0;
 }
