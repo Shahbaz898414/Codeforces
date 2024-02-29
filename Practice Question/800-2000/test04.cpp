@@ -15,30 +15,18 @@ int32_t main()
     int testCases;
     cin >> testCases;
     while (testCases--) {
-      int n;cin>>n;
+        int n,k;
+        int ans;
 
+        cin>>n>>k>>ans;
 
-      vector<int>  arr(n);
+        vector<int>  arr(n);
 
-      int ans=0,val=0;
-
-      for (int i = 0; i < n; i++) {
-        cin>>arr[i];
-      }
-
-      sort(arr.begin(),arr.end());
-
-      for (int i = n-1; i >=0; i--)
-      {
-        /* code */
-         if(val<arr[i]){
-            val=0; ans++;
+        for (int i = 0; i < n; i++)
+        {
+            /* code */
         }
-        val^=arr[i];
-      }
-      
-
-      cout<<ans<<endl;
+        
       
 
     }
