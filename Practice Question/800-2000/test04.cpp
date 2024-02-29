@@ -25,14 +25,6 @@ int32_t main()
 /*
 
 
-Hi,
-
-I hope this message finds you well! I came across the Software Engineer 1 (https://www.uber.com/global/en/careers/list/128898/) at Uber. As an aspiring Software Engineer, I admire the company's innovative work. If possible, could you kindly refer me? I'd greatly appreciate it!
-
-Best regards,
-Shahbaz Khan
-
-Resume Link:
-https://drive.google.com/file/d/1GWEPhW0xSo_SEXyfPfixQkT76R6srowC/view?usp=sharing
+The intution behind this problem is min of the subsegment lie between 1 to n. So its just the length that have to be seen. For 1 possible length are 1 to n. For 2 possible length are 1 to n-1. Similarly for number i possible lengths are 1 to n-(i-1). So now just we have fix the minimun number and check if it divides the required weight. If it divides then wether the lenght needed is in required region or not. So we checked if x%i == 0 if yes then it will be the minimum number of that subsegment. Then to find length we did x/i and checked if its possible. Finally we update our bool if both the conditions are met and get out of for loop.
 
 */
