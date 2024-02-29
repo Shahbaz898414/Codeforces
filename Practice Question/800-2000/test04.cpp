@@ -13,6 +13,8 @@ int32_t main() {
     while (t--) {
 
         int n; ll x;
+        // 
+        
         cin >> n >> x;
         int flag = 0;
         for (int i = 1;i<=n;i++) {
