@@ -20,11 +20,25 @@ int32_t main()
 
       vector<int>  arr(n);
 
-      for (int i = 0; i < n; i++)
-      {
-        /* code */
+      int ans=0,val=0;
+
+      for (int i = 0; i < n; i++) {
         cin>>arr[i];
       }
+
+      sort(arr.begin(),arr.end());
+
+      for (int i = n-1; i >=0; i--)
+      {
+        /* code */
+         if(val<arr[i]){
+            val=0; ans++;
+        }
+        val^=arr[i];
+      }
+      
+
+      cout<<ans<<endl;
       
 
     }
