@@ -28,13 +28,20 @@ int32_t main()
       if (s[i] >= cur)
         cnt++, sub += s[i], cur = s[i], s[i] = '#';
 
+
+        // cout<<sub<<endl;
+
+
     cost = cnt - count(sub.begin(), sub.end(), sub.back());
 
+
     for (int i = 0; i < n; i++)
-      if (s[i] == '#')
-        s[i] = sub[ptr++];
+      if (s[i] == '#') s[i] = sub[ptr++];
+
 
     cout << (is_sorted(s.begin(), s.end()) ? cost : -1) << '\n';
+
+
   }
   return 0;
 }
