@@ -52,7 +52,7 @@ int32_t main()
 		ll used = n/15;
 
 		ll left = n%15;
-    cout<<used<<" "<<left<<endl;
+    // cout<<used<<" "<<left<<endl;
 		if(left == 0){
 			cout << used << endl;
 			continue;
