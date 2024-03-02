@@ -16,7 +16,54 @@ int32_t main()
   while (t--)
   {
 
-    ll n;cin>>n;
+    ll n;
+		cin >> n;
+		ll mas[31];
+		mas[1] = 1;
+		mas[2] = 2;
+		mas[3] = 1;
+		mas[4] = 2;
+		mas[5] = 3;
+		mas[6] = 1;
+		mas[7] = 2;
+		mas[8] = 3;
+		mas[9] = 2;
+		mas[10] = 1;
+		mas[11] = 2;
+		mas[12] = 2;
+		mas[13] = 2;
+		mas[14] = 3;
+		mas[15] = 1;
+		mas[16] = 2;
+		mas[17] = 3;
+		mas[18] = 2;
+		mas[19] = 3;
+		mas[20] = 2;
+		mas[21] = 2;
+		mas[22] = 3;
+		mas[23] = 3;
+		mas[24] = 3;
+		mas[25] = 2;
+		mas[26] = 3;
+		mas[27] = 3;
+		mas[28] = 3;
+		mas[29] = 4;
+		mas[30] = 2;
+		ll used = n/15;
+
+		ll left = n%15;
+    cout<<used<<" "<<left<<endl;
+		if(left == 0){
+			cout << used << endl;
+			continue;
+		}
+		if(n <= 30){
+			cout << mas[n] << endl;
+			continue;
+		}
+
+
+		cout << min(used - 1 + mas[left+15], used + mas[left]) << endl;
 
    
     
@@ -25,34 +72,11 @@ int32_t main()
 }
 
 
-// 17
-// 98
-// 15 6
-// 8
-
-
-/*
 
 
 
-ll n, res = 1e9;
-		cin >> n;
-		ll a[100], c[5] = {1, 3, 6, 10, 15};
-		a[0] = 0;
-		for (ll i = 1; i <= 100; i++) {
-			a[i] = 1e9;
-			for (ll j = 0; j < 5; j++) {
-				if (c[j] > i)
-					continue;
-				a[i] = min(a[i], a[i - c[j]] + 1);
-			}
-		}
-		for (ll i = 0; i < 5; i++) {
-			res = min(res, n / c[i] + a[n % c[i]]);
-			if (n < c[i])
-				continue;
-			res = min(res, n / c[i] - 1 + a[n % c[i] + c[i]]);
-		}
-		cout << res << "\n";
 
-*/
+
+
+
+
