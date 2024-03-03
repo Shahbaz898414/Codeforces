@@ -150,16 +150,18 @@ int32_t main()
 
         for (ll i = 0; i < n; i++)
         {
+
+
             while (!dq.empty() && dq.front() > b[i])
                 dq.pop_front();
             while (!dq.empty() && dq.back() < a[i])
                 dq.pop_back();
 
-                debug(a)
+                // debug(a)
 
-                cout<<endl;
-                debug(b)
-                cout<<endl;
+                // cout<<endl;
+                // debug(b)
+                // cout<<endl;
 
             dq.push_back(a[i]);
 
@@ -172,10 +174,10 @@ int32_t main()
 
         for (ll i = n - 1; i >= 0; i--)
         {
-            while (!dq.empty() && dq.front() > b[i])
-                dq.pop_front();
-            while (!dq.empty() && dq.back() < a[i])
-                dq.pop_back();
+          while (!dq.empty() && dq.front() > b[i])
+            dq.pop_front();
+          while (!dq.empty() && dq.back() < a[i])
+            dq.pop_back();
 
             dq.push_back(a[i]);
             a[i] = dq.front();
@@ -183,6 +185,9 @@ int32_t main()
 
 
         if (a != b) cout << "NO" << endl;
+
         else cout << "YES" << endl;
+
+        
     }
 }
