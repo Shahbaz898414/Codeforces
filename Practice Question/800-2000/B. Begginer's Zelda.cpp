@@ -18,9 +18,35 @@ int32_t main()
 
     ll n,m;
 		cin >> n;
-		
 
-   
+    ll cnt=0;
+
+    ll a=0,b=0;
+
+    map<ll,ll>  ma;
+
+    for (ll i = 0; i < n-1; i++)
+    {
+      /* code */
+
+      cin>>a>>b;
+
+      ma[a]++;
+      ma[b]++;
+    }
+
+    for (ll i = 1; i <=n; i++)
+    {
+      /* code */
+      if(ma[i]==1) cnt++;
+    }
+
+    cnt=(cnt/2)+(cnt%2);
+
+    cout<<cnt<<endl;
+    
+    
+	
     
   }
   return 0;
