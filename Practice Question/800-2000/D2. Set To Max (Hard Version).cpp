@@ -157,12 +157,6 @@ int32_t main()
             while (!dq.empty() && dq.back() < a[i])
                 dq.pop_back();
 
-                // debug(a)
-
-                // cout<<endl;
-                // debug(b)
-                // cout<<endl;
-
             dq.push_back(a[i]);
 
             a[i] = dq.front();
