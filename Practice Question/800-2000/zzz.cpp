@@ -17,14 +17,12 @@ int32_t main()
 
 /*
 
-Initially, we set all di = 230 - 1 (all bits on).
-You can through every i,j such that i j and do ai & = Mi,j and aj& = Mi,j-
-Then we check if Mi.j = ai |aj for all pairs. If this holds you found the array else the answer is NO.
+Construct the answer by iterating through every single bit from large to small (2^60 to 2^0).
+Denote X a the current answer and b a the bit we want to add.
 
-Proof:
+For each i (1 < i < n) if the b-th bit in A[i] is on we do not need to use any operations. If the b-th bit in A[i] is 0 then we need to increase A[i] by 2^b - A[i] mod 2^b.
 
-Initially, all elements have all their bits set on and we remove only the bits that affect our answer. If Mi.j doesn't have a specific bit then
-definitely neither ai nor aj should have it. If Mi,j has a specific bit on then we don't have to remove anything (in the end we want at
-least one of i and aj to have the bit on).
+If the total number of operations required to get from to X + 2^b is smaller than k, decrease k by that number and change the array accordingly. Otherwise do nothing.
+
 
 */
