@@ -17,12 +17,18 @@ int32_t main()
 
 /*
 
-Construct the answer by iterating through every single bit from large to small (2^60 to 2^0).
-Denote X a the current answer and b a the bit we want to add.
-
-For each i (1 < i < n) if the b-th bit in A[i] is on we do not need to use any operations. If the b-th bit in A[i] is 0 then we need to increase A[i] by 2^b - A[i] mod 2^b.
-
-If the total number of operations required to get from to X + 2^b is smaller than k, decrease k by that number and change the array accordingly. Otherwise do nothing.
+2kg chane ki daal
+1 packet namak
+1 packet saraf XL
+weemBar soap
+chura biscuit
+1kg tuwar
+1/2 kg laal masur
+5kg tel
+1kg chana
+1kg watana
+100gm haldi
+1/4 jira
 
 
 */
