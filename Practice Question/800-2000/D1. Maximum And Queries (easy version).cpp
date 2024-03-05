@@ -155,15 +155,15 @@ int32_t main()
     {
       ll necess = 0;
       ll cnt=0;
-      for (ll &x : a)
-      {
-        necess += max(p - x, 0ll);
-        cnt++;
-        if (necess > k)
-          break;
+      for (ll &x : a) {
+        necess += max(p - x, 0ll); cnt++;
+        if (necess > k)  break;
       }
+
+
       cout<<cnt<<" ";
-      // debug(cnt);
+
+
       if (necess <= k)
       {
         ans += p;
@@ -174,7 +174,9 @@ int32_t main()
 
       for (ll &x : a)
         x %= p;
+
       p >>= 1;
+
       // cout<<p<<" ";
     }
 
