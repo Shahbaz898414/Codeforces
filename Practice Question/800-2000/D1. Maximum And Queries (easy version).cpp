@@ -153,15 +153,17 @@ int32_t main()
     ll ans = 0, p = (1ll) << 60;
     for (int bit = 60; bit >= 0; --bit)
     {
+
       ll necess = 0;
       ll cnt=0;
       for (ll &x : a) {
-        necess += max(p - x, 0ll); cnt++;
+        necess += max(p - x, 0ll); 
+        // cnt++;
         if (necess > k)  break;
       }
 
 
-      cout<<cnt<<" ";
+      // cout<<cnt<<" ";
 
 
       if (necess <= k)
