@@ -132,30 +132,38 @@ bool isregular(string t)
   return true;
 }
 
-int32_t main() {
+int32_t main()
+{
 
-  int n, q;cin >> n >> q;
+  int n, q;
+  cin >> n >> q;
 
   vector<ll> a0(n);
 
-  for (ll &x : a0) cin >> x;
+  for (ll &x : a0)
+    cin >> x;
 
-  
   for (++q; --q;)
   {
+
     vector<ll> a = a0;
     ll k;
     cin >> k;
+    
     ll ans = 0, p = (1ll) << 60;
     for (int bit = 60; bit >= 0; --bit)
     {
       ll necess = 0;
+      ll cnt=0;
       for (ll &x : a)
       {
         necess += max(p - x, 0ll);
+        cnt++;
         if (necess > k)
           break;
       }
+      cout<<cnt<<" ";
+      // debug(cnt);
       if (necess <= k)
       {
         ans += p;
@@ -163,13 +171,14 @@ int32_t main() {
         for (ll &x : a)
           x = max(x, p);
       }
+
       for (ll &x : a)
         x %= p;
       p >>= 1;
+      // cout<<p<<" ";
     }
-    
+
     cout << ans << endl;
+
   }
-
-
 }
