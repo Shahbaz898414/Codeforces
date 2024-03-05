@@ -41,7 +41,7 @@ int32_t main()
       if(ma[i]==1) cnt++;
     }
 
-    cnt=(cnt/2)+(cnt%2);
+    cnt=((cnt+1)/2);
 
     cout<<cnt<<endl;
     
