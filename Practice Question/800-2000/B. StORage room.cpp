@@ -132,6 +132,8 @@ bool isregular(string t)
   return true;
 }
 
+
+
 int32_t main()
 {
 
@@ -188,11 +190,9 @@ int32_t main()
 
 
     if (!ok)
-    
       cout << "NO\n";
     
-    else
-    {
+    else {
       cout << "YES\n";
       for (int i = 0; i < n; i++)
       {
