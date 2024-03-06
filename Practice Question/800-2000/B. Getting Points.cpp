@@ -64,15 +64,4 @@ int main()
   }
 }
 
-/*
 
-Firstly, let c  be the total number of tasks in the term. Then c=⌈n/7⌉=⌊(n+6)/7⌋.
-
-Suppose, Monocarp will study exactly k days. How many points will he get? He gets k⋅l  for attending lessons and, since he can complete at most 2  tasks per day, he will solve no more than min(c,2⋅k)  tasks. So, in the best possible scenario he will get k⋅l+min(c,2k)⋅t  points.
-
-And, actually, it's possible to get exactly that many points. For example, Monocarp can study the last k  days of the term: at the n -th day he will complete (c−1) -th and c -th tasks, at the (n−1) -th day — tasks (c−3)  and (c−2)  and so on. It's easy to see that all that tasks will be available at the day Monocarp completes them.
-
-In total, we need to find the minimum k  such that k⋅l+min(c,2k)⋅t≥P . We can analyze two cases, or perform a Binary Search on k .
-
-
-*/
