@@ -41,16 +41,19 @@ int main()
 
   int t;
   cin >> t;
-  while (t--)
-  {
+  while (t--) {
 
-    int n;
-    cin >> n;
+
+    int n;cin >> n;
+
+
     long long a[n], c = 1, b = 0, x, s = 0;
+
+
     for (int i = 0; i < n; i++)
       cin >> a[i];
 
-      
+
     if (n == 1)
     {
       cout << 1 << endl;
@@ -64,7 +67,7 @@ int main()
     for (int i = 0; i < n; i++) b = __gcd(b, a[n - 1] - a[i]);
 
 
-    for (int i = 0; i < n; i++)  s += (a[n - 1] - a[i]) / b;
+    for (int i=0; i<n; i++)  s += (a[n - 1] - a[i]) / b;
 
 
     x = a[n - 1] - b;
