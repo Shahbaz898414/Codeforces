@@ -18,23 +18,7 @@ bool check(int k, vector<vector<int>> &seg)
   return true;
 }
 
-int solve(vector<vector<int>> &seg)
-{
-  int l = -1, r = 1e9;
-  while (r - l > 1)
-  {
-    int mid = (r + l) / 2;
-    if (check(mid, seg))
-    {
-      r = mid;
-    }
-    else
-    {
-      l = mid;
-    }
-  }
-  return r;
-}
+
 
 int main()
 {
