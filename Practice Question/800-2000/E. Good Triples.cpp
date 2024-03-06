@@ -12,17 +12,17 @@ int main()
 
   for (ll i = 0; i < 10; i++)
   {
-    /* code */
+    
     for (ll j = 0; j <= i; j++)
     {
       for (ll z = 0; z <= i - j; z++)
       {
-        /* code */
+        
 
         ways[i]++;
       }
 
-      /* code */
+      
     }
   }
 
