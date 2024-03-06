@@ -49,17 +49,27 @@ int main()
     long long a[n], c = 1, b = 0, x, s = 0;
     for (int i = 0; i < n; i++)
       cin >> a[i];
+
+      
     if (n == 1)
     {
       cout << 1 << endl;
       continue;
     }
+
+
     sort(a, a + n);
-    for (int i = 0; i < n; i++)
-      b = __gcd(b, a[n - 1] - a[i]);
-    for (int i = 0; i < n; i++)
-      s += (a[n - 1] - a[i]) / b;
+
+
+    for (int i = 0; i < n; i++) b = __gcd(b, a[n - 1] - a[i]);
+
+
+    for (int i = 0; i < n; i++)  s += (a[n - 1] - a[i]) / b;
+
+
     x = a[n - 1] - b;
+
+
     for (int i = n - 2; i >= 0; i--)
     {
       if (x != a[i])
@@ -67,6 +77,9 @@ int main()
       x -= b;
       c++;
     }
+
     cout << s + c << endl;
+
+
   }
 }
