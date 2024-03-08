@@ -12,31 +12,22 @@ signed main()
     while (t--)
     {
 
-        int n, k;
-        cin >> n >> k;
-        int ans = INT_MAX;
-        int eve = 0;
-        for (int i = 0; i < n; i++)
-        {
-            int num;
-            cin >> num;
-            if (num % 2 == 0)
-                eve++;
-            if (num % k != 0)
-            {
-                int a = num % k;
-                ans = min(ans, k - a);
-            }
-            else
-                ans = 0;
-        }
-        if (k == 4 && eve >= 2 || ans == 0)
-            cout << 0 << endl;
-        else if (k == 4 && eve == 1)
-            cout << 1 << endl;
-        else if (k == 4)
-            cout << min(2ll, ans) << endl;
+        int n, k, x;
+        cin >> n >> k >> x;
+        if (x < k - 1 || n < k)
+            puts("-1");
         else
-            cout << ans << endl;
+            printf("%d\n", k * (k - 1) / 2 + (n - k) * (x == k ? k - 1 : x));
     }
 }
+
+
+/*
+
+Note that if min(n,x+1)<k , then the answer is −1 .  Otherwise, there are two cases:  If k=x , then the suitable array looks like [0,1,2,…,k−1,…,k−1] .  If k≠x , then the suitable array looks like [0,1,2,…,k−1,x,…,x] .  In both cases, we can construct the array and calculate its sum in linear time.
+
+
+If min(n, x + 1) < k, the answer is -1. Otherwise, if k = x, the array is [0, 1, 2, ... , k -1, ... , k - 1]. If k x, the array is [0, 1, 2, ... , k - 1, x, ... , x]. In both cases, we can construct
+and calculate the array's sum in linear time. #Algorithm #LinearTime #ArrayConstruction
+
+*/
