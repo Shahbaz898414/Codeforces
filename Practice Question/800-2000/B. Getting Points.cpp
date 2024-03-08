@@ -18,8 +18,6 @@ bool check(int k, vector<vector<int>> &seg)
   return true;
 }
 
-
-
 int main()
 {
 
@@ -47,5 +45,4 @@ int main()
     cout << n - L << '\n';
   }
 }
-
 
