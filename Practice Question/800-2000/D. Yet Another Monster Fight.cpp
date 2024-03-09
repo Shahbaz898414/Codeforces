@@ -41,3 +41,35 @@ signed main()
 
   cout << ans << endl;
 }
+
+
+
+
+
+
+/*
+
+#include<bits/stdc++.h>
+using namespace std;
+int n,num[300010],ans=2e9;
+int l[300010],r[300010];
+int main()
+{
+	cin>>n;
+	int temp1=0,temp2=0;
+	for(int i=1;i<=n;++i)
+	{
+		cin>>num[i];
+		l[i]=max(l[i-1],num[i]+(n-i));
+	}
+	for(int i=n;i>=1;--i)
+	{
+		r[i]=max(r[i+1],num[i]+i-1);
+		ans=min(ans,max(l[i-1],max(num[i],r[i+1])));
+	}
+	cout<<ans<<'\n';
+}
+
+
+
+*/
