@@ -32,11 +32,15 @@ signed main()
 
     cout << ans.size() << endl;
 
+    if(!ans.empty() && ans.size() <= n) {
 
-    if (!ans.empty() && ans.size() <= n) {
-      for (int x : ans)
-        cout << x << " ";
+
+      for (int x : ans) cout << x << " ";
+
+
       cout << endl;
+
+
     }
 
 
