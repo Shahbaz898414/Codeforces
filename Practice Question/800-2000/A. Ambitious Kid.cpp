@@ -33,13 +33,3 @@ signed main()
     cout << ans - 1 << endl;
   }
 }
-
-
-
-/*
-
-https://leetcode.com/problems/minimum-common-value/description/
-
-2540. Minimum Common Value
-
-*/
