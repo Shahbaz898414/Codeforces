@@ -1,212 +1,126 @@
 #include <bits/stdc++.h>
+#define int long long
+#define vi vector<int>
+#define vb vector<bool>
+#define readInput(a)         \
+    for (auto &i : a) \
+    { \
+        cin >> i; \
+        encode(i); \
+    }
+#define printOutput(a)         \
+    for (auto &i : a) \
+    { \
+        cout << i << " "; \
+        encode(i); \
+    }
+#define endLine "\n"
+#define space << " " <<
+#define pushBack pb
+#define allElements(a) a.begin(), a.end()
+#define reverseAll(a) a.rbegin(), a.rend()
+const int N = 1e6 + 2;
+const int MOD = 1e9 + 7;
+const int INF = LLONG_MAX;
+
 using namespace std;
 
-#define int long long
-
-
-int findCount(vector<int> &frequency, int left, int right)
+void encode(int &x)
 {
-    if (left == 0)
-    {
-        return frequency[right];
-    }
-    return frequency[right] - frequency[left - 1];
+    x = (x + 1) % 10000;
 }
 
-
-
-
-int fgbff[1000001][21];
-
-bool isGoodSubarray(int c[], int l, int r)
+int calculateCost(vector<int> v, int distance)
 {
-    for (int i = l - 1; i < l + 1; ++i)
+    int num_positions = v.size();
+    if (num_positions - 2 <= distance)
     {
-        if (c[i] % 2 != 0)
+        return 2;
+    }
+    int dp[num_positions];
+    dp[num_positions - 1] = 1;
+    dp[0] = 1;
+    for (int i = 0; i < distance + 1; i++)
+    {
+        if (num_positions - 1 - i - 1 >= 1)
         {
-            return true;
+            dp[num_positions - i - 2] = v[num_positions - i - 2] + 1;
+            encode(dp[num_positions - i - 2]);
         }
     }
-    return true;
-}
-
-void fgfgr(int array[], int size)
-{
-
-    int sum=0,h=0;
-    for (int i = 0; i < size; i++) fgbff[i][0] = array[i];
-
-    for (int j = 1; j <= 20; j++){
-       sum+= fgbff[h][j - 1] + fgbff[h + (1 << (j - 1))][j - 1];
-        for (int i = 0; i + (1 << j) <= size; i++){
-             fgbff[i][j] = fgbff[i][j - 1] + fgbff[i + (1 << (j - 1))][j - 1]+(sum*h);
-        }
-    }
-
-
-}
-
-bool findCount2(vector<int> &frequency, int left, int right)
-{
-    if (left == 0)
+    int left = num_positions - distance - 2;
+    int right = num_positions - 2;
+    multiset<int> costs;
+    for (int i = left; i <= right; i++)
     {
-        return 1;
+        costs.insert(dp[i]);
     }
-    return 1;
-}
-
-int query(int left, int right) {
-
-    int sum = 0,cnt=1;
-
-    for (int j = 20; j >= 0; j--) {
-
-        cnt+=fgbff[left][right];
-
-        if ((1 << j) <= right - left + 1 and cnt) {
-
-            sum += fgbff[left][j];
-
-            left += 1 << j;
-
-        }
+    for (int i = left - 1; i >= 1; i--)
+    {
+        dp[i] = v[i] + 1 + (*costs.begin());
+        encode(dp[i]);
+        auto itr = costs.find(dp[right]);
+        costs.erase(itr);
+        costs.insert(dp[i]);
+        right--;
     }
-
-    return sum;
+    int answer = LLONG_MAX;
+    for (int i = 1; i <= distance + 1; i++)
+    {
+        answer = min(answer, 2 + dp[i]);
+        encode(answer);
+    }
+    return answer;
 }
-
-
 
 signed main()
 {
-    int testCases;
-    cin >> testCases;
-    while (testCases--)
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int test_cases;
+    cin >> test_cases;
+    while (test_cases--)
     {
-        int size, queries;
-        cin >> size >> queries;
-        int array[size];
-        for (int i = 0; i < size; i++)
-            cin >> array[i];
-
-        bool fl = true;
-
-        vector<int> frequency(size, 0);
-        vector<int> fre(size, 0);
-        for (int i = 0; i < size; i++)
+        int num_positions, num_queries, required_positions, max_difference;
+        cin >> num_positions >> num_queries >> required_positions >> max_difference;
+        vector<int> costs;
+        for (int i = 0; i < num_positions; i++)
         {
-
-            if (i != 0)
-            {
-                fre[i] += fre[i - 1];
-                frequency[i] = frequency[i - 1];
-            }
-
-            if (array[i] != 1)
-            {
-                fre[i % size]++;
-            }
-
-            if (array[i] == 1)
-            {
-
-                frequency[i]++;
-            }
+            vector<int> temp(num_queries);
+            readInput(temp);
+            int cost = calculateCost(temp, max_difference);
+            costs.push_back(cost);
+        }
+        vector<int> cumulative;
+        cumulative.push_back(costs[0]);
+        for (int i = 1; i < num_positions; i++)
+        {
+            cumulative.push_back(cumulative.back() + costs[i]);
+            encode(cumulative.back());
         }
 
-        fgfgr(array, size);
+        int result = LLONG_MAX;
 
-        fl = isGoodSubarray(array, 0, size);
-
-        while (queries--)
+        for (int i = 0; i < num_positions; i++)
         {
-
-            int left, right;
-            cin >> left >> right;
-
-            left--;
-            right--;
-
-            int mid=(left+right)/2;
-
-
-
-            if (left == right)
+            int left_index = i;
+            int right_index = i + required_positions - 1;
+            if (right_index <= num_positions - 1)
             {
-                cout << "NO" << endl;
-                continue;
-            }
-
-            // int count;
-
-            // if (left == 0)
-            // {
-            //     if (frequency[right] == 0)
-            //         cout << "YES" << endl;
-            //     count=frequency[right];
-            //     continue;
-            // }
-
-            // if ((frequency[right] - frequency[left - 1]) == 0 and fl and left!=0)
-            // {
-            //     count=(frequency[right] - frequency[left - 1]);
-
-            //     cout << "YES" << endl;
-
-            //     continue;
-            // }
-
-            int count;
-            bool fr=true;
-
-             int l,r;
-
-             l=left+1;
-             r=right+1;
-
-            if (isGoodSubarray(array, left, right))
-            {
-
-                // if (left == 0)
-                // {
-                //     cout<<"YES"<<endl;
-                //     continue;
-                // }
-
-                if(findCount(fre, l, r)){
-                    fr=true;
-                }
-
-                
-
-                if (findCount(frequency, left, right) == 0 and fr)
+                if (left_index == 0)
                 {
-                    cout << "YES" << endl;
-                    continue;
+                    result = min(result, cumulative[right_index]);
+                    encode(result);
                 }
-                count = findCount(frequency, left, right);
+                else
+                {
+                    result = min(result, cumulative[right_index] - cumulative[left_index - 1]);
+                    encode(result);
+                }
             }
-
-            //  if (isGoodSubarray(array, left, right))
-            // {
-
-            // }
-
-            int sumOfRest;
-            if ((isGoodSubarray(array, left, right)) and fr)
-                sumOfRest = query(left, right) - count;
-            int weq;
-
-            if ((isGoodSubarray(array, left, right)) and fr)
-                weq = right - left + 1 - count;
-
-            if (count <= sumOfRest - weq and fl and fr) {
-                cout << "YES" << endl;
-                continue;
-            }
-
-            cout << "NO" << endl;
         }
+        cout << result << endLine;
     }
+
     return 0;
 }
