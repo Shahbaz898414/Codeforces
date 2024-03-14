@@ -17,27 +17,3 @@ signed main()
 
   }
 }
-
-
-/*
-
-
-}
-
-  "name": {
-  "firstName" : "Rohit",
-  "lastName" : "Prasad"
-  },
-  "age" : 35,
-  "address" : {
-    "line1" : "A-563 Rakshak Society",
-    "line2" : "New Pune Road",
-    "city" : "Pune",
-    "state" : "Maharashtra"
-  },
-  "gender" : "male"
-
-  
-}
-
-*/
