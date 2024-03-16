@@ -20,6 +20,8 @@ int main()
       cin >> a[i];
       cnt2[a[i]]++;
     }
+
+    bool fl=0;
     int mex1 = 0, mex2 = 0;
     while (cnt2[mex2])
       ++mex2;
@@ -40,9 +42,13 @@ int main()
         cout << "2\n";
         cout << 1 << " " << i + 1 << "\n";
         cout << i + 2 << " " << n << "\n";
-        return;
+        fl=1;
       }
     }
+
+    if(fl==1)  continue;
+
+    
     cout << "-1\n";
   }
 }
