@@ -11,7 +11,7 @@ int main()
   while (t--)
   {
 
-    int n;
+    int n,bn=0;
     cin >> n;
     vector<int> a(n);
     vector<int> cnt1(n + 1), cnt2(n + 1);
