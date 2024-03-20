@@ -1,35 +1,39 @@
 #include <bits/stdc++.h>
+#define int long long
 using namespace std;
-int a[100010];
-int main()
-{
-  int t;
-  scanf("%d", &t);
-  while (t--)
-  {
 
-    int n;
-    cin >> n;
-    int a[n];
-    for (int i = 0; i < n; i++)
-      cin >> a[i];
-    sort(a, a + n);
-    if (a[0] != a[1])
-    {
-      cout << "YES\n";
+void solve(int tc){
+    int a, b, l;
+    cin >> a >> b >> l;
+    set<int> ans;
+    for(int i = 0; i <= 34; ++i){
+        int x = l;
+        bool fail = false;
+        for(int _ = 0; _ < i; ++_){
+            if(x % a){
+                fail = true;
+                break;
+            }
+            x /= a;
+        }
+        if(fail) break;
+        while(true){
+            ans.insert(x);
+            if(x % b) break;
+            x /= b;
+        }
     }
-    else
-    {
-      bool PASS = 0;
-      for (int i = 1; i < n; i++)
-      {
-        if (a[i] % a[0] != 0)
-          PASS = 1;
-      }
-      if (PASS)
-        cout << "YES\n";
-      else
-        cout << "NO\n";
+    cout << ans.size();
+}
+ 
+bool multi = true;
+ 
+signed main() {
+    int t = 1;
+    if (multi)cin >> t;
+    for (int i = 1; i <= t; ++i) {
+        solve(i);
+        cout << "\n";
     }
-  }
+    return 0;
 }
