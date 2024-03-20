@@ -1,54 +1,62 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long
-
+int a[100010];
 int main()
 {
-
-  ll t;
-  cin >> t;
-
+  int t;
+  scanf("%d", &t);
   while (t--)
   {
-
-    int n,bn=0;
-    cin >> n;
-    vector<int> a(n);
-    vector<int> cnt1(n + 1), cnt2(n + 1);
-    for (int i = 0; i < n; ++i)
+    int n;
+    scanf("%d", &n);
+    map<int, int> mp;
+    for (int i = 1; i <= n; i++)
     {
-      cin >> a[i];
-      cnt2[a[i]]++;
+      int x;
+      scanf("%d", &x);
+      mp[x]++;
+      a[i] = x;
     }
-
-    bool fl=0;
-    int mex1 = 0, mex2 = 0;
-    while (cnt2[mex2])
-      ++mex2;
-    for (int i = 0; i < n; ++i)
+    if (!mp.count(0))
     {
-      cnt1[a[i]]++;
-      if (--cnt2[a[i]] == 0 && mex2 > a[i])
-      {
-        mex2 = a[i];
-      }
-      while (mex2 && !cnt2[mex2 - 1])
-        --mex2;
-      while (cnt1[mex1])
-        ++mex1;
-
-      if (mex1 == mex2)
-      {
-        cout << "2\n";
-        cout << 1 << " " << i + 1 << "\n";
-        cout << i + 2 << " " << n << "\n";
-        fl=1;
-      }
+      printf("2\n");
+      printf("1 1\n");
+      printf("2 %d\n", n);
     }
-
-    if(fl==1)  continue;
-
-    
-    cout << "-1\n";
+    else
+    {
+      int mx = -1;
+      for (auto it : mp)
+      {
+        if (it.first == mx + 1)
+          mx++;
+        else
+          break;
+      }
+      int i;
+      set<int> s;
+      for (i = 1; i <= n; i++)
+      {
+        if (a[i] <= mx)
+          s.insert(a[i]);
+        if (s.size() == mx + 1)
+          break;
+      }
+      int k = i;
+      s.clear();
+      for (i = k + 1; i <= n; i++)
+      {
+        if (a[i] <= mx)
+          s.insert(a[i]);
+      }
+      if (s.size() == mx + 1)
+      {
+        printf("2\n");
+        printf("1 %d\n", k);
+        printf("%d %d\n", k + 1, n);
+      }
+      else
+        printf("-1\n");
+    }
   }
 }
