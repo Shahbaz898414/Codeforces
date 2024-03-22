@@ -1,18 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+#define ll long long
 
 
 
 
 int main()
 {
-  int t;
-  scanf("%d", &t);
+
+  ll t;cin>>t;
+
   while (t--)
   {
+    
 
-   
+
   }
+  
+  
 }
 
