@@ -27,15 +27,17 @@ int main()
     ll z = 0;
     for (int i = 1; i < n; i++)
     {
-      // query(z, z, i, i);
+      query(z, z, i, i);
       string res;
       cin >> res;
-      cout<<res<<" ";
+      // cout<<res<<" ";
       if (res == "<")
       {
         z = i;
       }
     }
+    cout<<endl;
+    cout<<z;
 
     cout<<endl;
 
@@ -43,10 +45,11 @@ int main()
     for (int i = 1; i < n; i++)
     {
       // query(z, mx, z, i);
+      cout<<z<<" "<<mx<<" "<<i<<endl;
       string res;
       cin >> res;
 
-      cout<<res<<" ";
+      // cout<<res<<" ";
       if (res == "<")
       {
         mx = i;
@@ -63,6 +66,6 @@ int main()
       }
     }
     cout<<endl;
-    cout << "! " << mx << " " << z << endl;
+    // cout << "! " << mx << " " << z << endl;
   }
 }
