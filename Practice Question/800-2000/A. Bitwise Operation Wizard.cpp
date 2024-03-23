@@ -18,37 +18,42 @@ int main()
     ll n;
     cin >> n;
 
-    if (n == 2)
-    {
-      cout << "! 0 1" << endl;
-      continue;
-    }
+    // if (n == 2)
+    // {
+    //   cout << "! 0 1" << endl;
+    //   continue;
+    // }
 
     ll z = 0;
     for (int i = 1; i < n; i++)
     {
-      query(z, z, i, i);
+      // query(z, z, i, i);
       string res;
       cin >> res;
+      cout<<res<<" ";
       if (res == "<")
       {
         z = i;
       }
     }
 
+    cout<<endl;
+
     ll mx = 0;
     for (int i = 1; i < n; i++)
     {
-      query(z, mx, z, i);
+      // query(z, mx, z, i);
       string res;
       cin >> res;
+
+      cout<<res<<" ";
       if (res == "<")
       {
         mx = i;
       }
       else if (res == "=")
       {
-        query(mx, mx, i, i);
+        // query(mx, mx, i, i);
         string res;
         cin >> res;
         if (res == ">")
@@ -57,6 +62,7 @@ int main()
         }
       }
     }
+    cout<<endl;
     cout << "! " << mx << " " << z << endl;
   }
 }
