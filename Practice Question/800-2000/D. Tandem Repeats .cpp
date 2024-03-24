@@ -25,31 +25,33 @@ signed main()
    int t;cin>>t;
 
    while(t--){
-     string s;
-        cin>>s;
+     string s; cin>>s;
  
         int n = s.size();
         int ans = 0;
  
         vector<int> val(n);
  
-        for(int len=1; len*2<=n; len++)
-        {
+        for(int len=1; len*2<=n; len++) {
+
+
             fill(val.begin(), val.end(), 0);
+
  
-            for(int i=0; i+len<n; i++)
-                val[i] = (s[i]==s[i+len] || s[i]=='?' || s[i+len]=='?');
+            for(int i=0; i+len<n; i++) val[i] = (s[i]==s[i+len] || s[i]=='?' || s[i+len]=='?');
  
-            for(int i=1;i<n;i++)
-                val[i] += val[i-1];
+
+            for(int i=1;i<n;i++) val[i] += val[i-1];
  
+
             if(val[len-1]==len)     ans = max(ans, 2*len);
  
-            for(int i=len; i<n; i++)
-            {
-                if(val[i]-val[i-len]==len)
-                    ans = max(ans, 2*len);
+
+            for(int i=len; i<n; i++) {
+                if(val[i]-val[i-len]==len) ans = max(ans, 2*len);
             }
+
+
         }
  
         cout<<ans<<"\n";
