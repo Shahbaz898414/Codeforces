@@ -63,14 +63,40 @@ signed main()
   }
 }
 
+
 /*
 
-Hi,
+Achieved a 20% reduction in file size by removing redundant code and dependencies.
 
-I hope this message finds you well! I came across the Software Development (Job Identification: 51770) at BNY. As an aspiring Software Engineer, I admire the company's innovative work. If possible, could you kindly refer me? I'd greatly appreciate it!
+Streamlined development process by centralizing design logic, reducing development time by 15%.
 
-Best regards,
-Shahbaz Khan
+Improved development workflow by simplifying the design process, leading to a 20% decrease in development time for related feature.
 
+Proposed value placeholders for minimum size, reducing inconsistencies by 25%, establishing absolute minimum, cutting UI errors by 30%, and boosting UX metrics by 20%.
+
+
+
+Mentored students, simplifying complex algorithms for better understanding.
+Offered guidance in Competitive Programming, aiding in strategy development
+Provided curated resources to enhance algorithm comprehension.
+Actively engaged in post-contest problem-solving sessions, promoting upsolving to enhance student skills.
+Facilitated post-contest problem-solving sessions, promoting skill improvement.
+
+bullent points format 
+Action verbs + task/ result + quantification/ number
+
+i did above things in my internship convert into bullet points 
+i thought 180 students
+help me them  to improve performance in  coding contest by 20%
+
+
+
+Created 130+ educational videos on YouTube C++, JavaScript, React, CSS, and HTML, to deliver valuable insights and
+tutorials.
+
+Garnered a loyal subscriber base of 1500, highlighting the relevance and impact of the content in C++, JavaScript, React,
+CSS, and HTML.
+
+Created educational videos on DSA, solving contest problems from platforms like CodeChef, Codeforces, LeetCode, and AtCoder, to enhance problem-solving skills for viewers.
 
 */
