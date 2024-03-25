@@ -32,7 +32,7 @@ signed main()
 
     vector<int> ar(n);
 
-    int sum = 0;
+    // int sum = 0;
 
     int mx = 0, mx1 = INT_MIN, cnt = 0;
 
@@ -42,7 +42,7 @@ signed main()
     {
 
       cin >> ar[i];
-      sum += ar[i];
+      // sum += ar[i];
     }
 
     for (int i = 0; i < n; i++)
@@ -58,6 +58,19 @@ signed main()
     for (int i = 1; i <= k; i++)
       s = s * 2 % MOD;
     sum = ((sum + s) % MOD + MOD) % MOD;
+
     cout << sum << endl;
   }
 }
+
+/*
+
+Hi,
+
+I hope this message finds you well! I came across the Software Development (Job Identification: 51770) at BNY. As an aspiring Software Engineer, I admire the company's innovative work. If possible, could you kindly refer me? I'd greatly appreciate it!
+
+Best regards,
+Shahbaz Khan
+
+
+*/
