@@ -22,29 +22,39 @@ signed main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-  int t; cin >> t;
+  int t;
+  cin >> t;
 
-  while (t--) {
-    int  n;cin>>n;
+  while (t--)
+  {
+    int n, k;
+    cin >> n >> k;
 
-
-    // cout<<(char(1 +'A'))<<endl;
-
-    if(n%2){
-      cout<<"NO"<<endl;
-      continue;
+    vector<int> adj[n + 1];
+    for (int i = 1; i < n; i++)
+    {
+      int x, y;
+      cin >> x >> y;
+      adj[x].push_back(y);
+      adj[y].push_back(x);
     }
 
-    cout<<"YES"<<endl;
-    int cnt=0;
-    for(int i=0;i<n/2;i++){
-      cout<<(char(cnt +'A'))<<(char(cnt +'A'));
-      cnt++;
-    }
+     int left = 0, right = n, answer = 0;
 
-    cout<<endl;
+    auto ok = [&](int tree) {
+        int cut=0;
+    };
 
-  
+
+
+     while(left<=right){
+       int mid=(left+right)/2;
+
+      if(ok(mid)) answer = mid, left = mid + 1;
+      else right=mid-1;
+      
+     }
+
 
   }
 }
