@@ -34,7 +34,7 @@ signed main()
 
     for (int i = 0; i < n; i++)
     {
-      /* code */
+      
       cin >> ar[i];
     }
 
@@ -42,11 +42,9 @@ signed main()
 
     for (int i = 0; i < n; i++)
     {
-      /* code */
-      if (ar[i] < mx)
-        ans = 0;
-      else
-      {
+      
+      if (ar[i] < mx) ans = 0;
+      else {
         if (ar[i] > 9 && ar[i] / 10 >= mx && ar[i] % 10 >= ar[i] / 10)
           mx = ar[i] % 10;
         else
