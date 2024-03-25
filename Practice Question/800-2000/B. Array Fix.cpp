@@ -38,10 +38,11 @@ signed main()
       cin >> ar[i];
     }
 
-    int mx = 0, ans = 0;
 
-    for (int i = 0; i < n; i++)
-    {
+    int mx = 0, ans = 1;
+
+
+    for (int i = 0; i < n; i++) {
       
       if (ar[i] < mx) ans = 0;
       else {
@@ -52,6 +53,9 @@ signed main()
       }
     }
 
+
     cout << (ans ? "YES" : "NO") << endl;
+
+
   }
 }
