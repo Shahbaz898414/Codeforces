@@ -39,22 +39,45 @@ signed main()
       adj[y].push_back(x);
     }
 
-     int left = 0, right = n, answer = 0;
+    int left = 0, right = n, answer = 0;
 
     auto ok = [&](int tree) {
-        int cut=0;
+      int cuts = 0;
+
+
+      function<int(int, int)> dfs = [&](int node, int parent)
+      {
+        int res = 1;
+
+        for (auto &i : adj[node])
+        {
+          if (i != parent)
+          {
+            res += dfs(i, node);
+          }
+        }
+
+        if (res >= tree)
+          cuts++, res = 0;
+
+        return res;
+      };
+
+      dfs(1, 1);
+
+      return cuts > k;
     };
 
 
+    while (left <= right)
+    {
+      int mid = (left + right) / 2;
+      if (ok(mid))
+        answer = mid, left = mid + 1;
+      else
+        right = mid - 1;
+    }
 
-     while(left<=right){
-       int mid=(left+right)/2;
-
-      if(ok(mid)) answer = mid, left = mid + 1;
-      else right=mid-1;
-      
-     }
-
-
+    cout << answer << "\n";
   }
 }
