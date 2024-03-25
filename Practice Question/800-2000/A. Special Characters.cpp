@@ -22,48 +22,27 @@ signed main()
 {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
-  int t;
-  cin >> t;
+  int t; cin >> t;
 
   while (t--) {
+    int  n;cin>>n;
 
 
-    int n; cin >> n;
+    // cout<<(char(1 +'A'))<<endl;
 
-
-    vector<int> ar(n);
-
-
-    for (int i = 0; i < n; i++) {
-      cin >> ar[i];
+    if(n%2){
+      cout<<"NO"<<endl;
+      continue;
     }
 
-
-    int mx = 0, ans = 1;
-
-    // 
-
-
-    for (int i = 0; i < n; i++) {
-      if (ar[i] < mx) ans = 0;
-      else {
-        if (ar[i] > 9 && ar[i] / 10 >= mx && ar[i] % 10 >= ar[i] / 10) {
-           mx = ar[i] % 10;
-          //  cout<<mx<<" ";
-        }
-        else {
-           mx = ar[i];
-          //  cout<<mx<<" ";
-        }
-      }
+    cout<<"YES"<<endl;
+    int cnt=0;
+    for(int i=0;i<n;i+=2){
+      cout<<(char(cnt +'A'))<<(char(cnt +'A'));
+      cnt++;
     }
 
-
-    cout<<endl;
-
-    
-    cout << (ans ? "YES" : "NO") << endl;
-
+  
 
   }
 }
