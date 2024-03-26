@@ -51,25 +51,32 @@ signed main()
 
 /*
 
-// iSS SolutIon t
-public int[][] insert(int[][] intervals, int[] newInterval) {
-    List<int[]> result = new ArrayList();
-    for(int[] in: intervals) {
-        if(in[1] < newInterval[0]) {
-           result.add(in);
-        } else if(newInterval[1] < in[0]) {
-           result.add(newInterval);
-          newInterval = in;
-        } else {
-            newInterval[0] = Math.min(newInterval[0], in[0]);
-            newInterval[1] = Math.max(newInterval[1], in[1]);
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& nums) {
+        int n= size(nums);
+       
+        for(int i=0;i<n;i++){
+            int x=nums[i]; // x = current element
+            
+        // x>=1 && x<=n : to check if x is in range[1, n]
+        // x != i+1 : skip if at index i correct element is present.
+        // nums[x-1]!=x: skip if at index x-1 correct element is present
+            while(x>=1 && x<=n && x!=i+1 && nums[x-1]!=x){
+                swap(nums[x-1],nums[i]);
+                x=nums[i];
+            }
         }
+
+
+        for(int i=0;i<n;i++){
+            if(nums[i] == i+1)continue;
+                return i+1;       
+            
+        }
+        
+        return n+1;
     }
-    
-    result.add(newInterval);
-
-    return result.toArray(new int[result.size()][]);
-
-}
+};
 
 */
