@@ -36,7 +36,7 @@ One reason I want to become an MLH Fellow is that it will provide me with the ch
 
 In addition to the technical skills, being an MLH fellow will also help me develop essential soft skills, such as communication, teamwork, and problem-solving. Working in a collaborative environment with other fellows and mentors will give me the chance to learn from others' perspectives and approaches while contributing my own ideas and solutions.
 
-Another reason I want to become an MLH Fellow is the opportunity to be a part of a supportive and inclusive community. MLH fosters a welcoming environment where everyone's input is valued, enabling Fellows to connect with numerous industry professionals and expand their network.
+X-> Another reason I want to become an MLH Fellow is the opportunity to be a part of a supportive and inclusive community. MLH fosters a welcoming environment where everyone's input is valued, enabling Fellows to connect with numerous industry professionals and expand their network.
 
 Furthermore, MLH provides its Fellows with resources and events to help build their careers beyond the program, such as industry-led workshops, job opportunities, and networking events. This program's benefits go beyond the three-month duration, providing a valuable foundation for our future in the technology industry.
 
@@ -45,9 +45,16 @@ In conclusion, becoming an MLH Fellow is an opportunity that I am very passionat
 
 
 
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+One reason I want to become an MLH Fellow is the opportunity to be a part of a supportive and inclusive community. MLH provide a welcoming environment where everyone's input is valued, MLH Fellow enable to connect with different industry professionals and expand their network.
+
+Second reason I want to become an MLH Fellow Because it will provide me the chance to work on real-world projects and solutions.
 
 
 
 
-I want to become an MLH Fellow is the opportunity to be a part of a supportive and inclusive community. MLH fosters a welcoming environment where everyone's input is valued, enabling Fellows to connect with numerous industry professionals and expand their network.
+
 */
