@@ -25,41 +25,27 @@ signed main()
   int t;
   cin >> t;
 
-  while (t--)
-  {
-    int n, k;
-    cin >> n >> k;
+  while (t--) {
 
-    vector<int> ar(n);
-
-    // int sum = 0;
-
-    int mx = 0, mx1 = INT_MIN, cnt = 0;
-
-    int sum = 0, s = 0, maxs = 0;
-
-    for (int i = 0; i < n; i++)
-    {
-
-      cin >> ar[i];
-      // sum += ar[i];
+   int n;cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        std::cin >> a[i];
     }
 
-    for (int i = 0; i < n; i++)
-    {
 
-      sum += ar[i], s += ar[i];
-      if (s < 0)
-        s = 0;
-      maxs = max(maxs, s);
-    }
+    std::sort(a.begin(), a.end());
 
-    s = maxs, sum -= maxs;
-    for (int i = 1; i <= k; i++)
-      s = s * 2 % MOD;
-    sum = ((sum + s) % MOD + MOD) % MOD;
 
-    cout << sum << endl;
+    int p = (n + 1) / 2 - 1;
+
+
+    int res = std::count(a.begin() + p, a.end(), a[p]);
+
+
+    cout << res << "\n";
+    
+
   }
 }
 
