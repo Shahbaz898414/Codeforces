@@ -32,11 +32,20 @@ signed main()
 
 /*
 
-Hi,
 
-I hope this message finds you well! I came across the Software Developers (https://www.zoho.com/careers/jobdetails/?job_id=2803000614929615) at Zoho. As an aspiring Software Engineer, I admire the company's innovative work. If possible, could you kindly refer me? I'd greatly appreciate it!
 
-Best regards,
-Shahbaz Khan
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+       row = [1] * n
+
+       for i in range(m - 1):
+           newRow = [1] * n
+           for j in range(n - 2, -1, -1):
+                newRow[j] = newRow[j + 1] + row[j]
+            row = newRow
+
+        return row[0]
+
+
 
 */
