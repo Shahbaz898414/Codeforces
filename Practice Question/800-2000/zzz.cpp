@@ -31,3 +31,41 @@ signed main()
     }
 }
 
+
+
+/*
+
+
+Docker Engineer
+
+Outline
+Work for a leading search engine specialist company based in California, developing and managing the software
+testing pipeline to maintain a continuous flow of software products and updates using Docker Kubernetes.
+
+Key Responsibilities
+· Design and implement containerization strategies using Docker to streamline deployment and scalability
+· Build CI/CD pipelines to produce high quality and fast-turnover product updates
+· Leverage Infrastructure as Code (IaC) principles to automate infrastructure provisioning and configuration
+. Ensure network security and compliance within Kubernetes environments
+· Collaborate with cross-functional teams to define infrastructure requirements and optimize cloud-based
+solutions (AWS/Azure/GCP)
+· Conduct performance tuning and optimization of Kubernetes clusters
+· Implement monitoring and logging solutions for Kubernetes using Prometheus and ELK Stack
+· Maintain an up-to-date knowledge of industry trends and new processes, software and techniques
+· Mentor junior developers and engineers, providing guidance on best practices and new software
+· Use Agile methodology to successfully and efficiently manage projects through the software development
+lifecycle as part of a wider DevOps team
+
+Key Achievements
+· Implemented a robust CI/CD pipeline using Docker and Kubernetes in 2021, reducing the time to deliver
+software updates by 70% and boosting revenue by 8% in that year.
+
+
+
+Implemented a robust CI/CD pipeline using Docker and Kubernetes, reducing the time to deliver software updates by 70%.
+
+
+
+
+
+*/
