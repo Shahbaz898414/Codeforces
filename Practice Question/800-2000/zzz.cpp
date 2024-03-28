@@ -25,7 +25,22 @@ signed main()
     int t;cin>>t;
 
     while(t--){
-
+        int a,b,m;cin>>a>>b>>m;
     }
 }
 
+
+
+/*
+
+#75dayschallenge
+#challenge
+#consistency
+#Cp 
+#AlgorithmExplained 
+#ProblemSolving
+#lessons
+#learning
+
+
+*/
