@@ -36,7 +36,10 @@ signed main()
 /*
 
 
+
+
 Docker Engineer
+
 
 Outline
 Work for a leading search engine specialist company based in California, developing and managing the software
@@ -65,7 +68,21 @@ software updates by 70% and boosting revenue by 8% in that year.
 Implemented a robust CI/CD pipeline using Docker and Kubernetes, reducing the time to deliver software updates by 70%.
 
 
+PHP 53.2%
+. JavaScript 11.3%
+. TSQL 7.0%
 
+· HTML 13.0%
+
+Java 8.3%
+
+· CSS 6.7%
+
+.
+
+.
+
+Hack 0.5%
 
 
 */
