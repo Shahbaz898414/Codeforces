@@ -68,21 +68,74 @@ software updates by 70% and boosting revenue by 8% in that year.
 Implemented a robust CI/CD pipeline using Docker and Kubernetes, reducing the time to deliver software updates by 70%.
 
 
-PHP 53.2%
-. JavaScript 11.3%
-. TSQL 7.0%
+PHP 
+JavaScript 
+TSQL 
+HTML 
+Java 
+CSS 
+Hack 
 
-· HTML 13.0%
 
-Java 8.3%
+//////////////////////////////////////////////
 
-· CSS 6.7%
 
-.
+𝐓𝐨𝐝𝐚𝐲 𝐰𝐚𝐬 𝐦𝐲 𝟕𝟑𝐬𝐭 𝐝𝐚𝐲 𝐨𝐮𝐭 𝐨𝐟 𝐭𝐡𝐞 𝟕𝟓 𝐝𝐚𝐲𝐬 𝐨𝐟 𝐡𝐚𝐫𝐝 𝐜𝐡𝐚𝐥𝐥𝐞𝐧𝐠𝐞𝐬. 𝐒𝐨 𝐭𝐨𝐝𝐚𝐲. 𝐈 𝐬𝐨𝐥𝐯𝐞𝐝 𝟓 𝐪𝐮𝐞𝐬𝐭𝐢𝐨𝐧𝐬.
 
-.
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝟏 : 𝟐𝟗𝟓𝟖. 𝐋𝐞𝐧𝐠𝐭𝐡 𝐨𝐟 𝐋𝐨𝐧𝐠𝐞𝐬𝐭 𝐒𝐮𝐛𝐚𝐫𝐫𝐚𝐲 𝐖𝐢𝐭𝐡 𝐚𝐭 𝐌𝐨𝐬𝐭 𝐊 𝐅𝐫𝐞𝐪𝐮𝐞𝐧𝐜𝐲
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐋𝐢𝐧𝐤 🔗: [https://lnkd.in/d7H3CJYy]
 
-Hack 0.5%
+
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝟐 : 𝟕𝟔. 𝐌𝐢𝐧𝐢𝐦𝐮𝐦 𝐖𝐢𝐧𝐝𝐨𝐰 𝐒𝐮𝐛𝐬𝐭𝐫𝐢𝐧𝐠
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐋𝐢𝐧𝐤 🔗: [https://lnkd.in/dWZJEC2i]
+
+
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝟑 : 𝐁. 𝐅𝐢𝐫𝐞𝐰𝐨𝐫𝐤𝐬
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐋𝐢𝐧𝐤 🔗: [https://lnkd.in/d_22tWhz]
+
+
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝟒 : 𝐀. 𝐒𝐞𝐭𝐭𝐢𝐧𝐠 𝐮𝐩 𝐂𝐚𝐦𝐩
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐋𝐢𝐧𝐤 🔗: [https://lnkd.in/dNGhWXC8]
+
+
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝟓 : 𝐀. 𝐃𝐞𝐬𝐭𝐫𝐨𝐲𝐢𝐧𝐠 𝐁𝐫𝐢𝐝𝐠𝐞𝐬
+𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐋𝐢𝐧𝐤 🔗: [https://lnkd.in/dp8c8t4p]
+
+
+#75dayschallenge
+#challenge
+#consistency
+#Cp 
+#AlgorithmExplained 
+#ProblemSolving
+#lessons
+#learning
+
+
+
+    
+    
+    int t, n, k;
+	cin>>t;
+
+
+	while(t--){
+		cin>>n>>k;
+		int a[200002];
+		for(int i=0;i<n;i++) cin>>a[i];
+		sort(a,a+n);
+		int ans=a[0]+n-1;
+		for(int i=0;i<n;i++){
+			if(i) k-=a[i];
+			double h=k;
+			h=h/(n-i);
+			h=floor(h);
+			int w=h;
+			ans=min(ans,max(0ll,a[0]-w)+n-i-1);
+		}
+		cout<<ans<<'\n';
+	}
+
 
 
 */
