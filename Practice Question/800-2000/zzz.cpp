@@ -30,7 +30,10 @@ int countSubarraysWithAtMostKDistinct(vector<int> &nums, int k)
 
 	while (j < n)
 	{
+
+
 		mp[nums[j]]++;
+
 
 		while (i <= j && mp.size() > k)
 		{
@@ -39,9 +42,13 @@ int countSubarraysWithAtMostKDistinct(vector<int> &nums, int k)
 			i++;
 		}
 
+
 		c += (j - i + 1);
 
+
 		j++;
+
+
 	}
 
 	return c;
@@ -49,7 +56,15 @@ int countSubarraysWithAtMostKDistinct(vector<int> &nums, int k)
 
 int subarraysWithKDistinct(vector<int> &nums, int k)
 {
-	return countSubarraysWithAtMostKDistinct(nums, k) - countSubarraysWithAtMostKDistinct(nums, k - 1);
+
+	int d1=countSubarraysWithAtMostKDistinct(nums, k);
+	int d2=countSubarraysWithAtMostKDistinct(nums, k - 1);
+
+	cout<<d1<<" "<<d2<<endl;
+	// return countSubarraysWithAtMostKDistinct(nums, k) - countSubarraysWithAtMostKDistinct(nums, k - 1);
+	return 1;
+
+
 }
 
 signed main()
@@ -66,6 +81,8 @@ signed main()
 		/* code */
 		cin >> arr[i];
 	}
+
+	cout<<endl;
 
 	cout << subarraysWithKDistinct(arr, k);
 }
