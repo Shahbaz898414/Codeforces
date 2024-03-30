@@ -2,12 +2,12 @@
 #define int long long
 #define vi vector<int>
 #define vb vector<bool>
-#define readInput(a)  \
-    for (auto &i : a) \
-    cin >> i
+#define readInput(a) \
+	for (auto &i : a)  \
+	cin >> i
 #define printOutput(a) \
-    for (auto &i : a)  \
-    cout << i << " "
+	for (auto &i : a)    \
+	cout << i << " "
 #define endLine "\n"
 #define space << " " <<
 #define pushBack pb
@@ -18,20 +18,57 @@ const int MOD = 1e9 + 7;
 const int INF = LLONG_MAX;
 using namespace std;
 
-signed main()
+int countSubarraysWithAtMostKDistinct(vector<int> &nums, int k)
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    int t;cin>>t;
+	int n = nums.size();
 
-    while(t--){
-       int a,b,c; cin>>a>>b>>c;
-		if((b+c)%3 > c) cout<<-1<<endl;
-		else cout<<(b+c+2)/3+a<<endl;
-    }
+	unordered_map<int, int> mp;
+
+	int i = 0, j = 0;
+
+	int c = 0;
+
+	while (j < n)
+	{
+		mp[nums[j]]++;
+
+		while (i <= j && mp.size() > k)
+		{
+			if (--mp[nums[i]] == 0)
+				mp.erase(nums[i]);
+			i++;
+		}
+
+		c += (j - i + 1);
+
+		j++;
+	}
+
+	return c;
 }
 
+int subarraysWithKDistinct(vector<int> &nums, int k)
+{
+	return countSubarraysWithAtMostKDistinct(nums, k) - countSubarraysWithAtMostKDistinct(nums, k - 1);
+}
 
+signed main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	int n, k;
+	cin >> n >> k;
+
+	vector<int> arr(n);
+
+	for (int i = 0; i < n; i++)
+	{
+		/* code */
+		cin >> arr[i];
+	}
+
+	cout << subarraysWithKDistinct(arr, k);
+}
 
 /*
 
@@ -68,13 +105,13 @@ software updates by 70% and boosting revenue by 8% in that year.
 Implemented a robust CI/CD pipeline using Docker and Kubernetes, reducing the time to deliver software updates by 70%.
 
 
-PHP 
-JavaScript 
-TSQL 
-HTML 
-Java 
-CSS 
-Hack 
+PHP
+JavaScript
+TSQL
+HTML
+Java
+CSS
+Hack
 
 
 //////////////////////////////////////////////
@@ -105,17 +142,17 @@ Hack
 #75dayschallenge
 #challenge
 #consistency
-#Cp 
-#AlgorithmExplained 
+#Cp
+#AlgorithmExplained
 #ProblemSolving
 #lessons
 #learning
 
 
 
-    
-    
-    int t, n, k;
+
+
+		int t, n, k;
 	cin>>t;
 
 
