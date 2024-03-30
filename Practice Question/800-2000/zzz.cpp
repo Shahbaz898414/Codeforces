@@ -52,17 +52,19 @@ int countSubarraysWithAtMostKDistinct(vector<int> &nums, int k)
 	}
 
 	return c;
+
+
 }
 
 int subarraysWithKDistinct(vector<int> &nums, int k)
 {
 
-	int d1=countSubarraysWithAtMostKDistinct(nums, k);
-	int d2=countSubarraysWithAtMostKDistinct(nums, k - 1);
+	// int d1=countSubarraysWithAtMostKDistinct(nums, k);
+	// int d2=countSubarraysWithAtMostKDistinct(nums, k - 1);
 
-	cout<<d1<<" "<<d2<<endl;
-	// return countSubarraysWithAtMostKDistinct(nums, k) - countSubarraysWithAtMostKDistinct(nums, k - 1);
-	return 1;
+	// cout<<d1<<" "<<d2<<endl;
+	return countSubarraysWithAtMostKDistinct(nums, k) - countSubarraysWithAtMostKDistinct(nums, k - 1);
+	// return 1;
 
 
 }
@@ -82,10 +84,12 @@ signed main()
 		cin >> arr[i];
 	}
 
-	cout<<endl;
+	// cout<<endl;
 
 	cout << subarraysWithKDistinct(arr, k);
 }
+
+
 
 /*
 
