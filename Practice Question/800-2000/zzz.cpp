@@ -90,3 +90,51 @@ signed main()
 }
 
 
+/*
+Don't worry about the people God
+removed from your life.
+
+He heard conversations you didn't.
+He saw things you couldn't.
+He made moves you wouldn't.
+
+
+
+/////////////////////////////////////////////////////////////
+
+
+
+Title	Exploration of a new Component of the opensource GEN3 framework
+
+
+Description	
+The contributor will assess the viability of the new GEN3 frontend framework, involving tasks such as local deployment and exploration of various customizations. If the framework proves to be a valuable REACTJS application, the contributor will proceed to migrate the main component from our existing REACTJS frontend application to this new frontend framework.
+Expected Outcomes	
+Either migrate our main components to the new application if the new tool yields positive results or remove the migration of the new frontend framework from our roadmap.
+
+Skills	Javascript, REACTJS
+
+Mentors	TBD - One of the Senior Developer in the team.
+
+Project Size	350 hours
+
+Rating	medium
+
+
+Thank you for considering me for the position. Given my current commitments, I would be able to start within one weeks of receiving a formal offer. Looking forward to the opportunity to contribute to the team at doola.
+
+
+
+Hi,
+
+I hope this message finds you well! I came across the Software Developers ( https://careers.adobe.com/us/en/job/ADOBUSR145089EXTERNALENUS/Software-Development-Engineer ) at Adobe. As an aspiring Software Engineer, I admire the company's innovative work. If possible, could you kindly refer me? I'd greatly appreciate it!
+
+Best regards,
+Shahbaz Khan
+
+Resume Link :-
+https://drive.google.com/file/d/1KtvsYeT5PYaj_gk8VTDHismkNZzeOu6z/view?usp=sharing
+
+
+
+*/
