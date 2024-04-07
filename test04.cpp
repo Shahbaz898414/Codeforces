@@ -81,5 +81,7 @@ int main()
 
   105. Construct Binary Tree from Preorder and Inorder Traversal
 
-  
+  ///////////////////////////////////////
+
+  my daily work was to create frontend using ReactJs, backend using GoLang, and deploy them in AWS. My primary project for the company was Lens, which was an assessment that I setup from scratch. 
  */
