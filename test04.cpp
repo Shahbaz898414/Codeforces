@@ -86,4 +86,5 @@ int main()
   my daily work was to create frontend using ReactJs, backend using GoLang, and deploy them in AWS. My primary project for the company was Lens, which was an assessment that I setup from scratch.
 
   dkjd kdsm 
+  won owcmw owmo cown c0wnwucn o cowv 
  */
