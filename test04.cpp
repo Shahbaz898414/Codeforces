@@ -1,89 +1,45 @@
-#include <iostream>
-#include <vector>
-#include <unordered_map>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-struct TreeNode
-{
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-};
-
-class Solution
-{
-public:
-    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder)
-    {
-        if (preorder.empty() || inorder.empty())
-
-            return nullptr;
-        unordered_map<int, int> inorder_map;
-        unordered_map<int, int> inorder_map;
-        for (int i = 0; i < inorder.size(); ++i) {
-            inorder_map[inorder[i]] = i;
-        }
-        return build(preorder, 0, preorder.size() - 1, inorder, 0, inorder.size() - 1, inorder_map);
-    }
-
-    TreeNode *build(vector<int> &preorder, int preStart, int preEnd, vector<int> &inorder, int inStart, int inEnd, unordered_map<int, int> &inorder_map) {
-         if (preStart > preEnd || inStart > inEnd) {
-            return nullptr;
-        }
-
-        TreeNode* root = new TreeNode(preorder[preStart]);
-         int mid = inorder_map[root->val];
-
-        root->left = build(preorder, preStart + 1, preStart + mid - inStart, inorder, inStart, mid - 1, inorder_map);
-
-        root->right = build(preorder, preStart + mid - inStart + 1, preEnd, inorder, mid + 1, inEnd, inorder_map);
-
-        return root;                    
-
-    }
-};
+#define ll long long
 
 int main()
 {
-    // Example input
-    vector<int> preorder = {3, 9, 20, 15, 7};
-    vector<int> inorder = {9, 3, 15, 20, 7};
 
-    // Create an instance of Solution class
-    Solution solution;
+    int t;
+    cin >> t;
 
-    // Build the binary tree
-    TreeNode *root = solution.buildTree(preorder, inorder);
+    while (t--)
+    {
+        ll n;
+        cin >> n;
 
-    // Print the root node value (just for demonstration)
-    cout << "Root node value: " << root->val << endl;
+        ll k = 0;
 
-    // Perform any other operations with the binary tree if needed
+        ll bob = 0,
+           alice = 0;
+        vector<ll> v(n);
+        for (ll i = 0; i < n; i++)
+        {
+            cin >> v[i];
+            if (v[i] == 1)
+            {
+                k++;
+            }
+        }
 
-    // Free memory (if not using smart pointers)
-    delete root;
+        sort(v.begin(), v.end(), greater<int>());
+
+        ll ct = 0;
+        for (int i = 0; i < n - k; i++)
+        {
+            if (v[i] >= 2)
+            {
+                ct += v[i] - 2;
+            }
+        }
+    }
 
     return 0;
 }
-
-/**
- * Definition for a binary tree node.
- struct TreeNode {
-      int val;
-      TreeNode *left;
-      TreeNode *right;
-      TreeNode() : val(0), left(nullptr), right(nullptr) {}
-      TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-      TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-  };
-
-  105. Construct Binary Tree from Preorder and Inorder Traversal
-
-  ///////////////////////////////////////
-
-  my daily work was to create frontend using ReactJs, backend using GoLang, and deploy them in AWS. My primary project for the company was Lens, which was an assessment that I setup from scratch.
-
-   
- */
