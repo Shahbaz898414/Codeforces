@@ -39,6 +39,42 @@ int main()
                 ct += v[i] - 2;
             }
         }
+
+        cout<<ct<<endl;
+        if (k & 1)
+        {
+            alice += (k + 1) / 2;
+            bob += k / 2;
+
+            if (ct & 1)
+                bob += n - k;
+
+            else
+                alice += (n - k);
+        }
+        else
+        {
+            alice += (k) / 2;
+            bob += k / 2;
+            if (ct & 1)
+            {
+                alice += (n - k);
+            }
+            else
+            {
+                bob += (n - k);
+            }
+        }
+
+        if (bob > alice)
+          cout << "Bob" << endl;
+        
+        else if (bob == alice)  
+          cout << "Draw" << endl;
+        
+        else
+            cout << "Alice" << endl;
+        
     }
 
     return 0;
