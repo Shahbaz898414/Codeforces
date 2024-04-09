@@ -4,90 +4,113 @@ using namespace std;
 
 #define ll long long
 
+class Node {
+public:
+    int val;
+    vector<Node*> neighbors;
+    Node() {
+        val = 0;
+        neighbors = vector<Node*>();
+    }
+    Node(int _val) {
+        val = _val;
+        neighbors = vector<Node*>();
+    }
+    Node(int _val, vector<Node*> _neighbors) {
+        val = _val;
+        neighbors = _neighbors;
+    }
+};
+
+
+class Solution {
+public:
+    unordered_map<Node*,Node*> old;
+
+     Node* cloneGraph(Node* node) {
+       if(!node) return NULL;
+       return dfs(node); 
+    }
+
+    Node* dfs(Node* node){
+        if(old.find(node)!=old.end()){
+            return old[node];
+        }
+
+        Node* copy=new Node(node->val);
+        old[node]=copy;
+        for(Node* it:node->neighbors){
+            copy->neighbors.push_back(dfs(it));
+        }
+
+        return copy;
+    }
+
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int main()
 {
 
-    int t;
-    cin >> t;
+   int n;cin>>n;
 
-    while (t--)
-    {
-        ll n;
-        cin >> n;
+   vector<int>  ar(n);
 
-        ll k = 0;
+   for (int i = 0; i < n; i++)
+   {
+    /* code */
+    cin>>ar[i];
+   }
 
-        ll bob = 0,
-           alice = 0;
-        vector<ll> v(n);
-        for (ll i = 0; i < n; i++)
-        {
-            cin >> v[i];
-            if (v[i] == 1)
-            {
-                k++;
-            }
-        }
-
-        sort(v.begin(), v.end(), greater<int>());
-
-        ll ct = 0;
-        for (int i = 0; i < n - k; i++)
-        {
-            if (v[i] >= 2)
-            {
-                ct += v[i] - 2;
-            }
-        }
-
-        cout<<ct<<endl;
-        if (k & 1)
-        {
-            alice += (k + 1) / 2;
-            bob += k / 2;
-
-            if (ct & 1)
-                bob += n - k;
-
-            else
-                alice += (n - k);
-        }
-        else
-        {
-            alice += (k) / 2;
-            bob += k / 2;
-            if (ct & 1)
-            {
-                alice += (n - k);
-            }
-            else
-            {
-                bob += (n - k);
-            }
-        }
-
-        if (bob > alice)
-          cout << "Bob" << endl;
-        
-        else if (bob == alice)  
-          cout << "Draw" << endl;
-        
-        else
-            cout << "Alice" << endl;
-        
-    }
+//    cout<<longestConsecutive(ar)<<endl;
+   
 
     return 0;
 }
 
 
+
 /*
 
-Hi Shahbaz Khan
-I'm #interested in this opportunity. 
-Here's my email id: shahbaz898khan@gmail.com
-Let's connect to know about it in detail!
-Thank you!
+If it is truly meant for you, if will come
+bqek to you, it will leqve only for the
+sake of teaching you the lessons you coufd
+only learn on your own. If it is truly meant
+for you, it will return even if you've puched it
+away, even if you are in denial, even if you
+assume Samefhing So beautiful could never be
+truly yours - because if it's truly meant for you,
+it is never not a piece of you. It is never not
+intricately tied into the depths of your soul.
 
 
 */
