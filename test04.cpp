@@ -101,18 +101,9 @@ int main()
 
 /*
 
-If it is truly meant for you, if will come
-bqek to you, it will leqve only for the
-sake of teaching you the lessons you coufd
-only learn on your own. If it is truly meant
-for you, it will return even if you've puched it
-away, even if you are in denial, even if you
-assume Samefhing So beautiful could never be
-truly yours - because if it's truly meant for you,
-it is never not a piece of you. It is never not
-intricately tied into the depths of your soul.
 
-kv
+
+
 
 
 */
