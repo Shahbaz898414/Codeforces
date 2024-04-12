@@ -16,7 +16,7 @@ int main()
         vector<ll>  ar(m+1);
 
         for (ll i = 1; i <=m; i++) {
-            /* code */
+           
             cin>>ar[i];
         }
         
@@ -25,5 +25,7 @@ int main()
 
     return 0;
 }
+
+
 
 
