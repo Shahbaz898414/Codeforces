@@ -22,14 +22,6 @@ signed main()
 /*
 
 
-Obiedtive of ething is to selectively remore material
-using imaged photo resist as a masking template.
 
-Etch processes for MEMS fabrication differ from
-traditional etch process for TI industry.
-
-Etching is used to create structures for functional use
-and to remove oxide layers belows features to allow
-for motion.
 
 */
