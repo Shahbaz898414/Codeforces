@@ -19,29 +19,24 @@ signed main()
 }
 
 
+
 /*
 
+photolithography is the process that defines and
+transfers pattern onto a thin film layer on the
+wafer
+In the process a light soource is used to  transfer an
+image from a pattern mask to a photosensitive layer
+(photresist or resist) on a substrate or another thin film.
 
-Look, it is not at all that a girl like
-Hinata cannot exist in our world
-but the girls of our world
-do not want to be like Hinata
+Component for photolithography are photo resists mask
+and uv light.
+A positiye photo resist is a type of photo resist in which
+the portion of the photo resist that is exposed to light
+becomes soluble to the photo resist developer.
+A negate photo resist is a type of photresist in which
+the portion of the photresist that is expsed to light
+becomes insoluble to the photo resist developer
 
-or have you ever seen a girl
-who loves a boy whom
-the whole world hates?
-
-The one who doesn't have a single friend
-is a bit raw in mind
-and is also financially unstable
-like Narutoo
-
-but girls like boys who are
-popular, handsome
-intelligent, fool and are also
-financially stable
-
-In your efforts to find a handsome person,
-They lost a good hearted person
 
 */
