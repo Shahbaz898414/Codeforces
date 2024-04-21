@@ -52,7 +52,7 @@ signed main()
   string s = "neetcode";
   vector<string> wordDict = {"neet", "code"};
 
-  // Check if the string can be segmented
+  
   bool result = sol.wordBreak(s, wordDict);
 
   // Output the result
