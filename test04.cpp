@@ -112,4 +112,6 @@ For each test case, output a single integer on a new line - the total number of 
 //////////////
 
  imports the Font Awesome stylesheet directly from a CDN.
+
+  Once the stylesheet is linked, you can use Font Awesome icons within your React components just like standard HTML elements. For example:
 */
