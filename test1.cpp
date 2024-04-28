@@ -1,115 +1,97 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct ListNode
-{
-    int val;
-    ListNode *next;
-    ListNode() : val(0), next(nullptr) {}
-    ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
-class Solution
-{
+class Solution {
 public:
-    void reorderList(ListNode *head)
-    {
-        if (!head || !head->next)
-            return;
+    int maxProduct(vector<int>& nums) {
+        int res = *max_element(nums.begin(), nums.end());
+        int mi=1,mx=1;
 
-        ListNode *slow = head;
-        ListNode *fast = head->next;
+        for(auto it:nums){
+            if(it==0){
+                mi=1;
+                mx=1;
+                continue;
+            }
 
-        while (fast and fast->next)
-        {
-            slow = slow->next;
-            fast = fast->next->next;
+            int tmp=mx*it;
+            mx = max({it * mx, it * mi, it});
+            mi = min({tmp, it * mi, it});
+            res = max(res, mx);
         }
 
-        // 1 2 3 |  NULL<-4 5
-
-        ListNode *second = slow->next;
-        slow->next = nullptr;
-        ListNode *prev = nullptr;
-
-        while (second)
-        {
-            ListNode *tmp = second->next;
-            second->next = prev;
-            prev = second;
-            second = tmp;
-        }
-
-        // Merge two halves
-        ListNode* first = head;
-        second = prev;
-
-        while (second) {
-            ListNode* tmp1 = first->next;
-            ListNode* tmp2 = second->next;
-            first->next = second;
-            second->next = tmp1;
-            first = tmp1;
-            second = tmp2;
-        }
+        return res;
     }
 };
 
-// Function to print the linked list
-void printList(ListNode *head)
-{
-    while (head)
-    {
-        std::cout << head->val << " ";
-        head = head->next;
-    }
-    std::cout << std::endl;
-}
 
-int main()
-{
-    // Example input: 1 -> 2 -> 3 -> 4 -> 5
-    ListNode *head = new ListNode(1);
-    head->next = new ListNode(2);
-    head->next->next = new ListNode(3);
-    head->next->next->next = new ListNode(4);
-    head->next->next->next->next = new ListNode(5);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int main() {
+    std::vector<int> nums = {2, 3, -2, 4}; // Example input
     Solution solution;
-    solution.reorderList(head);
-
-    // std::cout << "Reordered list: ";
-    printList(head);
-
-    // Clean up memory
-    ListNode *temp;
-    while (head)
-    {
-        temp = head;
-        head = head->next;
-        delete temp;
-    }
-
+    int maxProd = solution.maxProduct(nums);
+    std::cout << "Maximum product of a subarray: " << maxProd << std::endl;
+    debugger
     return 0;
 }
 
 
+
 /*
-143. Reorder List blind 75,
+152. Maximum Product Subarray blind 75,
 Blind 75,
 Blind 75 LeetCode Sheet Solved,
 Blind 75 Sheet Solved,
-Reorder List blind 75,
-Reorder List,
-143. Reorder List,
-143. Reorder List,
-143 Reorder List on leetcode,
-143 on leetcode,143 on leetcode solved, 
-leetcode,leetcode problem 143,
-Reorder List c++,
-Reorder List python,
-Reorder List solution
+Maximum Product Subarray blind 75,
+Maximum Product Subarray,
+152. Maximum Product Subarray,
+152. Maximum Product Subarray,
+152 Maximum Product Subarray on leetcode,
+152 on leetcode,152 on leetcode solved, 
+leetcode,leetcode problem 152,
+Maximum Product Subarray c++,
+Maximum Product Subarray python,
+Maximum Product Subarray solution
+
+
+*/
+
+
+/*
+
+class Solution:
+    def maxProduct(self, nums: List[int]) -> int:
+        res = max(nums)
+        curMin, curMax = 1, 1
+
+        for n in nums:
+            if n == 0:
+                curMin, curMax = 1, 1
+                continue
+            tmp = curMax * n
+            curMax = max(n * curMax, n * curMin, n)
+            curMin = min(tmp, n * curMin, n)
+            res = max(res, curMax)
+        return res
 
 
 */
