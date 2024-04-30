@@ -347,33 +347,6 @@ long long minTotalSum(vector<int> &a, int k)
 	return totalSum;
 }
 
-// int minTotalSum(const vector<int> &a, int k)
-// {
-// 	int n = a.size();
-// 	vector<vector<int>> dp(n + 1, vector<int>(k + 1, 1e9));
-
-// 	dp[0][0] = 0;
-
-// 	for (int i = 1; i <= n; ++i)
-// 	{
-// 		for (int j = 0; j <= k; ++j)
-// 		{
-// 			for (int x = max(0, i - 2); x < i; ++x)
-// 			{
-// 				dp[i][j] = min(dp[i][j], dp[x][j - (i != n)] + a[x]);
-// 			}
-// 		}
-// 	}
-
-// 	int ans = 1e9;
-// 	for (int j = 0; j <= k; ++j)
-// 	{
-// 		ans = min(ans, dp[n][j]);
-// 	}
-
-// 	return ans;
-// }
-
 int minNewProblems(const vector<int> &a, const vector<int> &b)
 {
 	int n = a.size();
