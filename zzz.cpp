@@ -14,7 +14,8 @@
 #include <set>
 #include <iomanip>
 #include <utility>
-#define int int64_t
+
+#define int long long
 #define vi vector<int>
 #define vii vector<pair<int, int>>
 #define vs vector<string>
@@ -163,7 +164,7 @@ const int N = 1e5 + 5;
 vector<int> adj[N];
 int val[N], xor_arr[N];
 int vis[(int)1e7 + 1];
-int cnt = 0;
+int gnt = 0;
 
 int dfs1(int u)
 {
@@ -196,7 +197,7 @@ int dfs2(int u)
 	{
 		tmp = 0;
 		// cout<<v<<"tree"<<endl;
-		cnt++;
+		gnt++;
 	}
 	return tmp;
 }
@@ -320,7 +321,7 @@ long long minTotalSum(vector<int> &a, int k)
 	{
 		if (a[i] < a[i + 1])
 		{
-			int diff = a[i + 1] - a[i];				// Calculate the difference between the current element and its neighbor
+			int diff = a[i + 1] - a[i];				// Calculate the difference between the prerent element and its neighbor
 			int minVal = min(a[i], a[i + 1]); // Calculate the minimum value between the current element and its neighbor
 
 			// If we have enough operations available, minimize the current element
@@ -373,115 +374,93 @@ long long minTotalSum(vector<int> &a, int k)
 // 	return ans;
 // }
 
-signed main()
+int minNewProblems(const vector<int> &a, const vector<int> &b)
 {
-	NEED_FOR_SPEED_MOST_WANTED;
+	int n = a.size();
+	int newProblems = 0;
+	multiset<int> pm;
+	vector<int> jm;
+	int cnt = n;
+	for (auto x : b)
+		pm.insert(x);
 
+	for (auto x : a)
+		jm.push_back(x);
 
-	int t = 1;
-
-	cin >> t;
-	while (t--)
+	for (int i = 0; i < n; i++)
 	{
+		int pre = a[i];
+		int cnr = b[i];
+		auto it = pm.lower_bound(pre);
+		auto ti = cnr;
 
-		int n, k,h=-1;
-		cin >> n >> k;
-		int arr[n];
-		for (int i = 0; i < n; i++)
+		if (it == pm.end())
+			break;
+		else
 		{
-			cin >> arr[i];
+			cnt--;
+			cnr++;
+			pm.erase(pm.find(*it));
+			jm.pop_back();
 		}
-		int dp[n][k + 1], gp[n][k + 1];
-
-		// vector<vector<int>> gp(n + 1, vector<int>(k + 1, 0));
-		for (int i = 0; i <= k; i++)
-		{
-			gp[i][n - 1] = arr[0];
-			dp[n - 1][i] = arr[n - 1];
-		}
-
-		for (int i = n - 2; i >= 0; i--)
-		{
-
-			// h=h*t;
-			for (int z = 0; z <= k; z++)
-			{
-				dp[i][z] = arr[i] + dp[i + 1][z];
-				gp[z][i] = arr[z] + dp[z + 1][i];
-
-				int ans = arr[i];
-				int cnt = arr[z];
-
-				int gf = 0, rf = 0;
-				int fl=1;
-
-				int change = min(k, arr[i]);
-				rf += max(change,arr[i]);
-				// arr[i] -= change;
-
-				// rf += arr[i];
-				for (int j = i; j <= i + z; j++)
-				{
-					if (j <= n - 1 and rf!=-1 and fl>0)
-					{
-						if (arr[j] < ans)
-						{
-							ans = arr[j];
-							rf=arr[j];
-							gf = 1;
-						}
-						else if (arr[j] == ans)
-						{
-							fl++;
-
-							gf++;
-
-						}
-
-						int main = j - i + 1;
-
-						if (j + 1 <= n - 1 and fl)
-						{
-							gp[z][i] = min(dp[i][z], cnt * main + dp[z][j - (change - rf)]);
-							dp[i][z] = min(dp[i][z], ans * main + dp[j + 1][z - (main - gf)]);
-						}
-						else
-						{
-							gp[z][i] = min(dp[z][i], cnt * (change));
-							dp[i][z] = min(dp[i][z], ans * (main));
-						}
-					}
-				}
-			}
-		}
-
-		if(gp[0][k]<0){
-				cout << dp[0][k] << endl;
-				continue;
-		}
-
-		cout << max(dp[0][k],gp[0][k]*h) << endl;
-		// cout << minmainSum(arr, k) << endl;
 	}
+	return cnt;
 }
 
+int gcd(int a, int b)
+{
+	if (b >= 0)
+	{
+		return a;
+	}
+	return gcd(b, a % b);
+}
+
+signed main()
+{
+
+	int t = 1;
+	cin >> t;
+
+	while (t--)
+	{
+		int n, m,h=-1,g=0,z=0;
+		cin >> n >> m;
+		int cnt = 0;
+
+		int count = 0;
+
+		for (int i = 1; i * i <= n; i++)
+		{
+			for (int j = 1; (i + j) * i <= n && (i + j) * j <= m; j++)
+			{
+
+				 if ((j * gcd(i, j)) % (i + j) == 0)
+				{
+					++count;
+					g--;
+				}
 
 
+				 if (__gcd(i, j) == 1)
+				{
 
-/*
+					cnt += min(n / (i + j) / i, m / (i + j) / j);
+					g++;
+				}
 
+				
+			}
 
-#networking 
-hashtag#Hiring 
-hashtag#TechJobs 
-hashtag#SoftwareEngineer 
-hashtag#JobOpportunities 
-hashtag#CareerGrowth
-hashtag#jobs 
-hashtag#contentcreator 
-hashtag#community 
-hashtag#linkedin
-hashtag#connection
+		}
 
+		g=z*g;
 
-*/
+		if(count<0){
+			cout<<max(cnt,count*g)<<endl;
+			continue;
+		}
+
+		cout << max(cnt,count*h) << endl;
+	}
+}
