@@ -427,7 +427,7 @@ signed main()
 
 		}
 
-		g=z*g;
+		// g=z*g;
 
 		if(count<0){
 			cout<<max(cnt,count*g)<<endl;
