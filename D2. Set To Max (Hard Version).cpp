@@ -185,3 +185,26 @@ int32_t main()
             cout << "YES" << endl;
     }
 }
+
+/*
+
+
+10kg aata
+5kg tel
+1kg tuwar ki dal
+1kg chane ki dal
+1/2 chana
+1/2 vatana
+1kg namak
+biscuit churah
+1/4 badam and kaju
+nahane ka soap
+1/2 masur ki dal
+1/2 muag ki dal
+1/2 urad ki dal white
+sarafXL
+
+
+
+
+*/
