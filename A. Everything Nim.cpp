@@ -46,20 +46,35 @@ signed main()
 
     int n;
     cin >> n;
-    set<int> s;
-    for (int x; n--;)
-      cin >> x, s.insert(x);
-    int op = 0, l = 0;
-    for (int x : s)
-    {
-      op ^= 1;
-      if (x - l > 1)
-        break;
-      l = x;
-    }
-    cout << (op ? "Alice\n" : "Bob\n");
+    int a[n];
+    for (int i = 0; i < n; i++)
+      cin >> a[i];
 
-    
+    sort(a, a + n);
+
+    int sub = 0;
+    int winner = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+      a[i] -= sub;
+
+      if (a[i] == 1)
+      {
+        winner ^= 1;
+        sub += a[i];
+      }
+      else if (a[i] > 1)
+      {
+        winner ^= 1;
+        break;
+      }
+    }
+
+    if (winner)
+      cout << "Alice\n";
+    else
+      cout << "Bob\n";
   }
 }
 
@@ -101,5 +116,14 @@ int n;
     l=x;
   }
   cout<<(op?"Alice\n":"Bob\n");
+
+
+///////////////////////////
+
+1 2 2 3 4 4
+0 1 1 2 3 3
+0 0 0 1 2 2
+0 0 0 0 1 1
+0 0 0 0 0 0
 
 */
