@@ -67,10 +67,3 @@ int main() {
 }
 
 
-
-/*
-
-
-206. Reverse Linked List blind 75,Blind 75,Blind 75 LeetCode Sheet Solved,Blind 75 Sheet Solved,Reverse Linked List blind 75,Reverse Linked List,206. Reverse Linked List,206 Reverse Linked List on leetcode,206 on leetcode,206 on leetcode solved,leetcode,leetcode problem 206,Reverse Linked List c++,Reverse Linked List python,Reverse Linked List solution
-
-*/

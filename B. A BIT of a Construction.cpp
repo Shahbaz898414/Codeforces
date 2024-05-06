@@ -28,15 +28,15 @@ signed main()
   while (t--)
   {
 
-   int n,k;cin>>n>>k;
-
-   
-
-   
+    int n, k;
+    cin >> n >> k;
+    if (n == 1)
+    {
+      cout << k << '\n';
+      return;
+    }
   }
 }
-
-
 
 /*
 
