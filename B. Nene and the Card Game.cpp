@@ -26,26 +26,21 @@ signed main()
 
   while (t--) {
 
-    int n, k; cin >> n ;
-    vector<int> arr(n);
+    int n, k; cin >> n >> k;
 
-    set<int> se;
 
-    for (int i = 0; i <n; i++)
+    if (n == 1)
     {
-      /* code */
-      cin>>arr[i];
-
-      se.insert(arr[i]);
+      cout << k << '\n';
+      continue;
     }
 
+    cout << ( __lg(k)) << endl;
 
-    cout<<n-se.size()<<endl;
+    int r = (1 << __lg(k)) - 1;
+    cout << r << ' ' << k - r;
 
-
-    
-
-
-    
+    for(int i=2;i<n;++i)cout<<" 0";
+	  cout<<'\n';
   }
 }
