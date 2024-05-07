@@ -1,69 +1,74 @@
 #include <iostream>
 #include <vector>
-#include <bits/stdc++.h>
-#include <algorithm>
+#include <unordered_map>
+#include <unordered_set>
+
 using namespace std;
 
-
-
-
 class Solution {
-private: 
-    void bfs(int i, int j, std::vector<std::vector<int>>& vis, std::vector<std::vector<char>>& grid) {
-        vis[i][j] = 1;
-        int n = grid.size(), m = grid[0].size();
-        std::queue<std::pair<int,int>> q;
-        q.push({i, j});
-        int dr[] = {-1, 0, 1, 0};
-        int dc[] = {0, 1, 0, -1};
-        while (!q.empty()) {
-            int r = q.front().first;
-            int c = q.front().second;
-            q.pop();
-            for (int k = 0; k < 4; k++) {
-                int nr = r + dr[k];
-                int nc = c + dc[k];
-                if (nr >= 0 && nc >= 0 && nr < n && nc < m && !vis[nr][nc] && grid[nr][nc] == '1') {
-                    q.push({nr, nc});
-                    vis[nr][nc] = 1;
-                }
+public:
+    // Declare dfs as a member function of the class
+    bool dfs(int crs, unordered_map<int, vector<int>>& preMap, unordered_set<int>& visitSet) {
+        if (visitSet.count(crs)) {
+            return false;
+        }
+        if (preMap[crs].empty()) {
+            return true;
+        }
+
+        visitSet.insert(crs);
+        for (int pre : preMap[crs]) {
+            if (!dfs(pre, preMap, visitSet)) { // Call dfs recursively
+                return false;
             }
         }
+        visitSet.erase(crs);
+        preMap[crs].clear();
+        return true;
     }
 
-public:
-    int numIslands(std::vector<std::vector<char>>& grid) {
-        int n = grid.size();
-        int m = grid[0].size();
-
-        std::vector<std::vector<int>> vis(n, std::vector<int>(m, 0));
-        int cnt = 0;
-        for (int row = 0; row < n; row++) {
-            for (int col = 0; col < m; col++) {
-                if (!vis[row][col] && grid[row][col] == '1') {
-                    cnt++;
-                    bfs(row, col, vis, grid);
-                }
-            }
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+        // Map each course to its prerequisite list
+        unordered_map<int, vector<int>> preMap;
+        for (const auto& pre : prerequisites) {
+            preMap[pre[0]].push_back(pre[1]);
         }
 
-        return cnt;
+        // Set to track all courses along the current DFS path
+        unordered_set<int> visitSet;
+
+        // Check if each course can be finished
+        for (int crs = 0; crs < numCourses; ++crs) {
+            if (!dfs(crs, preMap, visitSet)) { // Call dfs function
+                return false;
+            }
+        }
+        return true;
     }
 };
 
 int main() {
-    // Example usage
+    // Input
+    int numCourses;
+    cin >> numCourses;
+    
+    int numPrerequisites;
+    cin >> numPrerequisites;
+
+    vector<vector<int>> prerequisites(numPrerequisites, vector<int>(2));
+    for (int i = 0; i < numPrerequisites; ++i) {
+        cin >> prerequisites[i][0] >> prerequisites[i][1];
+    }
+
+    // Create an instance of the Solution class
     Solution sol;
-    std::vector<std::vector<char>> grid = {
-        {'1', '1', '0', '0', '0'},
-        {'1', '1', '0', '0', '0'},
-        {'0', '0', '1', '0', '0'},
-        {'0', '0', '0', '1', '1'}
-    }; // Example input
-    int numIslands = sol.numIslands(grid);
-    std::cout << "Number of islands: " << numIslands << std::endl;
+
+    // Output
+    if (sol.canFinish(numCourses, prerequisites)) {
+        cout << "Possible to finish all courses." << endl;
+    } else {
+        cout << "Impossible to finish all courses." << endl;
+    }
 
     return 0;
 }
-
-
