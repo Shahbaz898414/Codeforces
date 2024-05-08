@@ -55,21 +55,20 @@ signed main() {
 
 /*
 
-#include<iostream>
-using namespace std;
-typedef long long ll;
-ll n,k,x,y,i,d[300001];
-main(){
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode" :
+        cur = root
+
+        while cur:
+            if p.val > cur.val and q.val > cur.val:
+                cur = cur.right
+            elif p.val < cur.val and q.val < cur.val:
+                cur = cur.left
+            else:
+                return cur
 
 
- for(i=2,d[0]=d[1]=1;i<=300000;i++)
-  d[i]=(d[i-1]+2*(i-1)*d[i-2])%1000000007;
 
-
- for(cin>>n;cin>>n>>k;cout<<d[n]<<endl)
-  while(k--)
-   cin>>x>>y,n-=1+(x!=y);
-}
 
 
 */
