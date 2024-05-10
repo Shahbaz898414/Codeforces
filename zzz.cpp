@@ -1,65 +1,74 @@
+#include <vector>
+#include <algorithm>
+
+class Solution {
+private:
+    std::vector<int> parent;
+    std::vector<int> rank;
+
+    int find(int n1) {
+        int res = n1;
+        while (res != parent[res]) {
+            parent[res] = parent[parent[res]];
+            res = parent[res];
+        }
+        return res;
+    }
+
+    int unionFind(int n1, int n2) {
+        int p1 = find(n1);
+        int p2 = find(n2);
+
+        if (p1 == p2) return 0;
+
+        if (rank[p2] > rank[p1]) {
+            parent[p1] = p2;
+            rank[p2] += rank[p1];
+        } else {
+            parent[p2] = p1;
+            rank[p1] += rank[p2];
+        }
+        return 1;
+    }
+
+public:
+    int countComponents(int n, std::vector<std::vector<int>>& edges) {
+        parent.resize(n);
+        rank.resize(n, 1);
+        for (int i = 0; i < n; ++i) {
+            parent[i] = i;
+        }
+
+        int components = n;
+        for (const auto& edge : edges) {
+            components -= unionFind(edge[0], edge[1]);
+        }
+        return components;
+    }
+};
+
+
 #include <iostream>
-#include <string>
-#include <sstream>
 #include <vector>
 
-using namespace std;
-
-// Define TreeNode structure
-struct TreeNode {
-    int val;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-};
-
-class Codec {
-public:
-    std::string serialize(TreeNode* root) {
-        if (!root) return "N";
-        return std::to_string(root->val) + "," + serialize(root->left) + "," + serialize(root->right);
-    }
-
-    TreeNode* deserialize(std::string data) {
-        vector<string> vals;
-        stringstream ss(data);
-        string item;
-        while (getline(ss, item, ',')) {
-            vals.push_back(item);
-        }
-        int index = 0;
-        return deserializeHelper(vals, index);
-    }
-
-private:
-    TreeNode* deserializeHelper(std::vector<std::string>& vals, int& index) {
-        if (vals[index] == "N") {
-            index++;
-            return nullptr;
-        }
-        TreeNode* node = new TreeNode(std::stoi(vals[index++]));
-        node->left = deserializeHelper(vals, index);
-        node->right = deserializeHelper(vals, index);
-        return node;
-    }
-};
-
-// Example usage
 int main() {
-    Codec codec;
-    TreeNode* root = new TreeNode(1);
-    root->left = new TreeNode(2);
-    root->right = new TreeNode(3);
-    root->right->left = new TreeNode(4);
-    root->right->right = new TreeNode(5);
+    Solution solution;
+    int n;
+    // std::cout << "Enter the number of nodes: ";
+    std::cin >> n;
 
-    // Serialize
-    std::string serialized = codec.serialize(root);
-    std::cout << "Serialized: " << serialized << std::endl;
+    int numEdges;
+    // std::cout << "Enter the number of edges: ";
+    std::cin >> numEdges;
 
-    // Deserialize
-    TreeNode* deserialized = codec.deserialize(serialized);
-    std::cout << "Deserialized: " << (deserialized ? "Success" : "Failed") << std::endl;
+    std::vector<std::vector<int>> edges(numEdges, std::vector<int>(2));
+    // std::cout << "Enter the edges (format: node1 node2):" << std::endl;
+    for (int i = 0; i < numEdges; ++i) {
+        std::cin >> edges[i][0] >> edges[i][1];
+    }
+
+    int components = solution.countComponents(n, edges);
+    std::cout  << components << std::endl;
 
     return 0;
 }
@@ -71,36 +80,36 @@ int main() {
 
 /*
 
+class Solution:
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        par = [i for in range(n)]
+        rank = [1] * n
 
-class Codec:
+        def find(n1):
+            res = n1
 
-    def serialize(self, root):
-        res = []
+            while res != par[res]:
+                par[res] = par[par[res]]
+                res = par[res]
+            return res
 
-        def dfs(node):
-            if not node:
-                res. append("N")
-                return
-            res.append(str(node.val))
-            dfs(node.left)
-            dfs(node.right)
-        dfs(root)
-        return ",".join(res)
-    def deserialize(self, data):
-        vals = data.split(",")
-        self.i = 0
+        def union(n1, n2):
+            p1, p2=find(n1), find(n2)
 
-        def dfs():
-            if vals[self.i] == "N":
-                self.i += 1
-                return None
-            node = TreeNode(int(vals[self.i]))
-            self.i += 1
-            node.left = dfs()
-            node.right = dfs()
-            return node
-    return dfs()
+            if p1 == p2:
+            return 0
 
+            if rank[p2] > rank[p1]:
+                par[p1] = p2
+                rank[p2] += rank[p1]
+            else:
+                par[p2] = p1
+                rank[p1] += rank[p2]
+            return 1
+        res=n
+        for n1, n2 in edges:
+            res -= union(n1,n2)
+        return res    
 
 
 */
