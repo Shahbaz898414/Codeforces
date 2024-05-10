@@ -1,48 +1,106 @@
-#include <unordered_map>
+#include <iostream>
 #include <string>
-#include <bits/stdc++.h>
+#include <sstream>
+#include <vector>
+
 using namespace std;
 
-#define ll long long
+// Define TreeNode structure
+struct TreeNode {
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+};
 
-int main()
-{
-    ll t;
-    cin >> t;
-
-    while (t--)
-    {
-        int num_elements;
-        cin >> num_elements;
-
-        vector<int> array(num_elements);
-        for (int &element : array)
-            cin >> element;
-
-        sort(array.begin(), array.end());
-
-        int result = 0;
-        for (int i = 0, j = num_elements - 1; i < j; i++, j--)
-            result += array[j] - array[i];
-
-        if (num_elements % 2 != 0)
-            result += array[num_elements / 2];
-
-        return result;
+class Codec {
+public:
+    std::string serialize(TreeNode* root) {
+        if (!root) return "N";
+        return std::to_string(root->val) + "," + serialize(root->left) + "," + serialize(root->right);
     }
+
+    TreeNode* deserialize(std::string data) {
+        vector<string> vals;
+        stringstream ss(data);
+        string item;
+        while (getline(ss, item, ',')) {
+            vals.push_back(item);
+        }
+        int index = 0;
+        return deserializeHelper(vals, index);
+    }
+
+private:
+    TreeNode* deserializeHelper(std::vector<std::string>& vals, int& index) {
+        if (vals[index] == "N") {
+            index++;
+            return nullptr;
+        }
+        TreeNode* node = new TreeNode(std::stoi(vals[index++]));
+        node->left = deserializeHelper(vals, index);
+        node->right = deserializeHelper(vals, index);
+        return node;
+    }
+};
+
+// Example usage
+int main() {
+    Codec codec;
+    TreeNode* root = new TreeNode(1);
+    root->left = new TreeNode(2);
+    root->right = new TreeNode(3);
+    root->right->left = new TreeNode(4);
+    root->right->right = new TreeNode(5);
+
+    // Serialize
+    std::string serialized = codec.serialize(root);
+    std::cout << "Serialized: " << serialized << std::endl;
+
+    // Deserialize
+    TreeNode* deserialized = codec.deserialize(serialized);
+    std::cout << "Deserialized: " << (deserialized ? "Success" : "Failed") << std::endl;
 
     return 0;
 }
 
+
+
+
+
+
 /*
-You are given an array  𝐴 containing  𝑁 integers. Count the number of ordered pairs (i,j) such that:
-1) 1≤i,j≤N, and
-2) A[i]^j ​  ≤A[j] ​   That is,  A[i] ​   raised to the power j doesn't exceed  A[j] . Note that we're counting ordered pairs, meaning the pair (1,2) is different from the pair (2,1).
 
 
-Input
-Format The first line of input will contain a single integer T, denoting the number of test cases. Each test case consists of two lines of input. The first line of each test case contains a single integer  N — the number of elements in the array. The second line contains  N space-separated integers  A[1] ​  ,A[2] ,…,A[N].
-Output
-Format For each test case, output on a new line the number of ordered pairs (i,j) that satisfy the given condition.
+class Codec:
+
+    def serialize(self, root):
+        res = []
+
+        def dfs(node):
+            if not node:
+                res. append("N")
+                return
+            res.append(str(node.val))
+            dfs(node.left)
+            dfs(node.right)
+        dfs(root)
+        return ",".join(res)
+    def deserialize(self, data):
+        vals = data.split(",")
+        self.i = 0
+
+        def dfs():
+            if vals[self.i] == "N":
+                self.i += 1
+                return None
+            node = TreeNode(int(vals[self.i]))
+            self.i += 1
+            node.left = dfs()
+            node.right = dfs()
+            return node
+    return dfs()
+
+
 
 */
