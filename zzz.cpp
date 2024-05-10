@@ -2,76 +2,49 @@
 #include <algorithm>
 
 class Solution {
-private:
-    std::vector<int> parent;
-    std::vector<int> rank;
-
-    int find(int n1) {
-        int res = n1;
-        while (res != parent[res]) {
-            parent[res] = parent[parent[res]];
-            res = parent[res];
-        }
-        return res;
-    }
-
-    int unionFind(int n1, int n2) {
-        int p1 = find(n1);
-        int p2 = find(n2);
-
-        if (p1 == p2) return 0;
-
-        if (rank[p2] > rank[p1]) {
-            parent[p1] = p2;
-            rank[p2] += rank[p1];
-        } else {
-            parent[p2] = p1;
-            rank[p1] += rank[p2];
-        }
-        return 1;
-    }
-
 public:
-    int countComponents(int n, std::vector<std::vector<int>>& edges) {
-        parent.resize(n);
-        rank.resize(n, 1);
-        for (int i = 0; i < n; ++i) {
-            parent[i] = i;
+    static bool cmp(const std::pair<int, int>& a, const std::pair<int, int>& b){
+        return a.second < b.second;
+    }
+    
+    int eraseOverlapIntervals(std::vector<std::vector<int>>& intervals) {
+        if (intervals.empty()) {
+            return 0;
         }
+        
+        int n = intervals.size();
+        std::vector<std::pair<int, int>> v(n);
+        
+        for(int i = 0; i < n; i++) {
+            v[i].first = intervals[i][0];
+            v[i].second = intervals[i][1];
+        }
+        
+        std::sort(v.begin(), v.end(), cmp);
 
-        int components = n;
-        for (const auto& edge : edges) {
-            components -= unionFind(edge[0], edge[1]);
+        int end = v[0].second;
+        int count = 0; 
+
+        for(int i = 1; i < n; i++) {
+            if(v[i].first < end) {
+                count++;
+            } else {
+                end = v[i].second;
+            }
         }
-        return components;
+        
+        return count;
     }
 };
 
-
-#include <iostream>
-#include <vector>
-
 int main() {
-    Solution solution;
-    int n;
-    // std::cout << "Enter the number of nodes: ";
-    std::cin >> n;
-
-    int numEdges;
-    // std::cout << "Enter the number of edges: ";
-    std::cin >> numEdges;
-
-    std::vector<std::vector<int>> edges(numEdges, std::vector<int>(2));
-    // std::cout << "Enter the edges (format: node1 node2):" << std::endl;
-    for (int i = 0; i < numEdges; ++i) {
-        std::cin >> edges[i][0] >> edges[i][1];
-    }
-
-    int components = solution.countComponents(n, edges);
-    std::cout  << components << std::endl;
-
+    Solution sol;
+    std::vector<std::vector<int>> intervals = {{1, 2}, {2, 3}, {3, 4}, {1, 3}};
+    int result = sol.eraseOverlapIntervals(intervals);
+    std::cout << "Result: " << result << std::endl;
     return 0;
 }
+
 
 
 
@@ -81,35 +54,52 @@ int main() {
 /*
 
 class Solution:
-    def countComponents(self, n: int, edges: List[List[int]]) -> int:
-        par = [i for in range(n)]
-        rank = [1] * n
+    def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
+        ROWS, COLS = len(heights), len(heights[0])
+        pac, atl = set(), set()
 
-        def find(n1):
-            res = n1
+        def dfs(r, c, visit, prevHeight):
+            if ((r, c) in visit or
+            r < 0 or c < 0 or r == ROWS or c == COLS or
+            heights[r][c] < prevHeight):
+                return
+            visit.add((r, c))
+            dfs(r + 1, c, visit, heights[r][c])
+            dfs(r - 1, c, visit, heights[r][c])
+            dfs(r, c + 1, visit, heights[r][c])
+            dfs(r, c - 1, visit, heights[r][c])
 
-            while res != par[res]:
-                par[res] = par[par[res]]
-                res = par[res]
-            return res
+        for c in range(COLS):
+            dfs(0, c, pac, heights[r][c])
+            dfs(ROWS - 1, c, atl, heights[ROWS - 1][c])
 
-        def union(n1, n2):
-            p1, p2=find(n1), find(n2)
+        for r in range(ROWS):
+            dfs(r, 0, pac, heights[r][c])
+            dfs(r, COLS - 1, atl, heights[r][c])
+        
+        res = []
+        for r in range(ROWS):
+            for c in range(COLS):
+                if (r, c) in pac and (r, c) in atl:
+                    res. append([r, c])
 
-            if p1 == p2:
-            return 0
+        return res
 
-            if rank[p2] > rank[p1]:
-                par[p1] = p2
-                rank[p2] += rank[p1]
-            else:
-                par[p2] = p1
-                rank[p1] += rank[p2]
-            return 1
-        res=n
-        for n1, n2 in edges:
-            res -= union(n1,n2)
-        return res    
 
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        hm = {}
+        ans = 0
+
+        l= 0
+        for r in range(len(s)):
+            hm[s[r]] = 1 + hm.get(s[r]],0)
+
+            whibe (r-1+1) - max(hm.values()) > k:
+                hm[s[1]] -= 1
+                l += 1
+
+            ans = max(ans, r-1+1)
+        return ans
 
 */
