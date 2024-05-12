@@ -54,28 +54,27 @@ int main() {
 
 /*
 
-ROBOT:
+
+Number of Axes .-
+Each robotic manipulator has a number of axes about which it's links
+rotate or along Which its links translate. Usually, the frst three
+axes, or major axes, are used to establish the position of the wrist,
+While the remaining ares are used to establish the crientation
+of the dool ov gripper.
+
+2. Capacuy and Speed
+Load - canying capacity Varies greaHy between robotS. Fox
+example, the Minimaver 5 Micvobor, an educaHonal toble - top
+robor, has a load Sarying Capacity of a.2. kg. At the afioise
+of the spectrum, he GcA -XRE Extended Reach Industial
+Yobot has a load casrying capacity of 4928 kg.
+The maximum tool- tip speed can also Vary SubStanHally bekueen
+manipulators . The westinghouse series 4000 robot has a
+tool- Hp speed of 92 mm/sec, While the Adept One SCARA
+robor has a dool Hp speed of 9000 mm/Sec.
+w Cycle. Hme - is the ime required to perform a
+periodic moHon similar to a simple pick and place operalien.
 
 
-Point - to- Point motion -> The tool moves to  a sequence of
-discrete points in the workspace. The path berween the points is
-hot explicity controlled by the user .
 
-//////////////////////
-
-300. Longest Increasing Subsequence blind 75,Blind 75,Blind 75 LeetCode Sheet Solved,Blind 75 Sheet Solved,Longest Increasing Subsequence blind 75,Longest Increasing Subsequence,300. Longest Increasing Subsequence,300 Longest Increasing Subsequence on leetcode,300 on leetcode,300 on leetcode solved,Longest Increasing Subsequence c++,Longest Increasing Subsequence python,Longest Increasing Subsequence solution
-
-/////////////////////////
-
-#30dayschallenge
-#challenge
-#consistency
-#Cp 
-#AlgorithmExplained 
-#ProblemSolving
-#lessons
-#learning
-#Youtube
-
-Mother it was i who was blessed to have be born as women you
 */
