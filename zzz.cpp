@@ -57,11 +57,25 @@ int main() {
 ROBOT:
 
 
-A rabot is a softwdre- Controllable Mechanical device that
-uses sensors to guide one ar mare end-effecvors thraugh
-programmed mosons in a Workspace in order to manipulake
-Physical abjecis.
+Point - to- Point motion -> The tool moves to  a sequence of
+discrete points in the workspace. The path berween the points is
+hot explicity controlled by the user .
 
-:
+//////////////////////
 
+300. Longest Increasing Subsequence blind 75,Blind 75,Blind 75 LeetCode Sheet Solved,Blind 75 Sheet Solved,Longest Increasing Subsequence blind 75,Longest Increasing Subsequence,300. Longest Increasing Subsequence,300 Longest Increasing Subsequence on leetcode,300 on leetcode,300 on leetcode solved,Longest Increasing Subsequence c++,Longest Increasing Subsequence python,Longest Increasing Subsequence solution
+
+/////////////////////////
+
+#30dayschallenge
+#challenge
+#consistency
+#Cp 
+#AlgorithmExplained 
+#ProblemSolving
+#lessons
+#learning
+#Youtube
+
+Mother it was i who was blessed to have be born as women you
 */
