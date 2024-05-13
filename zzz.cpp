@@ -75,6 +75,23 @@ robor has a dool Hp speed of 9000 mm/Sec.
 w Cycle. Hme - is the ime required to perform a
 periodic moHon similar to a simple pick and place operalien.
 
+////////////////////////
+
+
+IMAGE REPRESENTATION:
+A raw two-dimensional image can be regarded as an analog function I (x, y) which specifies the
+reflected light intensity at each position coordinate (x, y). If the raw image is to be processed with a
+computer, the analog signal i(x, y) must be converted to an equivalent digital representation. This
+involves two steps called as sampling and auantization.
+First the spatial coordinates (x, y) are sampled at discrete intervals (k Ax, j Ay). If there are m
+samples along the x coordinate and n samples along the y coordinate, then this results in an image with
+a total of mn picture elements, or pixels. We can even say that the vision system has a spatial
+resolution of m x n pixels. Normally, m and n are powers of 2. The storage requirements for an, image
+grow rapidly with the resolution. For example, if the unit of storage is one byte per pixel; then a single
+frame of a 1024 x 1024 pixel image uses one megabyte of memory. The unit of storage for an image
+will depend on the number of colors or shades of a color that are used to represent the reflected
+light intensity. The value of the reflected light intensity associated with the pixel in row k and column
+y will be the average light intensity over that picture element.
 
 
 */
