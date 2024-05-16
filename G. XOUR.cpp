@@ -149,6 +149,29 @@ int32_t main()
     {
       cin >> a[i];
       mp[a[i] >> 2].push(-a[i]);
+      // cout<<(a[i]>>2)<<" "<<a[i]<<endl;
     }
+
+
+    cout<<endl;
+     for (auto it : mp) {
+            cout << it.first << " ";
+            while (!it.second.empty()) {
+                cout << -it.second.top() <<" ";
+                it.second.pop();
+            }
+            cout << endl;
+        }
+
+        cout<<endl;
+
+    for (int i = 0; i < n; i++)
+    {
+      cout << -mp[a[i] >> 2].top() << ' ';
+      mp[a[i] >> 2].pop();
+    }
+    cout << endl;
+
+
   }
 }
