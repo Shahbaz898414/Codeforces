@@ -132,8 +132,6 @@ bool isregular(string t)
   return true;
 }
 
-
-
 int32_t main()
 {
 
@@ -141,35 +139,16 @@ int32_t main()
   cin.tie(0);
   int t;
   cin >> t;
-  while (t--) {
-   
-    
+  while (t--)
+  {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    map<int, priority_queue<int>> mp;
+    for (int i = 0; i < n; i++)
+    {
+      cin >> a[i];
+      mp[a[i] >> 2].push(-a[i]);
+    }
   }
 }
-
-
-/*
-
-
-338. Counting Bits blind 75,Blind 75,Blind 75 LeetCode Sheet Solved,Blind 75 Sheet Solved,Counting Bits blind 75,Counting Bits,338. Counting Bits,338 Counting Bits on leetcode,338 on leetcode,338 on leetcode solved,Counting Bits c++,Counting Bits python,Counting Bits solution
-
-
-
-#30dayschallenge
-
-#challenge
-
-#consistency
-
-#Cp 
-
-#AlgorithmExplained 
-
-#ProblemSolving
-
-#lessons
-
-#learning
-
-#Youtube
-*/
