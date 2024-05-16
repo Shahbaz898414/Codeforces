@@ -153,17 +153,17 @@ int32_t main()
     }
 
 
-    cout<<endl;
-     for (auto it : mp) {
-            cout << it.first << " ";
-            while (!it.second.empty()) {
-                cout << -it.second.top() <<" ";
-                it.second.pop();
-            }
-            cout << endl;
-        }
+    // cout<<endl;
+    //  for (auto it : mp) {
+    //         cout << it.first << " ";
+    //         while (!it.second.empty()) {
+    //             cout << -it.second.top() <<" ";
+    //             it.second.pop();
+    //         }
+    //         cout << endl;
+    //     }
 
-        cout<<endl;
+    //     cout<<endl;
 
     for (int i = 0; i < n; i++)
     {
@@ -175,3 +175,30 @@ int32_t main()
 
   }
 }
+
+
+
+
+/*
+
+417. Pacific Atlantic Water Flow blind 75,Blind 75,Blind 75 LeetCode Sheet Solved,Blind 75 Sheet Solved,Pacific Atlantic Water Flow blind 75,Pacific Atlantic Water Flow,417. Pacific Atlantic Water Flow,417 Pacific Atlantic Water Flow on leetcode,417 on leetcode,417 on leetcode solved,Pacific Atlantic Water Flow c++,Pacific Atlantic Water Flow python,Pacific Atlantic Water Flow solution
+
+
+hashtag#30dayschallenge
+
+hashtag#challenge
+
+hashtag#consistency
+
+hashtag#Cp 
+
+hashtag#AlgorithmExplained 
+
+hashtag#ProblemSolving
+
+hashtag#lessons
+
+hashtag#learning
+
+hashtag#Youtube
+*/
