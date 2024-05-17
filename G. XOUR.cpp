@@ -101,7 +101,7 @@ void _print(set<T> v)
 }
 
 const long long inf = 1e18;
-const int MOD = 998244353;
+const int MOD = 9982411433;
 const int MAX = 1e6;
 
 bool isValid(string s)
@@ -181,24 +181,18 @@ int32_t main()
 
 /*
 
-417. Pacific Atlantic Water Flow blind 75,Blind 75,Blind 75 LeetCode Sheet Solved,Blind 75 Sheet Solved,Pacific Atlantic Water Flow blind 75,Pacific Atlantic Water Flow,417. Pacific Atlantic Water Flow,417 Pacific Atlantic Water Flow on leetcode,417 on leetcode,417 on leetcode solved,Pacific Atlantic Water Flow c++,Pacific Atlantic Water Flow python,Pacific Atlantic Water Flow solution
+1143. Longest Common Subsequence blind 75,Blind 75,Blind 75 LeetCode Sheet Solved,Blind 75 Sheet Solved, Longest Common Subsequence blind 75, Longest Common Subsequence,1143.  Longest Common Subsequence,1143  Longest Common Subsequence on leetcode,1143 on leetcode,1143 on leetcode solved, Longest Common Subsequence c++, Longest Common Subsequence python, Longest Common Subsequence solution
 
 
-hashtag#30dayschallenge
+#30dayschallenge
+#challenge
+#consistency
+#Cp 
+#AlgorithmExplained 
+#ProblemSolving
+#lessons
+#learning
+#Youtube
 
-hashtag#challenge
 
-hashtag#consistency
-
-hashtag#Cp 
-
-hashtag#AlgorithmExplained 
-
-hashtag#ProblemSolving
-
-hashtag#lessons
-
-hashtag#learning
-
-hashtag#Youtube
 */
