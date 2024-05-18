@@ -1,38 +1,41 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-int minCardsLeft(int n, int k, vector<int>& cards) {
-    unordered_map<int, int> freq;
-    for (int card : cards) {
-        freq[card]++;
-    }
 
-    int minLeft = n;
-    for (auto& it : freq) {
-        int ops = it.second / k;
-        int left = it.second % k;
-        minLeft = min(minLeft, n - ops * (k - 1) - left);
-    }
-
-    return minLeft;
-}
 
 int main() {
     int t;
     cin >> t;
 
     while (t--) {
-        int n, k;
-        cin >> n >> k;
-        vector<int> cards(n);
-        for (int i = 0; i < n; ++i) {
-            cin >> cards[i];
-        }
-        cout << minCardsLeft(n, k, cards) << endl;
+
+      int n;cin>>n;
+
+      vector<int>  arr(n);
+
+      for (int i = 0; i < n; i++)
+      {
+        /* code */
+        cin>>arr[i];
+      }
+      
+
     }
 
     return 0;
 }
+
+
+/*
+
+
+competitive programming, google code jam, google kickstart, coding interviews, algorithms, tmwilliamlin168, coding problems
+
+
+C++, competitive programming, coding interviews, leetcode, codeforces, cses problemsets, CSES problemset, cses problems, CSES problemset algorithms, CSES algorithms, cses problem set review, cses problem set, CSES Weird Algorithm, CSES weird algorithm, weird algorithm CSES solution, CSES weird, cses weird algorithm, weird algorithm cses solution, CSES, cses - weird algorithm, cses weird Algorithm, cses introductory problems, CSES review, cses problem sets
+
+
+*/
