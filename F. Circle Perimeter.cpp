@@ -28,35 +28,55 @@ int main()
 
 /*
 
+A Wireless ad hoc network is a group of independent terminals or nodes which communicate with each other by forming a multi-hop radio network.
 
-- It is a network with pre-constructed infrastructure
-made up of fixed network nodes and gateways
-where network services are delivered through
-pre-constructed infrastructures.
+Nodes in this networks have to compete with
+some effects of radio communication such as
+interference, noise and fading etc. as the
+communication between the nodes takes place
+over the wireless (radio) links.
 
-- Infrastructure based networks consists of fixed
-base stations called as access points and they are
-connected by wires.
+- The links in wireless ad hoc network have less
+bandwidth as compared to that of a wired
+network.
 
-- When mobile node is inside the communication
-range they can communicate with BS via wireless
-link
+- In wireless ad hoc networks or simply an ad hoc
+network, each node acts as a router and a host
+and the network control is distributed among the
+nodes.
 
-- When mobile node is not in the communication
-range of base station then it makes connection
-with other base station for communication.
+Infrastructure-less network is a group of self-
+configurable, autonomous, self-organizing nodes
+connected by wireless links.
+- The nodes can move freely from one to another
+place by changing the topology regularly because
+there is no predefined infrastructure. In this type
+of networks, communication between nodes takes
+place using multi-hop communication.
 
-- In this type of networks, access point is a central
-controller for each device.
+- In Ad hoc network, the network formation takes
+place dynamically through the collaboration of an
+random set of independent nodes.
+- Due to decentralized network, topology discovery
+and delivery of message should be executed by
+nodes themselves.
 
-- Installation of such infrastructure is too expensive
-and it is sometimes technically impossible for
-some remote localities.
 
-- In this type of networks all devices on a wireless
-network communicate with each other through a
-wireless router (Access point).
+The nodes can join or leave the network at any
+time due to free node mobility.
 
+- Wireless ad hoc networks allows short range and
+long range communication ranging from wireless
+mobile networks to wireless sensor networks.
+
+- In wireless Ad hoc network, the network topology
+is highly dynamic due to mobility of nodes.
+
+- The nodes in ad hoc network can communicate
+with each other directly within their wireless range
+whereas they can communicate with each other by
+using multi-hop radio network beyond their
+wireless range.
 
 
 */
