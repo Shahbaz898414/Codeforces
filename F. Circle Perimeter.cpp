@@ -26,33 +26,16 @@ int main()
 	}
 }
 
+
 /*
 
-
-Iptables is a Linux command line firewall which
-allows system administrators to manage incoming
-and outgoing traffic through a set of configurable
-table rules.
-
-IPTable is a tool for managing firewall rules on a
-Linux OS machine. IPTable is a firewall program for
-Linux OS.
-
-It monitors traffic from and to your server by using
-tables.
-
-Iptables is used to set up, maintain and inspect the
-tables of IP packet filter rules in the Linux kernel
-
-These tables includes a set of rules, called as
-chains. The chains will filter incoming and
-outgoing data packets.
-
-Iptables is a command-line firewall service that
-uses policy chains to allow or block the traffic.
-When a connection tries to set up itself on your
-system, iptables looks for a rule in its list in order
-to match it to. If it doesn't matches, it takes the
-default action.
+a) Significance of Environment
+b) Global Warming
+c) Scope of Environment Management
+d) EMS certification
+e) Forest Act
+f) Eco-system and its types
 
 */
+
+
