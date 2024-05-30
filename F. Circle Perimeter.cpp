@@ -29,13 +29,7 @@ int main()
 
 /*
 
-a) Significance of Environment
-b) Global Warming
-c) Scope of Environment Management
-d) EMS certification
-e) Forest Act
-f) Eco-system and its types
-//////////////////////////////////////////////
+
 
 The air gets polluted because of the industrial and transport activities, which release the
 toxic matter in the air,
