@@ -36,22 +36,8 @@ public:
 };
 
 int main() {
-    // Test case
-    Solution solution;
-    std::string t1 = "abcde";
-    std::string t2 = "ace";
-    int result = solution.longestCommonSubsequence(t1, t2);
-    cout << "Length of longest common subsequence: " << result << endl;
+    
 
     return 0;
 }
 
-
-
-
-
-/*
-
-
-
-*/
