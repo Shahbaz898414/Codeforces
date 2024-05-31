@@ -17,6 +17,7 @@ int main()
 		int y1=0,y2=0;
 		for(int i=n;i>=1;i--)
 		{
+			// 
 			while(i*i+y1*y1<n*n)y1++;
 			while(i*i+y2*y2<(n+1)*(n+1))y2++;
 			ans+=(y2-y1);
@@ -24,5 +25,6 @@ int main()
     
 		cout<<ans*4<<endl;
 	}
+	// 
 }
 
