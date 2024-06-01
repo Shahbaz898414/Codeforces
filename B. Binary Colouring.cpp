@@ -40,12 +40,15 @@ int main()
         }
       }
     }
+
     cout << 31 << '\n';
+    
     for (int i = 0; i <= 30; i++)
     {
       cout << res[i] << ' ';
     }
     cout << '\n';
+
   }
 
   return 0;
