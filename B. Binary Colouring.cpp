@@ -12,6 +12,7 @@ int main() {
 
     while(t--){
       ll n;cin>>n;
+      vector<ll> arr;
 
       
     }
