@@ -42,7 +42,7 @@ int main()
     }
 
     cout << 31 << '\n';
-    
+
     for (int i = 0; i <= 30; i++)
     {
       cout << res[i] << ' ';
@@ -52,4 +52,6 @@ int main()
   }
 
   return 0;
+
+  
 }
