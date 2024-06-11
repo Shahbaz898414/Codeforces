@@ -1,43 +1,71 @@
-#include <string>
+#include <iostream>
 #include <vector>
-#include <bits/stdc++.h>
 #include <algorithm>
 using namespace std;
 
-class Solution {
-public:
-    int longestCommonSubsequence(std::string t1, std::string t2) {
-        int m = t1.length();
-        int n = t2.length();
+long long solve(int N, int M, vector<int>& size, vector<int>& taste) {
+    long long main = 0;
+    int l = 0;
+    long long gt=0;
+    int r = M;
 
-        // Create a matrix to store the lengths of common subsequences
-        std::vector<std::vector<int>> matrix(m + 1, std::vector<int>(n + 1, 0));
-      
+    while (r <= N) {
+        long long sum = 0,jem=0;
+        long long mid=(l+r)/2;
+        for (int i = l; i < r - 1; ++i) {
+            sum += size[i];
+            jem+=size[r-l+1];
 
-        // Fill the matrix bottom-up
-        for (int i = m - 1; i >= 0; --i) {
-            for (int j = n - 1; j >= 0; --j) {
-                if (t1[i] == t2[j]) {
-                    matrix[i][j] = 1 + matrix[i + 1][j + 1];
-                } else {
-                    matrix[i][j] = std::max(matrix[i][j + 1], matrix[i + 1][j]);
-                }
-                
-            }
+        }
+        
+        int diff = *min_element(taste.begin() + l, taste.begin() + r - 1);
+
+        for (int i = r - 1; i < N; ++i) {
+            long long ans = (sum + size[i]) * min(diff, taste[i]);
+            main = max(main, ans);
+            long long ans2 = (jem + size[mid]) * max(diff, size[i]);
             
         }
-
         
-        
-
-        // Return the length of the longest common subsequence
-        return matrix[0][0];
+        l += 1;
+        r += 1;
     }
-};
+    
+    return main;
+}
 
 int main() {
-    
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int N, M;
+        cin >> N >> M;
+
+        vector<int> size(N);
+        vector<int> taste(N);
+
+        for (int i = 0; i < N; ++i) {
+            cin >> size[i];
+        }
+        for (int i = 0; i < N; ++i) {
+            cin >> taste[i];
+        }
+
+        // Call solve function for the current test case
+        long long ans = solve(N, M, size, taste);
+        cout << ans << endl;
+    }
 
     return 0;
 }
 
+
+/*
+1
+5
+4 3 5 6 10
+1 2 3 6 5
+1 2 5 7 7
+
+*/
