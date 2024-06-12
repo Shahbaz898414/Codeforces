@@ -2,105 +2,134 @@
 #include <string>
 #include <bits/stdc++.h>
 using namespace std;
-
 #define ll long long
+
+
+#define large (int)1e5 + 5
+bool isValid(string s) {
+  int len = s.size();
+  for (int i = 0; i < len / 2; i++) {
+    if (s[i] != s[len - 1 - i])
+      return false;
+  }
+  return true;
+}
+
+bool good(int x) {
+  int t, n, a[1000000];
+  for (int i = 1, j = n; i <= j; ++i, --j) {
+    if (a[i] == a[j]) continue;
+    if (a[i] != x and a[j] != x) return 0;
+    if (a[i] == x) ++j; else --i;
+  } return 1;
+}
+vector<int> combination;
+void rotateMatrix(vector<vector<int>> &v, int n) {
+  for(int i = 0; i < n / 2; i++){
+    for(int j = i; j < n - i - 1; j++) {
+      int ptr = v[i][j];
+      v[i][j] = v[n - 1 - j][i];
+      v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+      v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+      v[j][n - 1 - i] = ptr;
+    }
+  }
+}
+
+set<int> mp;
+void thr(vector<vector<int>> &v, int n) {
+  for(int i = 0; i < n / 2; i++){
+    for(int j = i; j < n - i - 1; j++) {
+      int ptr = v[i][j];
+      v[i][j] = v[n - 1 - j][i];
+      v[n - 1 - j][i] = v[n - 1 - i][n - 1 - j];
+      v[n - 1 - i][n - 1 - j] = v[j][n - 1 - i];
+      v[j][n - 1 - i] = ptr;
+    }
+  }
+}
+ll z = 16;
+bitset<large + 5> setcombination;
+
+void cal()
+{
+    // main code
+    setcombination.set();
+    setcombination[0] = setcombination[1] = 0;
+    for (int i = 2; i <= sqrt(large) + 2; i++)
+    {
+        if (setcombination[i])
+        {
+            combination.push_back(i * i);
+            mp.insert(i * i);
+            for (int j = i * i; j <= large; j += i)
+                setcombination[j] = 0;
+        }
+    }
+    for (int i = sqrt(large) + 3; i < large; i++)
+        if (setcombination[i])
+        {
+            combination.push_back(i * i);
+            mp.insert(i * i);
+        }
+}
 
 int main()
 {
     ll t;
     cin >> t;
+    cal();
 
     while (t--)
     {
-        ll size;
-        cin >> size;
-        ll pairs = 0,h;
-        ll result = 0,ans=0,cnt=1;
-        vector<ll> numbers(size);
-        unordered_map<ll, ll> count, power;
-         unordered_map<ll, pair<ll, ll>> elements;
-        for (ll i = 0; i < size; i++)
-        {
-            cin >> numbers[i];
-            
-        }
+        // solve();
 
-        for (ll i = 0; i < size; i++)
-        {
-            pairs += count[numbers[i]];
-            h=0;
-            count[numbers[i]]++;
-            
-        }
+        ll N, K;
+        cin >> N;
 
-        for (ll i = 0; i < size; i++)
+        
+
+        bool fl = false,fls=true;
+        long long sum = N + 1;
+        int i = z / 4;
+        long long C = pow(N, z),mx=1;
+        long long D=N*N;
+        for (auto it : combination)
         {
 
-            power[numbers[i]] += i + 1;
-             
-            if (numbers[i] == 1)
-            {
-                result += size;
-                ans+=(result+cnt/2);
-                continue;
+            int main = N - i - it;
+
+            int f = main + i + it;
+            C /= main;
+            C += f+1;
+
+            mx=max({f,main,1});
+
+            if (mp.count(main) == 0 and f > 0 and C) continue;
+
+            if(C % N == 0 && D % N == 0 && D % N == 0){
+                fls=1;
+                sum++;
+                D/= main;
+                if(mx <= 0) mx = 1;
+                if(f<=0) f=1;
+                C=1;
+
             }
-
-            pairs -= power[numbers[i]] - count[numbers[i]]; 
-            for (ll j = 0; j < min(30LL, size); j++)
+            if (i != it && mx>0 and it != main && i != main && f > 0 and C and i + it + main == N )
             {
-                if (pow(numbers[i], j + 1) <= numbers[j])
-                {
-                    if(cnt>0)
-                    result += 1;
-                    if(count[numbers[i]]>=0) 
-                    ans++;
+                fls=0;
 
-                    pairs+=(result+ power[numbers[i]])/2;
-
-                }
+                fl = true;
+                break;
             }
-
-            pairs += elements[numbers[i]].second - elements[numbers[i]].first; 
         }
 
-
-        cout << max(result,(pairs*cnt*h)) << endl;
+        if (fl || !fls)
+            cout << "Yes\n";
+        else
+            cout << "No\n";
     }
 
     return 0;
 }
-
-
-
-/*
-
-You are given a string S of length N, containing only the characters a, b, and c.
-
-In one move, you can modify S as follows:
-
-. Choose three indices i, j, k(1 ≤ i < j < k≤ |S|) such that Si = a, Sj = b, Sk = c.
-That is, choose some subsequence of S that equals abc.
-
-. Then, delete either the a or the c from S, that is, either index i or index k.
-Note that this reduces the length of S by 1.
-
-For example, if S = cbbacbacc, you can choose i = 4, j = 6, k = 8 (the underlined indices), and
-then delete either index 4 (obtaining S = cbbcbacc) or index 8 (obtaining S = cbbacbac).
-
-Find the minimum number of moves that can be made on S, such that it's impossible to perform any further moves on the resulting string.
-
-Input Format
-
-. The first line of input will contain a single integer T, denoting the number of test cases.
-. Each test case consists of two lines of input.
-. The first line of each test case contains a single integer N - the length of S.
-o The second line of each test case contains the string S of length N.
-
-Output Format
-
-For each test case, output on a new line minimum possible number of moves that can be made on S,
-such that it's not possible to perform any further moves.
-
-
-
-*/
