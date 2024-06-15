@@ -3,7 +3,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-
+#define FOR(i, a, b) for (int i = (a); i < (int)(b); ++i)
 
 #define large (int)1e5 + 5
 bool isValid(string s) {
@@ -74,61 +74,162 @@ void cal()
         }
 }
 
-int main()
-{
-    ll t;
-    cin >> t;
-    cal();
-
-    while (t--)
-    {
-        // solve();
-
-        ll N, K;
+void solve (){
+    ll N, K;
         cin >> N;
 
         
 
         bool fl = false,fls=true;
+
+
         long long sum = N + 1;
-        int i = z / 4;
+
+
+        int i = z/4;
+
+
         long long C = pow(N, z),mx=1;
+
+
         long long D=N*N;
+
+
         for (auto it : combination)
         {
 
+
             int main = N - i - it;
 
+
             int f = main + i + it;
-            C /= main;
-            C += f+1;
+            C = C/ main;
+            C += (f);
 
             mx=max({f,main,1});
 
-            if (mp.count(main) == 0 and f > 0 and C) continue;
 
-            if(C % N == 0 && D % N == 0 && D % N == 0){
-                fls=1;
-                sum++;
-                D/= main;
-                if(mx <= 0) mx = 1;
-                if(f<=0) f=1;
-                C=1;
+            if(C<=0) C=max({f,main,1});
 
-            }
-            if (i != it && mx>0 and it != main && i != main && f > 0 and C and i + it + main == N )
+
+            if (mp.count(main) == 0 and f > 0 and C>=0) continue;
+
+
+            // if(C % N == 0 || D % N == 0 || D % N == 0){
+            //     fls=1;
+            //     sum++;
+            //     D/= main;
+            //     if(mx <= 0) mx = 1;
+            //     if(f<=0) f=1;
+            //     C=1;
+
+            // }
+
+
+            if (i != it && mx>=0 and it != main && i != main && f >= 0 and C>=0 and i + it + main == N )
             {
-                fls=0;
+
+                cout << "Yes\n";
+
+                fls=1;
 
                 fl = true;
-                break;
+                return;
+                // break;
+
+
+
             }
         }
 
-        if (fl || !fls)
-            cout << "Yes\n";
-        else
+        // if (fl and fls)
+        //     cout << "Yes\n";
+        // else
             cout << "No\n";
+}
+
+int main() {
+
+
+    ll t;
+    cin >> t;
+
+
+    cal();
+
+
+    while (t--)
+    {
+        solve();
+
+        // ll N, K;
+        // cin >> N;
+
+        
+
+        // bool fl = false,fls=true;
+
+
+        // long long sum = N + 1;
+
+
+        // int i = z/4;
+
+
+        // long long C = pow(N, z),mx=1;
+
+
+        // long long D=N*N;
+
+
+        // for (auto it : combination)
+        // {
+
+
+        //     int main = N - i - it;
+
+
+        //     int f = main + i + it;
+        //     C = C/ main;
+        //     C += (f);
+
+        //     mx=max({f,main,1});
+
+
+        //     if(C<=0) C=max({f,main,1});
+
+
+        //     if (mp.count(main) == 0 and f > 0 and C>=0) continue;
+
+
+        //     if(C % N == 0 || D % N == 0 || D % N == 0){
+        //         fls=1;
+        //         sum++;
+        //         D/= main;
+        //         if(mx <= 0) mx = 1;
+        //         if(f<=0) f=1;
+        //         C=1;
+
+        //     }
+
+
+        //     if (i != it && mx>=0 and it != main && i != main && f >= 0 and C>=0 and i + it + main == N )
+        //     {
+
+        //         fls=1;
+
+        //         fl = true;
+
+        //         break;
+
+
+        //     }
+        // }
+
+        // if (fl and fls)
+        //     cout << "Yes\n";
+        // else
+        //     cout << "No\n";
     }
 
     return 0;
