@@ -74,163 +74,36 @@ void cal()
         }
 }
 
-void solve (){
-    ll N, K;
-        cin >> N;
-
-        
-
-        bool fl = false,fls=true;
 
 
-        long long sum = N + 1;
+int solve (int n,vector<int>  dp){
+   if(n<=1) return n;
+  // if(n==0)  return 0;
+  if(dp[n]!=-1) return dp[n];
 
+  dp[n]=solve(n-1,dp)+solve(n-2,dp);
 
-        int i = z/4;
+  return dp[n];
 
-
-        long long C = pow(N, z),mx=1;
-
-
-        long long D=N*N;
-
-
-        for (auto it : combination)
-        {
-
-
-            int main = N - i - it;
-
-
-            int f = main + i + it;
-            C = C/ main;
-            C += (f);
-
-            mx=max({f,main,1});
-
-
-            if(C<=0) C=max({f,main,1});
-
-
-            if (mp.count(main) == 0 and f > 0 and C>=0) continue;
-
-
-            // if(C % N == 0 || D % N == 0 || D % N == 0){
-            //     fls=1;
-            //     sum++;
-            //     D/= main;
-            //     if(mx <= 0) mx = 1;
-            //     if(f<=0) f=1;
-            //     C=1;
-
-            // }
-
-
-            if (i != it && mx>=0 and it != main && i != main && f >= 0 and C>=0 and i + it + main == N )
-            {
-
-                cout << "Yes\n";
-
-                fls=1;
-
-                fl = true;
-                return;
-                // break;
-
-
-
-            }
-        }
-
-        // if (fl and fls)
-        //     cout << "Yes\n";
-        // else
-            cout << "No\n";
 }
+
+
+// 0 1 1 2 3 5
+
 
 int main() {
 
 
-    ll t;
-    cin >> t;
+    int n;cin>>n;
 
+    vector<int> dp(n+1,-1);
 
-    cal();
+    // dp[0]=0;
+    // dp[1]=1;
 
+    cout<<solve(n,dp)<<endl;
 
-    while (t--)
-    {
-        solve();
-
-        // ll N, K;
-        // cin >> N;
-
-        
-
-        // bool fl = false,fls=true;
-
-
-        // long long sum = N + 1;
-
-
-        // int i = z/4;
-
-
-        // long long C = pow(N, z),mx=1;
-
-
-        // long long D=N*N;
-
-
-        // for (auto it : combination)
-        // {
-
-
-        //     int main = N - i - it;
-
-
-        //     int f = main + i + it;
-        //     C = C/ main;
-        //     C += (f);
-
-        //     mx=max({f,main,1});
-
-
-        //     if(C<=0) C=max({f,main,1});
-
-
-        //     if (mp.count(main) == 0 and f > 0 and C>=0) continue;
-
-
-        //     if(C % N == 0 || D % N == 0 || D % N == 0){
-        //         fls=1;
-        //         sum++;
-        //         D/= main;
-        //         if(mx <= 0) mx = 1;
-        //         if(f<=0) f=1;
-        //         C=1;
-
-        //     }
-
-
-        //     if (i != it && mx>=0 and it != main && i != main && f >= 0 and C>=0 and i + it + main == N )
-        //     {
-
-        //         fls=1;
-
-        //         fl = true;
-
-        //         break;
-
-
-        //     }
-        // }
-
-        // if (fl and fls)
-        //     cout << "Yes\n";
-        // else
-        //     cout << "No\n";
-    }
+    // cout<<dp[n]<<endl;
 
     return 0;
 }
