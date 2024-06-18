@@ -36,42 +36,47 @@ void rotateMatrix(vector<vector<int>> &v, int n) {
   }
 }
 
- 
 
- class Solution {
+   class MedianFinder {
+private:
+    priority_queue<int> maxHeap; // Stores the smaller half of numbers
+    priority_queue<int, vector<int>, greater<int>> minHeap; // Stores the larger half of numbers
+    double median;
 public:
-  ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-
-        if(list1 == NULL){
-            return list2;
-        }
-
-        if(list2 == NULL){
-            return list1;
-        }
-
-        if(list1 -> val > list2 -> val){
-            swap(list1,list2);
+    MedianFinder() {
+        
+    }
+    
+    void addNum(int num) {
+        // Add the number to the appropriate heap
+        if (maxHeap.empty() || num <= maxHeap.top()) {
+            maxHeap.push(num);
+        } else {
+            minHeap.push(num);
         }
         
-
-        ListNode* res = list1; 
-        
-         
-        while(list1 != NULL && list2 != NULL){
-            ListNode* temp = NULL;
-            while(list1 != NULL && list1 -> val <= list2 -> val){
-                temp = list1;
-                list1 = list1 -> next;
-            }
-            temp -> next = list2;   
-            swap(list1,list2);
+        // Rebalance heaps if necessary
+        if (maxHeap.size() > minHeap.size() + 1) {
+            minHeap.push(maxHeap.top());
+            maxHeap.pop();
+        } else if (minHeap.size() > maxHeap.size()) {
+            maxHeap.push(minHeap.top());
+            minHeap.pop();
         }
-
-
-        return res;
+    }
+    
+    double findMedian() {
+        if (maxHeap.size() == minHeap.size()) {
+            // If the number of elements is even, take the average of the two middle elements
+            return (maxHeap.top() + minHeap.top()) / 2.0;
+        } else {
+            // If the number of elements is odd, the median is the top of the max heap
+            return maxHeap.top();
+        }
     }
 };
+
+
 
 set<int> mp;
 void thr(vector<vector<int>> &v, int n) {
