@@ -37,45 +37,36 @@ void rotateMatrix(vector<vector<int>> &v, int n) {
 }
 
 
-   class MedianFinder {
-private:
-    priority_queue<int> maxHeap; // Stores the smaller half of numbers
-    priority_queue<int, vector<int>, greater<int>> minHeap; // Stores the larger half of numbers
-    double median;
-public:
-    MedianFinder() {
-        
-    }
-    
-    void addNum(int num) {
-        // Add the number to the appropriate heap
-        if (maxHeap.empty() || num <= maxHeap.top()) {
-            maxHeap.push(num);
-        } else {
-            minHeap.push(num);
-        }
-        
-        // Rebalance heaps if necessary
-        if (maxHeap.size() > minHeap.size() + 1) {
-            minHeap.push(maxHeap.top());
-            maxHeap.pop();
-        } else if (minHeap.size() > maxHeap.size()) {
-            maxHeap.push(minHeap.top());
-            minHeap.pop();
-        }
-    }
-    
-    double findMedian() {
-        if (maxHeap.size() == minHeap.size()) {
-            // If the number of elements is even, take the average of the two middle elements
-            return (maxHeap.top() + minHeap.top()) / 2.0;
-        } else {
-            // If the number of elements is odd, the median is the top of the max heap
-            return maxHeap.top();
-        }
-    }
-};
+  int minMeetingRooms(std::vector<Interval>& intervals) {
+        std::vector<int> start;
+        std::vector<int> end;
 
+        // Extract start and end times into separate arrays
+        for (const Interval& i : intervals) {
+            start.push_back(i.start);
+            end.push_back(i.end);
+        }
+
+        // Sort start and end times
+        std::sort(start.begin(), start.end());
+        std::sort(end.begin(), end.end());
+
+        int res = 0, count = 0;
+        int s = 0, e = 0;
+
+        // Merge intervals
+        while (s < intervals.size()) {
+            if (start[s] < end[e]) {
+                s++;
+                count++;
+            } else {
+                e++;
+                count--;
+            }
+            res = std::max(res, count);
+        }
+        return res;
+    }
 
 
 set<int> mp;
