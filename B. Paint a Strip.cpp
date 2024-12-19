@@ -139,6 +139,15 @@ int32_t main()
     cin >> n;
 
     int arr[n];
+
+    if (n == 1)
+    {
+      cout << 1 << endl;
+    }
+    else if (n == 2)
+    {
+      cout << 2 << endl;
+    }
   }
   return 0;
 }
