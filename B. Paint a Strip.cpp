@@ -148,6 +148,10 @@ int32_t main()
     {
       cout << 2 << endl;
     }
+    else
+    {
+    }
+    //
   }
   return 0;
 }
